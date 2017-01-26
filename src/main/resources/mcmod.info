@@ -1,0 +1,16 @@
+[
+{
+  "modid": "wish",
+  "name": "Project Wish",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/Wurmatron/Project-Wish/",
+  "updateUrl": "",
+  "authorList": ["Wurmatron"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
