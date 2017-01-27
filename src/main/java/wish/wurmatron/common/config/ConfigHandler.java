@@ -34,6 +34,7 @@ public class ConfigHandler {
 		public static void syncConfig() {
 				LogHandler.info("Loading config");
 				Settings.debug = global.getBoolean(Global.DEBUG, Configuration.CATEGORY_GENERAL, false, Global.DEBUG_COMMENT);
+				Settings.disableDefaultWorldType = global.getBoolean(Global.DISABLE_DEFAULT_WORLDTYPE, Configuration.CATEGORY_GENERAL, true, Global.DISABLE_DEFAULT_WORLDTYPE_COMMENT);
 				if (global.hasChanged()) {
 						global.save();
 						LogHandler.info("Config Saved");

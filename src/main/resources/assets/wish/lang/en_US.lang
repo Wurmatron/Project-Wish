@@ -1,0 +1,41 @@
+# World Types
+generator.wish=Default (Wish)
+
+# Items
+item.stoneError.name=Invalid Stone Type, Please report to Github
+item.stoneConglomerate.name=Conglomerate
+item.stoneSandstone.name=Sandstone
+item.stoneShale.name=Shale
+item.stoneLimestone.name=Limestone
+item.stoneDolomite.name=Dolomite
+item.stoneSalt.name=Salt
+item.stoneChert.name=Chert
+item.stoneDiatomite.name=Diatomite
+item.stoneClaystone.name=Claystone
+item.stoneGneiss.name=Gneiss
+item.stonePhyllite.name=Phyllite
+item.stoneSchist.name=Schist
+item.stoneSlate.name=Slate
+item.stoneMarble.name=Marble
+item.stoneQuartzite.name=Quartzite
+item.stoneGranulite.name=Granulite
+item.stoneEclogite.name=Eclogite
+item.stoneSkarn.name=Skarn
+item.stoneGabbro.name=Gabbro
+item.stoneGranite.name=Granite
+item.stonePegmatite.name=Pegmatite
+item.stoneDiorite.name=Diorite
+item.stoneAndesite.name=Andesite
+item.stoneBasalt.name=Basalt
+item.stoneObsidian.name=Obsidian
+item.stoneRhyolite.name=Rhyolite
+item.stoneScoria.name=Scoria
+
+# Tooltip
+tooltip.stoneSubType.Chemical.name=Chemical
+tooltip.stoneSubType.BioChemical.name=Bio-Chemical
+tooltip.stoneSubType.Clastic.name=Clastic
+tooltip.stoneSubType.Foliated.name=Foliated
+tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
+tooltip.stoneSubType.Intrusive.name=Intrusive
+tooltip.stoneSubType.Extrusive.name=Extrusive

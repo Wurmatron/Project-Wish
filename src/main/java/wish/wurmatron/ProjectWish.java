@@ -2,10 +2,13 @@ package wish.wurmatron;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.world.WorldHandler;
 
 /**
 	* This is the base mod file for Project Wish
@@ -22,5 +25,13 @@ public class ProjectWish {
 		@Mod.EventHandler
 		public void onPreInit(FMLPreInitializationEvent e) {
 				ConfigHandler.init(e.getSuggestedConfigurationFile());
+				WishModBlocks.registerBlocks();
+				proxy.preInit();
+		}
+
+		@Mod.EventHandler
+		public void onInit(FMLInitializationEvent e) {
+				WorldHandler.handleWorldOverride();
+				proxy.init();
 		}
 }

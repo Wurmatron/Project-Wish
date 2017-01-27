@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "type=0": { "model":"wish:stone_conglomerate" },
+        "type=1": { "model":"wish:stone_sandstone" },
+		"type=2": { "model":"wish:stone_shale" },
+		"type=3": { "model":"wish:stone_limestone" },
+		"type=4": { "model":"wish:stone_dolomite" },
+		"type=5": { "model":"wish:stone_salt" },
+		"type=6": { "model":"wish:stone_chert" },
+		"type=7": { "model":"wish:stone_diatomite" },
+		"type=8": { "model":"wish:stone_claystone" },
+		"type=9": { "model":"wish:stone_default" },
+		"type=10": { "model":"wish:stone_default" },
+		"type=11": { "model":"wish:stone_default" },
+		"type=12": { "model":"wish:stone_default" },
+		"type=13": { "model":"wish:stone_default" },
+		"type=14": { "model":"wish:stone_default" },		
+		"type=15": { "model":"wish:stone_default" }
+    }
+}
