@@ -12,6 +12,7 @@ import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.WorldHandler;
 
 /**
@@ -29,6 +30,7 @@ public class ProjectWish {
 	@Mod.EventHandler
 	public void onPreInit (FMLPreInitializationEvent e) {
 		ConfigHandler.init (e.getSuggestedConfigurationFile ());
+		MinecraftForge.EVENT_BUS.register (new Registry ());
 		WishModBlocks.registerBlocks ();
 		proxy.preInit ();
 	}

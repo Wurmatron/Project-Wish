@@ -10,19 +10,19 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import wish.wurmatron.api.blocks.WishBlocks;
 
 public class BlockIgneous extends BlockRockType {
 
 		public BlockIgneous(Material material) {
 				super(material);
 				setUnlocalizedName("stone_Igneous");
-				setRegistryName("stone_Igneous");
 		}
 
 		@Override
-		public void getSubBlocks(Item item, CreativeTabs tab, NonNullList<ItemStack> list) {
+		public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
 				for (int sed = 0; sed < 8; sed++)
-						list.add(new ItemStack(item, 1, sed));
+						list.add(new ItemStack(WishBlocks.stoneIgneous, 1, sed));
 		}
 
 		@Override
