@@ -22,6 +22,8 @@ public class Global {
 	public static final String DISABLE_DEFAULT_WORLDTYPE_COMMENT = "Disable the \"Default\" world type";
 	public static final String CROP_GROWTH = "cropGrowth";
 	public static final String CROP_GROWTH_COMMENT = "Chance the crop has of growing";
+	public static final String GRAVITY_UPDATE = "gravityUpdate";
+	public static final String GRAVITY_UPDATE_COMMENT = "Ticks Between Gravity Checks (Higher increases performance but slows down gravity updates)";
 	// World Settings
 	public static final String WISH_WORLDTYPE = "wish";
 }

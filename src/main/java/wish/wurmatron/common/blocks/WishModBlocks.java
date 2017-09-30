@@ -3,15 +3,9 @@ package wish.wurmatron.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.stone.BlockIgneous;
-import wish.wurmatron.common.blocks.stone.BlockMetamorphic;
-import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.blocks.stone.BlockSedimentary;
-import wish.wurmatron.common.items.ItemBlockRockType;
+import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -21,14 +15,13 @@ import wish.wurmatron.common.utils.Registry;
 public class WishModBlocks {
 
 	public static void registerBlocks () {
-		WishBlocks.stoneSedimentary = register (new BlockSedimentary (Material.ROCK),StoneType.RockType.Sedimentary);
-		WishBlocks.stoneMetamorphic = register (new BlockMetamorphic (Material.ROCK),StoneType.RockType.Metamorphic);
-		WishBlocks.stoneIgneous = register (new BlockIgneous (Material.ROCK),StoneType.RockType.Igneous);
+		WishBlocks.stoneSedimentary = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.stoneMetamorphic = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneMetamorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.stoneIgneous = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneIgneous"),StoneType.RockType.Igneous);
 	}
 
 	private static Block register (Block block,StoneType.RockType type) {
 		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
 		return block;
 	}
-
 }

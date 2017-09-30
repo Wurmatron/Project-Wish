@@ -6,4 +6,5 @@ public class Settings {
 	public static boolean debug;
 	public static boolean disableDefaultWorldType;
 	public static float cropGrowth;
+	public static int gravityUpdate;
 }

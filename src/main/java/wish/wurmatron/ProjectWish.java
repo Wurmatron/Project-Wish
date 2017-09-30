@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.client.proxy.ClientProxy;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
@@ -28,6 +29,7 @@ public class ProjectWish {
 	public void onPreInit (FMLPreInitializationEvent e) {
 		ConfigHandler.init (e.getSuggestedConfigurationFile ());
 		MinecraftForge.EVENT_BUS.register (new Registry ());
+		MinecraftForge.EVENT_BUS.register (new ClientProxy ());
 		WishModBlocks.registerBlocks ();
 		proxy.preInit ();
 	}

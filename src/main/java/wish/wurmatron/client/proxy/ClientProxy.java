@@ -1,15 +1,20 @@
 package wish.wurmatron.client.proxy;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.utils.Registry;
 
 /**
  Client-Side Proxy
@@ -18,33 +23,28 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void preInit () {
-		createStoneVariants (0);
-	}
-
-	private void createStoneVariants (int stage) {
-		if (stage == 0) {
-			for (StoneType type : StoneType.values ()) {
-				if (type.getType () == StoneType.RockType.Sedimentary)
-					ModelBakery.registerItemVariants (Item.getItemFromBlock (WishBlocks.stoneSedimentary),new ResourceLocation (Global.MODID,"stone_" + type.getName ().toLowerCase ()));
-				else if (type.getType () == StoneType.RockType.Metamorphic)
-					ModelBakery.registerItemVariants (Item.getItemFromBlock (WishBlocks.stoneMetamorphic),new ResourceLocation (Global.MODID,"stone_" + type.getName ().toLowerCase ()));
-				else if (type.getType () == StoneType.RockType.Igneous)
-					ModelBakery.registerItemVariants (Item.getItemFromBlock (WishBlocks.stoneIgneous),new ResourceLocation (Global.MODID,"stone_" + type.getName ().toLowerCase ()));
-			}
-		} else if (stage == 1) {
-			for (StoneType type : StoneType.values ()) {
-				if (type.getType () == StoneType.RockType.Sedimentary)
-					Minecraft.getMinecraft ().getRenderItem ().getItemModelMesher ().register (GameRegistry.makeItemStack (Global.MODID + ":" + WishBlocks.stoneSedimentary.getUnlocalizedName ().substring (5),0,1,"").getItem (),type.getId (),new ModelResourceLocation (Global.MODID + ":stone_" + type.getName ().toLowerCase (),"inventory"));
-				else if (type.getType () == StoneType.RockType.Metamorphic)
-					Minecraft.getMinecraft ().getRenderItem ().getItemModelMesher ().register (GameRegistry.makeItemStack (Global.MODID + ":" + WishBlocks.stoneMetamorphic.getUnlocalizedName ().substring (5),0,1,"").getItem (),type.getId (),new ModelResourceLocation (Global.MODID + ":stone_" + type.getName ().toLowerCase (),"inventory"));
-				else if (type.getType () == StoneType.RockType.Igneous)
-					Minecraft.getMinecraft ().getRenderItem ().getItemModelMesher ().register (GameRegistry.makeItemStack (Global.MODID + ":" + WishBlocks.stoneIgneous.getUnlocalizedName ().substring (5),0,1,"").getItem (),type.getId (),new ModelResourceLocation (Global.MODID + ":stone_" + type.getName ().toLowerCase (),"inventory"));
-			}
-		}
 	}
 
 	@Override
 	public void init () {
-		createStoneVariants (1);
+	}
+
+	@SubscribeEvent
+	public void modelBakeEvent (ModelBakeEvent e) {
+		for (StoneType type : StoneType.values ())
+			if (type.getType () == StoneType.RockType.Sedimentary)
+				createModel (WishBlocks.stoneSedimentary,type.getId (),"stone_" + type.getName ().toLowerCase ());
+			else if (type.getType () == StoneType.RockType.Metamorphic)
+				createModel (WishBlocks.stoneMetamorphic,type.getId (),"stone_" + type.getName ().toLowerCase ());
+			else if (type.getType () == StoneType.RockType.Igneous)
+				createModel (WishBlocks.stoneIgneous,type.getId (),"stone_" + type.getName ().toLowerCase ());
+	}
+
+	private static void createModel (Block block,int meta,String name) {
+		ModelLoader.setCustomModelResourceLocation (Registry.blockItems.get (block),meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
+	}
+
+	private static void createModel (Item item,String name) {
+		ModelLoader.setCustomModelResourceLocation (item,0,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
 	}
 }

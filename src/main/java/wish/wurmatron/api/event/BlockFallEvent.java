@@ -18,7 +18,7 @@ public class BlockFallEvent {
 	 Triggered before the block starts to fall
 	 */
 	@Cancelable
-	public class Pre extends Event {
+	public static class Pre extends Event {
 
 		private final World world;
 		private final BlockPos pos;
@@ -39,7 +39,7 @@ public class BlockFallEvent {
 	/**
 	 Triggered after the block has started to fall
 	 */
-	public class Post extends Event {
+	public static class Post extends Event {
 
 		private final World world;
 		private final BlockPos pos;

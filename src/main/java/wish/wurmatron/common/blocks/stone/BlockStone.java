@@ -11,22 +11,25 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.common.utils.Registry;
 
-public class BlockIgneous extends BlockRockType {
+public class BlockStone extends BlockRockType {
 
-	public BlockIgneous (Material material) {
+	private int amount;
+
+	public BlockStone (Material material, int amount) {
 		super (material);
-		setUnlocalizedName ("stone_Igneous");
+		this.amount = amount;
 	}
 
 	@Override
 	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
-		for (int sed = 0; sed < 8; sed++)
-			list.add (new ItemStack (WishBlocks.stoneIgneous,1,sed));
+		for (int m = 0; m < amount; m++)
+			list.add (new ItemStack (this,1,m));
 	}
 
 	@Override
 	public ItemStack getPickBlock (IBlockState state,RayTraceResult target,World world,BlockPos pos,EntityPlayer player) {
-		return new ItemStack (Item.getItemFromBlock (this),1,getMetaFromState (world.getBlockState (pos)));
+		return new ItemStack (Registry.blockItems.get (this),1,getMetaFromState (world.getBlockState (pos)));
 	}
 }

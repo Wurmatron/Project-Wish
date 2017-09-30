@@ -1,90 +1,104 @@
 package wish.wurmatron.common.blocks;
 
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
+import wish.wurmatron.api.event.BlockFallEvent;
+import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.entity.EntityGravityBlock;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
+import java.util.*;
 
-/**
- Gives gravity to a block
- */
 public class BlockGravity extends BlockFalling {
 
-	private static final Random rand = new Random ();
+	private static final double slideChange = 0.9;
 
-	public BlockGravity (Material m) {
-		super (m);
+	public BlockGravity (Material material) {
+		super (material);
+	}
+
+	@Override
+	public int tickRate (World world) {
+		return Settings.gravityUpdate;
 	}
 
 	@Override
 	public void updateTick (World world,BlockPos pos,IBlockState state,Random rand) {
 		if (!world.isRemote) {
-			super.updateTick (world,pos,state,rand);
-			checkSides (world,pos,state);
+			checkFallable (world,pos,state);
 		}
 	}
 
-	private void checkSides (World world,BlockPos pos,IBlockState state) {
-		if (!world.isRemote) {
-			BlockPos newLocation = checkSide (world,pos,false);
-			if (newLocation != null) {
-				world.setBlockState (newLocation,world.getBlockState (pos));
+	private void checkFallable (World world,BlockPos pos,IBlockState state) {
+		if (!world.isRemote && pos.getY () > 0)
+			if (!fallInstantly && world.isAreaLoaded (pos.add (-32,-32,-32),pos.add (32,32,32))) {
+				if (canFallThrough (world.getBlockState (pos.down ())) && pos.getY () > 0) {
+					if (MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state)))
+						fall (world,pos,state);
+				} else {
+					BlockPos slidePos = canSlide (world,pos);
+					if (slidePos != null && MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
+						world.setBlockToAir (pos);
+						world.setBlockState (slidePos,getDefaultState ());
+					}
+				}
+			} else {
 				world.setBlockToAir (pos);
+				BlockPos blockpos;
+				for (blockpos = pos.down (); (canFallThrough (world.getBlockState (blockpos))) && (blockpos.getY () > 0); blockpos = blockpos.down ())
+					if (blockpos.getY () > 0)
+						world.setBlockState (blockpos.up (),getBlockState ().getBaseState ());
 			}
-		}
 	}
 
-	private static BlockPos checkSide (World world,BlockPos pos,boolean downCheck) {
-		ArrayList <BlockPos> possibleLocations = new ArrayList <> ();
-		if (!(rand.nextInt (4) % 4 == 1)) {
-			if (isValidMove (world,pos.east ()))
-				if (downCheck || isValidMove (world,pos.east ().down ()))
-					possibleLocations.add (pos.east ().down ());
-			if (isValidMove (world,pos.west ()))
-				if (downCheck || isValidMove (world,pos.west ().down ()))
-					possibleLocations.add (pos.west ().down ());
-			if (isValidMove (world,pos.south ()))
-				if (downCheck || isValidMove (world,pos.south ().down ()))
-					possibleLocations.add (pos.south ().down ());
-			if (isValidMove (world,pos.north ()))
-				if (downCheck || isValidMove (world,pos.north ().down ()))
-					possibleLocations.add (pos.north ().down ());
-			if (possibleLocations.size () > 0) {
-				Collections.shuffle (possibleLocations);
-				BlockPos location = possibleLocations.get (0);
-				if (!world.isAirBlock (location.up ()))
-					world.setBlockToAir (location.up ());
-				if (!world.isAirBlock (location))
-					world.setBlockToAir (location);
-				return location;
-			}
-		}
-		if (isValidMove (world,pos.down ())) {
-			if (!world.isAirBlock (pos.down ()))
-				world.setBlockToAir (pos.down ());
-			return pos.down ();
-		}
-		return null;
-	}
-
-	private static boolean isValidMove (World world,BlockPos pos) {
-		return world.isAirBlock (pos) || canFallThrough (world.getBlockState (pos));
-	}
-
-	public int tickRate (World worldIn) {
-		return 2;
+	private void fall (World world,BlockPos pos,IBlockState state) {
+		EntityGravityBlock entity = new EntityGravityBlock (world,pos.getX () + .5D,pos.getY (),pos.getZ () + .5D,state);
+		world.spawnEntity (entity);
+		MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Post (world,pos,state,entity));
 	}
 
 	public static boolean canFallThrough (IBlockState state) {
 		Block block = state.getBlock ();
 		Material material = state.getMaterial ();
-		return block == Blocks.FIRE || material == Material.AIR || material == Material.WATER || material == Material.LAVA || material == Material.PLANTS || block == Blocks.TALLGRASS;
+		return block == Blocks.FIRE || material == Material.AIR || material == Material.WATER || material == Material.LAVA || material == Material.LEAVES;
+	}
+
+	public static BlockPos canSlide (World world,BlockPos pos) {
+		if (pos.getY () == 0 || world.rand.nextFloat () < 1 - slideChange || !world.isAirBlock (pos.up ()))
+			return null;
+		List <BlockPos> possibleLoc = new ArrayList <> ();
+		if (!world.isSideSolid (pos.north (),EnumFacing.NORTH) && slideHeight (world,pos.north ()) >= 2)
+			possibleLoc.add (pos.north ());
+		if (!world.isSideSolid (pos.south (),EnumFacing.SOUTH) && slideHeight (world,pos.south ()) >= 2)
+			possibleLoc.add (pos.south ());
+		if (!world.isSideSolid (pos.east (),EnumFacing.EAST) && slideHeight (world,pos.east ()) >= 2)
+			possibleLoc.add (pos.east ());
+		if (!world.isSideSolid (pos.west (),EnumFacing.WEST) && slideHeight (world,pos.west ()) >= 2)
+			possibleLoc.add (pos.west ());
+		if (possibleLoc.size () - 1 > 0) {
+			Collections.shuffle (possibleLoc);
+			return possibleLoc.get (world.rand.nextInt (possibleLoc.size () - 1));
+		}
+		return null;
+	}
+
+	private static int slideHeight (World world,BlockPos pos) {
+		BlockPos testPos;
+		for (int i = 1; i < 255; i++) {
+			testPos = pos.down (i);
+			if (!canFallThrough (world.getBlockState (testPos)))
+				return i - 1;
+		}
+		return 0;
 	}
 }
