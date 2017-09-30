@@ -4,4 +4,5 @@ public class Settings {
 		// Global.cfg
 		public static boolean debug;
 		public static boolean disableDefaultWorldType;
+		public static float cropGrowth;
 }
