@@ -15,9 +15,6 @@ import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.WorldHandler;
 
-/**
- This is the base mod file for Project Wish
- */
 @Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
 

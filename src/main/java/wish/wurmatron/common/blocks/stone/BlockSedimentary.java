@@ -14,19 +14,19 @@ import wish.wurmatron.api.blocks.WishBlocks;
 
 public class BlockSedimentary extends BlockRockType {
 
-		public BlockSedimentary(Material material) {
-				super(material);
-				setUnlocalizedName("stone_Sedimentary");
-		}
+	public BlockSedimentary (Material material) {
+		super (material);
+		setUnlocalizedName ("stone_Sedimentary");
+	}
 
-		@Override
-		public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-				for (int sed = 0; sed < 8; sed++)
-						list.add(new ItemStack(WishBlocks.stoneSedimentary, 1, sed));
-		}
+	@Override
+	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
+		for (int sed = 0; sed < 8; sed++)
+			list.add (new ItemStack (WishBlocks.stoneSedimentary,1,sed));
+	}
 
-		@Override
-		public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-				return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
-		}
+	@Override
+	public ItemStack getPickBlock (IBlockState state,RayTraceResult target,World world,BlockPos pos,EntityPlayer player) {
+		return new ItemStack (Item.getItemFromBlock (this),1,getMetaFromState (world.getBlockState (pos)));
+	}
 }

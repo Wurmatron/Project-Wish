@@ -20,7 +20,7 @@ public class Global {
 	public static final String DEBUG_COMMENT = "Enable debug mode";
 	public static final String DISABLE_DEFAULT_WORLDTYPE = "disableDefaultWorldType";
 	public static final String DISABLE_DEFAULT_WORLDTYPE_COMMENT = "Disable the \"Default\" world type";
-	public static final String CROP_GROWTH= "cropGrowth";
+	public static final String CROP_GROWTH = "cropGrowth";
 	public static final String CROP_GROWTH_COMMENT = "Chance the crop has of growing";
 	// World Settings
 	public static final String WISH_WORLDTYPE = "wish";

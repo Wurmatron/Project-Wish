@@ -14,19 +14,19 @@ import wish.wurmatron.api.blocks.WishBlocks;
 
 public class BlockIgneous extends BlockRockType {
 
-		public BlockIgneous(Material material) {
-				super(material);
-				setUnlocalizedName("stone_Igneous");
-		}
+	public BlockIgneous (Material material) {
+		super (material);
+		setUnlocalizedName ("stone_Igneous");
+	}
 
-		@Override
-		public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-				for (int sed = 0; sed < 8; sed++)
-						list.add(new ItemStack(WishBlocks.stoneIgneous, 1, sed));
-		}
+	@Override
+	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
+		for (int sed = 0; sed < 8; sed++)
+			list.add (new ItemStack (WishBlocks.stoneIgneous,1,sed));
+	}
 
-		@Override
-		public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-				return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
-		}
+	@Override
+	public ItemStack getPickBlock (IBlockState state,RayTraceResult target,World world,BlockPos pos,EntityPlayer player) {
+		return new ItemStack (Item.getItemFromBlock (this),1,getMetaFromState (world.getBlockState (pos)));
+	}
 }

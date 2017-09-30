@@ -14,19 +14,19 @@ import wish.wurmatron.api.blocks.WishBlocks;
 
 public class BlockMetamorphic extends BlockRockType {
 
-		public BlockMetamorphic(Material material) {
-				super(material);
-				setUnlocalizedName("stone_Metamorphic");
-		}
+	public BlockMetamorphic (Material material) {
+		super (material);
+		setUnlocalizedName ("stone_Metamorphic");
+	}
 
-		@Override
-		public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-				for (int meta = 0; meta < 8; meta++)
-						list.add(new ItemStack(WishBlocks.stoneMetamorphic, 1, meta));
-		}
+	@Override
+	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
+		for (int meta = 0; meta < 8; meta++)
+			list.add (new ItemStack (WishBlocks.stoneMetamorphic,1,meta));
+	}
 
-		@Override
-		public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-				return new ItemStack(Item.getItemFromBlock(this), 1, getMetaFromState(world.getBlockState(pos)));
-		}
+	@Override
+	public ItemStack getPickBlock (IBlockState state,RayTraceResult target,World world,BlockPos pos,EntityPlayer player) {
+		return new ItemStack (Item.getItemFromBlock (this),1,getMetaFromState (world.getBlockState (pos)));
+	}
 }
