@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import wish.wurmatron.api.event.BlockFallEvent;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.entity.EntityGravityBlock;
+import wish.wurmatron.common.utils.LogHandler;
 
 import java.util.*;
 
@@ -43,11 +44,13 @@ public class BlockGravity extends BlockFalling {
 		if (!world.isRemote && pos.getY () > 0)
 			if (!fallInstantly && world.isAreaLoaded (pos.add (-32,-32,-32),pos.add (32,32,32))) {
 				if (canFallThrough (world.getBlockState (pos.down ())) && pos.getY () > 0) {
-					if (MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state)))
-						fall (world,pos,state);
+					//					if (MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
+					fall (world,pos,state);
+					//					}
 				} else {
 					BlockPos slidePos = canSlide (world,pos);
-					if (slidePos != null && MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
+					if (slidePos != null) {
+						//						&& MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
 						world.setBlockToAir (pos);
 						world.setBlockState (slidePos,getDefaultState ());
 					}

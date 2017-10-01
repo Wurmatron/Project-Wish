@@ -27,8 +27,8 @@ public class Registry {
 	public static Block registerBlock (Block block,String registryName,StoneType.RockType type) {
 		block.setRegistryName (registryName);
 		block.setUnlocalizedName (block.getRegistryName ().toString ());
-		Item itemBlock = new ItemBlockRockType (block,type).setUnlocalizedName (block.getUnlocalizedName ());
-		itemBlock.setRegistryName (registryName);
+		ItemBlockRockType itemBlock = new ItemBlockRockType (block,type);
+		registerItem (itemBlock,registryName);
 		blocks.add (block);
 		blockItems.put (block,itemBlock);
 		return block;

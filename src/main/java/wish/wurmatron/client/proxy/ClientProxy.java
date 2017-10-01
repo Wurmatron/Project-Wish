@@ -8,11 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
@@ -23,6 +25,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void preInit () {
+		MinecraftForge.EVENT_BUS.register (new ClientProxy ());
 	}
 
 	@Override
@@ -32,12 +35,16 @@ public class ClientProxy extends CommonProxy {
 	@SubscribeEvent
 	public void modelBakeEvent (ModelBakeEvent e) {
 		for (StoneType type : StoneType.values ())
-			if (type.getType () == StoneType.RockType.Sedimentary)
+			if (type.getType () == StoneType.RockType.Sedimentary) {
 				createModel (WishBlocks.stoneSedimentary,type.getId (),"stone_" + type.getName ().toLowerCase ());
-			else if (type.getType () == StoneType.RockType.Metamorphic)
+				createModel (WishBlocks.cobbleSedimentary,type.getId (),"cobble_" + type.getName ().toLowerCase ());
+			} else if (type.getType () == StoneType.RockType.Metamorphic) {
 				createModel (WishBlocks.stoneMetamorphic,type.getId (),"stone_" + type.getName ().toLowerCase ());
-			else if (type.getType () == StoneType.RockType.Igneous)
+				createModel (WishBlocks.cobbleMetamorphic,type.getId (),"cobble_" + type.getName ().toLowerCase ());
+			} else if (type.getType () == StoneType.RockType.Igneous) {
 				createModel (WishBlocks.stoneIgneous,type.getId (),"stone_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.cobbleIgneous,type.getId (),"cobble_" + type.getName ().toLowerCase ());
+			}
 	}
 
 	private static void createModel (Block block,int meta,String name) {

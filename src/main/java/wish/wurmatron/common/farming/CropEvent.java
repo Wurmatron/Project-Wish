@@ -19,6 +19,6 @@ public class CropEvent {
 	@SubscribeEvent
 	public void boneMeatEvent (BonemealEvent e) {
 		if (e.getWorld ().rand.nextFloat () >= Settings.cropGrowth)
-			e.setResult (Event.Result.ALLOW);
+			e.setResult (Event.Result.DENY);
 	}
 }
