@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "type=0": { "model":"wish:cobble_conglomerate" },
+        "type=1": { "model":"wish:cobble_sandcobble" },
+		"type=2": { "model":"wish:cobble_shale" },
+		"type=3": { "model":"wish:cobble_limecobble" },
+		"type=4": { "model":"wish:cobble_dolomite" },
+		"type=5": { "model":"wish:cobble_salt" },
+		"type=6": { "model":"wish:cobble_chert" },
+		"type=7": { "model":"wish:cobble_diatomite" },
+		"type=8": { "model":"wish:cobble_claycobble" },
+		"type=9": { "model":"wish:cobble_default" },
+		"type=10": { "model":"wish:cobble_default" },
+		"type=11": { "model":"wish:cobble_default" },
+		"type=12": { "model":"wish:cobble_default" },
+		"type=13": { "model":"wish:cobble_default" },
+		"type=14": { "model":"wish:cobble_default" },		
+		"type=15": { "model":"wish:cobble_default" }
+    }
+}

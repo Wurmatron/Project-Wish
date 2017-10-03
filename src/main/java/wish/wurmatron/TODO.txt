@@ -1,0 +1,27 @@
+// TODO
+
+ - World Gen
+    - Open Terran Generator Settings
+    - Custom Ore Generation
+    - Custom Trees
+
+ - Blocks
+    - Rock Type Blocks
+        - Raw (Able to collect small amount of ore via machines or tool)
+        - Smooth
+        - Chiseled
+        - Brick
+        - Stairs
+        - Grass
+        - Dirt
+    - Ores for Each Rock Type along with quality
+    - Trees Logs?
+
+ - Items
+    - Gems (Diffrent types in each rock type)
+    - Ore Items (Diffrent Qualities)
+    - Throwing Rock (Starting Axe)
+
+ - Farming
+    - Ore Mining Destroys Farmland
+    - Intergrade with Tough as Nails Seasons

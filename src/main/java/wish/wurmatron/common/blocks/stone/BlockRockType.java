@@ -11,7 +11,7 @@ import wish.wurmatron.common.blocks.WishBlock;
  */
 public class BlockRockType extends WishBlock {
 
-	private static final PropertyInteger TYPE = PropertyInteger.create ("type",0,15);
+	public static final PropertyInteger TYPE = PropertyInteger.create ("type",0,15);
 
 	public BlockRockType (Material material) {
 		super (material);

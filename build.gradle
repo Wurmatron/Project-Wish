@@ -24,7 +24,13 @@ minecraft {
     mappings = "${mcp_mappings}"
 }
 
-dependencies {}
+repositories {
+	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2479/197/[module]-1.12.1-[revision].[ext]"}
+}
+
+dependencies {
+	compile name: 'DynamicTrees', version: "${dynamictrees_version}", ext: 'jar'
+}
 
 processResources {
     inputs.property "version", project.version
