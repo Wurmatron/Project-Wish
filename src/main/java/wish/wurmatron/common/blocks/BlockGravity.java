@@ -9,16 +9,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import wish.wurmatron.api.event.BlockFallEvent;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.entity.EntityGravityBlock;
-import wish.wurmatron.common.utils.LogHandler;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class BlockGravity extends BlockFalling {
 

@@ -6,7 +6,6 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.common.config.Settings;
-import wish.wurmatron.common.utils.LogHandler;
 
 public class CropEvent {
 

@@ -3,8 +3,6 @@ package wish.wurmatron.common.entity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
@@ -21,9 +19,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import wish.wurmatron.api.blocks.WishBlocks;
-import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.utils.LogHandler;
 
 public class EntityGravityBlock extends EntityFallingBlock {
 
@@ -142,7 +138,7 @@ public class EntityGravityBlock extends EntityFallingBlock {
 	}
 
 	private IBlockState getBlockForFall (float distance) {
-		if (distance >= 10)
+		if (distance >= 10 && (getBlock ().getBlock ().getRegistryName ().getResourcePath ().startsWith ("stone")))
 			return getCobbleBlock ().getDefaultState ().withProperty (BlockRockType.TYPE,getBlock ().getValue (BlockRockType.TYPE));
 		return getBlock ();
 	}

@@ -1,20 +1,15 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
