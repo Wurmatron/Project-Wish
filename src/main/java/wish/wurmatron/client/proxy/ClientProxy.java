@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelBakeEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,7 +29,7 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	@SubscribeEvent
-	public void modelBakeEvent (ModelBakeEvent e) {
+	public void modelBakeEvent (ModelRegistryEvent e) {
 		for (StoneType type : StoneType.values ())
 			if (type.getType () == StoneType.RockType.Sedimentary) {
 				createModel (WishBlocks.stoneSedimentary,type.getId (),"stone_" + type.getName ().toLowerCase ());

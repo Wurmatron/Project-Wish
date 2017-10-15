@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "wish:blocks/cobble_limecobble"
+        "all": "wish:blocks/cobble_sandstone"
     }
 }

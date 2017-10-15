@@ -51,7 +51,7 @@ public class BlockGravity extends BlockFalling {
 					if (slidePos != null) {
 						//						&& MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
 						world.setBlockToAir (pos);
-						world.setBlockState (slidePos,getDefaultState ());
+						world.setBlockState (slidePos,state);
 					}
 				}
 			} else {
@@ -59,7 +59,7 @@ public class BlockGravity extends BlockFalling {
 				BlockPos blockpos;
 				for (blockpos = pos.down (); (canFallThrough (world.getBlockState (blockpos))) && (blockpos.getY () > 0); blockpos = blockpos.down ())
 					if (blockpos.getY () > 0)
-						world.setBlockState (blockpos.up (),getBlockState ().getBaseState ());
+						world.setBlockState (blockpos.up (),state);
 			}
 	}
 

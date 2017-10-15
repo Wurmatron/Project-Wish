@@ -39,3 +39,6 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Intrusive.name=Intrusive
 tooltip.stoneSubType.Extrusive.name=Extrusive
+
+# Creative Tabs
+itemGroup.blocks=Blocks
