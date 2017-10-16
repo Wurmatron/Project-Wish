@@ -5,10 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.stone.BlockBrick;
-import wish.wurmatron.common.blocks.stone.BlockCobble;
-import wish.wurmatron.common.blocks.stone.BlockSmooth;
-import wish.wurmatron.common.blocks.stone.BlockStone;
+import wish.wurmatron.common.blocks.stone.*;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -30,6 +27,9 @@ public class WishModBlocks {
 		WishBlocks.brickSedimentary = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.brickMetamorphic = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickMetamorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.brickIgneous = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickIgneous"),StoneType.RockType.Igneous);
+		WishBlocks.chiselSedimentary = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
 	}
 
 	private static Block register (Block block,StoneType.RockType type) {

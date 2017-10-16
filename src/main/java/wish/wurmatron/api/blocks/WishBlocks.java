@@ -1,6 +1,8 @@
 package wish.wurmatron.api.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDoubleStoneSlab;
+import net.minecraft.block.BlockStairs;
 
 /**
  Access to all of wish's blocks
@@ -21,4 +23,7 @@ public class WishBlocks {
 	public static Block brickSedimentary;
 	public static Block brickMetamorphic;
 	public static Block brickIgneous;
+	public static Block chiselSedimentary;
+	public static Block chiselMetamorphic;
+	public static Block chiselIgneous;
 }
