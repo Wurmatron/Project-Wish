@@ -15,4 +15,10 @@ public class WishBlocks {
 	public static Block cobbleSedimentary;
 	public static Block cobbleMetamorphic;
 	public static Block cobbleIgneous;
+	public static Block smoothSedimentary;
+	public static Block smoothMetamorphic;
+	public static Block smoothIgneous;
+	public static Block brickSedimentary;
+	public static Block brickMetamorphic;
+	public static Block brickIgneous;
 }

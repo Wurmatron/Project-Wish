@@ -32,14 +32,21 @@ public class ItemBlockRockType extends ItemBlock {
 	public void addInformation (ItemStack stack,@Nullable World world,List <String> tip,ITooltipFlag flag) {
 		StoneType stoneType = StoneType.getRockFromMeta (type,stack.getItemDamage ());
 		if (stoneType != null)
-			tip.add (TextFormatting.GRAY + I18n.translateToLocal ("tooltip.stoneSubType." + stoneType.getSubType ().name ().substring (0,1) + stoneType.getSubType ().name ().toLowerCase ().substring (1) + ".name"));
+			tip.add (TextFormatting.GRAY + I18n.translateToLocal ("tooltip." + type.name ().toLowerCase () + ".name") + " | " + I18n.translateToLocal ("tooltip.stoneSubType." + stoneType.getSubType ().name ().substring (0,1) + stoneType.getSubType ().name ().toLowerCase ().substring (1) + ".name"));
 	}
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
 		StoneType stoneType = StoneType.getRockFromMeta (type,stack.getItemDamage ());
 		if (stoneType != null)
-			return I18n.translateToLocal ("item.stone" + stoneType.getName () + ".name");
+			if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("stone"))
+				return I18n.translateToLocal ("item.stone" + stoneType.getName () + ".name");
+		if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("cobble"))
+			return I18n.translateToLocal ("item.stone" + stoneType.getName () + ".name") + " " + I18n.translateToLocal ("display.cobblestone.name");
+		else if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("smooth"))
+			return I18n.translateToLocal ("display.smooth.name") + " " + I18n.translateToLocal ("item.stone" + stoneType.getName () + ".name");
+		else if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("brick"))
+			return I18n.translateToLocal ("item.stone" + stoneType.getName () + ".name") + " " + I18n.translateToLocal ("display.brick.name");
 		return I18n.translateToLocal ("item.stoneError.name");
 	}
 }

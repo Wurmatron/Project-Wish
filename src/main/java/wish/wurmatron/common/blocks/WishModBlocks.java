@@ -5,7 +5,9 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.stone.BlockBrick;
 import wish.wurmatron.common.blocks.stone.BlockCobble;
+import wish.wurmatron.common.blocks.stone.BlockSmooth;
 import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.utils.Registry;
 
@@ -22,6 +24,12 @@ public class WishModBlocks {
 		WishBlocks.cobbleSedimentary = register (new BlockCobble (Material.ROCK,9).setUnlocalizedName ("cobbleSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.cobbleMetamorphic = register (new BlockCobble (Material.ROCK,9).setUnlocalizedName ("cobbleMetamorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.cobbleIgneous = register (new BlockCobble (Material.ROCK,9).setUnlocalizedName ("cobbleIgneous"),StoneType.RockType.Igneous);
+		WishBlocks.smoothSedimentary = register (new BlockSmooth (Material.ROCK,9).setUnlocalizedName ("smoothSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.smoothMetamorphic = register (new BlockSmooth (Material.ROCK,9).setUnlocalizedName ("smoothMetamorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.smoothIgneous = register (new BlockSmooth (Material.ROCK,9).setUnlocalizedName ("smoothIgneous"),StoneType.RockType.Igneous);
+		WishBlocks.brickSedimentary = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.brickMetamorphic = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickMetamorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.brickIgneous = register (new BlockBrick (Material.ROCK,9).setUnlocalizedName ("brickIgneous"),StoneType.RockType.Igneous);
 	}
 
 	private static Block register (Block block,StoneType.RockType type) {

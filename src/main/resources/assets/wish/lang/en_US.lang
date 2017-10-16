@@ -39,6 +39,14 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Intrusive.name=Intrusive
 tooltip.stoneSubType.Extrusive.name=Extrusive
+tooltip.sedimentary.name=Sediementary
+tooltip.metamorphic.name=Metamorphic
+tooltip.igneous.name=Igneous
 
 # Creative Tabs
 itemGroup.blocks=Blocks
+
+# Helper
+display.cobblestone.name=Cobblestone
+display.smooth.name=Smooth
+display.brick.name=Brick
