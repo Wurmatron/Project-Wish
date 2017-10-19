@@ -20,13 +20,13 @@ public class Registry {
 
 	public static void registerItem (Item item,String registryName) {
 		item.setRegistryName (registryName);
-		item.setUnlocalizedName (item.getRegistryName ().toString ());
+		item.setUnlocalizedName (registryName);
 		items.add (item);
 	}
 
 	public static Block registerBlock (Block block,String registryName,StoneType.RockType type) {
 		block.setRegistryName (registryName);
-		block.setUnlocalizedName (block.getRegistryName ().toString ());
+		block.setUnlocalizedName (registryName);
 		ItemBlockRockType itemBlock = new ItemBlockRockType (block,type);
 		registerItem (itemBlock,registryName);
 		blocks.add (block);

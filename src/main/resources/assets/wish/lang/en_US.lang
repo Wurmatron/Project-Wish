@@ -30,6 +30,31 @@ item.stoneBasalt.name=Basalt
 item.stoneObsidian.name=Obsidian
 item.stoneRhyolite.name=Rhyolite
 item.stoneScoria.name=Scoria
+item.gemAmber.name=Amber
+item.gemAmethyst.name=Amethyst
+item.gemAquamarine.name=Aquamarine
+item.gemBeryl.name=Beryl
+item.gemBloodstone.name=Bloodstone
+item.gemCitrine.name=Citrine
+item.gemDiamond.name=Diamond
+item.gemEmerald.name=Emerald
+item.gemGarnet.name=Garnet
+item.gemJade.name=Jade
+item.gemJasper.name=Jasper
+item.gemMoonstone.name=Moonstone
+item.gemOnyx.name=Onyx
+item.gemOpal.name=Opal
+item.gemPectolite.name=Pectolite
+item.gemPeridot.name=Peridot
+item.gemQuartz.name=Quartz
+item.gemRose_Quartz.name=Rose Quartz
+item.gemRuby.name=Ruby
+item.gemSapphire.name=Sapphire
+item.gemTanzanite.name=Tanzanite
+item.gemTopaz.name=Topaz
+item.gemTurqioise.name=Turqioise
+item.gemTourmaline.name=Tourmaline
+item.gemZircon.name=Zircon
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical
@@ -39,12 +64,14 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Intrusive.name=Intrusive
 tooltip.stoneSubType.Extrusive.name=Extrusive
-tooltip.sedimentary.name=Sediementary
+tooltip.sedimentary.name=Sedimentary
 tooltip.metamorphic.name=Metamorphic
 tooltip.igneous.name=Igneous
+tooltip.grade.name=Grade
 
 # Creative Tabs
 itemGroup.blocks=Blocks
+itemGroup.items=Items
 
 # Helper
 display.cobblestone.name=Cobblestone

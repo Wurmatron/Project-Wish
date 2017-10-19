@@ -9,9 +9,11 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.farming.CropEvent;
+import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.WorldHandler;
@@ -37,11 +39,24 @@ public class ProjectWish {
 		}
 	};
 
+	public static final CreativeTabs Items = new CreativeTabs ("items") {
+		@Override
+		public ItemStack getTabIconItem () {
+			return new ItemStack (WishItems.gemBloodstone,1,1);
+		}
+
+		@Override
+		public boolean hasSearchBar () {
+			return true;
+		}
+	};
+
 	@Mod.EventHandler
 	public void onPreInit (FMLPreInitializationEvent e) {
 		ConfigHandler.init (e.getSuggestedConfigurationFile ());
 		MinecraftForge.EVENT_BUS.register (new Registry ());
 		WishModBlocks.registerBlocks ();
+		WishModItems.registerItems ();
 		proxy.preInit ();
 	}
 

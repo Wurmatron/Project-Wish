@@ -1,8 +1,10 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -10,8 +12,11 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -50,6 +55,12 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.brickIgneous,type.getId (),"brick_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.chiselIgneous,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 			}
+		for (Item item : Registry.items)
+			if (item instanceof ItemGem) {
+				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
+					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
+				} else
+				createModel (item,item.getUnlocalizedName ().substring (5));
 	}
 
 	private static void createModel (Block block,int meta,String name) {
@@ -57,6 +68,10 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	private static void createModel (Item item,String name) {
-		ModelLoader.setCustomModelResourceLocation (item,0,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
+		createModel (item,0,name);
+	}
+
+	private static void createModel (Item item,int meta,String name) {
+		ModelLoader.setCustomModelResourceLocation (item,meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
 	}
 }

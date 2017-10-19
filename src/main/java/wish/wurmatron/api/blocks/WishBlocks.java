@@ -1,8 +1,6 @@
 package wish.wurmatron.api.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockDoubleStoneSlab;
-import net.minecraft.block.BlockStairs;
 
 /**
  Access to all of wish's blocks
