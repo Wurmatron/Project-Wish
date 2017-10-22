@@ -12,6 +12,7 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
+import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
@@ -58,6 +59,7 @@ public class ProjectWish {
 		WishModBlocks.registerBlocks ();
 		WishModItems.registerItems ();
 		proxy.preInit ();
+		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 	}
 
 	@Mod.EventHandler

@@ -24,6 +24,8 @@ public class Global {
 	public static final String CROP_GROWTH_COMMENT = "Chance the crop has of growing";
 	public static final String GRAVITY_UPDATE = "gravityUpdate";
 	public static final String GRAVITY_UPDATE_COMMENT = "Ticks Between Gravity Checks (Higher increases performance but slows down gravity updates)";
+	public static final String GEM_RARITY = "gemRarity";
+	public static final String GEM_RARITY_COMMMENT = "Rarity of Gems Droping From Stone (Higher = More Rare, Lower = Less Rare)";
 	// World Settings
 	public static final String WISH_WORLDTYPE = "wish";
 }

@@ -8,8 +8,10 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.GemType;
+import wish.wurmatron.common.events.WorldEvents;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -23,6 +25,7 @@ public class ItemGem extends Item {
 		setCreativeTab (ProjectWish.Items);
 		setUnlocalizedName ("gem" + gem.getName ());
 		setHasSubtypes (true);
+		WorldEvents.gemItems.add (new ItemStack (this,1,0));
 	}
 
 	@Override
@@ -36,7 +39,7 @@ public class ItemGem extends Item {
 		return GemType.GRADE.D;
 	}
 
-	public static GemType.GRADE getGrade(int meta) {
+	public static GemType.GRADE getGrade (int meta) {
 		if (meta < GemType.GRADE.values ().length)
 			return GemType.GRADE.values ()[meta];
 		return GemType.GRADE.D;

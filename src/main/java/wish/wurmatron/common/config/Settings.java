@@ -7,4 +7,5 @@ public class Settings {
 	public static boolean disableDefaultWorldType;
 	public static float cropGrowth;
 	public static int gravityUpdate;
+	public static int gemRarity;
 }
