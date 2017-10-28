@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:stone_gabbro" },
-        "type=1": { "model":"wish:stone_granite" },
-		"type=2": { "model":"wish:stone_pegmatite" },
-		"type=3": { "model":"wish:stone_diorite" },
-		"type=4": { "model":"wish:stone_andesite" },
-		"type=5": { "model":"wish:stone_basalt" },
-		"type=6": { "model":"wish:stone_obsidian" },
-		"type=7": { "model":"wish:stone_rhyolite" },
-		"type=8": { "model":"wish:stone_scoria" },
-		"type=9": { "model":"wish:stone_default" },
-		"type=10": { "model":"wish:stone_default" },
-		"type=11": { "model":"wish:stone_default" },
-		"type=12": { "model":"wish:stone_default" },
-		"type=13": { "model":"wish:stone_default" },
-		"type=14": { "model":"wish:stone_default" },		
-		"type=15": { "model":"wish:stone_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:stone_gabbro"
+    },
+    "type=1": {
+      "model": "wish:stone_granite"
+    },
+    "type=2": {
+      "model": "wish:stone_pegmatite"
+    },
+    "type=3": {
+      "model": "wish:stone_diorite"
+    },
+    "type=4": {
+      "model": "wish:stone_andesite"
+    },
+    "type=5": {
+      "model": "wish:stone_basalt"
+    },
+    "type=6": {
+      "model": "wish:stone_obsidian"
+    },
+    "type=7": {
+      "model": "wish:stone_rhyolite"
+    },
+    "type=8": {
+      "model": "wish:stone_scoria"
+    },
+    "type=9": {
+      "model": "wish:stone_default"
+    },
+    "type=10": {
+      "model": "wish:stone_default"
+    },
+    "type=11": {
+      "model": "wish:stone_default"
+    },
+    "type=12": {
+      "model": "wish:stone_default"
+    },
+    "type=13": {
+      "model": "wish:stone_default"
+    },
+    "type=14": {
+      "model": "wish:stone_default"
+    },
+    "type=15": {
+      "model": "wish:stone_default"
     }
+  }
 }

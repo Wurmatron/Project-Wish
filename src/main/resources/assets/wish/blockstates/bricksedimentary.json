@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:brick_conglomerate" },
-        "type=1": { "model":"wish:brick_sandbrick" },
-		"type=2": { "model":"wish:brick_shale" },
-		"type=3": { "model":"wish:brick_limebrick" },
-		"type=4": { "model":"wish:brick_dolomite" },
-		"type=5": { "model":"wish:brick_salt" },
-		"type=6": { "model":"wish:brick_chert" },
-		"type=7": { "model":"wish:brick_diatomite" },
-		"type=8": { "model":"wish:brick_claybrick" },
-		"type=9": { "model":"wish:brick_default" },
-		"type=10": { "model":"wish:brick_default" },
-		"type=11": { "model":"wish:brick_default" },
-		"type=12": { "model":"wish:brick_default" },
-		"type=13": { "model":"wish:brick_default" },
-		"type=14": { "model":"wish:brick_default" },		
-		"type=15": { "model":"wish:brick_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:brick_conglomerate"
+    },
+    "type=1": {
+      "model": "wish:brick_sandbrick"
+    },
+    "type=2": {
+      "model": "wish:brick_shale"
+    },
+    "type=3": {
+      "model": "wish:brick_limebrick"
+    },
+    "type=4": {
+      "model": "wish:brick_dolomite"
+    },
+    "type=5": {
+      "model": "wish:brick_salt"
+    },
+    "type=6": {
+      "model": "wish:brick_chert"
+    },
+    "type=7": {
+      "model": "wish:brick_diatomite"
+    },
+    "type=8": {
+      "model": "wish:brick_claybrick"
+    },
+    "type=9": {
+      "model": "wish:brick_default"
+    },
+    "type=10": {
+      "model": "wish:brick_default"
+    },
+    "type=11": {
+      "model": "wish:brick_default"
+    },
+    "type=12": {
+      "model": "wish:brick_default"
+    },
+    "type=13": {
+      "model": "wish:brick_default"
+    },
+    "type=14": {
+      "model": "wish:brick_default"
+    },
+    "type=15": {
+      "model": "wish:brick_default"
     }
+  }
 }

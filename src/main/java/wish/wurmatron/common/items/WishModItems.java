@@ -1,7 +1,6 @@
 package wish.wurmatron.common.items;
 
 import net.minecraft.item.Item;
-
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.utils.Registry;

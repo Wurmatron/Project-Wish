@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:chisel_gneiss" },
-        "type=1": { "model":"wish:chisel_phyllite" },
-		"type=2": { "model":"wish:chisel_schist" },
-		"type=3": { "model":"wish:chisel_slate" },
-		"type=4": { "model":"wish:chisel_marble" },
-		"type=5": { "model":"wish:chisel_quartzite" },
-		"type=6": { "model":"wish:chisel_granulite" },
-		"type=7": { "model":"wish:chisel_eclogite" },
-		"type=8": { "model":"wish:chisel_skarn" },
-		"type=9": { "model":"wish:chisel_default" },
-		"type=10": { "model":"wish:chisel_default" },
-		"type=11": { "model":"wish:chisel_default" },
-		"type=12": { "model":"wish:chisel_default" },
-		"type=13": { "model":"wish:chisel_default" },
-		"type=14": { "model":"wish:chisel_default" },		
-		"type=15": { "model":"wish:chisel_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:chisel_gneiss"
+    },
+    "type=1": {
+      "model": "wish:chisel_phyllite"
+    },
+    "type=2": {
+      "model": "wish:chisel_schist"
+    },
+    "type=3": {
+      "model": "wish:chisel_slate"
+    },
+    "type=4": {
+      "model": "wish:chisel_marble"
+    },
+    "type=5": {
+      "model": "wish:chisel_quartzite"
+    },
+    "type=6": {
+      "model": "wish:chisel_granulite"
+    },
+    "type=7": {
+      "model": "wish:chisel_eclogite"
+    },
+    "type=8": {
+      "model": "wish:chisel_skarn"
+    },
+    "type=9": {
+      "model": "wish:chisel_default"
+    },
+    "type=10": {
+      "model": "wish:chisel_default"
+    },
+    "type=11": {
+      "model": "wish:chisel_default"
+    },
+    "type=12": {
+      "model": "wish:chisel_default"
+    },
+    "type=13": {
+      "model": "wish:chisel_default"
+    },
+    "type=14": {
+      "model": "wish:chisel_default"
+    },
+    "type=15": {
+      "model": "wish:chisel_default"
     }
+  }
 }

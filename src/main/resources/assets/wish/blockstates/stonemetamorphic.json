@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:stone_gneiss" },
-        "type=1": { "model":"wish:stone_phyllite" },
-		"type=2": { "model":"wish:stone_schist" },
-		"type=3": { "model":"wish:stone_slate" },
-		"type=4": { "model":"wish:stone_marble" },
-		"type=5": { "model":"wish:stone_quartzite" },
-		"type=6": { "model":"wish:stone_granulite" },
-		"type=7": { "model":"wish:stone_eclogite" },
-		"type=8": { "model":"wish:stone_skarn" },
-		"type=9": { "model":"wish:stone_default" },
-		"type=10": { "model":"wish:stone_default" },
-		"type=11": { "model":"wish:stone_default" },
-		"type=12": { "model":"wish:stone_default" },
-		"type=13": { "model":"wish:stone_default" },
-		"type=14": { "model":"wish:stone_default" },		
-		"type=15": { "model":"wish:stone_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:stone_gneiss"
+    },
+    "type=1": {
+      "model": "wish:stone_phyllite"
+    },
+    "type=2": {
+      "model": "wish:stone_schist"
+    },
+    "type=3": {
+      "model": "wish:stone_slate"
+    },
+    "type=4": {
+      "model": "wish:stone_marble"
+    },
+    "type=5": {
+      "model": "wish:stone_quartzite"
+    },
+    "type=6": {
+      "model": "wish:stone_granulite"
+    },
+    "type=7": {
+      "model": "wish:stone_eclogite"
+    },
+    "type=8": {
+      "model": "wish:stone_skarn"
+    },
+    "type=9": {
+      "model": "wish:stone_default"
+    },
+    "type=10": {
+      "model": "wish:stone_default"
+    },
+    "type=11": {
+      "model": "wish:stone_default"
+    },
+    "type=12": {
+      "model": "wish:stone_default"
+    },
+    "type=13": {
+      "model": "wish:stone_default"
+    },
+    "type=14": {
+      "model": "wish:stone_default"
+    },
+    "type=15": {
+      "model": "wish:stone_default"
     }
+  }
 }

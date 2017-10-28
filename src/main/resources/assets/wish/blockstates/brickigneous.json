@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:brick_gabbro" },
-        "type=1": { "model":"wish:brick_granite" },
-		"type=2": { "model":"wish:brick_pegmatite" },
-		"type=3": { "model":"wish:brick_diorite" },
-		"type=4": { "model":"wish:brick_andesite" },
-		"type=5": { "model":"wish:brick_basalt" },
-		"type=6": { "model":"wish:brick_obsidian" },
-		"type=7": { "model":"wish:brick_rhyolite" },
-		"type=8": { "model":"wish:brick_scoria" },
-		"type=9": { "model":"wish:brick_default" },
-		"type=10": { "model":"wish:brick_default" },
-		"type=11": { "model":"wish:brick_default" },
-		"type=12": { "model":"wish:brick_default" },
-		"type=13": { "model":"wish:brick_default" },
-		"type=14": { "model":"wish:brick_default" },		
-		"type=15": { "model":"wish:brick_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:brick_gabbro"
+    },
+    "type=1": {
+      "model": "wish:brick_granite"
+    },
+    "type=2": {
+      "model": "wish:brick_pegmatite"
+    },
+    "type=3": {
+      "model": "wish:brick_diorite"
+    },
+    "type=4": {
+      "model": "wish:brick_andesite"
+    },
+    "type=5": {
+      "model": "wish:brick_basalt"
+    },
+    "type=6": {
+      "model": "wish:brick_obsidian"
+    },
+    "type=7": {
+      "model": "wish:brick_rhyolite"
+    },
+    "type=8": {
+      "model": "wish:brick_scoria"
+    },
+    "type=9": {
+      "model": "wish:brick_default"
+    },
+    "type=10": {
+      "model": "wish:brick_default"
+    },
+    "type=11": {
+      "model": "wish:brick_default"
+    },
+    "type=12": {
+      "model": "wish:brick_default"
+    },
+    "type=13": {
+      "model": "wish:brick_default"
+    },
+    "type=14": {
+      "model": "wish:brick_default"
+    },
+    "type=15": {
+      "model": "wish:brick_default"
     }
+  }
 }

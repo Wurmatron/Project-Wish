@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:chisel_conglomerate" },
-        "type=1": { "model":"wish:chisel_sandstone" },
-		"type=2": { "model":"wish:chisel_shale" },
-		"type=3": { "model":"wish:chisel_limestone" },
-		"type=4": { "model":"wish:chisel_dolomite" },
-		"type=5": { "model":"wish:chisel_salt" },
-		"type=6": { "model":"wish:chisel_chert" },
-		"type=7": { "model":"wish:chisel_diatomite" },
-		"type=8": { "model":"wish:chisel_claystone" },
-		"type=9": { "model":"wish:chisel_default" },
-		"type=10": { "model":"wish:chisel_default" },
-		"type=11": { "model":"wish:chisel_default" },
-		"type=12": { "model":"wish:chisel_default" },
-		"type=13": { "model":"wish:chisel_default" },
-		"type=14": { "model":"wish:chisel_default" },		
-		"type=15": { "model":"wish:chisel_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:chisel_conglomerate"
+    },
+    "type=1": {
+      "model": "wish:chisel_sandstone"
+    },
+    "type=2": {
+      "model": "wish:chisel_shale"
+    },
+    "type=3": {
+      "model": "wish:chisel_limestone"
+    },
+    "type=4": {
+      "model": "wish:chisel_dolomite"
+    },
+    "type=5": {
+      "model": "wish:chisel_salt"
+    },
+    "type=6": {
+      "model": "wish:chisel_chert"
+    },
+    "type=7": {
+      "model": "wish:chisel_diatomite"
+    },
+    "type=8": {
+      "model": "wish:chisel_claystone"
+    },
+    "type=9": {
+      "model": "wish:chisel_default"
+    },
+    "type=10": {
+      "model": "wish:chisel_default"
+    },
+    "type=11": {
+      "model": "wish:chisel_default"
+    },
+    "type=12": {
+      "model": "wish:chisel_default"
+    },
+    "type=13": {
+      "model": "wish:chisel_default"
+    },
+    "type=14": {
+      "model": "wish:chisel_default"
+    },
+    "type=15": {
+      "model": "wish:chisel_default"
     }
+  }
 }

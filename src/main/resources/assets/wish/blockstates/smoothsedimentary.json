@@ -1,20 +1,52 @@
 {
-    "variants": {
-        "type=0": { "model":"wish:smooth_conglomerate" },
-        "type=1": { "model":"wish:smooth_sandsmooth" },
-		"type=2": { "model":"wish:smooth_shale" },
-		"type=3": { "model":"wish:smooth_limesmooth" },
-		"type=4": { "model":"wish:smooth_dolomite" },
-		"type=5": { "model":"wish:smooth_salt" },
-		"type=6": { "model":"wish:smooth_chert" },
-		"type=7": { "model":"wish:smooth_diatomite" },
-		"type=8": { "model":"wish:smooth_claysmooth" },
-		"type=9": { "model":"wish:smooth_default" },
-		"type=10": { "model":"wish:smooth_default" },
-		"type=11": { "model":"wish:smooth_default" },
-		"type=12": { "model":"wish:smooth_default" },
-		"type=13": { "model":"wish:smooth_default" },
-		"type=14": { "model":"wish:smooth_default" },		
-		"type=15": { "model":"wish:smooth_default" }
+  "variants": {
+    "type=0": {
+      "model": "wish:smooth_conglomerate"
+    },
+    "type=1": {
+      "model": "wish:smooth_sandsmooth"
+    },
+    "type=2": {
+      "model": "wish:smooth_shale"
+    },
+    "type=3": {
+      "model": "wish:smooth_limesmooth"
+    },
+    "type=4": {
+      "model": "wish:smooth_dolomite"
+    },
+    "type=5": {
+      "model": "wish:smooth_salt"
+    },
+    "type=6": {
+      "model": "wish:smooth_chert"
+    },
+    "type=7": {
+      "model": "wish:smooth_diatomite"
+    },
+    "type=8": {
+      "model": "wish:smooth_claysmooth"
+    },
+    "type=9": {
+      "model": "wish:smooth_default"
+    },
+    "type=10": {
+      "model": "wish:smooth_default"
+    },
+    "type=11": {
+      "model": "wish:smooth_default"
+    },
+    "type=12": {
+      "model": "wish:smooth_default"
+    },
+    "type=13": {
+      "model": "wish:smooth_default"
+    },
+    "type=14": {
+      "model": "wish:smooth_default"
+    },
+    "type=15": {
+      "model": "wish:smooth_default"
     }
+  }
 }

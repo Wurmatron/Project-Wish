@@ -8,7 +8,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.events.WorldEvents;

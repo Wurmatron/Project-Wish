@@ -1,6 +1,6 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "wish:blocks/schist"
-    }
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "wish:blocks/schist"
+  }
 }

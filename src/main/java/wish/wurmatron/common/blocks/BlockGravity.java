@@ -42,14 +42,15 @@ public class BlockGravity extends BlockFalling {
 	private void checkFallable (World world,BlockPos pos,IBlockState state) {
 		if (!world.isRemote && pos.getY () > 0)
 			if (!fallInstantly && world.isAreaLoaded (pos.add (-32,-32,-32),pos.add (32,32,32))) {
+				BlockFallEvent.Pre event = new BlockFallEvent.Pre (world,pos,state);
+				MinecraftForge.EVENT_BUS.post (event);
+				if (event.isCanceled ())
+					return;
 				if (canFallThrough (world.getBlockState (pos.down ())) && pos.getY () > 0) {
-					//					if (MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
 					fall (world,pos,state);
-					//					}
 				} else {
 					BlockPos slidePos = canSlide (world,pos);
 					if (slidePos != null) {
-						//						&& MinecraftForge.EVENT_BUS.post (new BlockFallEvent.Pre (world,pos,state))) {
 						world.setBlockToAir (pos);
 						world.setBlockState (slidePos,state);
 					}

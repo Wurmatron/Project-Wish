@@ -1,11 +1,8 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,7 +13,6 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.proxy.CommonProxy;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -59,7 +55,7 @@ public class ClientProxy extends CommonProxy {
 			if (item instanceof ItemGem) {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
-				} else
+			} else
 				createModel (item,item.getUnlocalizedName ().substring (5));
 	}
 

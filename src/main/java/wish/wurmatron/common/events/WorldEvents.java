@@ -6,6 +6,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.blocks.stone.BlockStone;
+import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.items.ItemGem;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class WorldEvents {
 
 	@SubscribeEvent
 	public void onBlockBreak (BlockEvent.BreakEvent e) {
-		if (e.getWorld ().rand.nextInt (1000) == 0 && GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone) {
+		if (e.getWorld ().rand.nextInt (Settings.gemRarity) == 0 && GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone) {
 			int max = 0;
 			for (GemType gem : GemType.values ())
 				max += gem.getChance ();

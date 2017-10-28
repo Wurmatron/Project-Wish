@@ -51,6 +51,5 @@ public class Registry {
 	@SubscribeEvent
 	public void registerItems (RegistryEvent.Register <Item> e) {
 		e.getRegistry ().registerAll (items.toArray (new Item[0]));
-		e.getRegistry ().registerAll (blockItems.values ().toArray (new Item[0]));
 	}
 }
