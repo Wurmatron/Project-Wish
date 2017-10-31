@@ -24,7 +24,7 @@ public class ItemGem extends Item {
 		setCreativeTab (ProjectWish.Items);
 		setUnlocalizedName ("gem" + gem.getName ());
 		setHasSubtypes (true);
-		WorldEvents.gemItems.add (new ItemStack (this,1,0));
+		WorldEvents.gemItems.add (this);
 	}
 
 	@Override
@@ -57,5 +57,16 @@ public class ItemGem extends Item {
 		else if (getGrade (stack) == GemType.GRADE.AA)
 			return TextFormatting.YELLOW + super.getItemStackDisplayName (stack);
 		return super.getItemStackDisplayName (stack);
+	}
+
+	public static ItemStack getRandomGemGrade (Item gem) {
+		int max = 0;
+		for (GemType.GRADE grade : GemType.GRADE.values ())
+			max += grade.getChance ();
+		int id = (int) (Math.random () * max);
+		for (int index = 0; index < GemType.GRADE.values ().length; index++)
+			if (id > GemType.GRADE.values ()[index].getChance ())
+				return new ItemStack (gem,1,index);
+		return new ItemStack (gem,1,0);
 	}
 }

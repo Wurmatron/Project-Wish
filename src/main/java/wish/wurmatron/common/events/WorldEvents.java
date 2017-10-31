@@ -1,7 +1,7 @@
 package wish.wurmatron.common.events;
 
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.world.GemType;
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class WorldEvents {
 
-	public static List <ItemStack> gemItems = new ArrayList <> ();
+	public static List <Item> gemItems = new ArrayList <> ();
 
 	@SubscribeEvent
 	public void onBlockBreak (BlockEvent.BreakEvent e) {
@@ -23,14 +23,14 @@ public class WorldEvents {
 			for (GemType gem : GemType.values ())
 				max += gem.getChance ();
 			int id = (int) (Math.random () * max);
-			for (ItemStack gem : gemItems)
-				if (gem.getItem () instanceof ItemGem) {
-					int gemRand = ((ItemGem) gem.getItem ()).type.getChance ();
+			for (Item gem : gemItems)
+				if (gem instanceof ItemGem) {
+					int gemRand = ((ItemGem) gem).type.getChance ();
 					if (id < gemRand) {
-						e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),gem));
+						e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),ItemGem.getRandomGemGrade (gem)));
 						return;
 					}
-					id -= ((ItemGem) gem.getItem ()).type.getChance ();
+					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
 	}
