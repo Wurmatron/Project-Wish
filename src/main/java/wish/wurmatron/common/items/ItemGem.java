@@ -21,8 +21,8 @@ public class ItemGem extends Item {
 
 	public ItemGem (GemType gem) {
 		this.type = gem;
-		setCreativeTab (ProjectWish.Items);
 		setUnlocalizedName ("gem" + gem.getName ());
+		setCreativeTab (ProjectWish.Items);
 		setHasSubtypes (true);
 		WorldEvents.gemItems.add (this);
 	}
@@ -46,8 +46,9 @@ public class ItemGem extends Item {
 
 	@Override
 	public void getSubItems (CreativeTabs tab,NonNullList <ItemStack> list) {
-		for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
-			list.add (new ItemStack (this,1,meta));
+		if (tab == ProjectWish.Items)
+			for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
+				list.add (new ItemStack (this,1,meta));
 	}
 
 	@Override

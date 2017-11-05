@@ -24,4 +24,7 @@ public class WishBlocks {
 	public static Block chiselSedimentary;
 	public static Block chiselMetamorphic;
 	public static Block chiselIgneous;
+
+	// Ore
+	public static Block orePetalite;
 }

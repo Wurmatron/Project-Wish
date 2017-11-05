@@ -4,8 +4,10 @@ package wish.wurmatron.common.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.*;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -15,6 +17,7 @@ import wish.wurmatron.common.utils.Registry;
 public class WishModBlocks {
 
 	public static void registerBlocks () {
+		// Rocks
 		WishBlocks.stoneSedimentary = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.stoneMetamorphic = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneMetamorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.stoneIgneous = register (new BlockStone (Material.ROCK,9).setUnlocalizedName ("stoneIgneous"),StoneType.RockType.Igneous);
@@ -30,10 +33,22 @@ public class WishModBlocks {
 		WishBlocks.chiselSedimentary = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
+		// Ores
+		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"), OreType.PETALITE);
 	}
 
 	private static Block register (Block block,StoneType.RockType type) {
 		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
+		return block;
+	}
+
+	private static Block register (Block block) {
+		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5));
+		return block;
+	}
+
+	private static Block register (Block block, OreType type) {
+		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5), type);
 		return block;
 	}
 }

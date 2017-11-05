@@ -10,10 +10,16 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.GemType;
+import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  Client-Side Proxy
@@ -50,6 +56,12 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.smoothIgneous,type.getId (),"smooth_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.brickIgneous,type.getId (),"brick_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.chiselIgneous,type.getId (),"chisel_" + type.getName ().toLowerCase ());
+			}
+		for (OreType ore : OreType.values ())
+			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++) {
+				LogHandler.info ("Size: " + BlockOre.getOreNames (ore).length + " " + index + " " + ore.ore + " " + WishBlocks.orePetalite);
+				LogHandler.info ("TT: " + ore.getOre ().getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
+				createModel (ore.getOre (),index,ore.getOre ().getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
 			}
 		for (Item item : Registry.items)
 			if (item instanceof ItemGem) {
