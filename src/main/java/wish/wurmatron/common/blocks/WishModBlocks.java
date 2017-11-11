@@ -8,6 +8,8 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.*;
+import wish.wurmatron.common.blocks.terra.BlockDirt;
+import wish.wurmatron.common.blocks.terra.BlockGrass;
 import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
 
@@ -34,6 +36,13 @@ public class WishModBlocks {
 		WishBlocks.chiselSedimentary = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
+		// Terra
+		WishBlocks.dirtIgneous = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtIgneous"), StoneType.RockType.Igneous);
+		WishBlocks.dirtSedimentary = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtSedimentary"), StoneType.RockType.Sedimentary);
+		WishBlocks.dirtMetamorphic = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtMetmorphic"), StoneType.RockType.Metamorphic);
+		WishBlocks.grassIgneous = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassIgneous"), StoneType.RockType.Igneous);
+		WishBlocks.grassSedimentary = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassSedimentary"), StoneType.RockType.Sedimentary);
+		WishBlocks.grassMetamorphic = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassMetmorphic"), StoneType.RockType.Metamorphic);
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
 		// Tiles

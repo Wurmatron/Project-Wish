@@ -68,7 +68,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	@Override
 	public void breakBlock (World world,BlockPos pos,IBlockState state) {
 		TileOre ore = (TileOre) world.getTileEntity (pos);
-		world.spawnEntity (new EntityItem (world,pos.getX (), pos.getY () + .5, pos.getZ (),new ItemStack (Registry.itemOre.get (type),1,ore.getTier ())));
+		world.spawnEntity (new EntityItem (world,pos.getX (),pos.getY () + .5,pos.getZ (),new ItemStack (Registry.itemOre.get (type),1,ore.getTier ())));
 	}
 
 	@Nullable

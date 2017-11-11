@@ -17,7 +17,6 @@ public class ItemMeta extends Item {
 		hasSubtypes = true;
 	}
 
-
 	@Override
 	public void getSubItems (CreativeTabs tab,NonNullList <ItemStack> items) {
 		if (tab == ProjectWish.Items)

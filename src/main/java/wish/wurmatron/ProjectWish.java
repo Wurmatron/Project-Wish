@@ -20,7 +20,6 @@ import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
-import wish.wurmatron.common.world.WorldHandler;
 
 @Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
@@ -62,14 +61,13 @@ public class ProjectWish {
 		WishModBlocks.registerBlocks ();
 		WishModItems.registerItems ();
 		proxy.preInit ();
-		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
-		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID, "throwingRock"),EntityThrowingRock.class,"throwingRock", 0, instance,64,10,true);
+		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID,"throwingRock"),EntityThrowingRock.class,"throwingRock",0,instance,64,10,true);
 	}
 
 	@Mod.EventHandler
 	public void onInit (FMLInitializationEvent e) {
-		WorldHandler.handleWorldOverride ();
 		proxy.init ();
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
+		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 	}
 }

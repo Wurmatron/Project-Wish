@@ -1,17 +1,12 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.entity.RenderSnowball;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.registry.EntityRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
@@ -19,7 +14,6 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
-import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemMeta;
 import wish.wurmatron.common.proxy.CommonProxy;
@@ -48,18 +42,24 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.smoothSedimentary,type.getId (),"smooth_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.brickSedimentary,type.getId (),"brick_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.chiselSedimentary,type.getId (),"chisel_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.grassSedimentary,type.getId (),"grass_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.dirtSedimentary,type.getId (),"dirt_" + type.getName ().toLowerCase ());
 			} else if (type.getType () == StoneType.RockType.Metamorphic) {
 				createModel (WishBlocks.stoneMetamorphic,type.getId (),"stone_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.cobbleMetamorphic,type.getId (),"cobble_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.smoothMetamorphic,type.getId (),"smooth_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.brickMetamorphic,type.getId (),"brick_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.chiselMetamorphic,type.getId (),"chisel_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.dirtMetamorphic,type.getId (),"dirt_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.grassMetamorphic,type.getId (),"grass_" + type.getName ().toLowerCase ());
 			} else if (type.getType () == StoneType.RockType.Igneous) {
 				createModel (WishBlocks.stoneIgneous,type.getId (),"stone_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.cobbleIgneous,type.getId (),"cobble_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.smoothIgneous,type.getId (),"smooth_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.brickIgneous,type.getId (),"brick_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.chiselIgneous,type.getId (),"chisel_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.dirtIgneous,type.getId (),"dirt_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.grassIgneous,type.getId (),"grass_" + type.getName ().toLowerCase ());
 			}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)

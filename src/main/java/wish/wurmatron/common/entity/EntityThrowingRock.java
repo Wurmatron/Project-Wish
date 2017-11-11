@@ -11,11 +11,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
-import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.WishBlock;
-import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.blocks.stone.BlockStone;
-import wish.wurmatron.common.utils.LogHandler;
 
 public class EntityThrowingRock extends EntityThrowable {
 
