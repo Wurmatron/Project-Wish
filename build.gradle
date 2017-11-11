@@ -26,10 +26,12 @@ minecraft {
 
 repositories {
 	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2479/197/[module]-1.12.1-[revision].[ext]"}
+	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2492/652/[module]-1.12-[revision]-universal.[ext]"}
 }
 
 dependencies {
 	compile name: 'DynamicTrees', version: "${dynamictrees_version}", ext: 'jar'
+	compile name: 'ToughAsNails', version: "${toughasnails_version}", ext: 'jar'
 }
 
 processResources {

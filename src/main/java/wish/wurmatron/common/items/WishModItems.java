@@ -36,8 +36,10 @@ public class WishModItems {
 		WishItems.gemTourmaline = register (new ItemGem (GemType.TOURMALINE));
 		WishItems.gemZircon = register (new ItemGem (GemType.ZIRCON));
 		// Ore
-		////////////////////////////////
 		WishItems.orePetalite = registerOre (new ItemOre ("Petalite"),OreType.PETALITE);
+		// Rocks
+		WishItems.itemThrowingRock = register (new ItemThrowingRock ());
+		WishItems.itemMeta = register (new ItemMeta ());
 	}
 
 	private static Item register (Item item) {

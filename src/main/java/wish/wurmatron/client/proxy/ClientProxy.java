@@ -1,19 +1,27 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.items.ItemGem;
+import wish.wurmatron.common.items.ItemMeta;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
@@ -62,6 +70,8 @@ public class ClientProxy extends CommonProxy {
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
 			} else
 				createModel (item,item.getUnlocalizedName ().substring (5));
+		for (int index = 0; index < ItemMeta.metaItems.length; index++)
+			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
 	}
 
 	private static void createModel (Block block,int meta,String name) {

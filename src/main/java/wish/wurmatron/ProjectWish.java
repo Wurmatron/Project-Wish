@@ -2,16 +2,19 @@ package wish.wurmatron;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
+import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.WishModItems;
@@ -60,6 +63,7 @@ public class ProjectWish {
 		WishModItems.registerItems ();
 		proxy.preInit ();
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
+		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID, "throwingRock"),EntityThrowingRock.class,"throwingRock", 0, instance,64,10,true);
 	}
 
 	@Mod.EventHandler

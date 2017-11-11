@@ -39,4 +39,8 @@ public class WishItems {
 
 	// Ore
 	public static Item orePetalite;
+
+	// Items
+	public static Item itemThrowingRock;
+	public static Item itemMeta;
 }
