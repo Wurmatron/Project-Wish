@@ -8,6 +8,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.common.utils.LogHandler;
+import wish.wurmatron.common.world.DimTransferEvent;
 
 import java.io.File;
 
@@ -49,5 +50,9 @@ public class ConfigHandler {
 	public void configChanged (ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID ().equals (Global.MODID))
 			syncConfig ();
+	}
+
+	public static void loadCustomSettings() {
+		DimTransferEvent.loadData (location);
 	}
 }

@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
@@ -20,6 +21,7 @@ import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
+import wish.wurmatron.common.world.DimTransferEvent;
 
 @Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
@@ -69,5 +71,12 @@ public class ProjectWish {
 		proxy.init ();
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
+		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
+	}
+
+
+	@Mod.EventHandler
+	public void onServerLoading (FMLServerStartingEvent e) {
+		ConfigHandler.loadCustomSettings ();
 	}
 }
