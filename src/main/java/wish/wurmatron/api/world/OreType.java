@@ -1,16 +1,10 @@
 package wish.wurmatron.api.world;
 
-import net.minecraft.block.Block;
 import net.minecraft.world.biome.Biome;
-import wish.wurmatron.api.blocks.WishBlocks;
-import wish.wurmatron.common.utils.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public enum OreType {
 
-	PETALITE ("Petalite",WishBlocks.orePetalite,new StoneType.RockType[] {StoneType.RockType.Igneous},new StoneType[] {},new Biome[] {},3,GenType.SMALL_CLUSTER);
+	PETALITE ("Petalite",new StoneType.RockType[] {StoneType.RockType.Igneous},new StoneType[] {},new Biome[] {},3,GenType.SMALL_CLUSTER);
 
 	// Lithium "Petalite"
 	// Carbon "Peat", "Lignite", "Bituminous", "Anthracite"
@@ -32,7 +26,6 @@ public enum OreType {
 	// Nickel "Garnierite", "Pentlandite"
 
 	private String name;
-	public Block ore;
 	private StoneType.RockType[] oreType;
 	private StoneType[] stoneType;
 	private Biome[] biome;
@@ -46,9 +39,8 @@ public enum OreType {
 	 @param rarity Rarity Of The Ore
 	 @param genType How This Ore Generates
 	 */
-	OreType (String name,Block ore,StoneType.RockType[] oreType,StoneType[] stoneType,Biome[] biomes,int rarity,GenType genType) {
+	OreType (String name,StoneType.RockType[] oreType,StoneType[] stoneType,Biome[] biomes,int rarity,GenType genType) {
 		this.name = name;
-		this.ore = ore;
 		this.oreType = oreType;
 		this.stoneType = stoneType;
 		this.biome = biomes;
@@ -58,10 +50,6 @@ public enum OreType {
 
 	public String getName () {
 		return name;
-	}
-
-	public Block getOre () {
-		return ore;
 	}
 
 	public StoneType.RockType[] getOreType () {

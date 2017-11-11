@@ -3,11 +3,12 @@ package wish.wurmatron.common.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.*;
-import wish.wurmatron.common.utils.LogHandler;
+import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -34,7 +35,9 @@ public class WishModBlocks {
 		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
 		// Ores
-		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"), OreType.PETALITE);
+		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
+		// Tiles
+		GameRegistry.registerTileEntity (TileOre.class,"tileOre");
 	}
 
 	private static Block register (Block block,StoneType.RockType type) {
@@ -47,8 +50,8 @@ public class WishModBlocks {
 		return block;
 	}
 
-	private static Block register (Block block, OreType type) {
-		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5), type);
+	private static Block register (Block block,OreType type) {
+		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
 		return block;
 	}
 }

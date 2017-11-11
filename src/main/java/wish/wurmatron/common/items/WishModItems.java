@@ -3,6 +3,7 @@ package wish.wurmatron.common.items;
 import net.minecraft.item.Item;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
+import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
@@ -34,10 +35,18 @@ public class WishModItems {
 		WishItems.gemTurqioise = register (new ItemGem (GemType.TURQIOISE));
 		WishItems.gemTourmaline = register (new ItemGem (GemType.TOURMALINE));
 		WishItems.gemZircon = register (new ItemGem (GemType.ZIRCON));
+		// Ore
+		////////////////////////////////
+		WishItems.orePetalite = registerOre (new ItemOre ("Petalite"),OreType.PETALITE);
 	}
 
 	private static Item register (Item item) {
 		Registry.registerItem (item,item.getUnlocalizedName ().substring (5));
+		return item;
+	}
+
+	private static Item registerOre (Item item,OreType type) {
+		Registry.registerItem (item,item.getUnlocalizedName ().substring (5),type);
 		return item;
 	}
 }

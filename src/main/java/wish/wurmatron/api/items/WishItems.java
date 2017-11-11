@@ -36,4 +36,7 @@ public class WishItems {
 	public static Item gemTurqioise;
 	public static Item gemTourmaline;
 	public static Item gemZircon;
+
+	// Ore
+	public static Item orePetalite;
 }

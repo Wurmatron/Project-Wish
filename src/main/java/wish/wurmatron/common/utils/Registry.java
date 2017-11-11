@@ -8,8 +8,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.items.ItemBlockRockType;
 import wish.wurmatron.common.items.ItemBlockOreType;
+import wish.wurmatron.common.items.ItemBlockRockType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +20,8 @@ public class Registry {
 	public static List <Item> items = new ArrayList <> ();
 	public static List <Block> blocks = new ArrayList <> ();
 	public static HashMap <Block, Item> blockItems = new HashMap <> ();
+	public static HashMap <OreType, Block> blockOre = new HashMap <> ();
+	public static HashMap <OreType, Item> itemOre = new HashMap <> ();
 
 	public static void registerItem (Item item,String registryName) {
 		item.setRegistryName (registryName);
@@ -44,7 +46,16 @@ public class Registry {
 		registerItem (itemBlock,registryName);
 		blocks.add (block);
 		blockItems.put (block,itemBlock);
+		blockOre.put (type,block);
 		return block;
+	}
+
+	public static Item registerItem (Item item,String registryName,OreType type) {
+		item.setRegistryName (registryName);
+		item.setUnlocalizedName (registryName);
+		items.add (item);
+		itemOre.put (type,item);
+		return item;
 	}
 
 	public static Block registerBlock (Block block,String registryName) {

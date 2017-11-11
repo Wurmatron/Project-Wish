@@ -15,11 +15,7 @@ import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.proxy.CommonProxy;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  Client-Side Proxy
@@ -58,11 +54,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselIgneous,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 			}
 		for (OreType ore : OreType.values ())
-			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++) {
-				LogHandler.info ("Size: " + BlockOre.getOreNames (ore).length + " " + index + " " + ore.ore + " " + WishBlocks.orePetalite);
-				LogHandler.info ("TT: " + ore.getOre ().getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
-				createModel (ore.getOre (),index,ore.getOre ().getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
-			}
+			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
+				createModel (Registry.blockOre.get (ore),index,Registry.blockOre.get (ore).getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
 		for (Item item : Registry.items)
 			if (item instanceof ItemGem) {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)

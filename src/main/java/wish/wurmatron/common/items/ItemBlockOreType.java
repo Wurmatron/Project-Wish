@@ -4,12 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
 
 import javax.annotation.Nullable;
