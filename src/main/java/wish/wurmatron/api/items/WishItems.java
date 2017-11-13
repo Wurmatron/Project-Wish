@@ -43,4 +43,7 @@ public class WishItems {
 	// Items
 	public static Item itemThrowingRock;
 	public static Item itemMeta;
+
+	// Tools
+	public static Item toolSharpRockOnAStick;
 }

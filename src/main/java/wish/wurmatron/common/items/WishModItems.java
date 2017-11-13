@@ -1,12 +1,15 @@
 package wish.wurmatron.common.items;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
+
+	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,1,50,0);
 
 	public static void registerItems () {
 		// Gems
@@ -40,6 +43,8 @@ public class WishModItems {
 		// Rocks
 		WishItems.itemThrowingRock = register (new ItemThrowingRock ());
 		WishItems.itemMeta = register (new ItemMeta ());
+		// Tools
+		WishItems.toolSharpRockOnAStick = register (new WishSharpStoneTool (ROCK,50,1));
 	}
 
 	private static Item register (Item item) {

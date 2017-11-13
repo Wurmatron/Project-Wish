@@ -3,9 +3,9 @@ package wish.wurmatron.api.interfaces;
 public interface IDimensionFall {
 
 	/**
-		Dimension The Player is Currently in
+	 Dimension The Player is Currently in
 	 */
-	int getStartingDimensionID();
+	int getStartingDimensionID ();
 
 	/**
 	 Level at wich the player will be telepoprted
@@ -24,7 +24,7 @@ public interface IDimensionFall {
 	int getDimension ();
 
 	/**
-	  Fall Damage upon Impact
+	 Fall Damage upon Impact
 	 */
-	int getFallDamage();
+	int getFallDamage ();
 }

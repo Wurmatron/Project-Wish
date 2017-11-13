@@ -1,7 +1,11 @@
 package wish.wurmatron.common.events;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.world.GemType;
@@ -33,5 +37,12 @@ public class WorldEvents {
 					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
+	}
+
+	@SubscribeEvent
+	public void onBreakSpeed (PlayerEvent.BreakSpeed e) {
+		if (e.getState ().getMaterial () == Material.WOOD)
+			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe))
+				e.setCanceled (true);
 	}
 }

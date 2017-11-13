@@ -4,9 +4,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
@@ -18,6 +20,7 @@ import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
+import wish.wurmatron.common.intergration.DynamicTreesIntergration;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
@@ -72,6 +75,12 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
+	}
+
+	@Mod.EventHandler
+	public void onPostInit (FMLPostInitializationEvent e) {
+		if (Loader.isModLoaded ("dynamictrees"))
+			DynamicTreesIntergration.init ();
 	}
 
 

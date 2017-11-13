@@ -52,7 +52,7 @@ public class ConfigHandler {
 			syncConfig ();
 	}
 
-	public static void loadCustomSettings() {
+	public static void loadCustomSettings () {
 		DimTransferEvent.loadData (location);
 	}
 }
