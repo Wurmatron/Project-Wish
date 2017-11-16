@@ -55,6 +55,8 @@ item.gemTopaz.name=Topaz
 item.gemTurqioise.name=Turqioise
 item.gemTourmaline.name=Tourmaline
 item.gemZircon.name=Zircon
+item.sand.name=Sand
+item.gravel.name=Gravel
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

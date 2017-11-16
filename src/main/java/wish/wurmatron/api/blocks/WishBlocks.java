@@ -32,6 +32,12 @@ public class WishBlocks {
 	public static Block grassSedimentary;
 	public static Block grassIgneous;
 	public static Block grassMetamorphic;
+	public static Block sandSedimentary;
+	public static Block sandIgneous;
+	public static Block sandMetamorphic;
+	public static Block gravelSedimentary;
+	public static Block gravelIgneous;
+	public static Block gravelMetamorphic;
 
 	// Ore
 	public static Block orePetalite;
