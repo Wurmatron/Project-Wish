@@ -57,6 +57,8 @@ item.gemTourmaline.name=Tourmaline
 item.gemZircon.name=Zircon
 item.sand.name=Sand
 item.gravel.name=Gravel
+item.dirt.name=Dirt
+item.grass.name=Grass
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical
