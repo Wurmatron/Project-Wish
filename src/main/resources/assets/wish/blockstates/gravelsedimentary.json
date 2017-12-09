@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:gravel_conglomerate"
+    },
+    "type=1": {
+      "model": "wish:gravel_sandgravel"
+    },
+    "type=2": {
+      "model": "wish:gravel_shale"
+    },
+    "type=3": {
+      "model": "wish:gravel_limegravel"
+    },
+    "type=4": {
+      "model": "wish:gravel_dolomite"
+    },
+    "type=5": {
+      "model": "wish:gravel_salt"
+    },
+    "type=6": {
+      "model": "wish:gravel_chert"
+    },
+    "type=7": {
+      "model": "wish:gravel_diatomite"
+    },
+    "type=8": {
+      "model": "wish:gravel_claygravel"
+    },
+    "type=9": {
+      "model": "wish:gravel_default"
+    },
+    "type=10": {
+      "model": "wish:gravel_default"
+    },
+    "type=11": {
+      "model": "wish:gravel_default"
+    },
+    "type=12": {
+      "model": "wish:gravel_default"
+    },
+    "type=13": {
+      "model": "wish:gravel_default"
+    },
+    "type=14": {
+      "model": "wish:gravel_default"
+    },
+    "type=15": {
+      "model": "wish:gravel_default"
+    }
+  }
+}

@@ -34,9 +34,13 @@ public class BlockGravity extends BlockFalling {
 
 	@Override
 	public void updateTick (World world,BlockPos pos,IBlockState state,Random rand) {
-		if (!world.isRemote) {
+		if (!world.isRemote && hasGravity ()) {
 			checkFallable (world,pos,state);
 		}
+	}
+
+	protected boolean hasGravity () {
+		return true;
 	}
 
 	private void checkFallable (World world,BlockPos pos,IBlockState state) {

@@ -71,6 +71,11 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 		world.spawnEntity (new EntityItem (world,pos.getX (),pos.getY () + .5,pos.getZ (),new ItemStack (Registry.itemOre.get (type),1,ore.getTier ())));
 	}
 
+	@Override
+	protected boolean hasGravity () {
+		return false;
+	}
+
 	@Nullable
 	@Override
 	public TileEntity createNewTileEntity (World world,int meta) {

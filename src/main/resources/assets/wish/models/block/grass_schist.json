@@ -1,0 +1,10 @@
+{
+    "parent": "block/grass",
+    "textures": {
+        "particle": "blocks/dirt",
+        "bottom": "wish:blocks/grass_schist",
+        "top": "wish:blocks/grass_schist_top",
+        "side": "wish:blocks/grass_schist_side",
+        "overlay": "wish:blocks/grass_schist_overlay"
+    }
+}
