@@ -17,6 +17,7 @@ import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemMeta;
 import wish.wurmatron.common.proxy.CommonProxy;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -35,7 +36,7 @@ public class ClientProxy extends CommonProxy {
 
 	@SubscribeEvent
 	public void modelBakeEvent (ModelRegistryEvent e) {
-		for (StoneType type : StoneType.values ())
+		for (StoneType type : StoneType.values ()) {
 			if (type.getType () == StoneType.RockType.Sedimentary) {
 				createModel (WishBlocks.stoneSedimentary,type.getId (),"stone_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.cobbleSedimentary,type.getId (),"cobble_" + type.getName ().toLowerCase ());
@@ -44,7 +45,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselSedimentary,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassSedimentary,type.getId (),"grass_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.dirtSedimentary,type.getId (),"dirt_" + type.getName ().toLowerCase ());
-			} else if (type.getType () == StoneType.RockType.Metamorphic) {
+			}
+			if (type.getType () == StoneType.RockType.Metamorphic) {
 				createModel (WishBlocks.stoneMetamorphic,type.getId (),"stone_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.cobbleMetamorphic,type.getId (),"cobble_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.smoothMetamorphic,type.getId (),"smooth_" + type.getName ().toLowerCase ());
@@ -52,7 +54,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselMetamorphic,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.dirtMetamorphic,type.getId (),"dirt_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassMetamorphic,type.getId (),"grass_" + type.getName ().toLowerCase ());
-			} else if (type.getType () == StoneType.RockType.Igneous) {
+			}
+			if (type.getType () == StoneType.RockType.Igneous) {
 				createModel (WishBlocks.stoneIgneous,type.getId (),"stone_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.cobbleIgneous,type.getId (),"cobble_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.smoothIgneous,type.getId (),"smooth_" + type.getName ().toLowerCase ());
@@ -61,6 +64,7 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.dirtIgneous,type.getId (),"dirt_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassIgneous,type.getId (),"grass_" + type.getName ().toLowerCase ());
 			}
+		}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
 				createModel (Registry.blockOre.get (ore),index,Registry.blockOre.get (ore).getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
@@ -68,8 +72,10 @@ public class ClientProxy extends CommonProxy {
 			if (item instanceof ItemGem) {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
-			} else
+			} else {
+				LogHandler.info ("ST: " + item.getUnlocalizedName ());
 				createModel (item,item.getUnlocalizedName ().substring (5));
+			}
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
 	}
