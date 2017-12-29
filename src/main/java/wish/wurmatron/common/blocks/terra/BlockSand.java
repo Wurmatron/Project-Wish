@@ -31,4 +31,9 @@ public class BlockSand extends BlockRockType {
 	public ItemStack getPickBlock (IBlockState state,RayTraceResult target,World world,BlockPos pos,EntityPlayer player) {
 		return new ItemStack (Registry.blockItems.get (this),1,getMetaFromState (world.getBlockState (pos)));
 	}
+
+	@Override
+	protected float getFallChance () {
+		return 0.95f;
+	}
 }

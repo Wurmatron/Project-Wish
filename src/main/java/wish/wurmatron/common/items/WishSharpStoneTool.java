@@ -9,6 +9,6 @@ public class WishSharpStoneTool extends ItemAxe {
 		super (material,damage,speed);
 		setMaxStackSize (1);
 		setCreativeTab (ProjectWish.Items);
-		setUnlocalizedName ("shartStoneTool");
+		setUnlocalizedName ("sharpStoneTool");
 	}
 }

@@ -26,6 +26,6 @@ public class ItemMeta extends Item {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		return I18n.translateToLocal ("item." + metaItems[stack.getItemDamage () < metaItems.length ? stack.getItemDamage () : 0]);
+		return I18n.translateToLocal ("item." + metaItems[stack.getItemDamage () < metaItems.length ? stack.getItemDamage () : 0] + ".name");
 	}
 }

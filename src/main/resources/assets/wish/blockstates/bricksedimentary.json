@@ -4,13 +4,13 @@
       "model": "wish:brick_conglomerate"
     },
     "type=1": {
-      "model": "wish:brick_sandbrick"
+      "model": "wish:brick_sandstone"
     },
     "type=2": {
       "model": "wish:brick_shale"
     },
     "type=3": {
-      "model": "wish:brick_limebrick"
+      "model": "wish:brick_limestone"
     },
     "type=4": {
       "model": "wish:brick_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:brick_diatomite"
     },
     "type=8": {
-      "model": "wish:brick_claybrick"
+      "model": "wish:brick_claystone"
     },
     "type=9": {
       "model": "wish:brick_default"

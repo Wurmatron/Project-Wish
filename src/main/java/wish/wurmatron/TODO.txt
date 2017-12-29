@@ -24,4 +24,23 @@
 
  - Farming
     - Ore Mining Destroys Farmland
-    - Intergrade with Tough as Nails Seasons
+    - Integrate with Tough as Nails Seasons
+
+    // Place Holder
+    //	private static Random rand = new Random ();
+    //
+    //	@SubscribeEvent
+    //	public void onEvent (PopulateChunkEvent.Pre e) {
+    //		Chunk theChunk = e.getWorld ().getChunkFromChunkCoords (e.getChunkX (),e.getChunkZ ());
+    //		int meta = rand.nextInt (8);
+    //		for (int x = 0; x < 16; ++x) {
+    //			for (int z = 0; z < 16; ++z) {
+    //				for (int y = 0; y < 200; ++y) {
+    //					if (theChunk.getBlockState (x,y,z).getBlock () instanceof BlockStone) {
+    //						theChunk.setBlockState (new BlockPos (x,y,z),theChunk.getBlockState (x,y,z).getBlock ().getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+    //					}
+    //				}
+    //			}
+    //		}
+    //		theChunk.markDirty ();
+    //	}

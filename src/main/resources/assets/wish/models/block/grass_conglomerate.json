@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "wish:blocks/grass_conglomerate"
-  }
+	"parent": "block/cube",
+	"textures": {
+	    "particle": "wish:blocks/dirt_conglomerate",
+		"up": "wish:blocks/grass_conglomerate_top",
+		"north": "wish:blocks/grass_conglomerate",
+		"south": "wish:blocks/grass_conglomerate",
+		"east": "wish:blocks/grass_conglomerate",
+		"west": "wish:blocks/grass_conglomerate",
+		"down": "wish:blocks/dirt_conglomerate"
+	}
 }

@@ -21,8 +21,6 @@ import java.util.Random;
 
 public class BlockGravity extends BlockFalling {
 
-	private static final double slideChange = 0.9;
-
 	public BlockGravity (Material material) {
 		super (material);
 	}
@@ -34,9 +32,8 @@ public class BlockGravity extends BlockFalling {
 
 	@Override
 	public void updateTick (World world,BlockPos pos,IBlockState state,Random rand) {
-		if (!world.isRemote && hasGravity ()) {
+		if (!world.isRemote && hasGravity ())
 			checkFallable (world,pos,state);
-		}
 	}
 
 	protected boolean hasGravity () {
@@ -50,11 +47,11 @@ public class BlockGravity extends BlockFalling {
 				MinecraftForge.EVENT_BUS.post (event);
 				if (event.isCanceled ())
 					return;
-				if (canFallThrough (world.getBlockState (pos.down ())) && pos.getY () > 0) {
+				if (canMove (world,pos) && canFallThrough (world.getBlockState (pos.down ())) && pos.getY () > 0) {
 					fall (world,pos,state);
 				} else {
 					BlockPos slidePos = canSlide (world,pos);
-					if (slidePos != null) {
+					if (canMove (world,pos) && slidePos != null) {
 						world.setBlockToAir (pos);
 						world.setBlockState (slidePos,state);
 					}
@@ -81,7 +78,7 @@ public class BlockGravity extends BlockFalling {
 	}
 
 	public static BlockPos canSlide (World world,BlockPos pos) {
-		if (pos.getY () == 0 || world.rand.nextFloat () < 1 - slideChange || !world.isAirBlock (pos.up ()))
+		if (pos.getY () == 0 || !world.isAirBlock (pos.up ()))
 			return null;
 		List <BlockPos> possibleLoc = new ArrayList <> ();
 		if (!world.isSideSolid (pos.north (),EnumFacing.NORTH) && slideHeight (world,pos.north ()) >= 2)
@@ -107,5 +104,17 @@ public class BlockGravity extends BlockFalling {
 				return i - 1;
 		}
 		return 0;
+	}
+
+	private boolean canMove (World world,BlockPos pos) {
+		return world.getBlockState (pos.up ()).getBlock () != Blocks.AIR && world.rand.nextFloat () < 1 - getFallChance () && !isSupported (world,pos);
+	}
+
+	protected float getFallChance () {
+		return 0.9f;
+	}
+
+	private boolean isSupported (World world,BlockPos pos) {
+		return false;
 	}
 }

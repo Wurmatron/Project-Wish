@@ -4,13 +4,13 @@
       "model": "wish:smooth_conglomerate"
     },
     "type=1": {
-      "model": "wish:smooth_sandsmooth"
+      "model": "wish:smooth_sandstone"
     },
     "type=2": {
       "model": "wish:smooth_shale"
     },
     "type=3": {
-      "model": "wish:smooth_limesmooth"
+      "model": "wish:smooth_limestone"
     },
     "type=4": {
       "model": "wish:smooth_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:smooth_diatomite"
     },
     "type=8": {
-      "model": "wish:smooth_claysmooth"
+      "model": "wish:smooth_claystone"
     },
     "type=9": {
       "model": "wish:smooth_default"

@@ -59,6 +59,9 @@ item.sand.name=Sand
 item.gravel.name=Gravel
 item.dirt.name=Dirt
 item.grass.name=Grass
+item.throwingRock.name=Throwable Rock
+item.sharpRock.name=Sharp Rock
+item.sharpStoneTool.name=Sharp Rock Tool
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

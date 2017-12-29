@@ -3,21 +3,34 @@ package wish.wurmatron.common.world;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import joptsimple.internal.Strings;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.network.play.server.SPacketEntityEffect;
 import net.minecraft.network.play.server.SPacketRespawn;
 import net.minecraft.network.play.server.SPacketSetExperience;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import net.minecraftforge.event.world.ChunkEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
+import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.interfaces.IDimensionFall;
+import wish.wurmatron.api.world.OreType;
+import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.stone.BlockRockType;
+import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.utils.LogHandler;
 
 import java.io.File;
@@ -150,5 +163,4 @@ public class DimTransferEvent {
 			return startDimID;
 		}
 	}
-
 }
