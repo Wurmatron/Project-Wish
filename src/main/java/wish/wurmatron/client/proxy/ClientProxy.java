@@ -45,6 +45,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselSedimentary,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassSedimentary,type.getId (),"grass_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.dirtSedimentary,type.getId (),"dirt_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.sandSedimentary,type.getId (),"sand_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.gravelSedimentary,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 			if (type.getType () == StoneType.RockType.Metamorphic) {
 				createModel (WishBlocks.stoneMetamorphic,type.getId (),"stone_" + type.getName ().toLowerCase ());
@@ -54,6 +56,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselMetamorphic,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.dirtMetamorphic,type.getId (),"dirt_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassMetamorphic,type.getId (),"grass_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.sandMetamorphic,type.getId (),"sand_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.gravelMetamorphic,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 			if (type.getType () == StoneType.RockType.Igneous) {
 				createModel (WishBlocks.stoneIgneous,type.getId (),"stone_" + type.getName ().toLowerCase ());
@@ -63,6 +67,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.chiselIgneous,type.getId (),"chisel_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.dirtIgneous,type.getId (),"dirt_" + type.getName ().toLowerCase ());
 				createModel (WishBlocks.grassIgneous,type.getId (),"grass_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.sandIgneous,type.getId (),"sand_" + type.getName ().toLowerCase ());
+				createModel (WishBlocks.gravelIgneous,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 		}
 		for (OreType ore : OreType.values ())
@@ -73,7 +79,6 @@ public class ClientProxy extends CommonProxy {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
 			} else {
-				LogHandler.info ("ST: " + item.getUnlocalizedName ());
 				createModel (item,item.getUnlocalizedName ().substring (5));
 			}
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
