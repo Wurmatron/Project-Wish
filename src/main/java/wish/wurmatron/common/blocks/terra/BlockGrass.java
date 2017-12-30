@@ -18,6 +18,7 @@ import net.minecraft.world.WorldServer;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
+import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.Random;
@@ -25,6 +26,7 @@ import java.util.Random;
 public class BlockGrass extends BlockRockType {
 
 	private int amount;
+	private static final int updateTime = Settings.gravityUpdate * 2;
 
 	public BlockGrass (Material material,int amount) {
 		super (material);
@@ -62,6 +64,7 @@ public class BlockGrass extends BlockRockType {
 		return WishBlocks.dirtMetamorphic.getItemDropped (getBlock (state.getBlock ()).getDefaultState ().withProperty (BlockRockType.TYPE,state.getValue (BlockRockType.TYPE)),rand,fortune);
 	}
 
+	@Override
 	public void updateTick (World world,BlockPos pos,IBlockState state,Random rand) {
 		if (!world.isRemote) {
 			if (world.getLightFromNeighbors (pos.up ()) < 4 && world.getBlockState (pos.up ()).getLightOpacity (world,pos.up ()) > 2) {
@@ -85,5 +88,10 @@ public class BlockGrass extends BlockRockType {
 				}
 			}
 		}
+	}
+
+	@Override
+	public int tickRate (World world) {
+		return updateTime;
 	}
 }

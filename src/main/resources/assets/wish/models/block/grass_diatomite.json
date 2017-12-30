@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "wish:blocks/grass_diatomite"
-  }
+	"parent": "block/cube",
+	"textures": {
+	    "particle":"wish:blocks/dirt_diatomite",
+		"up":      "wish:blocks/grass_diatomite_top",
+		"north":  "wish:blocks/grass_diatomite",
+		"south":  "wish:blocks/grass_diatomite",
+		"east":   "wish:blocks/grass_diatomite",
+		"west":   "wish:blocks/grass_diatomite",
+		"down":   "wish:blocks/dirt_diatomite"
+	}
 }

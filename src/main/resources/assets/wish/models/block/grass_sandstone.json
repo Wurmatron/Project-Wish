@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "wish:blocks/grass_sandstone"
-  }
+	"parent": "block/cube",
+	"textures": {
+	    "particle": "wish:blocks/dirt_sandstone",
+		"up": "wish:blocks/grass_sandstone_top",
+		"north": "wish:blocks/grass_sandstone",
+		"south": "wish:blocks/grass_sandstone",
+		"east": "wish:blocks/grass_sandstone",
+		"west": "wish:blocks/grass_sandstone",
+		"down": "wish:blocks/dirt_sandstone"
+	}
 }

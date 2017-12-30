@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "wish:blocks/grass_dolomite"
-  }
+	"parent": "block/cube",
+	"textures": {
+	    "particle":"wish:blocks/dirt_dolomite",
+		"up":      "wish:blocks/grass_dolomite_top",
+		"north":  "wish:blocks/grass_dolomite",
+		"south":  "wish:blocks/grass_dolomite",
+		"east":   "wish:blocks/grass_dolomite",
+		"west":   "wish:blocks/grass_dolomite",
+		"down":   "wish:blocks/dirt_dolomite"
+	}
 }

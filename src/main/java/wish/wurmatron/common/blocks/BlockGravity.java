@@ -77,25 +77,20 @@ public class BlockGravity extends BlockFalling {
 		return block == Blocks.FIRE || material == Material.AIR || material == Material.WATER || material == Material.LAVA || material == Material.LEAVES;
 	}
 
-	public static BlockPos canSlide (World world,BlockPos pos) {
+	private static BlockPos canSlide (World world,BlockPos pos) {
 		if (pos.getY () == 0 || !world.isAirBlock (pos.up ()))
 			return null;
 		List <BlockPos> possibleLoc = new ArrayList <> ();
-		if (!world.isSideSolid (pos.north (),EnumFacing.NORTH) && slideHeight (world,pos.north ()) >= 2)
-			possibleLoc.add (pos.north ());
-		if (!world.isSideSolid (pos.south (),EnumFacing.SOUTH) && slideHeight (world,pos.south ()) >= 2)
-			possibleLoc.add (pos.south ());
-		if (!world.isSideSolid (pos.east (),EnumFacing.EAST) && slideHeight (world,pos.east ()) >= 2)
-			possibleLoc.add (pos.east ());
-		if (!world.isSideSolid (pos.west (),EnumFacing.WEST) && slideHeight (world,pos.west ()) >= 2)
-			possibleLoc.add (pos.west ());
+		for (int i = 2; i < 6; i++)
+			if (!world.isSideSolid (pos.offset (EnumFacing.getFront (i)),EnumFacing.getFront (i)) && slideHeight (world,pos.offset (EnumFacing.getFront (i))) >= 2)
+				possibleLoc.add (pos.offset (EnumFacing.getFront (i)));
 		if (possibleLoc.size () - 1 > 0) {
 			Collections.shuffle (possibleLoc);
 			return possibleLoc.get (world.rand.nextInt (possibleLoc.size () - 1));
-		}
+		} else if (possibleLoc.size () == 1)
+			return possibleLoc.get (0);
 		return null;
 	}
-
 	private static int slideHeight (World world,BlockPos pos) {
 		BlockPos testPos;
 		for (int i = 1; i < 255; i++) {

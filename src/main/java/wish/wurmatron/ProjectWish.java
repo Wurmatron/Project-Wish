@@ -32,6 +32,7 @@ import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.DimTransferEvent;
+import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.Random;
 
@@ -84,7 +85,7 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
-		MinecraftForge.EVENT_BUS.register (new ProjectWish ());
+		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
 	}
 
 	@Mod.EventHandler

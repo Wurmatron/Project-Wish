@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "wish:blocks/grass_salt"
-  }
+	"parent": "block/cube",
+	"textures": {
+	    "particle":"wish:blocks/dirt_salt",
+		"up":      "wish:blocks/grass_salt_top",
+		"north":  "wish:blocks/grass_salt",
+		"south":  "wish:blocks/grass_salt",
+		"east":   "wish:blocks/grass_salt",
+		"west":   "wish:blocks/grass_salt",
+		"down":   "wish:blocks/dirt_salt"
+	}
 }

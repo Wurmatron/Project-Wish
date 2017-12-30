@@ -4,13 +4,13 @@
       "model": "wish:grass_conglomerate"
     },
     "type=1": {
-      "model": "wish:grass_sandgrass"
+      "model": "wish:grass_sandstone"
     },
     "type=2": {
       "model": "wish:grass_shale"
     },
     "type=3": {
-      "model": "wish:grass_limegrass"
+      "model": "wish:grass_limestone"
     },
     "type=4": {
       "model": "wish:grass_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:grass_diatomite"
     },
     "type=8": {
-      "model": "wish:grass_claygrass"
+      "model": "wish:grass_claystone"
     },
     "type=9": {
       "model": "wish:grass_default"

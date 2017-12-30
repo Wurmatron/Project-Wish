@@ -71,6 +71,7 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Intrusive.name=Intrusive
 tooltip.stoneSubType.Extrusive.name=Extrusive
+tooltip.stoneSubType.Biochemical.name=Bio-Chemical
 tooltip.sedimentary.name=Sedimentary
 tooltip.metamorphic.name=Metamorphic
 tooltip.igneous.name=Igneous
