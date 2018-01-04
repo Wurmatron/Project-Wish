@@ -29,6 +29,8 @@ public class ItemBlockTreeType extends ItemBlock {
 			return I18n.translateToLocal ("tile.plank" + type[stack.getItemDamage ()].getName () + ".name");
 		else if (stack.getUnlocalizedName ().contains ("leaf"))
 			return I18n.translateToLocal ("tile.leaf" + type[stack.getItemDamage ()].getName () + ".name");
+		else if (stack.getUnlocalizedName ().contains ("sapling"))
+			return I18n.translateToLocal ("tile.sapling" + type[stack.getItemDamage ()].getName () + ".name");
 		return I18n.translateToLocal (stack.getUnlocalizedName ());
 	}
 

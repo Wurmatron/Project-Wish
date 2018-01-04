@@ -12,7 +12,10 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
+import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.TreeType;
+
+import java.util.Random;
 
 public class BlockLeaf extends BlockLeaves {
 
@@ -30,8 +33,7 @@ public class BlockLeaf extends BlockLeaves {
 
 	@Override
 	protected int getSaplingDropChance (IBlockState state) {
-		// TODO Needs Saplings First
-		return 0;
+		return super.getSaplingDropChance (state);
 	}
 
 	@Override
@@ -86,5 +88,10 @@ public class BlockLeaf extends BlockLeaves {
 	@Override
 	public NonNullList <ItemStack> onSheared (ItemStack item,net.minecraft.world.IBlockAccess world,BlockPos pos,int fortune) {
 		return NonNullList.withSize (1,new ItemStack (this,1,world.getBlockState (pos).getValue (VARIANT).getMeta ()));
+	}
+
+	@Override
+	public Item getItemDropped (IBlockState state,Random rand,int fortune) {
+		return Item.getItemFromBlock (WishBlocks.sapling);
 	}
 }

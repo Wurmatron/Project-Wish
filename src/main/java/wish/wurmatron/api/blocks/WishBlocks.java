@@ -48,6 +48,7 @@ public class WishBlocks {
 	public static Block leaves2;
 	public static Block leaves3;
 	public static Block leaves4;
+	public static Block sapling;
 
 	// Ore
 	public static Block orePetalite;
