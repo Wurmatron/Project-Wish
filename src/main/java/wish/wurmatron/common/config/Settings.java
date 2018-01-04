@@ -8,4 +8,5 @@ public class Settings {
 	public static float cropGrowth;
 	public static int gravityUpdate;
 	public static int gemRarity;
+	public static boolean oreDictionary;
 }

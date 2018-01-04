@@ -26,6 +26,8 @@ public class Global {
 	public static final String GRAVITY_UPDATE_COMMENT = "Ticks Between Gravity Checks (Higher increases performance but slows down gravity updates)";
 	public static final String GEM_RARITY = "gemRarity";
 	public static final String GEM_RARITY_COMMMENT = "Rarity of Gems Droping From Stone (Higher = More Rare, Lower = Less Rare)";
+	public static final String ORE_DICT = "oreDictionary";
+	public static final String ORE_DICT_COMMENT = "Add Block and Items To Forge OreDictionary";
 	// World Settings
 	public static final String WISH_WORLDTYPE = "wish";
 }

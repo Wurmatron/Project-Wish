@@ -19,6 +19,7 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
+import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
@@ -79,9 +80,24 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
 		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
-		for (Block[] block : Registry.treeBlock.values ()) {
-			OreDictionary.registerOre ("logWood",new ItemStack (block[0],1,OreDictionary.WILDCARD_VALUE));
-			OreDictionary.registerOre ("plankWood",new ItemStack (block[1],1,OreDictionary.WILDCARD_VALUE));
+		if (Settings.oreDictionary) {
+			for (Block[] block : Registry.treeBlock.values ()) {
+				OreDictionary.registerOre ("logWood",new ItemStack (block[0],1,OreDictionary.WILDCARD_VALUE));
+				OreDictionary.registerOre ("plankWood",new ItemStack (block[1],1,OreDictionary.WILDCARD_VALUE));
+			}
+			for (Block block : Registry.blocks)
+				if (block.getUnlocalizedName ().contains ("stone"))
+					OreDictionary.registerOre ("stone",block);
+				else if (block.getUnlocalizedName ().contains ("dirt"))
+					OreDictionary.registerOre ("dirt",block);
+				else if (block.getUnlocalizedName ().contains ("grass"))
+					OreDictionary.registerOre ("grass",block);
+				else if (block.getUnlocalizedName ().contains ("cobble"))
+					OreDictionary.registerOre ("cobblestone",block);
+				else if (block.getUnlocalizedName ().contains ("sand"))
+					OreDictionary.registerOre ("sand",block);
+				else if (block.getUnlocalizedName ().contains ("gravel"))
+					OreDictionary.registerOre ("gravel",block);
 		}
 	}
 

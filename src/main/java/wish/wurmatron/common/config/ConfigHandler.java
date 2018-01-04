@@ -39,6 +39,8 @@ public class ConfigHandler {
 		Settings.cropGrowth = global.getFloat (Global.CROP_GROWTH,Configuration.CATEGORY_GENERAL,0.5f,0f,1f,Global.CROP_GROWTH_COMMENT);
 		Settings.gravityUpdate = global.getInt (Global.GRAVITY_UPDATE,Configuration.CATEGORY_GENERAL,5,1,100,Global.GRAVITY_UPDATE_COMMENT);
 		Settings.gemRarity = global.getInt (Global.GEM_RARITY,Configuration.CATEGORY_GENERAL,1000,1,1000000,Global.GEM_RARITY_COMMMENT);
+		Settings.oreDictionary = global.getBoolean (Global.ORE_DICT,Configuration.CATEGORY_GENERAL,true,Global.ORE_DICT_COMMENT);
+
 		if (global.hasChanged ()) {
 			global.save ();
 			LogHandler.info ("Config Saved");
