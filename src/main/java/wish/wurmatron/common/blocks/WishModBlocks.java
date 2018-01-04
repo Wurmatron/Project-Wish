@@ -13,6 +13,8 @@ import wish.wurmatron.common.blocks.terra.*;
 import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
 
+import java.util.Arrays;
+
 /**
  Initalizes all the mods blocks for use in WishBlocks
 
@@ -54,6 +56,7 @@ public class WishModBlocks {
 		WishBlocks.log2 = register (new BlockWood2 ().setUnlocalizedName ("log2"),new TreeType[] {TreeType.ELM,TreeType.MAPLE,TreeType.OAK,TreeType.PINE});
 		WishBlocks.log3 = register (new BlockWood3 ().setUnlocalizedName ("log3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
 		WishBlocks.log4 = register (new BlockWood4 ().setUnlocalizedName ("log4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
+		WishBlocks.planks = register (new BlockPlanks ().setUnlocalizedName ("planks"),Arrays.copyOfRange (TreeType.values (),0,15));
 
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);

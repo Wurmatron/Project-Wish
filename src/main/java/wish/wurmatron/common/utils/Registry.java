@@ -24,7 +24,7 @@ public class Registry {
 	public static HashMap <Block, Item> blockItems = new HashMap <> ();
 	public static HashMap <OreType, Block> blockOre = new HashMap <> ();
 	public static HashMap <OreType, Item> itemOre = new HashMap <> ();
-	public static HashMap <TreeType, Block> treeBlock = new HashMap <> ();
+	public static HashMap <TreeType, Block[]> treeBlock = new HashMap <> ();
 
 	public static void registerItem (Item item,String registryName) {
 		item.setRegistryName (registryName);
@@ -61,7 +61,19 @@ public class Registry {
 		blocks.add (block);
 		blockItems.put (block,itemBlock);
 		for (TreeType a : type)
-			treeBlock.put (a,block);
+			if (treeBlock.get (a) != null) {
+				if (block.getUnlocalizedName ().contains ("log"))
+					treeBlock.get (a)[0] = block;
+				else if (block.getUnlocalizedName ().contains ("planks"))
+					treeBlock.get (a)[1] = block;
+			} else {
+				Block[] treeBlocks = new Block[2];
+				if (block.getUnlocalizedName ().contains ("log"))
+					treeBlocks[0] = block;
+				else if (block.getUnlocalizedName ().contains ("planks"))
+					treeBlocks[1] = block;
+				treeBlock.put (a,treeBlocks);
+			}
 		return block;
 	}
 

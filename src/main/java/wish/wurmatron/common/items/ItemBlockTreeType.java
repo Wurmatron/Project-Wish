@@ -23,7 +23,11 @@ public class ItemBlockTreeType extends ItemBlock {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		return I18n.translateToLocal ("tile.log" + type[stack.getItemDamage ()].getName () + ".name");
+		if (stack.getUnlocalizedName ().contains ("log"))
+			return I18n.translateToLocal ("tile.log" + type[stack.getItemDamage ()].getName () + ".name");
+		else if (stack.getUnlocalizedName ().contains ("planks"))
+			return I18n.translateToLocal ("tile.plank" + type[stack.getItemDamage ()].getName () + ".name");
+		return I18n.translateToLocal (stack.getUnlocalizedName ());
 	}
 
 	@Override

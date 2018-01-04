@@ -79,8 +79,10 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
 		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
-		for (Block block : Registry.treeBlock.values ())
-			OreDictionary.registerOre ("logWood",new ItemStack (block,1,OreDictionary.WILDCARD_VALUE));
+		for (Block[] block : Registry.treeBlock.values ()) {
+			OreDictionary.registerOre ("logWood",new ItemStack (block[0],1,OreDictionary.WILDCARD_VALUE));
+			OreDictionary.registerOre ("plankWood",new ItemStack (block[1],1,OreDictionary.WILDCARD_VALUE));
+		}
 	}
 
 	@Mod.EventHandler

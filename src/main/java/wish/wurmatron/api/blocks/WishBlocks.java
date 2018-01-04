@@ -43,6 +43,7 @@ public class WishBlocks {
 	public static Block log2;
 	public static Block log3;
 	public static Block log4;
+	public static Block planks;
 
 	// Ore
 	public static Block orePetalite;
