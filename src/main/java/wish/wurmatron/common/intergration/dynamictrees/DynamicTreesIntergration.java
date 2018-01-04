@@ -1,4 +1,4 @@
-package wish.wurmatron.common.intergration;
+package wish.wurmatron.common.intergration.dynamictrees;
 
 import com.ferreusveritas.dynamictrees.TreeRegistry;
 import com.ferreusveritas.dynamictrees.trees.DynamicTree;

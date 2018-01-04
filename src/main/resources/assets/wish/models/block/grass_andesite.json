@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_andesite"
+    "particle": "wish:blocks/dirt_andesite",
+    "up": "wish:blocks/grass_andesite_top",
+    "north": "wish:blocks/grass_andesite",
+    "south": "wish:blocks/grass_andesite",
+    "east": "wish:blocks/grass_andesite",
+    "west": "wish:blocks/grass_andesite",
+    "down": "wish:blocks/dirt_andesite"
   }
 }

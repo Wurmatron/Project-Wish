@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_pegmatite"
+    "particle": "wish:blocks/dirt_pegmatite",
+    "up": "wish:blocks/grass_pegmatite_top",
+    "north": "wish:blocks/grass_pegmatite",
+    "south": "wish:blocks/grass_pegmatite",
+    "east": "wish:blocks/grass_pegmatite",
+    "west": "wish:blocks/grass_pegmatite",
+    "down": "wish:blocks/dirt_pegmatite"
   }
 }

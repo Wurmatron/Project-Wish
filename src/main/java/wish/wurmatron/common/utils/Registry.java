@@ -8,8 +8,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.api.world.TreeType;
 import wish.wurmatron.common.items.ItemBlockOreType;
 import wish.wurmatron.common.items.ItemBlockRockType;
+import wish.wurmatron.common.items.ItemBlockTreeType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +24,7 @@ public class Registry {
 	public static HashMap <Block, Item> blockItems = new HashMap <> ();
 	public static HashMap <OreType, Block> blockOre = new HashMap <> ();
 	public static HashMap <OreType, Item> itemOre = new HashMap <> ();
+	public static HashMap <TreeType, Block> treeBlock = new HashMap <> ();
 
 	public static void registerItem (Item item,String registryName) {
 		item.setRegistryName (registryName);
@@ -50,6 +53,18 @@ public class Registry {
 		return block;
 	}
 
+	public static Block registerBlock (Block block,String registryName,TreeType[] type) {
+		block.setRegistryName (registryName);
+		block.setUnlocalizedName (registryName);
+		ItemBlockTreeType itemBlock = new ItemBlockTreeType (block,type);
+		registerItem (itemBlock,registryName);
+		blocks.add (block);
+		blockItems.put (block,itemBlock);
+		for (TreeType a : type)
+			treeBlock.put (a,block);
+		return block;
+	}
+
 	public static Item registerItem (Item item,String registryName,OreType type) {
 		item.setRegistryName (registryName);
 		item.setUnlocalizedName (registryName);
@@ -60,7 +75,7 @@ public class Registry {
 
 	public static Block registerBlock (Block block,String registryName) {
 		block.setRegistryName (registryName);
-		block.setUnlocalizedName (block.getRegistryName ().toString ());
+		block.setUnlocalizedName (registryName);
 		ItemBlock itemBlock = new ItemBlock (block);
 		itemBlock.setRegistryName (registryName);
 		itemBlock.setCreativeTab (ProjectWish.BLOCKS);

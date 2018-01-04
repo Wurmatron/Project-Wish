@@ -1,10 +1,12 @@
 {
-    "parent": "block/grass",
-    "textures": {
-        "particle": "blocks/dirt",
-        "bottom": "wish:blocks/grass_schist",
-        "top": "wish:blocks/grass_schist_top",
-        "side": "wish:blocks/grass_schist_side",
-        "overlay": "wish:blocks/grass_schist_overlay"
-    }
+  "parent": "block/cube",
+  "textures": {
+    "particle": "wish:blocks/dirt_schist",
+    "up": "wish:blocks/grass_schist_top",
+    "north": "wish:blocks/grass_schist",
+    "south": "wish:blocks/grass_schist",
+    "east": "wish:blocks/grass_schist",
+    "west": "wish:blocks/grass_schist",
+    "down": "wish:blocks/dirt_schist"
+  }
 }

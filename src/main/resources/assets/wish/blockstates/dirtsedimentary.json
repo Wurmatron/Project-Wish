@@ -4,13 +4,13 @@
       "model": "wish:dirt_conglomerate"
     },
     "type=1": {
-      "model": "wish:dirt_sanddirt"
+      "model": "wish:dirt_sandstone"
     },
     "type=2": {
       "model": "wish:dirt_shale"
     },
     "type=3": {
-      "model": "wish:dirt_limedirt"
+      "model": "wish:dirt_limestone"
     },
     "type=4": {
       "model": "wish:dirt_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:dirt_diatomite"
     },
     "type=8": {
-      "model": "wish:dirt_claydirt"
+      "model": "wish:dirt_claystone"
     },
     "type=9": {
       "model": "wish:dirt_default"

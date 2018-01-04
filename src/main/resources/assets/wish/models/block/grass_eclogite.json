@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_eclogite"
+    "particle": "wish:blocks/dirt_eclogite",
+    "up": "wish:blocks/grass_eclogite_top",
+    "north": "wish:blocks/grass_eclogite",
+    "south": "wish:blocks/grass_eclogite",
+    "east": "wish:blocks/grass_eclogite",
+    "west": "wish:blocks/grass_eclogite",
+    "down": "wish:blocks/dirt_eclogite"
   }
 }

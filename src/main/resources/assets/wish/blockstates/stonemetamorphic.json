@@ -28,25 +28,25 @@
       "model": "wish:stone_skarn"
     },
     "type=9": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=10": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=11": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=12": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=13": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=14": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     },
     "type=15": {
-      "model": "wish:stone_default"
+      "model": "wish:stone_gneiss"
     }
   }
 }

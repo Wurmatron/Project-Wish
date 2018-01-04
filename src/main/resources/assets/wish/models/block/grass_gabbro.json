@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_gabbro"
+    "particle": "wish:blocks/dirt_gabbro",
+    "up": "wish:blocks/grass_gabbro_top",
+    "north": "wish:blocks/grass_gabbro",
+    "south": "wish:blocks/grass_gabbro",
+    "east": "wish:blocks/grass_gabbro",
+    "west": "wish:blocks/grass_gabbro",
+    "down": "wish:blocks/dirt_gabbro"
   }
 }

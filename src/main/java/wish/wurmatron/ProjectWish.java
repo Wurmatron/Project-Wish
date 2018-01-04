@@ -1,12 +1,10 @@
 package wish.wurmatron;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -14,27 +12,22 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.common.blocks.WishModBlocks;
-import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
-import wish.wurmatron.common.intergration.DynamicTreesIntergration;
+import wish.wurmatron.common.intergration.dynamictrees.DynamicTreesIntergration;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.DimTransferEvent;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
-
-import java.util.Random;
 
 @Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
@@ -86,6 +79,8 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
 		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
+		for (Block block : Registry.treeBlock.values ())
+			OreDictionary.registerOre ("logWood",new ItemStack (block,1,OreDictionary.WILDCARD_VALUE));
 	}
 
 	@Mod.EventHandler

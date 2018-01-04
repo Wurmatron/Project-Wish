@@ -7,8 +7,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.event.world.WorldEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 

@@ -4,13 +4,13 @@
       "model": "wish:sand_conglomerate"
     },
     "type=1": {
-      "model": "wish:sand_sandsand"
+      "model": "wish:sand_sandstone"
     },
     "type=2": {
       "model": "wish:sand_shale"
     },
     "type=3": {
-      "model": "wish:sand_limesand"
+      "model": "wish:sand_limestone"
     },
     "type=4": {
       "model": "wish:sand_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:sand_diatomite"
     },
     "type=8": {
-      "model": "wish:sand_claysand"
+      "model": "wish:sand_claystone"
     },
     "type=9": {
       "model": "wish:sand_default"

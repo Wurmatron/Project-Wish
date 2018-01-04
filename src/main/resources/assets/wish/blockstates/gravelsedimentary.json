@@ -4,13 +4,13 @@
       "model": "wish:gravel_conglomerate"
     },
     "type=1": {
-      "model": "wish:gravel_sandgravel"
+      "model": "wish:gravel_sandstone"
     },
     "type=2": {
       "model": "wish:gravel_shale"
     },
     "type=3": {
-      "model": "wish:gravel_limegravel"
+      "model": "wish:gravel_limestone"
     },
     "type=4": {
       "model": "wish:gravel_dolomite"
@@ -25,7 +25,7 @@
       "model": "wish:gravel_diatomite"
     },
     "type=8": {
-      "model": "wish:gravel_claygravel"
+      "model": "wish:gravel_claystone"
     },
     "type=9": {
       "model": "wish:gravel_default"

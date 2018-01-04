@@ -39,7 +39,7 @@ public class RandomizeRockTypeEvent {
 		if (rockLayerMeta.containsKey (name))
 			return rockLayerMeta.get (name);
 		else
-			rockLayerMeta.put (name,new int[] {chunk.getWorld ().rand.nextInt (8),chunk.getWorld ().rand.nextInt (8),chunk.getWorld ().rand.nextInt (8),chunk.getWorld ().rand.nextInt (8)});
+			rockLayerMeta.put (name,new int[] {chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9)});
 		return new int[] {0,0,0};
 	}
 }

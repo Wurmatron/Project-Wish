@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_diorite"
+    "particle": "wish:blocks/dirt_diorite",
+    "up": "wish:blocks/grass_diorite_top",
+    "north": "wish:blocks/grass_diorite",
+    "south": "wish:blocks/grass_diorite",
+    "east": "wish:blocks/grass_diorite",
+    "west": "wish:blocks/grass_diorite",
+    "down": "wish:blocks/dirt_diorite"
   }
 }

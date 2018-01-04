@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_rhyolite"
+    "particle": "wish:blocks/dirt_rhyolite",
+    "up": "wish:blocks/grass_rhyolite_top",
+    "north": "wish:blocks/grass_rhyolite",
+    "south": "wish:blocks/grass_rhyolite",
+    "east": "wish:blocks/grass_rhyolite",
+    "west": "wish:blocks/grass_rhyolite",
+    "down": "wish:blocks/dirt_rhyolite"
   }
 }

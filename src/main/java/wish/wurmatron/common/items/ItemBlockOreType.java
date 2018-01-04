@@ -8,7 +8,6 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.common.blocks.BlockOre;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -36,6 +35,6 @@ public class ItemBlockOreType extends ItemBlock {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		return I18n.translateToLocal (stack.getUnlocalizedName () + "_" + BlockOre.getOreNames (type)[stack.getItemDamage ()] + ".name");
+		return I18n.translateToLocal ("tile.ore" + type.getName () + ".name");
 	}
 }

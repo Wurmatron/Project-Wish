@@ -7,11 +7,9 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.api.world.TreeType;
 import wish.wurmatron.common.blocks.stone.*;
-import wish.wurmatron.common.blocks.terra.BlockDirt;
-import wish.wurmatron.common.blocks.terra.BlockGrass;
-import wish.wurmatron.common.blocks.terra.BlockGravel;
-import wish.wurmatron.common.blocks.terra.BlockSand;
+import wish.wurmatron.common.blocks.terra.*;
 import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
 
@@ -51,6 +49,11 @@ public class WishModBlocks {
 		WishBlocks.gravelIgneous = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.gravelSedimentary = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.gravelMetamorphic = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelMetmorphic"),StoneType.RockType.Metamorphic);
+		// Wood / Logs
+		WishBlocks.log1 = register (new BlockWood ().setUnlocalizedName ("log1"),new TreeType[] {TreeType.ASH,TreeType.ASPEN,TreeType.BIRCH,TreeType.CEDAR});
+		WishBlocks.log2 = register (new BlockWood2 ().setUnlocalizedName ("log2"),new TreeType[] {TreeType.ELM,TreeType.MAPLE,TreeType.OAK,TreeType.PINE});
+		WishBlocks.log3 = register (new BlockWood3 ().setUnlocalizedName ("log3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
+		WishBlocks.log4 = register (new BlockWood4 ().setUnlocalizedName ("log4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
 
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
@@ -65,6 +68,11 @@ public class WishModBlocks {
 
 	private static Block register (Block block) {
 		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5));
+		return block;
+	}
+
+	private static Block register (Block block,TreeType[] type) {
+		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
 		return block;
 	}
 

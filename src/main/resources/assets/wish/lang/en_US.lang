@@ -62,6 +62,7 @@ item.grass.name=Grass
 item.throwingRock.name=Throwable Rock
 item.sharpRock.name=Sharp Rock
 item.sharpStoneTool.name=Sharp Rock Tool
+item.itemOrePetalite.name=Petalite Ore
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical
@@ -86,3 +87,21 @@ display.cobblestone.name=Cobblestone
 display.smooth.name=Smooth
 display.brick.name=Brick
 display.chisel.name=Chiseled
+
+# Blocks
+tile.orePetalite.name=Petalite Ore
+tile.logspruce.name=Spruce Log
+tile.logpine.name=Pine Log
+tile.logarcacia.name=Arcacia Log
+tile.logdogwood.name=DogWood Log
+tile.logmaple.name=Maple Log
+tile.logredwood.name=RedWood Log
+tile.logelm.name=Elm Log
+tile.logbirch.name=Birch Log
+tile.logfir.name=Fir Log
+tile.logsequoia.name=Sequoia Log
+tile.logoak.name=Oak Log
+tile.logsycamore.name=Sycamore Log
+tile.logash.name=Ash Log
+tile.logaspen.name=Aspen Log
+tile.logcedar.name=Cedar Log

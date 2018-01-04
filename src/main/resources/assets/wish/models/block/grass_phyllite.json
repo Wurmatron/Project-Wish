@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_phyllite"
+    "particle": "wish:blocks/dirt_phyllite",
+    "up": "wish:blocks/grass_phyllite_top",
+    "north": "wish:blocks/grass_phyllite",
+    "south": "wish:blocks/grass_phyllite",
+    "east": "wish:blocks/grass_phyllite",
+    "west": "wish:blocks/grass_phyllite",
+    "down": "wish:blocks/dirt_phyllite"
   }
 }

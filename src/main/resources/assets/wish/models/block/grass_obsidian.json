@@ -1,6 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube",
   "textures": {
-    "all": "wish:blocks/grass_obsidian"
+    "particle": "wish:blocks/dirt_obsidian",
+    "up": "wish:blocks/grass_obsidian_top",
+    "north": "wish:blocks/grass_obsidian",
+    "south": "wish:blocks/grass_obsidian",
+    "east": "wish:blocks/grass_obsidian",
+    "west": "wish:blocks/grass_obsidian",
+    "down": "wish:blocks/dirt_obsidian"
   }
 }
