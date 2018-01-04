@@ -66,12 +66,16 @@ public class Registry {
 					treeBlock.get (a)[0] = block;
 				else if (block.getUnlocalizedName ().contains ("planks"))
 					treeBlock.get (a)[1] = block;
+				else if (block.getUnlocalizedName ().contains ("leaf"))
+					treeBlock.get (a)[2] = block;
 			} else {
-				Block[] treeBlocks = new Block[2];
+				Block[] treeBlocks = new Block[3];
 				if (block.getUnlocalizedName ().contains ("log"))
 					treeBlocks[0] = block;
 				else if (block.getUnlocalizedName ().contains ("planks"))
 					treeBlocks[1] = block;
+				else if (block.getUnlocalizedName ().contains ("leaf"))
+					treeBlocks[2] = block;
 				treeBlock.put (a,treeBlocks);
 			}
 		return block;

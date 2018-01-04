@@ -57,6 +57,10 @@ public class WishModBlocks {
 		WishBlocks.log3 = register (new BlockWood3 ().setUnlocalizedName ("log3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
 		WishBlocks.log4 = register (new BlockWood4 ().setUnlocalizedName ("log4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
 		WishBlocks.planks = register (new BlockPlanks ().setUnlocalizedName ("planks"),Arrays.copyOfRange (TreeType.values (),0,15));
+		WishBlocks.leaves1 = register (new BlockLeaf ().setUnlocalizedName ("leaf1"),new TreeType[] {TreeType.ASH,TreeType.ASPEN,TreeType.BIRCH,TreeType.CEDAR});
+		WishBlocks.leaves2 = register (new BlockLeaf2 ().setUnlocalizedName ("leaf2"),new TreeType[] {TreeType.ELM,TreeType.MAPLE,TreeType.OAK,TreeType.PINE});
+		WishBlocks.leaves3 = register (new BlockLeaf3 ().setUnlocalizedName ("leaf3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
+		WishBlocks.leaves4 = register (new BlockLeaf4 ().setUnlocalizedName ("leaf4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
 
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
