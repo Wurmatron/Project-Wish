@@ -52,4 +52,28 @@ public class WishBlocks {
 
 	// Ore
 	public static Block orePetalite;
+	public static Block oreLignite;
+	public static Block oreBituminous;
+	public static Block oreAnthracite;
+	public static Block oreMagnesite;
+	public static Block oreBauxite;
+	public static Block oreRutile;
+	public static Block oreIlmenite;
+	public static Block oreChromite;
+	public static Block oreMagnetite;
+	public static Block oreHematite;
+	public static Block oreLimonite;
+	public static Block oreSiderite;
+	public static Block oreCassiterite;
+	public static Block oreCobaltite;
+	public static Block oreTetrahedrite;
+	public static Block oreMalachite;
+	public static Block oreSphalerite;
+	public static Block oreGold;
+	public static Block oreGalena;
+	public static Block oreBismuthinite;
+	public static Block oreMonazite;
+	public static Block oreUranium;
+	public static Block oreGarnierite;
+	public static Block orePentlandite;
 }

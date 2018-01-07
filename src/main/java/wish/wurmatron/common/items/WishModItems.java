@@ -40,6 +40,30 @@ public class WishModItems {
 		WishItems.gemZircon = register (new ItemGem (GemType.ZIRCON));
 		// Ore
 		WishItems.orePetalite = registerOre (new ItemOre ("Petalite"),OreType.PETALITE);
+		WishItems.oreLignite = registerOre (new ItemOre ("Lignite"),OreType.LIGNITE);
+		WishItems.oreBituminous = registerOre (new ItemOre ("Bituminous"),OreType.BITUMINOUS);
+		WishItems.oreAnthracite = registerOre (new ItemOre ("Anthracite"),OreType.ANTHRACITE);
+		WishItems.oreMagnesite = registerOre (new ItemOre ("Magnesite"),OreType.MAGNESITE);
+		WishItems.oreBauxite = registerOre (new ItemOre ("Bauxite"),OreType.BAUXITE);
+		WishItems.oreRutile = registerOre (new ItemOre ("Rutile"),OreType.RUTILE);
+		WishItems.oreIlmenite = registerOre (new ItemOre ("Ilmenite"),OreType.Ilmenite);
+		WishItems.oreChromite = registerOre (new ItemOre ("Chromite"),OreType.CHROMITE);
+		WishItems.oreMagnetite = registerOre (new ItemOre ("Magnetite"),OreType.MAGNETITE);
+		WishItems.oreHematite = registerOre (new ItemOre ("Hematite"),OreType.HEMATITE);
+		WishItems.oreLimonite = registerOre (new ItemOre ("Limonite"),OreType.LIMONITE);
+		WishItems.oreSiderite = registerOre (new ItemOre ("Siderite"),OreType.SIDERITE);
+		WishItems.oreCassiterite = registerOre (new ItemOre ("Cassiterite"),OreType.CASSITERITE);
+		WishItems.oreCobaltite = registerOre (new ItemOre ("Cobaltite"),OreType.COBALTITE);
+		WishItems.oreTetrahedrite = registerOre (new ItemOre ("Tetrahedrite"),OreType.TETRAHEDRITE);
+		WishItems.oreMalachite = registerOre (new ItemOre ("Malachite"),OreType.MALACHITE);
+		WishItems.oreSphalerite = registerOre (new ItemOre ("Sphalerite"),OreType.SPHALERITE);
+		WishItems.oreGold = registerOre (new ItemOre ("Gold"),OreType.GOLD);
+		WishItems.oreGalena = registerOre (new ItemOre ("Galena"),OreType.GALENA);
+		WishItems.oreBismuthinite = registerOre (new ItemOre ("Bismuthinite"),OreType.BISMUTHINITE);
+		WishItems.oreMonazite = registerOre (new ItemOre ("Monazite"),OreType.MONAZITE);
+		WishItems.oreUranium = registerOre (new ItemOre ("Uranium"),OreType.URANIUM);
+		WishItems.oreGarnierite = registerOre (new ItemOre ("Garnierite"),OreType.GARNIERITE);
+		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
 		// Rocks
 		WishItems.itemThrowingRock = register (new ItemThrowingRock ());
 		WishItems.itemMeta = register (new ItemMeta ());

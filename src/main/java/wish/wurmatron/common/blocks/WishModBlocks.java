@@ -62,9 +62,32 @@ public class WishModBlocks {
 		WishBlocks.leaves3 = register (new BlockLeaf3 ().setUnlocalizedName ("leaf3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
 		WishBlocks.leaves4 = register (new BlockLeaf4 ().setUnlocalizedName ("leaf4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
 		WishBlocks.sapling = register (new BlockSapling ().setUnlocalizedName ("sapling"),Arrays.copyOfRange (TreeType.values (),0,15));
-
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
+		WishBlocks.oreLignite = register (new BlockOre (Material.ROCK,OreType.LIGNITE).setUnlocalizedName ("oreLignite"),OreType.LIGNITE);
+		WishBlocks.oreBituminous = register (new BlockOre (Material.ROCK,OreType.BITUMINOUS).setUnlocalizedName ("oreBituminous"),OreType.BITUMINOUS);
+		WishBlocks.oreAnthracite = register (new BlockOre (Material.ROCK,OreType.ANTHRACITE).setUnlocalizedName ("oreAnthracite"),OreType.ANTHRACITE);
+		WishBlocks.oreMagnesite = register (new BlockOre (Material.ROCK,OreType.MAGNESITE).setUnlocalizedName ("oreMagnesite"),OreType.MAGNESITE);
+		WishBlocks.oreBauxite = register (new BlockOre (Material.ROCK,OreType.BAUXITE).setUnlocalizedName ("oreBauxite"),OreType.BAUXITE);
+		WishBlocks.oreRutile = register (new BlockOre (Material.ROCK,OreType.RUTILE).setUnlocalizedName ("oreRutile"),OreType.RUTILE);
+		WishBlocks.oreIlmenite = register (new BlockOre (Material.ROCK,OreType.Ilmenite).setUnlocalizedName ("oreIlmenite"),OreType.Ilmenite);
+		WishBlocks.oreChromite = register (new BlockOre (Material.ROCK,OreType.CHROMITE).setUnlocalizedName ("oreChromite"),OreType.CHROMITE);
+		WishBlocks.oreMagnetite = register (new BlockOre (Material.ROCK,OreType.MAGNETITE).setUnlocalizedName ("oreMagnetite"),OreType.MAGNETITE);
+		WishBlocks.oreHematite = register (new BlockOre (Material.ROCK,OreType.HEMATITE).setUnlocalizedName ("oreHematite"),OreType.HEMATITE);
+		WishBlocks.oreLimonite = register (new BlockOre (Material.ROCK,OreType.LIMONITE).setUnlocalizedName ("oreLimonite"),OreType.LIMONITE);
+		WishBlocks.oreSiderite = register (new BlockOre (Material.ROCK,OreType.SIDERITE).setUnlocalizedName ("oreSiderite"),OreType.SIDERITE);
+		WishBlocks.oreCassiterite = register (new BlockOre (Material.ROCK,OreType.CASSITERITE).setUnlocalizedName ("oreCassiterite"),OreType.CASSITERITE);
+		WishBlocks.oreCobaltite = register (new BlockOre (Material.ROCK,OreType.COBALTITE).setUnlocalizedName ("oreCobaltite"),OreType.COBALTITE);
+		WishBlocks.oreTetrahedrite = register (new BlockOre (Material.ROCK,OreType.TETRAHEDRITE).setUnlocalizedName ("oreTetrahedrite"),OreType.TETRAHEDRITE);
+		WishBlocks.oreMalachite = register (new BlockOre (Material.ROCK,OreType.MALACHITE).setUnlocalizedName ("oreMalachite"),OreType.MALACHITE);
+		WishBlocks.oreSphalerite = register (new BlockOre (Material.ROCK,OreType.SPHALERITE).setUnlocalizedName ("oreSphalerite"),OreType.SPHALERITE);
+		WishBlocks.oreGold = register (new BlockOre (Material.ROCK,OreType.GOLD).setUnlocalizedName ("oreGold"),OreType.GOLD);
+		WishBlocks.oreGalena = register (new BlockOre (Material.ROCK,OreType.GALENA).setUnlocalizedName ("oreGalena"),OreType.GALENA);
+		WishBlocks.oreBismuthinite = register (new BlockOre (Material.ROCK,OreType.BISMUTHINITE).setUnlocalizedName ("oreBismuthinite"),OreType.BISMUTHINITE);
+		WishBlocks.oreMonazite = register (new BlockOre (Material.ROCK,OreType.MONAZITE).setUnlocalizedName ("oreMonazite"),OreType.MONAZITE);
+		WishBlocks.oreUranium = register (new BlockOre (Material.ROCK,OreType.URANIUM).setUnlocalizedName ("oreUranium"),OreType.URANIUM);
+		WishBlocks.oreGarnierite = register (new BlockOre (Material.ROCK,OreType.GARNIERITE).setUnlocalizedName ("oreGarnierite"),OreType.GARNIERITE);
+		WishBlocks.orePentlandite = register (new BlockOre (Material.ROCK,OreType.PENTALANDITE).setUnlocalizedName ("orePentlandite"),OreType.PENTALANDITE);
 		// Tiles
 		GameRegistry.registerTileEntity (TileOre.class,"tileOre");
 	}
