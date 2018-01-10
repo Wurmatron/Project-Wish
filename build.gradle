@@ -31,7 +31,6 @@ repositories {
 
 dependencies {
 	compile name: 'DynamicTrees', version: "${dynamictrees_version}", ext: 'jar'
-	compile name: 'ToughAsNails', version: "${toughasnails_version}", ext: 'jar'
 }
 
 processResources {
