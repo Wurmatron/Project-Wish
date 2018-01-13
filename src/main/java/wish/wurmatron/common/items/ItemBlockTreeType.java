@@ -23,14 +23,15 @@ public class ItemBlockTreeType extends ItemBlock {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		if (stack.getUnlocalizedName ().contains ("log"))
-			return I18n.translateToLocal ("tile.log" + type[stack.getItemDamage ()].getName () + ".name");
-		else if (stack.getUnlocalizedName ().contains ("planks"))
-			return I18n.translateToLocal ("tile.plank" + type[stack.getItemDamage ()].getName () + ".name");
-		else if (stack.getUnlocalizedName ().contains ("leaf"))
-			return I18n.translateToLocal ("tile.leaf" + type[stack.getItemDamage ()].getName () + ".name");
-		else if (stack.getUnlocalizedName ().contains ("sapling"))
-			return I18n.translateToLocal ("tile.sapling" + type[stack.getItemDamage ()].getName () + ".name");
+		if (stack.getItemDamage () < type.length)
+			if (stack.getUnlocalizedName ().contains ("log"))
+				return I18n.translateToLocal ("tile.log" + type[stack.getItemDamage ()].getName () + ".name");
+			else if (stack.getUnlocalizedName ().contains ("planks"))
+				return I18n.translateToLocal ("tile.plank" + type[stack.getItemDamage ()].getName () + ".name");
+			else if (stack.getUnlocalizedName ().contains ("leaf"))
+				return I18n.translateToLocal ("tile.leaf" + type[stack.getItemDamage ()].getName () + ".name");
+			else if (stack.getUnlocalizedName ().contains ("sapling"))
+				return I18n.translateToLocal ("tile.sapling" + type[stack.getItemDamage ()].getName () + ".name");
 		return I18n.translateToLocal (stack.getUnlocalizedName ());
 	}
 
