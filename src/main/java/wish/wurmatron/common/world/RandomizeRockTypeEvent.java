@@ -1,6 +1,7 @@
 package wish.wurmatron.common.world;
 
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -13,7 +14,7 @@ import java.util.Random;
 @Mod.EventBusSubscriber
 public class RandomizeRockTypeEvent {
 
-	private static HashMap <String, int[]> rockLayerMeta = new HashMap <> ();
+	private static HashMap <Integer, int[]> rockLayerMeta = new HashMap <> ();
 	private static final Random rand = new Random ();
 
 	@SubscribeEvent
@@ -34,12 +35,15 @@ public class RandomizeRockTypeEvent {
 	}
 
 	private int[] getMeta (Chunk chunk) {
-		rand.setSeed (chunk.getWorld ().getSeed ());
-		String name = chunk.getBiome (chunk.getPos ().getBlock (0,0,0),chunk.getWorld ().getBiomeProvider ()).getBiomeName ();
-		if (rockLayerMeta.containsKey (name))
-			return rockLayerMeta.get (name);
-		else
-			rockLayerMeta.put (name,new int[] {chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9)});
+		if (chunk != null) {
+			rand.setSeed (chunk.getWorld ().getSeed ());
+			Biome biome = chunk.getBiome (chunk.getPos ().getBlock (0,0,0),chunk.getWorld ().getBiomeProvider ());
+			int name = Biome.getIdForBiome (biome);
+			if (rockLayerMeta.containsKey (name))
+				return rockLayerMeta.get (name);
+			else
+				rockLayerMeta.put (name,new int[] {chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9)});
+		}
 		return new int[] {0,0,0};
 	}
 }

@@ -39,12 +39,12 @@ public class WishModBlocks {
 		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
 		// Terra
-		WishBlocks.dirtIgneous = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtIgneous"),StoneType.RockType.Igneous);
-		WishBlocks.dirtSedimentary = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtSedimentary"),StoneType.RockType.Sedimentary);
-		WishBlocks.dirtMetamorphic = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtMetmorphic"),StoneType.RockType.Metamorphic);
-		WishBlocks.grassIgneous = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassIgneous"),StoneType.RockType.Igneous);
-		WishBlocks.grassSedimentary = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassSedimentary"),StoneType.RockType.Sedimentary);
-		WishBlocks.grassMetamorphic = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassMetmorphic"),StoneType.RockType.Metamorphic);
+		//		WishBlocks.dirtIgneous = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtIgneous"),StoneType.RockType.Igneous);
+		//		WishBlocks.dirtSedimentary = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtSedimentary"),StoneType.RockType.Sedimentary);
+		//		WishBlocks.dirtMetamorphic = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtMetmorphic"),StoneType.RockType.Metamorphic);
+		//		WishBlocks.grassIgneous = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassIgneous"),StoneType.RockType.Igneous);
+		//		WishBlocks.grassSedimentary = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassSedimentary"),StoneType.RockType.Sedimentary);
+		//		WishBlocks.grassMetamorphic = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.sandIgneous = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.sandSedimentary = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.sandMetamorphic = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandMetmorphic"),StoneType.RockType.Metamorphic);
