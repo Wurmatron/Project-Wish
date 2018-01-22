@@ -17,6 +17,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
+import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
@@ -69,6 +70,8 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new Registry ());
 		WishModBlocks.registerBlocks ();
 		WishModItems.registerItems ();
+		if (Loader.isModLoaded ("dynamictrees"))
+			DynamicTreesIntergration.init ();
 		proxy.preInit ();
 		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID,"throwingRock"),EntityThrowingRock.class,"throwingRock",0,instance,64,10,true);
 	}
@@ -88,23 +91,24 @@ public class ProjectWish {
 			for (Block block : Registry.blocks)
 				if (block.getUnlocalizedName ().contains ("stone"))
 					OreDictionary.registerOre ("stone",block);
-				else if (block.getUnlocalizedName ().contains ("dirt"))
-					OreDictionary.registerOre ("dirt",block);
-				else if (block.getUnlocalizedName ().contains ("grass"))
-					OreDictionary.registerOre ("grass",block);
 				else if (block.getUnlocalizedName ().contains ("cobble"))
 					OreDictionary.registerOre ("cobblestone",block);
 				else if (block.getUnlocalizedName ().contains ("sand"))
 					OreDictionary.registerOre ("sand",block);
 				else if (block.getUnlocalizedName ().contains ("gravel"))
 					OreDictionary.registerOre ("gravel",block);
+				else if (block.getUnlocalizedName ().contains ("log"))
+					OreDictionary.registerOre ("logWood", block);
+				else if (block.getUnlocalizedName ().contains ("plank"))
+					OreDictionary.registerOre ("plankWood", block);
+			for (GemType gem : GemType.values ())
+				for (int index = 0; index < 6; index++)
+					OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
 		}
 	}
 
 	@Mod.EventHandler
 	public void onPostInit (FMLPostInitializationEvent e) {
-		if (Loader.isModLoaded ("dynamictrees"))
-			DynamicTreesIntergration.init ();
 	}
 
 	@Mod.EventHandler

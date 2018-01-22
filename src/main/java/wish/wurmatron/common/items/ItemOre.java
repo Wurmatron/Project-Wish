@@ -18,7 +18,7 @@ public class ItemOre extends Item {
 	@Override
 	public void getSubItems (CreativeTabs tab,NonNullList <ItemStack> items) {
 		if (tab == ProjectWish.Items)
-			for (int meta = 0; meta < 3; meta++)
+			for (int meta = 0; meta < 5; meta++)
 				items.add (new ItemStack (this,1,meta));
 	}
 }

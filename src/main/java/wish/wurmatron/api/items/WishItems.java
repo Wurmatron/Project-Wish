@@ -36,6 +36,7 @@ public class WishItems {
 	public static Item gemTurqioise;
 	public static Item gemTourmaline;
 	public static Item gemZircon;
+	public static Item gemMixed;
 
 	// Ore
 	public static Item orePetalite;
@@ -63,9 +64,10 @@ public class WishItems {
 	public static Item oreUranium;
 	public static Item oreGarnierite;
 	public static Item orePentlandite;
+	public static Item dustOre;
 
 	// Items
-	public static Item itemThrowingRock;
+	public static Item itemRock;
 	public static Item itemMeta;
 
 	// Tools

@@ -13,31 +13,32 @@ public class WishModItems {
 
 	public static void registerItems () {
 		// Gems
-		WishItems.gemAmber = register (new ItemGem (GemType.AMBER));
-		WishItems.gemAmethyst = register (new ItemGem (GemType.AMETHYST));
-		WishItems.gemAquamarine = register (new ItemGem (GemType.AQUAMARINE));
-		WishItems.gemBeryl = register (new ItemGem (GemType.BERYL));
-		WishItems.gemBloodstone = register (new ItemGem (GemType.BLOODSTONE));
-		WishItems.gemCitrine = register (new ItemGem (GemType.CITRINE));
-		WishItems.gemDiamond = register (new ItemGem (GemType.DIAMOND));
-		WishItems.gemEmerald = register (new ItemGem (GemType.EMERALD));
-		WishItems.gemGarnet = register (new ItemGem (GemType.GARNET));
-		WishItems.gemJade = register (new ItemGem (GemType.JADE));
-		WishItems.gemJasper = register (new ItemGem (GemType.JASPER));
-		WishItems.gemMoonstone = register (new ItemGem (GemType.MOONSTONE));
-		WishItems.gemOnyx = register (new ItemGem (GemType.ONYX));
-		WishItems.gemOpal = register (new ItemGem (GemType.OPAL));
-		WishItems.gemPectolite = register (new ItemGem (GemType.PECTOLITE));
-		WishItems.gemPeridot = register (new ItemGem (GemType.PERIDOT));
-		WishItems.gemQuartz = register (new ItemGem (GemType.QUARTZ));
-		WishItems.gemRoseQuartz = register (new ItemGem (GemType.ROSE_QUARTZ));
-		WishItems.gemRuby = register (new ItemGem (GemType.RUBY));
-		WishItems.gemSapphire = register (new ItemGem (GemType.SAPPHIRE));
-		WishItems.gemTanzanite = register (new ItemGem (GemType.TANZANITE));
-		WishItems.gemTopaz = register (new ItemGem (GemType.TOPAZ));
-		WishItems.gemTurqioise = register (new ItemGem (GemType.TURQIOISE));
-		WishItems.gemTourmaline = register (new ItemGem (GemType.TOURMALINE));
-		WishItems.gemZircon = register (new ItemGem (GemType.ZIRCON));
+		WishItems.gemAmber = registerGem (new ItemGem (GemType.AMBER));
+		WishItems.gemAmethyst = registerGem (new ItemGem (GemType.AMETHYST));
+		WishItems.gemAquamarine = registerGem (new ItemGem (GemType.AQUAMARINE));
+		WishItems.gemBeryl = registerGem (new ItemGem (GemType.BERYL));
+		WishItems.gemBloodstone = registerGem (new ItemGem (GemType.BLOODSTONE));
+		WishItems.gemCitrine = registerGem (new ItemGem (GemType.CITRINE));
+		WishItems.gemDiamond = registerGem (new ItemGem (GemType.DIAMOND));
+		WishItems.gemEmerald = registerGem (new ItemGem (GemType.EMERALD));
+		WishItems.gemGarnet = registerGem (new ItemGem (GemType.GARNET));
+		WishItems.gemJade = registerGem (new ItemGem (GemType.JADE));
+		WishItems.gemJasper = registerGem (new ItemGem (GemType.JASPER));
+		WishItems.gemMoonstone = registerGem (new ItemGem (GemType.MOONSTONE));
+		WishItems.gemOnyx = registerGem (new ItemGem (GemType.ONYX));
+		WishItems.gemOpal = registerGem (new ItemGem (GemType.OPAL));
+		WishItems.gemPectolite = registerGem (new ItemGem (GemType.PECTOLITE));
+		WishItems.gemPeridot = registerGem (new ItemGem (GemType.PERIDOT));
+		WishItems.gemQuartz = registerGem (new ItemGem (GemType.QUARTZ));
+		WishItems.gemRoseQuartz = registerGem (new ItemGem (GemType.ROSE_QUARTZ));
+		WishItems.gemRuby = registerGem (new ItemGem (GemType.RUBY));
+		WishItems.gemSapphire = registerGem (new ItemGem (GemType.SAPPHIRE));
+		WishItems.gemTanzanite = registerGem (new ItemGem (GemType.TANZANITE));
+		WishItems.gemTopaz = registerGem (new ItemGem (GemType.TOPAZ));
+		WishItems.gemTurqioise = registerGem (new ItemGem (GemType.TURQIOISE));
+		WishItems.gemTourmaline = registerGem (new ItemGem (GemType.TOURMALINE));
+		WishItems.gemZircon = registerGem (new ItemGem (GemType.ZIRCON));
+		WishItems.gemMixed = registerGem (new ItemGem (GemType.MIXED));
 		// Ore
 		WishItems.orePetalite = registerOre (new ItemOre ("Petalite"),OreType.PETALITE);
 		WishItems.oreLignite = registerOre (new ItemOre ("Lignite"),OreType.LIGNITE);
@@ -64,8 +65,10 @@ public class WishModItems {
 		WishItems.oreUranium = registerOre (new ItemOre ("Uranium"),OreType.URANIUM);
 		WishItems.oreGarnierite = registerOre (new ItemOre ("Garnierite"),OreType.GARNIERITE);
 		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
+		WishItems.dustOre = register (new ItemDust ());
 		// Rocks
-		WishItems.itemThrowingRock = register (new ItemThrowingRock ());
+		// TODO Create All Rocks
+		WishItems.itemRock = register (new ItemRock ());
 		WishItems.itemMeta = register (new ItemMeta ());
 		// Tools
 		WishItems.toolSharpRockOnAStick = register (new WishSharpStoneTool (ROCK,50,1));
@@ -73,6 +76,11 @@ public class WishModItems {
 
 	private static Item register (Item item) {
 		Registry.registerItem (item,item.getUnlocalizedName ().substring (5));
+		return item;
+	}
+
+	private static Item registerGem (Item item) {
+		Registry.registerGem (item,item.getUnlocalizedName ().substring (5),((ItemGem) (item)).type);
 		return item;
 	}
 

@@ -12,7 +12,6 @@ import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.events.WorldEvents;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 public class ItemGem extends Item {
@@ -28,7 +27,7 @@ public class ItemGem extends Item {
 	}
 
 	@Override
-	public void addInformation (ItemStack stack,@Nullable World worldIn,List <String> tip,ITooltipFlag flag) {
+	public void addInformation (ItemStack stack,World worldIn,List <String> tip,ITooltipFlag flag) {
 		tip.add (TextFormatting.GRAY + I18n.translateToLocal ("tooltip.grade.name") + ": " + getGrade (stack).getName ());
 	}
 
