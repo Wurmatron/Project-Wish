@@ -18,6 +18,7 @@ import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
+import wish.wurmatron.common.blocks.BlockGravity;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
@@ -34,12 +35,6 @@ import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 @Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
 
-	@Mod.Instance (Global.MODID)
-	public static ProjectWish instance;
-
-	@SidedProxy (serverSide = Global.SERVER_PROXY, clientSide = Global.CLIENT_PROXY)
-	public static CommonProxy proxy;
-
 	public static final CreativeTabs BLOCKS = new CreativeTabs ("blocks") {
 		@Override
 		public ItemStack getTabIconItem () {
@@ -51,7 +46,6 @@ public class ProjectWish {
 			return true;
 		}
 	};
-
 	public static final CreativeTabs Items = new CreativeTabs ("items") {
 		@Override
 		public ItemStack getTabIconItem () {
@@ -63,6 +57,10 @@ public class ProjectWish {
 			return true;
 		}
 	};
+	@Mod.Instance (Global.MODID)
+	public static ProjectWish instance;
+	@SidedProxy (serverSide = Global.SERVER_PROXY, clientSide = Global.CLIENT_PROXY)
+	public static CommonProxy proxy;
 
 	@Mod.EventHandler
 	public void onPreInit (FMLPreInitializationEvent e) {
@@ -98,9 +96,9 @@ public class ProjectWish {
 				else if (block.getUnlocalizedName ().contains ("gravel"))
 					OreDictionary.registerOre ("gravel",block);
 				else if (block.getUnlocalizedName ().contains ("log"))
-					OreDictionary.registerOre ("logWood", block);
+					OreDictionary.registerOre ("logWood",block);
 				else if (block.getUnlocalizedName ().contains ("plank"))
-					OreDictionary.registerOre ("plankWood", block);
+					OreDictionary.registerOre ("plankWood",block);
 			for (GemType gem : GemType.values ())
 				for (int index = 0; index < 6; index++)
 					OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));

@@ -8,10 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.utils.Registry;
 
+// TODO Gravity
 public class BlockSand extends BlockRockType {
 
 	private int amount;
@@ -33,7 +35,7 @@ public class BlockSand extends BlockRockType {
 	}
 
 	@Override
-	protected float getFallChance () {
-		return 0.95f;
+	public void onNeighborChange (IBlockAccess world,BlockPos pos,BlockPos neighbor) {
+		super.onNeighborChange (world,pos,neighbor);
 	}
 }
