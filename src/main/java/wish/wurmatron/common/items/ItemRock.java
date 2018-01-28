@@ -8,8 +8,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
+import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 
@@ -20,6 +22,8 @@ public class ItemRock extends Item {
 		setUnlocalizedName ("throwingRock");
 		setMaxStackSize (1);
 		setMaxDamage (1);
+		setMaxDamage (-1);
+		hasSubtypes = true;
 	}
 
 	@Override
@@ -34,5 +38,17 @@ public class ItemRock extends Item {
 				setDamage (player.getHeldItem (hand),1);
 		}
 		return new ActionResult <> (EnumActionResult.SUCCESS,player.getHeldItem (hand));
+	}
+
+	@Override
+	public void getSubItems (CreativeTabs tab,NonNullList <ItemStack> items) {
+		if (tab == ProjectWish.Items)
+			for (int index = 0; index < StoneType.values ().length; index++)
+				items.add (new ItemStack (WishItems.itemRock,1,index));
+	}
+
+	@Override
+	public String getItemStackDisplayName (ItemStack stack) {
+		return I18n.translateToLocal (StoneType.values ()[stack.getItemDamage ()].getName ()) + " " +  I18n.translateToLocal ("item.rock.name") ;
 	}
 }

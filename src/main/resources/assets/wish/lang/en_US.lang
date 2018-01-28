@@ -55,6 +55,7 @@ item.gemTopaz.name=Topaz
 item.gemTurqioise.name=Turqioise
 item.gemTourmaline.name=Tourmaline
 item.gemZircon.name=Zircon
+item.gemMixed.name=Mixed
 item.sand.name=Sand
 item.gravel.name=Gravel
 item.dirt.name=Dirt
@@ -87,6 +88,7 @@ item.itemOrePentlandite.name=Pentlandite Ore
 item.itemOreLimonite.name=Limonite Ore
 item.itemOreHematite.name=Hematite Ore
 item.itemOreMagnetite.name=Magnetite Ore
+item.rock.name=Rock
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

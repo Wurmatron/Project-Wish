@@ -17,14 +17,26 @@ import wish.wurmatron.api.world.TreeType;
 import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemMeta;
+import wish.wurmatron.common.items.ItemRock;
 import wish.wurmatron.common.proxy.CommonProxy;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
  Client-Side Proxy
  */
 public class ClientProxy extends CommonProxy {
+
+	private static void createModel (Block block,int meta,String name) {
+		ModelLoader.setCustomModelResourceLocation (Registry.blockItems.get (block),meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
+	}
+
+	private static void createModel (Item item,String name) {
+		createModel (item,0,name);
+	}
+
+	private static void createModel (Item item,int meta,String name) {
+		ModelLoader.setCustomModelResourceLocation (item,meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
+	}
 
 	@Override
 	public void preInit () {
@@ -73,6 +85,9 @@ public class ClientProxy extends CommonProxy {
 			if (item instanceof ItemGem) {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
+			} else if (item instanceof ItemRock) {
+				for (int meta = 0; meta < StoneType.values ().length; meta++)
+					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + StoneType.values ()[meta]);
 			} else if (!item.getUnlocalizedName ().substring (5).contains ("Igneous") && !item.getUnlocalizedName ().substring (5).contains ("Sedimentary") && !item.getUnlocalizedName ().substring (5).contains ("Igneous") || !item.getUnlocalizedName ().substring (5).contains ("log"))
 				createModel (item,item.getUnlocalizedName ().substring (5));
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
@@ -81,17 +96,5 @@ public class ClientProxy extends CommonProxy {
 		for (TreeType tree : TreeType.values ())
 			if (tree.getMeta () < 4)
 				createModel (WishBlocks.log1,startIndex++,"log" + tree.getName ().toLowerCase ());
-	}
-
-	private static void createModel (Block block,int meta,String name) {
-		ModelLoader.setCustomModelResourceLocation (Registry.blockItems.get (block),meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
-	}
-
-	private static void createModel (Item item,String name) {
-		createModel (item,0,name);
-	}
-
-	private static void createModel (Item item,int meta,String name) {
-		ModelLoader.setCustomModelResourceLocation (item,meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
 	}
 }
