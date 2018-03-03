@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.advancements.critereon.OredictItemPredicate;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -20,7 +19,6 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.BlockGravity;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
@@ -84,10 +82,6 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
 		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
 		if (Settings.oreDictionary) {
-			for (Block[] block : Registry.treeBlock.values ()) {
-				OreDictionary.registerOre ("logWood",new ItemStack (block[0],1,OreDictionary.WILDCARD_VALUE));
-				OreDictionary.registerOre ("plankWood",new ItemStack (block[1],1,OreDictionary.WILDCARD_VALUE));
-			}
 			for (Block block : Registry.blocks)
 				if (block.getUnlocalizedName ().contains ("stone"))
 					OreDictionary.registerOre ("stone",block);
@@ -104,8 +98,8 @@ public class ProjectWish {
 			for (GemType gem : GemType.values ())
 				for (int index = 0; index < 6; index++)
 					OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
-			for(int index = 0; index < StoneType.values ().length; index++)
-				OreDictionary.registerOre ("rock", new ItemStack (WishItems.itemRock,1,index));
+			for (int index = 0; index < StoneType.values ().length; index++)
+				OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
 		}
 	}
 

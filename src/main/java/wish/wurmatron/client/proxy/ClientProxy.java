@@ -13,7 +13,6 @@ import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.api.world.TreeType;
 import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemMeta;
@@ -92,9 +91,10 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,item.getUnlocalizedName ().substring (5));
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
-		int startIndex = 0;
-		for (TreeType tree : TreeType.values ())
-			if (tree.getMeta () < 4)
-				createModel (WishBlocks.log1,startIndex++,"log" + tree.getName ().toLowerCase ());
+		for (GemType gem : GemType.values ())
+			if (gem.getId () > 16)
+				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");
+			else
+				createModel (WishBlocks.gemBlock2,gem.getId (),gem.getName () + "block");
 	}
 }

@@ -5,15 +5,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.api.world.TreeType;
 import wish.wurmatron.common.blocks.stone.*;
-import wish.wurmatron.common.blocks.terra.*;
+import wish.wurmatron.common.blocks.terra.BlockGravel;
+import wish.wurmatron.common.blocks.terra.BlockSand;
 import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
-
-import java.util.Arrays;
 
 /**
  Initalizes all the mods blocks for use in WishBlocks
@@ -38,30 +37,12 @@ public class WishModBlocks {
 		WishBlocks.chiselSedimentary = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.chiselMetamorphic = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.chiselIgneous = register (new BlockChisel (Material.ROCK,9).setUnlocalizedName ("chiselIgneous"),StoneType.RockType.Igneous);
-		// Terra
-		//		WishBlocks.dirtIgneous = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtIgneous"),StoneType.RockType.Igneous);
-		//		WishBlocks.dirtSedimentary = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtSedimentary"),StoneType.RockType.Sedimentary);
-		//		WishBlocks.dirtMetamorphic = register (new BlockDirt (Material.GROUND,9).setUnlocalizedName ("dirtMetmorphic"),StoneType.RockType.Metamorphic);
-		//		WishBlocks.grassIgneous = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassIgneous"),StoneType.RockType.Igneous);
-		//		WishBlocks.grassSedimentary = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassSedimentary"),StoneType.RockType.Sedimentary);
-		//		WishBlocks.grassMetamorphic = register (new BlockGrass (Material.GROUND,9).setUnlocalizedName ("grassMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.sandIgneous = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.sandSedimentary = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.sandMetamorphic = register (new BlockSand (Material.GROUND,9).setUnlocalizedName ("sandMetmorphic"),StoneType.RockType.Metamorphic);
 		WishBlocks.gravelIgneous = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.gravelSedimentary = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.gravelMetamorphic = register (new BlockGravel (Material.GROUND,9).setUnlocalizedName ("gravelMetmorphic"),StoneType.RockType.Metamorphic);
-		// Wood / Logs
-		WishBlocks.log1 = register (new BlockWood ().setUnlocalizedName ("log1"),new TreeType[] {TreeType.ASH,TreeType.ASPEN,TreeType.BIRCH,TreeType.CEDAR});
-		WishBlocks.log2 = register (new BlockWood2 ().setUnlocalizedName ("log2"),new TreeType[] {TreeType.ELM,TreeType.MAPLE,TreeType.OAK,TreeType.PINE});
-		WishBlocks.log3 = register (new BlockWood3 ().setUnlocalizedName ("log3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
-		WishBlocks.log4 = register (new BlockWood4 ().setUnlocalizedName ("log4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
-		WishBlocks.planks = register (new BlockPlanks ().setUnlocalizedName ("planks"),Arrays.copyOfRange (TreeType.values (),0,15));
-		WishBlocks.leaves1 = register (new BlockLeaf ().setUnlocalizedName ("leaf1"),new TreeType[] {TreeType.ASH,TreeType.ASPEN,TreeType.BIRCH,TreeType.CEDAR});
-		WishBlocks.leaves2 = register (new BlockLeaf2 ().setUnlocalizedName ("leaf2"),new TreeType[] {TreeType.ELM,TreeType.MAPLE,TreeType.OAK,TreeType.PINE});
-		WishBlocks.leaves3 = register (new BlockLeaf3 ().setUnlocalizedName ("leaf3"),new TreeType[] {TreeType.SPRUCE,TreeType.SYCAMORE,TreeType.FIR,TreeType.ARCACIA});
-		WishBlocks.leaves4 = register (new BlockLeaf4 ().setUnlocalizedName ("leaf4"),new TreeType[] {TreeType.SEQUOIA,TreeType.REDWOOD,TreeType.DOGWOOD,TreeType.CEDAR});
-		WishBlocks.sapling = register (new BlockSapling ().setUnlocalizedName ("sapling"),Arrays.copyOfRange (TreeType.values (),0,15));
 		// Ores
 		WishBlocks.orePetalite = register (new BlockOre (Material.ROCK,OreType.PETALITE).setUnlocalizedName ("orePetalite"),OreType.PETALITE);
 		WishBlocks.oreLignite = register (new BlockOre (Material.ROCK,OreType.LIGNITE).setUnlocalizedName ("oreLignite"),OreType.LIGNITE);
@@ -88,6 +69,9 @@ public class WishModBlocks {
 		WishBlocks.oreUranium = register (new BlockOre (Material.ROCK,OreType.URANIUM).setUnlocalizedName ("oreUranium"),OreType.URANIUM);
 		WishBlocks.oreGarnierite = register (new BlockOre (Material.ROCK,OreType.GARNIERITE).setUnlocalizedName ("oreGarnierite"),OreType.GARNIERITE);
 		WishBlocks.orePentlandite = register (new BlockOre (Material.ROCK,OreType.PENTALANDITE).setUnlocalizedName ("orePentlandite"),OreType.PENTALANDITE);
+		// Gem
+		WishBlocks.gemBlock = register (new BlockGem (Material.IRON).setUnlocalizedName ("blockGem"),GemType.AMBER);
+		WishBlocks.gemBlock2 = register (new BlockGem2 (Material.IRON).setUnlocalizedName ("blockGem2"),GemType.QUARTZ);
 		// Tiles
 		GameRegistry.registerTileEntity (TileOre.class,"tileOre");
 	}
@@ -97,13 +81,8 @@ public class WishModBlocks {
 		return block;
 	}
 
-	private static Block register (Block block) {
-		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5));
-		return block;
-	}
-
-	private static Block register (Block block,TreeType[] type) {
-		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
+	private static Block register (Block block,GemType gem) {
+		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),gem);
 		return block;
 	}
 

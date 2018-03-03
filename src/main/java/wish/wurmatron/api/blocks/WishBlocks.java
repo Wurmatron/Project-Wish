@@ -24,32 +24,13 @@ public class WishBlocks {
 	public static Block chiselSedimentary;
 	public static Block chiselMetamorphic;
 	public static Block chiselIgneous;
-
 	// Terra
-	public static Block dirtSedimentary;
-	public static Block dirtIgneous;
-	public static Block dirtMetamorphic;
-	public static Block grassSedimentary;
-	public static Block grassIgneous;
-	public static Block grassMetamorphic;
 	public static Block sandSedimentary;
 	public static Block sandIgneous;
 	public static Block sandMetamorphic;
 	public static Block gravelSedimentary;
 	public static Block gravelIgneous;
 	public static Block gravelMetamorphic;
-	// Wood / Log
-	public static Block log1;
-	public static Block log2;
-	public static Block log3;
-	public static Block log4;
-	public static Block planks;
-	public static Block leaves1;
-	public static Block leaves2;
-	public static Block leaves3;
-	public static Block leaves4;
-	public static Block sapling;
-
 	// Ore
 	public static Block orePetalite;
 	public static Block oreLignite;
@@ -76,4 +57,7 @@ public class WishBlocks {
 	public static Block oreUranium;
 	public static Block oreGarnierite;
 	public static Block orePentlandite;
+	// Gem
+	public static Block gemBlock;
+	public static Block gemBlock2;
 }
