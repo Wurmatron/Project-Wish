@@ -87,7 +87,10 @@ public class ClientProxy extends CommonProxy {
 			} else if (item instanceof ItemRock) {
 				for (int meta = 0; meta < StoneType.values ().length; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + StoneType.values ()[meta]);
-			} else if (!item.getUnlocalizedName ().substring (5).contains ("Igneous") && !item.getUnlocalizedName ().substring (5).contains ("Sedimentary") && !item.getUnlocalizedName ().substring (5).contains ("Igneous") || !item.getUnlocalizedName ().substring (5).contains ("log"))
+			} else if (item.getUnlocalizedName ().contains ("itemOre")) {
+				for (int meta = 0; meta < 5; meta++)
+					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + meta);
+			} else
 				createModel (item,item.getUnlocalizedName ().substring (5));
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
