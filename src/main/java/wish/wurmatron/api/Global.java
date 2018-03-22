@@ -28,6 +28,8 @@ public class Global {
 	public static final String GEM_RARITY_COMMMENT = "Rarity of Gems Droping From Stone (Higher = More Rare, Lower = Less Rare)";
 	public static final String ORE_DICT = "oreDictionary";
 	public static final String ORE_DICT_COMMENT = "Add Block and Items To Forge OreDictionary";
-	// World Settings
-	public static final String WISH_WORLDTYPE = "wish";
+	public static final String ORE_RARITY = "oreRarity";
+	public static final String ORE_RARITY_COMMENT = "Rarity Of Ore (Higher is More, but also increases generation time)";
+	public static final String ORESTAGES = "debug";
+	public static final String ORESTAGES_COMMENT = "Enable Ore Stages mode";
 }

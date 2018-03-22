@@ -39,7 +39,7 @@ public class BlockGem2 extends WishBlock {
 	}
 
 	@Override
-	public void getSubBlocks (CreativeTabs tab,NonNullList<ItemStack> list) {
+	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
 		LogHandler.info ("GETBLOCK: " + this.blockHardness);
 		for (int m = 0; m < 9; m++)
 			list.add (new ItemStack (this,1,m));

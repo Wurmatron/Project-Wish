@@ -25,6 +25,6 @@ public class ItemDust extends Item {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		return I18n.translateToLocal ("item." +  OreType.values ()[stack.getItemDamage () <  OreType.values ().length ? stack.getItemDamage () : 0].getName () + ".name");
+		return I18n.translateToLocal ("item." + OreType.values ()[stack.getItemDamage () < OreType.values ().length ? stack.getItemDamage () : 0].getName () + ".name");
 	}
 }

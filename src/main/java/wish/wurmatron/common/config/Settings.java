@@ -9,4 +9,5 @@ public class Settings {
 	public static int gravityUpdate;
 	public static int gemRarity;
 	public static boolean oreDictionary;
+	public static int oreRarity;
 }

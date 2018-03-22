@@ -5,8 +5,11 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.blocks.stone.BlockStone;
@@ -44,5 +47,11 @@ public class WorldEvents {
 		if (e.getState ().getMaterial () == Material.WOOD)
 			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe))
 				e.setCanceled (true);
+	}
+
+	@SubscribeEvent
+	public void oreGenEvent (OreGenEvent.GenerateMinable e) {
+		if (!(e.getGenerator () instanceof WorldGenOreHelper))
+			e.setResult (Event.Result.DENY);
 	}
 }

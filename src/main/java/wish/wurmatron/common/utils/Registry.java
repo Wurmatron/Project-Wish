@@ -1,7 +1,6 @@
 package wish.wurmatron.common.utils;
 
 import net.minecraft.block.Block;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.event.RegistryEvent;
@@ -73,7 +72,7 @@ public class Registry {
 		return block;
 	}
 
-	public static Block registerBlock (Block block,String registryName, GemType gem) {
+	public static Block registerBlock (Block block,String registryName,GemType gem) {
 		block.setRegistryName (registryName);
 		block.setUnlocalizedName (registryName);
 		ItemBlockGem itemBlock = new ItemBlockGem (block);

@@ -40,6 +40,7 @@ public class ConfigHandler {
 		Settings.gravityUpdate = global.getInt (Global.GRAVITY_UPDATE,Configuration.CATEGORY_GENERAL,5,1,100,Global.GRAVITY_UPDATE_COMMENT);
 		Settings.gemRarity = global.getInt (Global.GEM_RARITY,Configuration.CATEGORY_GENERAL,1000,1,1000000,Global.GEM_RARITY_COMMMENT);
 		Settings.oreDictionary = global.getBoolean (Global.ORE_DICT,Configuration.CATEGORY_GENERAL,true,Global.ORE_DICT_COMMENT);
+		Settings.oreRarity = global.getInt (Global.ORE_RARITY,Configuration.CATEGORY_GENERAL,5,1,100,Global.ORE_RARITY_COMMENT);
 
 		if (global.hasChanged ()) {
 			global.save ();
@@ -47,14 +48,14 @@ public class ConfigHandler {
 		}
 	}
 
+	public static void loadCustomSettings () {
+		DimTransferEvent.loadData (location);
+	}
+
 	@SideOnly (Side.CLIENT)
 	@SubscribeEvent
 	public void configChanged (ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID ().equals (Global.MODID))
 			syncConfig ();
-	}
-
-	public static void loadCustomSettings () {
-		DimTransferEvent.loadData (location);
 	}
 }

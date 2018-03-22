@@ -49,6 +49,6 @@ public class ItemRock extends Item {
 
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
-		return I18n.translateToLocal (StoneType.values ()[stack.getItemDamage ()].getName ()) + " " +  I18n.translateToLocal ("item.rock.name") ;
+		return I18n.translateToLocal (StoneType.values ()[stack.getItemDamage ()].getName ()) + " " + I18n.translateToLocal ("item.rock.name");
 	}
 }

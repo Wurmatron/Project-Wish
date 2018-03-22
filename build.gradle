@@ -26,6 +26,7 @@ minecraft {
 
 repositories {
 	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2518/734/[module]-1.12.2-[revision].[ext]"}
+	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2543/287/[module]-1.12.2-[revision].[ext]"}
 }
 
 dependencies {
