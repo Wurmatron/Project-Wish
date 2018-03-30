@@ -66,6 +66,7 @@ public class WishModItems {
 		WishItems.oreGarnierite = registerOre (new ItemOre ("Garnierite"),OreType.GARNIERITE);
 		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
 		WishItems.dustOre = register (new ItemDust ());
+		// Sludge
 		WishItems.sludgeLitium = register (new ItemSludge ("Litium"));
 		WishItems.sludgeAluminum = register (new ItemSludge ("Aluminum"));
 		WishItems.sludgeMagnesium = register (new ItemSludge ("Magnesium"));
@@ -82,6 +83,27 @@ public class WishModItems {
 		WishItems.sludgeThorium = register (new ItemSludge ("Thorium"));
 		WishItems.sludgeNickel = register (new ItemSludge ("Nickel"));
 		WishItems.sludgeCopper = register (new ItemSludge ("Copper"));
+		WishItems.sludgeZinc = register (new ItemSludge ("Zinc"));
+		// Crystal
+		WishItems.crystalOre = register (new ItemCrystal (new String[] {"Litium","Aluminum","Magnesium","Titanium","Iron","Cobalt","Tin","Gold","Lead","Bismuth","Neodynium","Yttrium","Uranium","Thorium","Nickel","Copper"}));
+		// Shard
+		WishItems.shardLitium = register (new ItemShard ("Litium"));
+		WishItems.shardAluminum = register (new ItemShard ("Aluminum"));
+		WishItems.shardMagnesium = register (new ItemShard ("Magnesium"));
+		WishItems.shardTitanium = register (new ItemShard ("Titanium"));
+		WishItems.shardIron = register (new ItemShard ("Iron"));
+		WishItems.shardCobalt = register (new ItemShard ("Cobalt"));
+		WishItems.shardTin = register (new ItemShard ("Tin"));
+		WishItems.shardGold = register (new ItemShard ("Gold"));
+		WishItems.shardLead = register (new ItemShard ("Lead"));
+		WishItems.shardBismuth = register (new ItemShard ("Bismuth"));
+		WishItems.shardNeodynium = register (new ItemShard ("Neodynium"));
+		WishItems.shardYttrium = register (new ItemShard ("Yttrium"));
+		WishItems.shardUranium = register (new ItemShard ("Uranium"));
+		WishItems.shardThorium = register (new ItemShard ("Thorium"));
+		WishItems.shardNickel = register (new ItemShard ("Nickel"));
+		WishItems.shardCopper = register (new ItemShard ("Copper"));
+		WishItems.shardZinc = register (new ItemShard ("Zinc"));
 		// Rocks
 		// TODO Create All Rocks
 		WishItems.itemRock = register (new ItemRock ());

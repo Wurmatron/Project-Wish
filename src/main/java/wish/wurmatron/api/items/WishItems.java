@@ -65,6 +65,8 @@ public class WishItems {
 	public static Item oreGarnierite;
 	public static Item orePentlandite;
 	public static Item dustOre;
+	public static Item crystalOre;
+	// Sludge
 	public static Item sludgeLitium;
 	public static Item sludgeMagnesium;
 	public static Item sludgeAluminum;
@@ -81,7 +83,25 @@ public class WishItems {
 	public static Item sludgeThorium;
 	public static Item sludgeNickel;
 	public static Item sludgeCopper;
-
+	public static Item sludgeZinc;
+	// Shard
+	public static Item shardLitium;
+	public static Item shardMagnesium;
+	public static Item shardAluminum;
+	public static Item shardTitanium;
+	public static Item shardIron;
+	public static Item shardCobalt;
+	public static Item shardTin;
+	public static Item shardGold;
+	public static Item shardLead;
+	public static Item shardBismuth;
+	public static Item shardNeodynium;
+	public static Item shardYttrium;
+	public static Item shardUranium;
+	public static Item shardThorium;
+	public static Item shardNickel;
+	public static Item shardCopper;
+	public static Item shardZinc;
 	// Items
 	public static Item itemRock;
 	public static Item itemMeta;
