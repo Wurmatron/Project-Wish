@@ -4,7 +4,7 @@ import net.minecraft.world.biome.Biome;
 
 public enum OreType {
 
-	PETALITE ("Petalite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},3,GenType.SMALL_CLUSTER),        // Silicon
+	PETALITE ("Petalite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},3,GenType.SMALL_CLUSTER),        // Litium
 	LIGNITE ("Lignite",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},3,GenType.LARGE_CLUSTER),      // Coal (1)
 	BITUMINOUS ("Bituminous",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},2,GenType.LARGE_CLUSTER),// Coal (2)
 	ANTHRACITE ("Anthracite",new StoneType.RockType[] {StoneType.RockType.Metamorphic},new Biome[] {},1,GenType.LARGE_CLUSTER),// Coal (3)

@@ -66,6 +66,22 @@ public class WishModItems {
 		WishItems.oreGarnierite = registerOre (new ItemOre ("Garnierite"),OreType.GARNIERITE);
 		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
 		WishItems.dustOre = register (new ItemDust ());
+		WishItems.sludgeLitium = register (new ItemSludge ("Litium"));
+		WishItems.sludgeAluminum = register (new ItemSludge ("Aluminum"));
+		WishItems.sludgeMagnesium = register (new ItemSludge ("Magnesium"));
+		WishItems.sludgeTitanium = register (new ItemSludge ("Titanium"));
+		WishItems.sludgeIron = register (new ItemSludge ("Iron"));
+		WishItems.sludgeCobalt = register (new ItemSludge ("Cobalt"));
+		WishItems.sludgeTin = register (new ItemSludge ("Tin"));
+		WishItems.sludgeGold = register (new ItemSludge ("Gold"));
+		WishItems.sludgeLead = register (new ItemSludge ("Lead"));
+		WishItems.sludgeBismuth = register (new ItemSludge ("Bismuth"));
+		WishItems.sludgeNeodynium = register (new ItemSludge ("Neodynium"));
+		WishItems.sludgeYttrium = register (new ItemSludge ("Yttrium"));
+		WishItems.sludgeUranium = register (new ItemSludge ("Uranium"));
+		WishItems.sludgeThorium = register (new ItemSludge ("Thorium"));
+		WishItems.sludgeNickel = register (new ItemSludge ("Nickel"));
+		WishItems.sludgeCopper = register (new ItemSludge ("Copper"));
 		// Rocks
 		// TODO Create All Rocks
 		WishItems.itemRock = register (new ItemRock ());

@@ -17,6 +17,7 @@ import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemMeta;
 import wish.wurmatron.common.items.ItemRock;
+import wish.wurmatron.common.items.ItemSludge;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
@@ -94,6 +95,9 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,item.getUnlocalizedName ().substring (5));
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
+		for (Item item : ItemSludge.validSludge)
+			for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
+				createModel (item,index,item.getUnlocalizedName ().substring (5) + ItemSludge.WEIGHTS[index]);
 		for (GemType gem : GemType.values ())
 			if (gem.getId () > 16)
 				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");

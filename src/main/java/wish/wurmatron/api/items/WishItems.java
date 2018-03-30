@@ -65,6 +65,22 @@ public class WishItems {
 	public static Item oreGarnierite;
 	public static Item orePentlandite;
 	public static Item dustOre;
+	public static Item sludgeLitium;
+	public static Item sludgeMagnesium;
+	public static Item sludgeAluminum;
+	public static Item sludgeTitanium;
+	public static Item sludgeIron;
+	public static Item sludgeCobalt;
+	public static Item sludgeTin;
+	public static Item sludgeGold;
+	public static Item sludgeLead;
+	public static Item sludgeBismuth;
+	public static Item sludgeNeodynium;
+	public static Item sludgeYttrium;
+	public static Item sludgeUranium;
+	public static Item sludgeThorium;
+	public static Item sludgeNickel;
+	public static Item sludgeCopper;
 
 	// Items
 	public static Item itemRock;

@@ -113,6 +113,8 @@ display.cobblestone.name=Cobblestone
 display.smooth.name=Smooth
 display.brick.name=Brick
 display.chisel.name=Chiseled
+display.weight.name=Weight
+display.totalWeight.name=Total Weight
 
 # Blocks
 tile.orePetalite.name=Petalite Ore
