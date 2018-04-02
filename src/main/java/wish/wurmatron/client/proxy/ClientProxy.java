@@ -95,6 +95,8 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,item.getUnlocalizedName ().substring (5));
 		for (int index = 0; index < ItemMeta.metaItems.length; index++)
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
+		for (int index = 0; index < OreType.values ().length; index++)
+			createModel (WishItems.dustOre,index,"dust" + OreType.values ()[index].getName ());
 		for (Item item : ItemSludge.validSludge)
 			for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
 				createModel (item,index,item.getUnlocalizedName ().substring (5) + ItemSludge.WEIGHTS[index]);
