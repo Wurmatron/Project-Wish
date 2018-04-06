@@ -1,14 +1,19 @@
 package wish.wurmatron.common.events;
 
 import com.google.common.base.Predicate;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
+import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
+import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.Random;
 
@@ -86,7 +91,7 @@ public class WorldGenOreHelper extends WorldGenerator {
 		return predicate.apply (state);
 	}
 
-	private IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
+	public IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
 		int type = getNext (world,pos).getBlock () instanceof BlockRockType ? getNext (world,pos).getValue (BlockRockType.TYPE) : 0;
 		state.withProperty (BlockRockType.TYPE,type);
 		return state;
@@ -106,6 +111,15 @@ public class WorldGenOreHelper extends WorldGenerator {
 		else if (south.getBlock () instanceof BlockRockType)
 			return south;
 		return world.getBlockState (pos);
+	}
+
+	public static int getMeta (World world,BlockPos pos) {
+		int[] metaLoc = ProjectWish.randRockType.getMeta (world.getChunkFromBlockCoords (pos));
+		return metaLoc[pos.getY () / RandomizeRockTypeEvent.layerHeight];
+	}
+
+	public static Block getRockType(World world, BlockPos pos) {
+		return ProjectWish.randRockType.getState (world,pos).getBlock ();
 	}
 
 	static class StonePredicate implements Predicate <IBlockState> {

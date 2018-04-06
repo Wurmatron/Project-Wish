@@ -67,6 +67,8 @@ public class ProjectWish {
 	@SidedProxy (serverSide = Global.SERVER_PROXY, clientSide = Global.CLIENT_PROXY)
 	public static CommonProxy proxy;
 
+	public static RandomizeRockTypeEvent randRockType;
+
 	@Mod.EventHandler
 	public void onPreInit (FMLPreInitializationEvent e) {
 		ConfigHandler.init (e.getSuggestedConfigurationFile ());
@@ -85,7 +87,8 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
-		MinecraftForge.EVENT_BUS.register (new RandomizeRockTypeEvent ());
+		randRockType = new RandomizeRockTypeEvent();
+		MinecraftForge.EVENT_BUS.register (randRockType);
 		MinecraftForge.ORE_GEN_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new TileOre ());
 		if (Settings.oreDictionary) {

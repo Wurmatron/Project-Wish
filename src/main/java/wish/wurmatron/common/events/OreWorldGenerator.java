@@ -1,6 +1,10 @@
 package wish.wurmatron.common.events;
 
+import com.ferreusveritas.dynamictrees.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -10,8 +14,11 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.WishBlock;
+import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.ArrayList;
@@ -32,11 +39,17 @@ public class OreWorldGenerator implements IWorldGenerator {
 	@Override
 	public void generate (Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider) {
 		int minWeight = random.nextInt (maxWeight);
+		boolean run = false;
 		for (int count = 0; count < Settings.oreRarity; count++) {
 			OreGen check = oreGeneration.get (random.nextInt (oreGeneration.size ()));
 			int y = check.minY != check.maxY ? check.minY + random.nextInt (check.maxY - check.minY) : check.minY;
-			if (canGen (world,check,minWeight,getGenType (world,new BlockPos (chunkX * 16,y,(chunkZ * 16)))) && random.nextInt (5) < check.oreType.getRarity ())
+			StoneType.RockType type = getGenType (world,new BlockPos (chunkX * 16,y,(chunkZ * 16)));
+			if (canGen (world,check,minWeight,type) && random.nextInt (5) < check.oreType.getRarity ())
 				check.helper.generate (world,random,new BlockPos (chunkX * 16 + 8,y,chunkZ * 16 + 8));
+			if (!run) {
+				generateGround (random,chunkX,chunkZ,world);
+				run = true;
+			}
 		}
 	}
 
@@ -70,6 +83,30 @@ public class OreWorldGenerator implements IWorldGenerator {
 			return StoneType.RockType.Metamorphic;
 		else
 			return StoneType.RockType.Sedimentary;
+	}
+
+	private void generateGround (Random rand,int chunkX,int chunkZ,World world) {
+		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk); i++) {
+			int x = chunkX * 16 + rand.nextInt (16) + 8;
+			int z = chunkZ * 16 + rand.nextInt (16) + 8;
+			BlockPos pos = world.getTopSolidOrLiquidBlock (new BlockPos (x,0,z)).down ();
+			Block block = world.getBlockState (pos).getBlock ();
+			if (isRockSpawnable (block))
+				if (world.isAirBlock (pos.up ()))
+					world.setBlockState (pos.up (),getRock (WorldGenOreHelper.getRockType (world,pos)).getStateFromMeta (WorldGenOreHelper.getMeta (world,pos)),3);
+		}
+	}
+
+	private Block getRock (Block block) {
+		if (block == WishBlocks.stoneMetamorphic)
+			return WishBlocks.rockMetamorphic;
+		else if (block == WishBlocks.stoneSedimentary)
+			return WishBlocks.rockSedimentary;
+		return WishBlocks.rockIgneous;
+	}
+
+	private boolean isRockSpawnable (Block block) {
+		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType;
 	}
 
 	public class OreGen {

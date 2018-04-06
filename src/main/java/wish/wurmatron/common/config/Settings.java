@@ -10,4 +10,6 @@ public class Settings {
 	public static int gemRarity;
 	public static boolean oreDictionary;
 	public static int oreRarity;
+	public static int rocksPerChunk;
+	public static int sticksPerChunk;
 }

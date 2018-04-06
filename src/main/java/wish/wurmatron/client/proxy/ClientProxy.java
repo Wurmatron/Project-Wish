@@ -78,6 +78,11 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.gravelIgneous,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 		}
+		for(int index = 0; index < 9;index++) {
+			createModel (WishBlocks.rockIgneous,0,"rockIgneous");
+			createModel (WishBlocks.rockMetamorphic,0,"rockMetamorphic");
+			createModel (WishBlocks.rockSedimentary,0,"rockSedimentary");
+		}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
 				createModel (Registry.blockOre.get (ore),index,Registry.blockOre.get (ore).getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
@@ -87,7 +92,7 @@ public class ClientProxy extends CommonProxy {
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + ItemGem.getGrade (meta));
 			} else if (item instanceof ItemRock) {
 				for (int meta = 0; meta < StoneType.values ().length; meta++)
-					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + StoneType.values ()[meta]);
+					createModel (item,meta,"rock" + StoneType.values ()[meta]);
 			} else if (item.getUnlocalizedName ().contains ("itemOre")) {
 				for (int meta = 0; meta < 5; meta++)
 					createModel (item,meta,item.getUnlocalizedName ().substring (5) + "_" + meta);

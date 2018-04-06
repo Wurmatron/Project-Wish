@@ -12,6 +12,7 @@ import wish.wurmatron.common.blocks.stone.*;
 import wish.wurmatron.common.blocks.terra.BlockGravel;
 import wish.wurmatron.common.blocks.terra.BlockSand;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**
@@ -72,6 +73,11 @@ public class WishModBlocks {
 		// Gem
 		WishBlocks.gemBlock = register (new BlockGem (Material.IRON).setUnlocalizedName ("blockGem"),GemType.AMBER);
 		WishBlocks.gemBlock2 = register (new BlockGem2 (Material.IRON).setUnlocalizedName ("blockGem2"),GemType.QUARTZ);
+		// Rocks
+		WishBlocks.rockIgneous = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockIgneous"),StoneType.RockType.Igneous);
+		WishBlocks.rockSedimentary = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.rockMetamorphic = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockMetamorphic"),StoneType.RockType.Metamorphic);
+
 		// Tiles
 		GameRegistry.registerTileEntity (TileOre.class,"tileOre");
 	}

@@ -12,6 +12,7 @@ import wish.wurmatron.common.world.DimTransferEvent;
 
 import java.io.File;
 
+// TODO New Config System
 public class ConfigHandler {
 
 	public static File location;
@@ -41,6 +42,8 @@ public class ConfigHandler {
 		Settings.gemRarity = global.getInt (Global.GEM_RARITY,Configuration.CATEGORY_GENERAL,1000,1,1000000,Global.GEM_RARITY_COMMMENT);
 		Settings.oreDictionary = global.getBoolean (Global.ORE_DICT,Configuration.CATEGORY_GENERAL,true,Global.ORE_DICT_COMMENT);
 		Settings.oreRarity = global.getInt (Global.ORE_RARITY,Configuration.CATEGORY_GENERAL,5,1,100,Global.ORE_RARITY_COMMENT);
+		Settings.rocksPerChunk = global.getInt ("rocksPerChunk", Configuration.CATEGORY_GENERAL,10,0,10000,Global.ROCKS_PER_CHUNK_COMMENT);
+		Settings.sticksPerChunk = global.getInt ("sticksPerChunk", Configuration.CATEGORY_GENERAL,20,0,10000,Global.STICKS_PER_CHUNK_COMMENT);
 
 		if (global.hasChanged ()) {
 			global.save ();

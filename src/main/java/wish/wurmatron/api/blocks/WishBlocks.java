@@ -60,4 +60,8 @@ public class WishBlocks {
 	// Gem
 	public static Block gemBlock;
 	public static Block gemBlock2;
+	// Ground
+	public static Block rockIgneous;
+	public static Block rockMetamorphic;
+	public static Block rockSedimentary;
 }
