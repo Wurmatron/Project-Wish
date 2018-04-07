@@ -113,7 +113,24 @@ item.dustBismuthinite.name=Bismuthinite Dust
 item.dustMonazite.name=Monazite Dust
 item.dustUranium.name=Uranium Dust
 item.dustGarnierite.name=Garnierite Dust
-itme.dustPentlandite.name=Pentlandite Dust
+item.dustPentlandite.name=Pentlandite Dust
+item.sludgeLitium.name=Litium Sludge
+item.sludgeAluminum.name=Aluminum Sludge
+item.sludgeMagnesium.name=Magnesium Sludge
+item.sludgeTitanium.name=Titanium Sludge
+item.sludgeIron.name=Iron Sludge
+item.sludgeCobalt.name=Cobalt Sludge
+item.sludgeTin.name=Tin Sludge
+item.sludgeCopper.name=Copper Sludge
+item.sludgeGold.name=Gold Sludge
+item.sludgeLead.name=Lead Sludge
+item.sludgeBismuth.name=Bismuth Sludge
+item.sludgeNeodynium.name=Neodynium Sludge
+item.sludgeYttrium.name=Yttrium Sludge
+item.sludgeUranium.name=Uranium Sludge
+item.sludgeThorium.name=Thorium Sludge
+item.sludgeNickel.name=Nickel Sludge
+item.sludgeZinc.name=Zinc Sludge
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

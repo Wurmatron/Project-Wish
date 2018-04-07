@@ -1,5 +1,7 @@
 package wish.wurmatron.client.proxy;
 
+import com.google.common.io.Files;
+import joptsimple.internal.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -21,6 +23,12 @@ import wish.wurmatron.common.items.ItemSludge;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  Client-Side Proxy
  */
@@ -35,7 +43,34 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	private static void createModel (Item item,int meta,String name) {
+		if (name.contains ("sludge")) {
+			export (name,meta);
+		}
 		ModelLoader.setCustomModelResourceLocation (item,meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
+	}
+
+	public static void export (String name,int meta) {
+		String fileName = name.contains ("_") ? name.toLowerCase () : name.toLowerCase () + "_" + meta;
+		File exportLoc = new File ("C:\\Users\\Wurmatron\\Desktop\\export" + File.separator);
+		exportLoc.mkdirs ();
+		File templateLoc = new File ("C:\\Users\\Wurmatron\\Documents\\Workspaces\\Project-Wish\\src\\main\\resources\\assets\\wish\\models\\item\\sludgelitium0.json");
+		File tempFile = new File (exportLoc + File.separator + fileName + ".json");
+		try {
+			tempFile.createNewFile ();
+			List <String> line = Files.readLines (templateLoc,Charset.defaultCharset ());
+			List <String> formattedLines = new ArrayList <> ();
+			for (String l : line) {
+				l = l.replaceAll ("sludgelitium",name);
+				if (meta > 12)
+					l = l.replaceAll ("small","large");
+				if (meta > 4)
+					l = l.replaceAll ("small","medium");
+				formattedLines.add (l);
+			}
+			Files.write (Strings.join (formattedLines.toArray (new String[0]),"\n").getBytes (),tempFile);
+		} catch (IOException e) {
+			e.printStackTrace ();
+		}
 	}
 
 	@Override
@@ -78,7 +113,7 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.gravelIgneous,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 		}
-		for(int index = 0; index < 9;index++) {
+		for (int index = 0; index < 9; index++) {
 			createModel (WishBlocks.rockIgneous,0,"rockIgneous");
 			createModel (WishBlocks.rockMetamorphic,0,"rockMetamorphic");
 			createModel (WishBlocks.rockSedimentary,0,"rockSedimentary");
@@ -104,7 +139,7 @@ public class ClientProxy extends CommonProxy {
 			createModel (WishItems.dustOre,index,"dust" + OreType.values ()[index].getName ());
 		for (Item item : ItemSludge.validSludge)
 			for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
-				createModel (item,index,item.getUnlocalizedName ().substring (5) + ItemSludge.WEIGHTS[index]);
+				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
 		for (GemType gem : GemType.values ())
 			if (gem.getId () > 16)
 				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");

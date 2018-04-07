@@ -1,0 +1,6 @@
+{
+  "parent": "wish:item/basic_item",
+  "textures": {
+    "layer0": "wish:items/sludgeUranium_large"
+  }
+}
