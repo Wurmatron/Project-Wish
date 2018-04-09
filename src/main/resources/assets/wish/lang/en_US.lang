@@ -131,6 +131,23 @@ item.sludgeUranium.name=Uranium Sludge
 item.sludgeThorium.name=Thorium Sludge
 item.sludgeNickel.name=Nickel Sludge
 item.sludgeZinc.name=Zinc Sludge
+item.shardLitium.name=Litium Shard
+item.shardAluminum.name=Aluminum Shard
+item.shardMagnesium.name=Magnesium Shard
+item.shardTitanium.name=Titanium Shard
+item.shardIron.name=Iron Shard
+item.shardCobalt.name=Cobalt Shard
+item.shardTin.name=Tin Shard
+item.shardCopper.name=Copper Shard
+item.shardGold.name=Gold Shard
+item.shardLead.name=Lead Shard
+item.shardBismuth.name=Bismuth Shard
+item.shardNeodynium.name=Neodynium Shard
+item.shardYttrium.name=Yttrium Shard
+item.shardUranium.name=Uranium Shard
+item.shardThorium.name=Thorium Shard
+item.shardNickel.name=Nickel Shard
+item.shardZinc.name=Zinc Shard
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

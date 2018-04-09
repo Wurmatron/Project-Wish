@@ -11,7 +11,9 @@ import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.GemType;
+import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.items.ItemGem;
@@ -40,6 +42,9 @@ public class WorldEvents {
 					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
+		if(e.getState ().getBlock () == WishBlocks.stoneSedimentary)
+			if(e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
+				e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
 
 	@SubscribeEvent

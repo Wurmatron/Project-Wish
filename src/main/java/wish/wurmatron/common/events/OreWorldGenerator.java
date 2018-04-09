@@ -95,6 +95,15 @@ public class OreWorldGenerator implements IWorldGenerator {
 				if (world.isAirBlock (pos.up ()))
 					world.setBlockState (pos.up (),getRock (WorldGenOreHelper.getRockType (world,pos)).getStateFromMeta (WorldGenOreHelper.getMeta (world,pos)),3);
 		}
+		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk * 2); i++) {
+			int x = chunkX * 16 + rand.nextInt (16) + 8;
+			int z = chunkZ * 16 + rand.nextInt (16) + 8;
+			BlockPos pos = world.getTopSolidOrLiquidBlock (new BlockPos (x,0,z)).down ();
+			Block block = world.getBlockState (pos).getBlock ();
+			if (isRockSpawnable (block))
+				if (world.isAirBlock (pos.up ()))
+					world.setBlockState (pos.up (),WishBlocks.stick.getDefaultState (),3);
+		}
 	}
 
 	private Block getRock (Block block) {

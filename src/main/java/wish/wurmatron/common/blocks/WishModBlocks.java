@@ -74,9 +74,10 @@ public class WishModBlocks {
 		WishBlocks.gemBlock = register (new BlockGem (Material.IRON).setUnlocalizedName ("blockGem"),GemType.AMBER);
 		WishBlocks.gemBlock2 = register (new BlockGem2 (Material.IRON).setUnlocalizedName ("blockGem2"),GemType.QUARTZ);
 		// Rocks
-		WishBlocks.rockIgneous = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockIgneous"),StoneType.RockType.Igneous);
-		WishBlocks.rockSedimentary = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockSedimentary"),StoneType.RockType.Sedimentary);
-		WishBlocks.rockMetamorphic = register (new BlockRock (Material.IRON,9).setUnlocalizedName ("rockMetamorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.rockIgneous = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockIgneous"),StoneType.RockType.Igneous);
+		WishBlocks.rockSedimentary = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockSedimentary"),StoneType.RockType.Sedimentary);
+		WishBlocks.rockMetamorphic = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockMetamorphic"),StoneType.RockType.Metamorphic);
+		WishBlocks.stick = register (new BlockStick (Material.GRASS).setUnlocalizedName ("stick"), "stick");
 
 		// Tiles
 		GameRegistry.registerTileEntity (TileOre.class,"tileOre");
@@ -94,6 +95,11 @@ public class WishModBlocks {
 
 	private static Block register (Block block,OreType type) {
 		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
+		return block;
+	}
+
+	private static Block register (Block block,String registryName) {
+		Registry.registerBlock (block,registryName);
 		return block;
 	}
 }

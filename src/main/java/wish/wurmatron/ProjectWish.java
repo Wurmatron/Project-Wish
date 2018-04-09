@@ -75,8 +75,6 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new Registry ());
 		WishModBlocks.registerBlocks ();
 		WishModItems.registerItems ();
-		//		if (Loader.isModLoaded ("dynamictrees"))
-		//			DynamicTreesIntergration.init ();
 		proxy.preInit ();
 		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID,"throwingRock"),EntityThrowingRock.class,"throwingRock",0,instance,64,10,true);
 	}
@@ -101,10 +99,6 @@ public class ProjectWish {
 					OreDictionary.registerOre ("sand",block);
 				else if (block.getUnlocalizedName ().contains ("gravel"))
 					OreDictionary.registerOre ("gravel",block);
-				else if (block.getUnlocalizedName ().contains ("log"))
-					OreDictionary.registerOre ("logWood",block);
-				else if (block.getUnlocalizedName ().contains ("plank"))
-					OreDictionary.registerOre ("plankWood",block);
 			for (GemType gem : GemType.values ())
 				for (int index = 0; index < 6; index++)
 					OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));

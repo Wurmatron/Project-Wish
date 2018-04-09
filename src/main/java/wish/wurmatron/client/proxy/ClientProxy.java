@@ -16,10 +16,7 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
-import wish.wurmatron.common.items.ItemGem;
-import wish.wurmatron.common.items.ItemMeta;
-import wish.wurmatron.common.items.ItemRock;
-import wish.wurmatron.common.items.ItemSludge;
+import wish.wurmatron.common.items.*;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 
@@ -43,35 +40,9 @@ public class ClientProxy extends CommonProxy {
 	}
 
 	private static void createModel (Item item,int meta,String name) {
-		if (name.contains ("sludge")) {
-			export (name,meta);
-		}
 		ModelLoader.setCustomModelResourceLocation (item,meta,new ModelResourceLocation (Global.MODID + ":" + name,"inventory"));
 	}
 
-	public static void export (String name,int meta) {
-		String fileName = name.contains ("_") ? name.toLowerCase () : name.toLowerCase () + "_" + meta;
-		File exportLoc = new File ("C:\\Users\\Wurmatron\\Desktop\\export" + File.separator);
-		exportLoc.mkdirs ();
-		File templateLoc = new File ("C:\\Users\\Wurmatron\\Documents\\Workspaces\\Project-Wish\\src\\main\\resources\\assets\\wish\\models\\item\\sludgelitium0.json");
-		File tempFile = new File (exportLoc + File.separator + fileName + ".json");
-		try {
-			tempFile.createNewFile ();
-			List <String> line = Files.readLines (templateLoc,Charset.defaultCharset ());
-			List <String> formattedLines = new ArrayList <> ();
-			for (String l : line) {
-				l = l.replaceAll ("sludgelitium",name);
-				if (meta > 12)
-					l = l.replaceAll ("small","large");
-				if (meta > 4)
-					l = l.replaceAll ("small","medium");
-				formattedLines.add (l);
-			}
-			Files.write (Strings.join (formattedLines.toArray (new String[0]),"\n").getBytes (),tempFile);
-		} catch (IOException e) {
-			e.printStackTrace ();
-		}
-	}
 
 	@Override
 	public void preInit () {
@@ -140,6 +111,9 @@ public class ClientProxy extends CommonProxy {
 		for (Item item : ItemSludge.validSludge)
 			for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
 				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
+		for (Item item : ItemShard.valid)
+			for (int index = 0; index < ItemShard.WEIGHTS.length; index++)
+				createModel (item,index,item.getUnlocalizedName ().substring (5)+ "_" + index);
 		for (GemType gem : GemType.values ())
 			if (gem.getId () > 16)
 				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");
