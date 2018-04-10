@@ -1,31 +1,31 @@
 {
   "variants": {
     "type=0": {
-      "model": "wish:orepetalite_gabbro"
+      "model": "wish:orecobaltite_gabbro"
     },
     "type=1": {
-      "model": "wish:orepetalite_granite"
+      "model": "wish:orecobaltite_granite"
     },
     "type=2": {
-      "model": "wish:orepetalite_pegmatite"
+      "model": "wish:orecobaltite_pegmatite"
     },
     "type=3": {
-      "model": "wish:orepetalite_diorite"
+      "model": "wish:orecobaltite_diorite"
     },
     "type=4": {
-      "model": "wish:orepetalite_andesite"
+      "model": "wish:orecobaltite_andesite"
     },
     "type=5": {
-      "model": "wish:orepetalite_basalt"
+      "model": "wish:orecobaltite_basalt"
     },
     "type=6": {
-      "model": "wish:orepetalite_obsidian"
+      "model": "wish:orecobaltite_obsidian"
     },
     "type=7": {
-      "model": "wish:orepetalite_rhyolite"
+      "model": "wish:orecobaltite_rhyolite"
     },
     "type=8": {
-      "model": "wish:orepetalite_scoria"
+      "model": "wish:orecobaltite_scoria"
     },
     "type=9": {
       "model": "wish:ore_default"

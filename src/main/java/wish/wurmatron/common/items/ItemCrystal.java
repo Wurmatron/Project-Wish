@@ -9,12 +9,12 @@ import wish.wurmatron.ProjectWish;
 
 public class ItemCrystal extends Item {
 
-	private final String[] metaItems;
+	public static String[] metaItems;
 
 	public ItemCrystal (String[] items) {
 		setCreativeTab (CreativeTabs.MATERIALS);
 		setHasSubtypes (true);
-		this.metaItems = items;
+		metaItems = items;
 		setUnlocalizedName ("crystal");
 	}
 
@@ -28,7 +28,7 @@ public class ItemCrystal extends Item {
 	@Override
 	public String getItemStackDisplayName (ItemStack stack) {
 		if (stack.getItemDamage () < metaItems.length)
-			return I18n.translateToLocal ("item." + metaItems[stack.getItemDamage ()] + ".name");
+			return I18n.translateToLocal ("item.crystal" + metaItems[stack.getItemDamage ()] + ".name");
 		return "item.null.name";
 	}
 }

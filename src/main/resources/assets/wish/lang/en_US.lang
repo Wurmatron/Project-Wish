@@ -148,6 +148,25 @@ item.shardUranium.name=Uranium Shard
 item.shardThorium.name=Thorium Shard
 item.shardNickel.name=Nickel Shard
 item.shardZinc.name=Zinc Shard
+item.crystalLitium.name=Litium Crystal
+item.crystalAluminum.name=Aluminum Crystal
+item.crystalMagnesium.name=Magnesium Crystal
+item.crystalTitanium.name=Titanium Crystal
+item.crystalIron.name=Iron Crystal
+item.crystalCobalt.name=Cobalt Crystal
+item.crystalTin.name=Tin Crystal
+item.crystalGold.name=Gold Crystal
+item.crystalLead.name=Lead Crystal
+item.crystalBismuth.name=Bismuth Crystal
+item.crystalNeodynium.name=Neodynium Crystal
+item.crystalYttrium.name=Yttrium Crystal
+item.crystalUranium.name=Uranium Crystal
+item.crystalThorium.name=Thorium Crystal
+item.crystalNickel.name=Nickel Crystal
+item.crystalCopper.name=Copper Crystal
+item.crystalGold.name=Gold Crystal
+item.crystalLead.name=Lead Crystal
+item.crystalBismuth.name=Bismuth Crystal
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical

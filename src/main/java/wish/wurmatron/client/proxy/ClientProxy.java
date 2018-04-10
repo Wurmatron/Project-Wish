@@ -113,7 +113,9 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
 		for (Item item : ItemShard.valid)
 			for (int index = 0; index < ItemShard.WEIGHTS.length; index++)
-				createModel (item,index,item.getUnlocalizedName ().substring (5)+ "_" + index);
+				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
+		for (int index = 0; index < ItemCrystal.metaItems.length; index++)
+			createModel (WishItems.crystalOre,index,"crystal" + ItemCrystal.metaItems[index]);
 		for (GemType gem : GemType.values ())
 			if (gem.getId () > 16)
 				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");
