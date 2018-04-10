@@ -1,5 +1,6 @@
 package wish.wurmatron.common.blocks.stone;
 
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -18,6 +19,10 @@ public class BlockChisel extends BlockRockType {
 	public BlockChisel (Material material,int amount) {
 		super (material);
 		this.amount = amount;
+		setHardness (1.5f);
+		setResistance (10f);
+		setHarvestLevel ("pickaxe",1);
+		setSoundType (SoundType.STONE);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -75,13 +76,17 @@ public class BlockRock extends BlockRockType {
 		return true;
 	}
 
+	public Item getItemDropped (IBlockState state,Random rand,int fortune) {
+		return WishItems.itemRock;
+	}
+
 	@Override
-	public void breakBlock (World world,BlockPos pos,IBlockState state) {
+	public int damageDropped (IBlockState state) {
 		if (state.getBlock () == WishBlocks.rockSedimentary)
-			world.spawnEntity (new EntityItem (world,pos.getX () + .5,pos.getY () + .5,pos.getZ () + .5,new ItemStack (WishItems.itemRock,1,state.getValue (BlockRockType.TYPE))));
+			return state.getValue (BlockRockType.TYPE);
 		else if (state.getBlock () == WishBlocks.rockIgneous)
-			world.spawnEntity (new EntityItem (world,pos.getX () + .5,pos.getY () + .5,pos.getZ () + .5,new ItemStack (WishItems.itemRock,1,18 + state.getValue (BlockRockType.TYPE))));
+			return 18 + state.getValue (BlockRockType.TYPE);
 		else
-			world.spawnEntity (new EntityItem (world,pos.getX () + .5,pos.getY () + .5,pos.getZ () + .5,new ItemStack (WishItems.itemRock,1,9 + state.getValue (BlockRockType.TYPE))));
+			return 9 + state.getValue (BlockRockType.TYPE);
 	}
 }

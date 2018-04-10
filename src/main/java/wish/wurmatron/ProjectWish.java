@@ -88,7 +88,6 @@ public class ProjectWish {
 		randRockType = new RandomizeRockTypeEvent();
 		MinecraftForge.EVENT_BUS.register (randRockType);
 		MinecraftForge.ORE_GEN_BUS.register (new WorldEvents ());
-		MinecraftForge.EVENT_BUS.register (new TileOre ());
 		if (Settings.oreDictionary) {
 			for (Block block : Registry.blocks)
 				if (block.getUnlocalizedName ().contains ("stone"))

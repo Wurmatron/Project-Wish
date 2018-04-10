@@ -20,7 +20,7 @@ public class ItemRock extends Item {
 	public ItemRock () {
 		setCreativeTab (ProjectWish.Items);
 		setUnlocalizedName ("throwingRock");
-		setMaxStackSize (1);
+		setMaxStackSize (64);
 		setMaxDamage (1);
 		setMaxDamage (-1);
 		hasSubtypes = true;
@@ -35,7 +35,7 @@ public class ItemRock extends Item {
 			rock.addVelocity (player.getLookVec ().x * 2,player.getLookVec ().y * 2,player.getLookVec ().z * 2);
 			world.spawnEntity (rock);
 			if (!player.isCreative ())
-				setDamage (player.getHeldItem (hand),1);
+				player.getHeldItem (hand).setCount (player.getHeldItem (hand).getCount () - 1);
 		}
 		return new ActionResult <> (EnumActionResult.SUCCESS,player.getHeldItem (hand));
 	}

@@ -1,6 +1,7 @@
 package wish.wurmatron.common.blocks;
 
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,6 +20,7 @@ import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import javax.annotation.Nullable;
@@ -34,6 +36,10 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 		super (material);
 		this.type = type;
 		setCreativeTab (ProjectWish.BLOCKS);
+		setHardness (1.5f);
+		setResistance (30f);
+		setHarvestLevel ("pickaxe",0);
+		setSoundType (SoundType.GROUND);
 	}
 
 	public static String[] getOreNames (OreType type) {
@@ -63,5 +69,4 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	public TileEntity createNewTileEntity (World world,int meta) {
 		return new TileOre (type,3);
 	}
-
 }

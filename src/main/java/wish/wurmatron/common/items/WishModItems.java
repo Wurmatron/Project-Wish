@@ -9,7 +9,7 @@ import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
 
-	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,1,50,0);
+	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,3,50,0);
 
 	public static void registerItems () {
 		// Gems

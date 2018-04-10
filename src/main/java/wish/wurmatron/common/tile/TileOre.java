@@ -8,6 +8,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 public class TileOre extends TileEntity {
@@ -29,26 +30,23 @@ public class TileOre extends TileEntity {
 		try {
 			oreType = OreType.valueOf (nbt.getString ("type"));
 		} catch (IllegalArgumentException e) {
-			oreType = OreType.ANTHRACITE;
+			oreType = OreType.LIGNITE;
 		}
 		tier = nbt.getInteger ("tier");
 	}
 
 	@Override
 	public NBTTagCompound writeToNBT (NBTTagCompound nbt) {
-		super.writeToNBT (nbt);
 		nbt.setString ("type",oreType.name ());
 		nbt.setInteger ("tier",tier);
-		return nbt;
+		return super.writeToNBT (nbt);
 	}
 
 	public int getTier () {
 		return tier;
 	}
 
-	@SubscribeEvent
-	public void onBlockBreak (BlockEvent.BreakEvent e) {
-		if (e.getState ().getBlock () instanceof BlockOre)
-			e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX (),e.getPos ().getY () + .5,e.getPos ().getZ (),new ItemStack (Registry.itemOre.get (oreType),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
+	public OreType getOreType () {
+		return oreType;
 	}
 }
