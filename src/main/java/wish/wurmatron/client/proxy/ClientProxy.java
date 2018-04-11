@@ -16,6 +16,7 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.items.*;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;

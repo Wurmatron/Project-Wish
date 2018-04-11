@@ -9,6 +9,8 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -39,7 +41,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 		setHardness (1.5f);
 		setResistance (30f);
 		setHarvestLevel ("pickaxe",0);
-		setSoundType (SoundType.GROUND);
+		setSoundType (SoundType.STONE);
 	}
 
 	public static String[] getOreNames (OreType type) {
@@ -68,5 +70,10 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	@Override
 	public TileEntity createNewTileEntity (World world,int meta) {
 		return new TileOre (type,3);
+	}
+
+	@Override
+	public BlockRenderLayer getBlockLayer () {
+		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 }

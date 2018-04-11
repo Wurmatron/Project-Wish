@@ -30,8 +30,8 @@ public class Global {
 	public static final String ORE_DICT_COMMENT = "Add Block and Items To Forge OreDictionary";
 	public static final String ORE_RARITY = "oreRarity";
 	public static final String ORE_RARITY_COMMENT = "Rarity Of Ore (Higher is More, but also increases generation time)";
-	public static final String ORESTAGES = "debug";
-	public static final String ORESTAGES_COMMENT = "Enable Ore Stages mode";
 	public static final String ROCKS_PER_CHUNK_COMMENT = "The amount of rocks per chunk";
 	public static final String STICKS_PER_CHUNK_COMMENT = "The amount of sticks per chunk";
+	public static final String FUN_BLOCK = "funBlocks";
+	public static final String FUN_BLOCK_COMMENT = "Don't you like fun?";
 }

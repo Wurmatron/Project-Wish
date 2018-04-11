@@ -46,8 +46,8 @@ public class WorldEvents {
 					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
-		if(e.getState ().getBlock () == WishBlocks.stoneSedimentary)
-			if(e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
+		if (Settings.funBlocks && e.getState ().getBlock () == WishBlocks.stoneSedimentary)
+			if (e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
 				e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
 
@@ -68,7 +68,7 @@ public class WorldEvents {
 	public void onBlockBreakOre (BlockEvent.BreakEvent e) {
 		if (e.getState () != null && e.getState ().getBlock () instanceof BlockOre) {
 			TileOre tile = ((TileOre) e.getWorld ().getTileEntity (e.getPos ()));
-			e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + 2,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
+			e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
 		}
 	}
 }

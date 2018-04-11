@@ -37,7 +37,7 @@ public class WorldGenOreHelper extends WorldGenerator {
 
 	@Override
 	public boolean generate (World world,Random rand,BlockPos position) {
-		int oreTier = rand.nextInt (3) + 1;
+		int oreTier = rand.nextInt (4) ;
 		float f = rand.nextFloat () * (float) Math.PI;
 		double d0 = (double) ((float) (position.getX ()) + MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
 		double d1 = (double) ((float) (position.getX ()) - MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
