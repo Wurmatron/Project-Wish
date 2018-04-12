@@ -1,10 +1,8 @@
 package wish.wurmatron.common.events;
 
-import com.ferreusveritas.dynamictrees.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -13,13 +11,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import wish.wurmatron.api.blocks.WishBlocks;
-import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.ArrayList;

@@ -14,9 +14,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import wish.wurmatron.api.blocks.WishBlocks;
-import wish.wurmatron.api.items.WishItems;
-import wish.wurmatron.common.blocks.stone.BlockRockType;
 
 public class BlockStick extends Block {
 

@@ -9,10 +9,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.Random;

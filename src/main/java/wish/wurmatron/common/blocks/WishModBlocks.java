@@ -12,7 +12,6 @@ import wish.wurmatron.common.blocks.stone.*;
 import wish.wurmatron.common.blocks.terra.BlockGravel;
 import wish.wurmatron.common.blocks.terra.BlockSand;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 /**

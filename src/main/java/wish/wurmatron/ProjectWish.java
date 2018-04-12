@@ -121,7 +121,6 @@ public class ProjectWish {
 				else if (ore.getGenerationType () == OreType.GenType.SINGLE)
 					veinSize = 1;
 				WishWorldGenerator.addOreGen (block.getDefaultState (),veinSize,0,255,ore.getRarity () * 15);
-				//				WishWorldGenerator.addOreGen (new WishWorldGenerator ().new OreGen (new int[] {-1,1},10,128,ore,veinSize,block.getDefaultState ()));
 			} catch (NoSuchFieldException | IllegalAccessException f) {
 				f.printStackTrace ();
 			}

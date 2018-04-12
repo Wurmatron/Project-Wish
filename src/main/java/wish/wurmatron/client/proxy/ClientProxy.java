@@ -1,7 +1,5 @@
 package wish.wurmatron.client.proxy;
 
-import com.google.common.io.Files;
-import joptsimple.internal.Strings;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -16,16 +14,9 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
-import wish.wurmatron.common.blocks.WishBlock;
 import wish.wurmatron.common.items.*;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  Client-Side Proxy

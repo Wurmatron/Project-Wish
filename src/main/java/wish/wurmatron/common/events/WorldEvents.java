@@ -5,7 +5,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -19,7 +18,6 @@ import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.ArrayList;
@@ -46,8 +44,7 @@ public class WorldEvents {
 					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
-		if (Settings.funBlocks && e.getState ().getBlock () == WishBlocks.stoneSedimentary)
-			if (e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
+		if (Settings.funBlocks && e.getState ().getBlock () == WishBlocks.stoneSedimentary && e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
 				e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
 

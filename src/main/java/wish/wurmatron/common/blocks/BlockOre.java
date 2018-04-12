@@ -5,25 +5,17 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
-import wish.wurmatron.common.utils.Registry;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -45,7 +37,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	}
 
 	public static String[] getOreNames (OreType type) {
-		List <String> names = new ArrayList <> ();
+		List<String> names = new ArrayList<> ();
 		if (type.getOreType ().length > 0)
 			for (StoneType.RockType oreType : type.getOreType ())
 				for (StoneType rock : StoneType.values ())
@@ -56,7 +48,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	}
 
 	@Override
-	public void getSubBlocks (CreativeTabs tab,NonNullList <ItemStack> list) {
+	public void getSubBlocks (CreativeTabs tab,NonNullList<ItemStack> list) {
 		for (int m = 0; m < getOreNames (type).length; m++)
 			list.add (new ItemStack (this,1,m));
 	}

@@ -1,10 +1,7 @@
 package wish.wurmatron.common.blocks.terra;
 
-import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockCactus;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
@@ -16,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.common.IPlantable;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.utils.Registry;
 
