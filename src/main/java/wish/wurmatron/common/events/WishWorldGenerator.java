@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
@@ -25,46 +26,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class OreWorldGenerator implements IWorldGenerator {
+public class WishWorldGenerator implements IWorldGenerator {
 
 	private static List <OreGen> oreGeneration = new ArrayList <> ();
 	private static int maxWeight = 0;
 
-	public static void add (OreGen gen) {
+	public static void addOreGen (IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
+		if (weight > maxWeight)
+			maxWeight = weight;
+		OreGen gen = new OreGen (state,maxVeinSize,minY,maxY,weight);
 		oreGeneration.add (gen);
-		if (gen.oreType.getRarity () > maxWeight)
-			maxWeight = gen.oreType.getRarity ();
 	}
 
 	@Override
 	public void generate (Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider) {
-		int minWeight = random.nextInt (maxWeight);
-		boolean run = false;
-		for (int count = 0; count < Settings.oreRarity; count++) {
-			OreGen check = oreGeneration.get (random.nextInt (oreGeneration.size ()));
-			int y = check.minY != check.maxY ? check.minY + random.nextInt (check.maxY - check.minY) : check.minY;
-			StoneType.RockType type = getGenType (world,new BlockPos (chunkX * 16,y,(chunkZ * 16)));
-			if (canGen (world,check,minWeight,type) && random.nextInt (5) < check.oreType.getRarity ())
-				check.helper.generate (world,random,new BlockPos (chunkX * 16 + 8,y,chunkZ * 16 + 8));
-			if (!run) {
-				generateGround (random,chunkX,chunkZ,world);
-				run = true;
-			}
-		}
-	}
-
-	private boolean canGen (World world,OreGen ore,int currentWeight,StoneType.RockType genType) {
-		if (ore.oreType.getRarity () < currentWeight)
-			return false;
-		if (ore.blacklistDim != null)
-			for (int dim : ore.blacklistDim)
-				if (world.provider.getDimension () == dim)
-					return false;
-		boolean valid = false;
-		for (StoneType.RockType type : ore.oreType.getOreType ())
-			if (type.equals (genType))
-				valid = true;
-		return ore.helper.check (ore.helper.oreBlock) && valid;
+		generateGround (random,chunkX,chunkZ,world);
+		if (oreGeneration.size () > 0)
+			for(int i = 0; i < 1 + random.nextInt (3) ; i++)
+			oreGeneration.get (random.nextInt (oreGeneration.size ())).generate (world,random,(chunkX * 16),(chunkZ * 16));
 	}
 
 	private StoneType.RockType getGenType (World world,BlockPos pos) {
@@ -118,20 +97,27 @@ public class OreWorldGenerator implements IWorldGenerator {
 		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType;
 	}
 
-	public class OreGen {
+	public static class OreGen {
 
-		private int[] blacklistDim;
-		private int minY;
-		private int maxY;
-		private OreType oreType;
-		private WorldGenOreHelper helper;
+		WorldGenMinable pluton;
+		IBlockState state;
+		int minY;
+		int maxY;
+		int weight;
 
-		public OreGen (int[] blacklistDim,int minY,int maxY,OreType oreType,int maxVeinSize,IBlockState state) {
-			this.blacklistDim = blacklistDim;
-			this.minY = minY;
-			this.maxY = maxY;
-			this.oreType = oreType;
-			helper = new WorldGenOreHelper (oreType,state,maxVeinSize);
+		public OreGen (IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
+			this.pluton = new WorldGenMinable (state,maxVeinSize,new WorldGenOreHelper.StonePredicate ());
+			this.state = state;
+			this.minY = Math.min (minY,maxY);
+			this.maxY = Math.max (minY,maxY);
+			this.weight = weight;
+		}
+
+		public void generate (World world,Random rand,int x,int z) {
+			if (rand.nextInt (100) < weight) {
+				int y = minY != maxY ? minY + rand.nextInt (maxY - minY) : minY;
+				pluton.generate (world,rand,new BlockPos (x + (rand.nextBoolean () ? 8 : -8),y,z + (rand.nextBoolean () ? 8 : -8)));
+			}
 		}
 	}
 }

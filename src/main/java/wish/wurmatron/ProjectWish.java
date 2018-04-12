@@ -25,12 +25,11 @@ import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.entity.EntityThrowingRock;
-import wish.wurmatron.common.events.OreWorldGenerator;
+import wish.wurmatron.common.events.WishWorldGenerator;
 import wish.wurmatron.common.events.WorldEvents;
 import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.WishModItems;
 import wish.wurmatron.common.proxy.CommonProxy;
-import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.DimTransferEvent;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
@@ -85,7 +84,7 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new CropEvent ());
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
-		randRockType = new RandomizeRockTypeEvent();
+		randRockType = new RandomizeRockTypeEvent ();
 		MinecraftForge.EVENT_BUS.register (randRockType);
 		MinecraftForge.ORE_GEN_BUS.register (new WorldEvents ());
 		if (Settings.oreDictionary) {
@@ -105,7 +104,7 @@ public class ProjectWish {
 				OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
 		}
 		ForgeModContainer.logCascadingWorldGeneration = false;
-		GameRegistry.registerWorldGenerator (new OreWorldGenerator (),0);
+		GameRegistry.registerWorldGenerator (new WishWorldGenerator (),0);
 	}
 
 	@Mod.EventHandler
@@ -121,7 +120,8 @@ public class ProjectWish {
 					veinSize = 100 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SINGLE)
 					veinSize = 1;
-				OreWorldGenerator.add (new OreWorldGenerator ().new OreGen (new int[] {-1,1},10,128,ore,veinSize,block.getDefaultState ()));
+				WishWorldGenerator.addOreGen (block.getDefaultState (),veinSize,0,255,ore.getRarity () * 15);
+				//				WishWorldGenerator.addOreGen (new WishWorldGenerator ().new OreGen (new int[] {-1,1},10,128,ore,veinSize,block.getDefaultState ()));
 			} catch (NoSuchFieldException | IllegalAccessException f) {
 				f.printStackTrace ();
 			}

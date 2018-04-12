@@ -35,9 +35,18 @@ public class WorldGenOreHelper extends WorldGenerator {
 		this.predicate = predicate;
 	}
 
+	public static int getMeta (World world,BlockPos pos) {
+		int[] metaLoc = ProjectWish.randRockType.getMeta (world.getChunkFromBlockCoords (pos));
+		return metaLoc[pos.getY () / RandomizeRockTypeEvent.layerHeight];
+	}
+
+	public static Block getRockType (World world,BlockPos pos) {
+		return ProjectWish.randRockType.getState (world,pos).getBlock ();
+	}
+
 	@Override
 	public boolean generate (World world,Random rand,BlockPos position) {
-		int oreTier = rand.nextInt (4) ;
+		int oreTier = world.rand.nextInt (4);
 		float f = rand.nextFloat () * (float) Math.PI;
 		double d0 = (double) ((float) (position.getX ()) + MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
 		double d1 = (double) ((float) (position.getX ()) - MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
@@ -70,12 +79,12 @@ public class WorldGenOreHelper extends WorldGenerator {
 								if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
 									BlockPos blockpos = new BlockPos (l1,i2,j2);
 									IBlockState state = world.getBlockState (blockpos);
+									world.setBlockState (blockpos,correctRockType (oreBlock,world,position),2);
 									if (state.getBlock ().isReplaceableOreGen (state,world,blockpos,this.predicate)) {
 										if (blockpos.getY () < 24 && rand.nextInt (100) == 0)
 											world.setTileEntity (position,new TileOre (ore,oreTier + 1));
 										else
 											world.setTileEntity (position,new TileOre (ore,oreTier));
-										world.setBlockState (blockpos,correctRockType (oreBlock,world,position),2);
 									}
 								}
 							}
@@ -85,10 +94,6 @@ public class WorldGenOreHelper extends WorldGenerator {
 			}
 		}
 		return true;
-	}
-
-	public boolean check (IBlockState state) {
-		return predicate.apply (state);
 	}
 
 	public IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
@@ -111,15 +116,6 @@ public class WorldGenOreHelper extends WorldGenerator {
 		else if (south.getBlock () instanceof BlockRockType)
 			return south;
 		return world.getBlockState (pos);
-	}
-
-	public static int getMeta (World world,BlockPos pos) {
-		int[] metaLoc = ProjectWish.randRockType.getMeta (world.getChunkFromBlockCoords (pos));
-		return metaLoc[pos.getY () / RandomizeRockTypeEvent.layerHeight];
-	}
-
-	public static Block getRockType(World world, BlockPos pos) {
-		return ProjectWish.randRockType.getState (world,pos).getBlock ();
 	}
 
 	static class StonePredicate implements Predicate <IBlockState> {
