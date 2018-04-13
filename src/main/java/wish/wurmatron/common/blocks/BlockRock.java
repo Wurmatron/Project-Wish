@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -83,5 +84,10 @@ public class BlockRock extends BlockRockType {
 			return 18 + state.getValue (BlockRockType.TYPE);
 		else
 			return 9 + state.getValue (BlockRockType.TYPE);
+	}
+
+	@Override
+	public CreativeTabs getCreativeTabToDisplayOn () {
+		return null;
 	}
 }

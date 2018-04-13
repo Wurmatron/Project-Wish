@@ -68,4 +68,9 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	public BlockRenderLayer getBlockLayer () {
 		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
+
+	@Override
+	public CreativeTabs getCreativeTabToDisplayOn () {
+		return null;
+	}
 }
