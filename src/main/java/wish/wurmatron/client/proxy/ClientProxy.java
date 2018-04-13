@@ -77,9 +77,9 @@ public class ClientProxy extends CommonProxy {
 			}
 		}
 		for (int index = 0; index < 9; index++) {
-			createModel (WishBlocks.rockIgneous,0,"rockIgneous");
-			createModel (WishBlocks.rockMetamorphic,0,"rockMetamorphic");
-			createModel (WishBlocks.rockSedimentary,0,"rockSedimentary");
+			createModel (WishBlocks.rockIgneous,index,"rockIgneous_" + StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
+			createModel (WishBlocks.rockMetamorphic,index,"rockMetamorphic_"+StoneType.getRockFromMeta (StoneType.RockType.Metamorphic,index));
+			createModel (WishBlocks.rockSedimentary,index,"rockSedimentary_"+StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
 		}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
