@@ -39,7 +39,7 @@ public class EntityThrowingRock extends EntityThrowable {
 			result.entityHit.attackEntityFrom (DamageSource.causeThrownDamage (this,getThrower ()),DAMAGE);
 		else if (result.typeOfHit == RayTraceResult.Type.BLOCK && !world.isRemote) {
 			Block block = world.getBlockState (result.getBlockPos ()).getBlock ();
-			if (block == WishBlocks.stoneIgneous) {
+			if (block == WishBlocks.stoneIgneous || block == WishBlocks.stoneMetamorphic) {
 				world.spawnEntity (new EntityItem (world,result.getBlockPos ().getX (),result.getBlockPos ().getY () + 1,result.getBlockPos ().getZ (),new ItemStack (WishItems.itemMeta,1,0)));
 				setDead ();
 			} else {

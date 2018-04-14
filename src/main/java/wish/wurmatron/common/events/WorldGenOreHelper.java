@@ -3,6 +3,7 @@ package wish.wurmatron.common.events;
 import com.google.common.base.Predicate;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -11,6 +12,7 @@ import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.Random;
@@ -44,7 +46,11 @@ public class WorldGenOreHelper extends WorldGenerator {
 
 	@Override
 	public boolean generate (World world,Random rand,BlockPos position) {
-		int oreTier = world.rand.nextInt (4);
+		int oreTier = (2 + world.rand.nextInt (2) - world.rand.nextInt (2));
+		if(oreTier > 3)
+			oreTier = 3;
+		else if (oreTier <= 0)
+			oreTier = rand.nextInt (2);
 		float f = rand.nextFloat () * (float) Math.PI;
 		double d0 = (double) ((float) (position.getX ()) + MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
 		double d1 = (double) ((float) (position.getX ()) - MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
@@ -77,8 +83,8 @@ public class WorldGenOreHelper extends WorldGenerator {
 								if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
 									BlockPos blockpos = new BlockPos (l1,i2,j2);
 									IBlockState state = world.getBlockState (blockpos);
-									world.setBlockState (blockpos,correctRockType (oreBlock,world,position),2);
-									if (state.getBlock ().isReplaceableOreGen (state,world,blockpos,this.predicate)) {
+									if (state.getBlock ().isReplaceableOreGen (state,world,blockpos,predicate)) {
+										world.setBlockState (blockpos,correctRockType (oreBlock,world,position),2);
 										if (blockpos.getY () < 24 && rand.nextInt (100) == 0)
 											world.setTileEntity (position,new TileOre (ore,oreTier + 1));
 										else
@@ -119,12 +125,16 @@ public class WorldGenOreHelper extends WorldGenerator {
 	static class StonePredicate implements Predicate <IBlockState> {
 
 		public boolean apply (IBlockState state) {
-			return state.getBlock ().getUnlocalizedName ().contains ("ore") || state.getBlock ().getUnlocalizedName ().contains ("stone");
+			if (state != null && state.getBlock () != Blocks.AIR)
+				return state.getBlock ().getUnlocalizedName ().contains ("ore") || state.getBlock ().getUnlocalizedName ().contains ("stone");
+			return false;
 		}
 
 		@Override
-		public boolean test (IBlockState iBlockState) {
-			return true;
+		public boolean test (IBlockState state) {
+			if (state != null && state.getBlock () != Blocks.AIR)
+				return state.getBlock ().getUnlocalizedName ().contains ("ore") || state.getBlock ().getUnlocalizedName ().contains ("stone");
+			return false;
 		}
 	}
 }

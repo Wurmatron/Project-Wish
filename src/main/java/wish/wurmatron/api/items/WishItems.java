@@ -64,6 +64,7 @@ public class WishItems {
 	public static Item oreUranium;
 	public static Item oreGarnierite;
 	public static Item orePentlandite;
+	public static Item oreCinnabar;
 	public static Item dustOre;
 	public static Item crystalOre;
 	// Sludge

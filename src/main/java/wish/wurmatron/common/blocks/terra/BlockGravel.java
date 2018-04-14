@@ -49,6 +49,6 @@ public class BlockGravel extends BlockRockType {
 
 	@Override
 	public int damageDropped (IBlockState state) {
-		return 0;
+		return getMetaFromState (state);
 	}
 }

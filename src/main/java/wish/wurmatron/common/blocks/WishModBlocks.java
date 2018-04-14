@@ -69,9 +69,7 @@ public class WishModBlocks {
 		WishBlocks.oreUranium = register (new BlockOre (Material.ROCK,OreType.URANIUM).setUnlocalizedName ("oreUranium"),OreType.URANIUM);
 		WishBlocks.oreGarnierite = register (new BlockOre (Material.ROCK,OreType.GARNIERITE).setUnlocalizedName ("oreGarnierite"),OreType.GARNIERITE);
 		WishBlocks.orePentlandite = register (new BlockOre (Material.ROCK,OreType.PENTALANDITE).setUnlocalizedName ("orePentlandite"),OreType.PENTALANDITE);
-		// Gem
-		WishBlocks.gemBlock = register (new BlockGem (Material.IRON).setUnlocalizedName ("blockGem"),GemType.AMBER);
-		WishBlocks.gemBlock2 = register (new BlockGem2 (Material.IRON).setUnlocalizedName ("blockGem2"),GemType.QUARTZ);
+		WishBlocks.oreCinnabar = register (new BlockOre (Material.ROCK,OreType.CINNABAR).setUnlocalizedName ("oreCinnabar"),OreType.CINNABAR);
 		// Rocks
 		WishBlocks.rockIgneous = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.rockSedimentary = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockSedimentary"),StoneType.RockType.Sedimentary);
@@ -84,11 +82,6 @@ public class WishModBlocks {
 
 	private static Block register (Block block,StoneType.RockType type) {
 		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),type);
-		return block;
-	}
-
-	private static Block register (Block block,GemType gem) {
-		Registry.registerBlock (block,block.getUnlocalizedName ().substring (5),gem);
 		return block;
 	}
 

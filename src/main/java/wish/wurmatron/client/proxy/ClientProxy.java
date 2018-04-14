@@ -76,10 +76,11 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.gravelIgneous,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 		}
+		createModel (WishBlocks.stick,0,"groundStick");
 		for (int index = 0; index < 9; index++) {
 			createModel (WishBlocks.rockIgneous,index,"rockIgneous_" + StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
-			createModel (WishBlocks.rockMetamorphic,index,"rockMetamorphic_"+StoneType.getRockFromMeta (StoneType.RockType.Metamorphic,index));
-			createModel (WishBlocks.rockSedimentary,index,"rockSedimentary_"+StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
+			createModel (WishBlocks.rockMetamorphic,index,"rockMetamorphic_" + StoneType.getRockFromMeta (StoneType.RockType.Metamorphic,index));
+			createModel (WishBlocks.rockSedimentary,index,"rockSedimentary_" + StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
 		}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
@@ -108,10 +109,5 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
 		for (int index = 0; index < ItemCrystal.metaItems.length; index++)
 			createModel (WishItems.crystalOre,index,"crystal" + ItemCrystal.metaItems[index]);
-		for (GemType gem : GemType.values ())
-			if (gem.getId () > 16)
-				createModel (WishBlocks.gemBlock,gem.getId (),gem.getName () + "block");
-			else
-				createModel (WishBlocks.gemBlock2,gem.getId (),gem.getName () + "block");
 	}
 }

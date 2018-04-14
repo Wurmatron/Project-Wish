@@ -14,6 +14,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 // TODO Gravity
@@ -63,5 +64,10 @@ public class BlockSand extends BlockRockType {
 				return (world.getBlockState (pos.east ()).getMaterial () == Material.WATER || world.getBlockState (pos.west ()).getMaterial () == Material.WATER || world.getBlockState (pos.north ()).getMaterial () == Material.WATER || world.getBlockState (pos.south ()).getMaterial () == Material.WATER);
 		}
 		return super.canSustainPlant (state,world,pos,direction,plantable);
+	}
+
+	@Override
+	public int damageDropped (IBlockState state) {
+		return getMetaFromState (state);
 	}
 }

@@ -87,22 +87,20 @@ public class ProjectWish {
 		randRockType = new RandomizeRockTypeEvent ();
 		MinecraftForge.EVENT_BUS.register (randRockType);
 		MinecraftForge.ORE_GEN_BUS.register (new WorldEvents ());
-		if (Settings.oreDictionary) {
-			for (Block block : Registry.blocks)
-				if (block.getUnlocalizedName ().contains ("stone"))
-					OreDictionary.registerOre ("stone",block);
-				else if (block.getUnlocalizedName ().contains ("cobble"))
-					OreDictionary.registerOre ("cobblestone",block);
-				else if (block.getUnlocalizedName ().contains ("sand"))
-					OreDictionary.registerOre ("sand",block);
-				else if (block.getUnlocalizedName ().contains ("gravel"))
-					OreDictionary.registerOre ("gravel",block);
-			for (GemType gem : GemType.values ())
-				for (int index = 0; index < 6; index++)
-					OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
-			for (int index = 0; index < StoneType.values ().length; index++)
-				OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
-		}
+		for (Block block : Registry.blocks)
+			if (block.getUnlocalizedName ().contains ("stone"))
+				OreDictionary.registerOre ("stone",block);
+			else if (block.getUnlocalizedName ().contains ("cobble"))
+				OreDictionary.registerOre ("cobblestone",block);
+			else if (block.getUnlocalizedName ().contains ("sand"))
+				OreDictionary.registerOre ("sand",block);
+			else if (block.getUnlocalizedName ().contains ("gravel"))
+				OreDictionary.registerOre ("gravel",block);
+		for (GemType gem : GemType.values ())
+			for (int index = 0; index < 6; index++)
+				OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
+		for (int index = 0; index < StoneType.values ().length; index++)
+			OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
 		ForgeModContainer.logCascadingWorldGeneration = false;
 		GameRegistry.registerWorldGenerator (new WishWorldGenerator (),0);
 	}
@@ -120,7 +118,7 @@ public class ProjectWish {
 					veinSize = 100 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SINGLE)
 					veinSize = 1;
-				WishWorldGenerator.addOreGen (block.getDefaultState (),veinSize,0,255,ore.getRarity () * 15);
+				WishWorldGenerator.addOreGen (ore,block.getDefaultState (),veinSize,0,150,ore.getRarity () * 15);
 			} catch (NoSuchFieldException | IllegalAccessException f) {
 				f.printStackTrace ();
 			}

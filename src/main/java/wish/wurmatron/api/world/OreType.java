@@ -28,8 +28,9 @@ public enum OreType {
 	MONAZITE ("Monazite",new StoneType.RockType[] {StoneType.RockType.Metamorphic},new Biome[] {},4,GenType.SINGLE),           // Lots
 	URANIUM ("Uranium",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},4,GenType.SMALL_CLUSTER),          // Uranium
 	GARNIERITE ("Garnierite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.LARGE_CLUSTER),    // Nickel
-	PENTALANDITE ("Pentlandite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.SMALL_CLUSTER); // Iron / Nickel
-
+	PENTALANDITE ("Pentlandite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.SMALL_CLUSTER), // Iron / Nickel
+	CINNABAR ("Cinnabar",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.LARGE_CLUSTER);        // Redstone
+	
 	private String name;
 	private StoneType.RockType[] oreType;
 	private Biome[] biome;

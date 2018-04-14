@@ -9,7 +9,6 @@ import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.items.ItemBlockGem;
 import wish.wurmatron.common.items.ItemBlockOreType;
 import wish.wurmatron.common.items.ItemBlockRockType;
 
@@ -65,17 +64,6 @@ public class Registry {
 		block.setRegistryName (registryName);
 		block.setUnlocalizedName (registryName);
 		ItemBlock itemBlock = new ItemBlock (block);
-		itemBlock.setRegistryName (registryName);
-		itemBlock.setCreativeTab (ProjectWish.BLOCKS);
-		blocks.add (block);
-		blockItems.put (block,itemBlock);
-		return block;
-	}
-
-	public static Block registerBlock (Block block,String registryName,GemType gem) {
-		block.setRegistryName (registryName);
-		block.setUnlocalizedName (registryName);
-		ItemBlockGem itemBlock = new ItemBlockGem (block);
 		itemBlock.setRegistryName (registryName);
 		itemBlock.setCreativeTab (ProjectWish.BLOCKS);
 		blocks.add (block);

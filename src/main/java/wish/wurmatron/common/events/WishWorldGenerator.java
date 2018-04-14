@@ -11,7 +11,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
+import wish.wurmatron.common.blocks.BlockRock;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
@@ -25,10 +27,10 @@ public class WishWorldGenerator implements IWorldGenerator {
 	private static List <OreGen> oreGeneration = new ArrayList <> ();
 	private static int maxWeight = 0;
 
-	public static void addOreGen (IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
+	public static void addOreGen (OreType type, IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
 		if (weight > maxWeight)
 			maxWeight = weight;
-		OreGen gen = new OreGen (state,maxVeinSize,minY,maxY,weight);
+		OreGen gen = new OreGen (type, state,maxVeinSize,minY,maxY,weight);
 		oreGeneration.add (gen);
 	}
 
@@ -36,7 +38,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 	public void generate (Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider) {
 		generateGround (random,chunkX,chunkZ,world);
 		if (oreGeneration.size () > 0)
-			for(int i = 0; i < 1 + random.nextInt (3) ; i++)
+			for(int i = 0; i < 1 + random.nextInt (2) ; i++)
 			oreGeneration.get (random.nextInt (oreGeneration.size ())).generate (world,random,(chunkX * 16),(chunkZ * 16));
 	}
 
@@ -88,19 +90,21 @@ public class WishWorldGenerator implements IWorldGenerator {
 	}
 
 	private boolean isRockSpawnable (Block block) {
-		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType;
+		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType && !(block instanceof BlockRock);
 	}
 
 	public static class OreGen {
 
-		WorldGenMinable pluton;
+		WorldGenOreHelper pluton;
 		IBlockState state;
 		int minY;
 		int maxY;
 		int weight;
+		OreType type;
 
-		public OreGen (IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
-			this.pluton = new WorldGenMinable (state,maxVeinSize,new WorldGenOreHelper.StonePredicate ());
+		public OreGen (OreType type,IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
+			this.type = type;
+			this.pluton = new WorldGenOreHelper (type, state,maxVeinSize);
 			this.state = state;
 			this.minY = Math.min (minY,maxY);
 			this.maxY = Math.max (minY,maxY);

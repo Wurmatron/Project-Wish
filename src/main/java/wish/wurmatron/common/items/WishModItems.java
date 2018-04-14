@@ -65,6 +65,7 @@ public class WishModItems {
 		WishItems.oreUranium = registerOre (new ItemOre ("Uranium"),OreType.URANIUM);
 		WishItems.oreGarnierite = registerOre (new ItemOre ("Garnierite"),OreType.GARNIERITE);
 		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
+		WishItems.oreCinnabar = registerOre (new ItemOre ("Cinnabar"),OreType.CINNABAR);
 		WishItems.dustOre = register (new ItemDust ());
 		// Sludge
 		WishItems.sludgeLitium = register (new ItemSludge ("Litium"));

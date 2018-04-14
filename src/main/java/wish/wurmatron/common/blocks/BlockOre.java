@@ -61,7 +61,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 	@Nullable
 	@Override
 	public TileEntity createNewTileEntity (World world,int meta) {
-		return new TileOre (type,3);
+		return new TileOre (type,2);
 	}
 
 	@Override

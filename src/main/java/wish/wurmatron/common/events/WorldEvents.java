@@ -18,6 +18,7 @@ import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.ArrayList;
