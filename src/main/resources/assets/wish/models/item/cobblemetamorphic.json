@@ -1,5 +1,5 @@
 {
-  "parent": "wish:block/cobblemetamorphic",
+  "parent": "wish:block/cobble_gneiss",
   "display": {
     "thirdperson": {
       "rotation": [

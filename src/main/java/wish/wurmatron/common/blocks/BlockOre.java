@@ -32,7 +32,7 @@ public class BlockOre extends BlockRockType implements ITileEntityProvider {
 		setCreativeTab (ProjectWish.BLOCKS);
 		setHardness (1.5f);
 		setResistance (30f);
-		setHarvestLevel ("pickaxe",0);
+		setHarvestLevel ("pickaxe",1);
 		setSoundType (SoundType.STONE);
 	}
 

@@ -27,10 +27,10 @@ public class WishWorldGenerator implements IWorldGenerator {
 	private static List <OreGen> oreGeneration = new ArrayList <> ();
 	private static int maxWeight = 0;
 
-	public static void addOreGen (OreType type, IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
+	public static void addOreGen (OreType type,IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
 		if (weight > maxWeight)
 			maxWeight = weight;
-		OreGen gen = new OreGen (type, state,maxVeinSize,minY,maxY,weight);
+		OreGen gen = new OreGen (type,state,maxVeinSize,minY,maxY,weight);
 		oreGeneration.add (gen);
 	}
 
@@ -38,26 +38,8 @@ public class WishWorldGenerator implements IWorldGenerator {
 	public void generate (Random random,int chunkX,int chunkZ,World world,IChunkGenerator chunkGenerator,IChunkProvider chunkProvider) {
 		generateGround (random,chunkX,chunkZ,world);
 		if (oreGeneration.size () > 0)
-			for(int i = 0; i < 1 + random.nextInt (2) ; i++)
-			oreGeneration.get (random.nextInt (oreGeneration.size ())).generate (world,random,(chunkX * 16),(chunkZ * 16));
-	}
-
-	private StoneType.RockType getGenType (World world,BlockPos pos) {
-		int[] biomeMeta = RandomizeRockTypeEvent.rockLayerMeta.get (Biome.getIdForBiome (world.getBiome (pos)));
-		if (biomeMeta != null && biomeMeta.length > 0) {
-			int shift = ((pos.getY () / 40) + biomeMeta[7]) % RandomizeRockTypeEvent.STONE_SHIFT.length;
-			return getStoneTypeFromMeta (RandomizeRockTypeEvent.STONE_SHIFT[shift]);
-		}
-		return StoneType.RockType.Igneous;
-	}
-
-	private StoneType.RockType getStoneTypeFromMeta (IBlockState state) {
-		if (WishBlocks.stoneIgneous == state.getBlock ())
-			return StoneType.RockType.Igneous;
-		else if (WishBlocks.stoneMetamorphic == state.getBlock ())
-			return StoneType.RockType.Metamorphic;
-		else
-			return StoneType.RockType.Sedimentary;
+			for (int i = 0; i < 1 + random.nextInt (2); i++)
+				oreGeneration.get (random.nextInt (oreGeneration.size ())).generate (world,random,(chunkX * 16),(chunkZ * 16));
 	}
 
 	private void generateGround (Random rand,int chunkX,int chunkZ,World world) {
@@ -67,8 +49,10 @@ public class WishWorldGenerator implements IWorldGenerator {
 			BlockPos pos = world.getTopSolidOrLiquidBlock (new BlockPos (x,0,z)).down ();
 			Block block = world.getBlockState (pos).getBlock ();
 			if (isRockSpawnable (block))
-				if (world.isAirBlock (pos.up ()))
-					world.setBlockState (pos.up (),getRock (WorldGenOreHelper.getRockType (world,pos)).getStateFromMeta (WorldGenOreHelper.getMeta (world,pos)),3);
+				if (world.isAirBlock (pos.up ())) {
+					IBlockState state = RandomizeRockTypeEvent.getStoneForPos (world,pos.up ());
+					world.setBlockState (pos.up (),getRock (state.getBlock ()).getStateFromMeta (state.getValue (BlockRockType.TYPE)),3);
+				}
 		}
 		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk * 2); i++) {
 			int x = chunkX * 16 + rand.nextInt (16) + 8;
@@ -83,10 +67,10 @@ public class WishWorldGenerator implements IWorldGenerator {
 
 	private Block getRock (Block block) {
 		if (block == WishBlocks.stoneMetamorphic)
-			return WishBlocks.rockMetamorphic;
+			return WishBlocks.rockIgneous;
 		else if (block == WishBlocks.stoneSedimentary)
-			return WishBlocks.rockSedimentary;
-		return WishBlocks.rockIgneous;
+			return WishBlocks.rockMetamorphic;
+		return WishBlocks.rockSedimentary;
 	}
 
 	private boolean isRockSpawnable (Block block) {
@@ -104,7 +88,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 
 		public OreGen (OreType type,IBlockState state,int maxVeinSize,int minY,int maxY,int weight) {
 			this.type = type;
-			this.pluton = new WorldGenOreHelper (type, state,maxVeinSize);
+			this.pluton = new WorldGenOreHelper (type,state,maxVeinSize);
 			this.state = state;
 			this.minY = Math.min (minY,maxY);
 			this.maxY = Math.max (minY,maxY);
@@ -114,7 +98,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 		public void generate (World world,Random rand,int x,int z) {
 			if (rand.nextInt (100) < weight) {
 				int y = minY != maxY ? minY + rand.nextInt (maxY - minY) : minY;
-				pluton.generate (world,rand,new BlockPos (x + (rand.nextBoolean () ? 8 : -8),y,z + (rand.nextBoolean () ? 8 : -8)));
+				pluton.generate (world,rand,new BlockPos (x,y,z));
 			}
 		}
 	}

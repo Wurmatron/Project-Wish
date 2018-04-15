@@ -1,11 +1,15 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.blocks.WishBlocks;
@@ -14,6 +18,7 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.items.*;
 import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
@@ -43,6 +48,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void init () {
+		RenderingRegistry.registerEntityRenderingHandler (EntityThrowingRock.class,new RenderSnowball <EntityThrowingRock> (Minecraft.getMinecraft ().getRenderManager (),WishItems.itemRock,Minecraft.getMinecraft ().getRenderItem ()));
 	}
 
 	@SubscribeEvent
@@ -76,11 +82,11 @@ public class ClientProxy extends CommonProxy {
 				createModel (WishBlocks.gravelIgneous,type.getId (),"gravel_" + type.getName ().toLowerCase ());
 			}
 		}
-		createModel (WishBlocks.stick,0,"groundStick");
 		for (int index = 0; index < 9; index++) {
 			createModel (WishBlocks.rockIgneous,index,"rockIgneous_" + StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
 			createModel (WishBlocks.rockMetamorphic,index,"rockMetamorphic_" + StoneType.getRockFromMeta (StoneType.RockType.Metamorphic,index));
-			createModel (WishBlocks.rockSedimentary,index,"rockSedimentary_" + StoneType.getRockFromMeta (StoneType.RockType.Igneous,index));
+			createModel (WishBlocks.rockSedimentary,index,"rockSedimentary_" + StoneType.getRockFromMeta (StoneType.RockType.Sedimentary,index));
+			createModel (WishBlocks.stick,index,"stick");
 		}
 		for (OreType ore : OreType.values ())
 			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)

@@ -101,7 +101,7 @@ public class ProjectWish {
 				OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
 		for (int index = 0; index < StoneType.values ().length; index++)
 			OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
-		ForgeModContainer.logCascadingWorldGeneration = false;
+//		ForgeModContainer.logCascadingWorldGeneration = false;
 		GameRegistry.registerWorldGenerator (new WishWorldGenerator (),0);
 	}
 
@@ -113,9 +113,9 @@ public class ProjectWish {
 				Block block = (Block) field.get (WishBlocks.oreAnthracite);
 				int veinSize = 0;
 				if (ore.getGenerationType () == OreType.GenType.LARGE_CLUSTER)
-					veinSize = 200 / ore.getRarity ();
+					veinSize = 150 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SMALL_CLUSTER)
-					veinSize = 100 / ore.getRarity ();
+					veinSize =  75 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SINGLE)
 					veinSize = 1;
 				WishWorldGenerator.addOreGen (ore,block.getDefaultState (),veinSize,0,150,ore.getRarity () * 15);

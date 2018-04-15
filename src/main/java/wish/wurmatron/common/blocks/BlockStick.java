@@ -1,11 +1,15 @@
 package wish.wurmatron.common.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFlower;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -14,15 +18,22 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.api.items.WishItems;
+import wish.wurmatron.common.blocks.stone.BlockRockType;
 
-public class BlockStick extends Block {
+import java.util.Random;
 
-	public static final AxisAlignedBB AABB = new AxisAlignedBB (.2f,0,.2f,.8f,.2f,.8f);
+public class BlockStick extends BlockRockType {
 
-	public BlockStick (Material material) {
+	public static final AxisAlignedBB AABB = new AxisAlignedBB (.1f,0,.1f,.9f,.2f,.9f);
+	private int amount;
+
+	public BlockStick (Material material,int amount) {
 		super (material);
 		setHardness (0f);
 		setSoundType (SoundType.STONE);
+		this.amount = amount;
 	}
 
 	@Override
@@ -32,8 +43,8 @@ public class BlockStick extends Block {
 
 	@Override
 	@SideOnly (Side.CLIENT)
-	public EnumOffsetType getOffsetType () {
-		return EnumOffsetType.XZ;
+	public Block.EnumOffsetType getOffsetType () {
+		return Block.EnumOffsetType.XZ;
 	}
 
 	@SideOnly (Side.CLIENT)
@@ -67,8 +78,39 @@ public class BlockStick extends Block {
 		return true;
 	}
 
-	@Override
-	public void breakBlock (World world,BlockPos pos,IBlockState state) {
-		world.spawnEntity (new EntityItem (world,pos.getX () + .5,pos.getY () + .5,pos.getZ () + .5,new ItemStack (Items.STICK,1 + world.rand.nextInt (3))));
+	public Item getItemDropped (IBlockState state,Random rand,int fortune) {
+		return Items.STICK;
 	}
+
+	@Override
+	public int damageDropped (IBlockState state) {
+		return 0;
+	}
+
+	@Override
+	public int quantityDropped (IBlockState state,int fortune,Random random) {
+		return 1 + random.nextInt (3);
+	}
+
+	@Override
+	public CreativeTabs getCreativeTabToDisplayOn () {
+		return null;
+	}
+
+	public void neighborChanged (IBlockState state,World worldIn,BlockPos pos,Block blockIn,BlockPos fromPos) {
+		super.neighborChanged (state,worldIn,pos,blockIn,fromPos);
+		this.checkAndDropBlock (worldIn,pos,state);
+	}
+
+	public void updateTick (World worldIn,BlockPos pos,IBlockState state,Random rand) {
+		this.checkAndDropBlock (worldIn,pos,state);
+	}
+
+	protected void checkAndDropBlock (World worldIn,BlockPos pos,IBlockState state) {
+		if (worldIn.getBlockState (pos.down ()).getBlock () == Blocks.AIR) {
+			worldIn.spawnEntity (new EntityItem (worldIn,pos.getX (),pos.getY (),pos.getZ (),new ItemStack (Items.STICK)));
+			worldIn.setBlockState (pos,Blocks.AIR.getDefaultState (),3);
+		}
+	}
+
 }

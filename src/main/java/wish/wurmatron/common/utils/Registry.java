@@ -65,7 +65,6 @@ public class Registry {
 		block.setUnlocalizedName (registryName);
 		ItemBlock itemBlock = new ItemBlock (block);
 		itemBlock.setRegistryName (registryName);
-		itemBlock.setCreativeTab (ProjectWish.BLOCKS);
 		blocks.add (block);
 		blockItems.put (block,itemBlock);
 		return block;

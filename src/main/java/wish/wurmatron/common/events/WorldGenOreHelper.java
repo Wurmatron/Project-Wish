@@ -1,6 +1,7 @@
 package wish.wurmatron.common.events;
 
 import com.google.common.base.Predicate;
+import javafx.geometry.Point3D;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -35,91 +36,57 @@ public class WorldGenOreHelper extends WorldGenerator {
 		this.predicate = predicate;
 	}
 
-	public static int getMeta (World world,BlockPos pos) {
-		int[] metaLoc = ProjectWish.randRockType.getMeta (world.getChunkFromBlockCoords (pos));
-		return metaLoc[pos.getY () / RandomizeRockTypeEvent.layerHeight];
-	}
-
-	public static Block getRockType (World world,BlockPos pos) {
-		return ProjectWish.randRockType.getState (world,pos).getBlock ();
-	}
-
 	@Override
-	public boolean generate (World world,Random rand,BlockPos position) {
-		int oreTier = (2 + world.rand.nextInt (2) - world.rand.nextInt (2));
-		if(oreTier > 3)
-			oreTier = 3;
-		else if (oreTier <= 0)
-			oreTier = rand.nextInt (2);
-		float f = rand.nextFloat () * (float) Math.PI;
-		double d0 = (double) ((float) (position.getX ()) + MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
-		double d1 = (double) ((float) (position.getX ()) - MathHelper.sin (f) * (float) this.numberOfBlocks / 8.0F);
-		double d2 = (double) ((float) (position.getZ ()) + MathHelper.cos (f) * (float) this.numberOfBlocks / 8.0F);
-		double d3 = (double) ((float) (position.getZ ()) - MathHelper.cos (f) * (float) this.numberOfBlocks / 8.0F);
-		double d4 = (double) (position.getY () + rand.nextInt (3) - 2);
-		double d5 = (double) (position.getY () + rand.nextInt (3) - 2);
-		for (int i = 0; i < this.numberOfBlocks; ++i) {
-			float f1 = (float) i / (float) this.numberOfBlocks;
-			double d6 = d0 + (d1 - d0) * (double) f1;
-			double d7 = d4 + (d5 - d4) * (double) f1;
-			double d8 = d2 + (d3 - d2) * (double) f1;
-			double d9 = rand.nextDouble () * (double) this.numberOfBlocks / 16.0D;
-			double d10 = (double) (MathHelper.sin ((float) Math.PI * f1) + 1.0F) * d9 + 1.0D;
-			double d11 = (double) (MathHelper.sin ((float) Math.PI * f1) + 1.0F) * d9 + 1.0D;
-			int j = MathHelper.floor (d6 - d10 / 2.0D);
-			int k = MathHelper.floor (d7 - d11 / 2.0D);
-			int l = MathHelper.floor (d8 - d10 / 2.0D);
-			int i1 = MathHelper.floor (d6 + d10 / 2.0D);
-			int j1 = MathHelper.floor (d7 + d11 / 2.0D);
-			int k1 = MathHelper.floor (d8 + d10 / 2.0D);
-			for (int l1 = j; l1 <= i1; ++l1) {
-				double d12 = ((double) l1 + 0.5D - d6) / (d10 / 2.0D);
-				if (d12 * d12 < 1.0D) {
-					for (int i2 = k; i2 <= j1; ++i2) {
-						double d13 = ((double) i2 + 0.5D - d7) / (d11 / 2.0D);
-						if (d12 * d12 + d13 * d13 < 1.0D) {
-							for (int j2 = l; j2 <= k1; ++j2) {
-								double d14 = ((double) j2 + 0.5D - d8) / (d10 / 2.0D);
-								if (d12 * d12 + d13 * d13 + d14 * d14 < 1.0D) {
-									BlockPos blockpos = new BlockPos (l1,i2,j2);
-									IBlockState state = world.getBlockState (blockpos);
-									if (state.getBlock ().isReplaceableOreGen (state,world,blockpos,predicate)) {
-										world.setBlockState (blockpos,correctRockType (oreBlock,world,position),2);
-										if (blockpos.getY () < 24 && rand.nextInt (100) == 0)
-											world.setTileEntity (position,new TileOre (ore,oreTier + 1));
-										else
-											world.setTileEntity (position,new TileOre (ore,oreTier));
-									}
-								}
+	public boolean generate (World world,Random rand,BlockPos pos) {
+		int oreTier = 2 + rand.nextInt (2) - rand.nextInt (2);
+		int radius = 5 + rand.nextInt (4);
+		int rarity = 5 / ore.getRarity ();
+		BlockPos core = pos.add (8,0,8);
+		int totalGenerated = 0;
+		if (rarity >= 4) {
+			rarity = 2;
+			radius = 2 + rand.nextInt (2);
+			if (radius > 8)
+				radius = 8;
+		}
+		do {
+			for (int x = 0; x < radius; x++)
+				for (int z = 0; z < radius; z++)
+					for (int y = pos.getY (); y < pos.getY () + (radius * 2); y++) {
+						BlockPos[] oreLoc = new BlockPos[] {new BlockPos (core.getX () + x,y,core.getZ () + z),new BlockPos (core.getX () + x,y,core.getZ () - z),new BlockPos (core.getX () - x,y,core.getZ () + z),new BlockPos (core.getX () - x,y,core.getZ () - z)};
+						for (BlockPos tempPos : oreLoc) {
+							totalGenerated++;
+							double disFromCore = calcDistanceFromCore (core,tempPos,radius);
+							double chance;
+							if (disFromCore < .3)
+								chance = .8;
+							else
+								chance = ((rarity - disFromCore) / (disFromCore >= .3 ? 4 : 8 + rand.nextInt (4)));
+							if (rand.nextDouble () < chance) {
+								IBlockState state = world.getBlockState (tempPos);
+								if (state.getBlock ().isReplaceableOreGen (state,world,tempPos,predicate))
+									setBlock (world,tempPos,oreTier + ((calcDistanceFromCore (core,tempPos,radius) <= .2) ? 1 : 0));
 							}
 						}
 					}
-				}
-			}
 		}
+		while (totalGenerated <= numberOfBlocks);
 		return true;
 	}
 
-	public IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
-		int type = getNext (world,pos).getBlock () instanceof BlockRockType ? getNext (world,pos).getValue (BlockRockType.TYPE) : 0;
-		state.withProperty (BlockRockType.TYPE,type);
-		return state;
+	private double calcDistanceFromCore (BlockPos center,BlockPos pos,int radius) {
+		Point3D centerPos = new Point3D (center.getX (),center.getY (),center.getZ ());
+		Point3D posPos = new Point3D (pos.getX (),pos.getY (),pos.getZ ());
+		return centerPos.distance (posPos) / radius;
 	}
 
-	private IBlockState getNext (World world,BlockPos pos) {
-		IBlockState east = world.getBlockState (pos.east ());
-		IBlockState west = world.getBlockState (pos.west ());
-		IBlockState north = world.getBlockState (pos.north ());
-		IBlockState south = world.getBlockState (pos.south ());
-		if (east.getBlock () instanceof BlockRockType)
-			return east;
-		else if (west.getBlock () instanceof BlockRockType)
-			return west;
-		else if (north.getBlock () instanceof BlockRockType)
-			return north;
-		else if (south.getBlock () instanceof BlockRockType)
-			return south;
-		return world.getBlockState (pos);
+	private void setBlock (World world,BlockPos pos,int oreTier) {
+		world.setBlockState (pos,correctRockType (oreBlock,world,pos),2);
+		world.setTileEntity (pos,new TileOre (ore,oreTier));
+	}
+
+	public IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
+		return state.withProperty (BlockRockType.TYPE,RandomizeRockTypeEvent.getRockMeta (world,pos));
 	}
 
 	static class StonePredicate implements Predicate <IBlockState> {

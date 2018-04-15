@@ -74,7 +74,7 @@ public class WishModBlocks {
 		WishBlocks.rockIgneous = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockIgneous"),StoneType.RockType.Igneous);
 		WishBlocks.rockSedimentary = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockSedimentary"),StoneType.RockType.Sedimentary);
 		WishBlocks.rockMetamorphic = register (new BlockRock (Material.GRASS,9).setUnlocalizedName ("rockMetamorphic"),StoneType.RockType.Metamorphic);
-		WishBlocks.stick = register (new BlockStick (Material.GRASS).setUnlocalizedName ("stick"), "stick");
+		WishBlocks.stick = register (new BlockStick (Material.GRASS,1).setUnlocalizedName ("stick"), StoneType.RockType.Igneous);
 
 		// Tiles
 		GameRegistry.registerTileEntity (TileOre.class,"tileOre");

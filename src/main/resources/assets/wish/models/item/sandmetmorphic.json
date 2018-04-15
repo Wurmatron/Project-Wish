@@ -1,5 +1,5 @@
 {
-  "parent": "wish:block/sandmetmorphic",
+  "parent": "wish:block/sand_gneiss",
   "display": {
     "thirdperson": {
       "rotation": [

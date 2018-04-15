@@ -1,5 +1,5 @@
 {
-  "parent": "wish:block/brickmetamorphic",
+  "parent": "wish:block/brick_gneiss",
   "display": {
     "thirdperson": {
       "rotation": [

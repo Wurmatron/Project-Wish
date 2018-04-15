@@ -5,11 +5,16 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import wish.wurmatron.api.blocks.WishBlocks;
@@ -20,7 +25,7 @@ import java.util.Random;
 
 public class BlockRock extends BlockRockType {
 
-	public static final AxisAlignedBB AABB = new AxisAlignedBB (.2f,0,.2f,.8f,.2f,.8f);
+	public static final AxisAlignedBB AABB = new AxisAlignedBB (.1f,0,.1f,.9f,.2f,.9f);
 	private int amount;
 
 	public BlockRock (Material material,int amount) {
@@ -78,16 +83,32 @@ public class BlockRock extends BlockRockType {
 
 	@Override
 	public int damageDropped (IBlockState state) {
-		if (state.getBlock () == WishBlocks.rockSedimentary)
-			return state.getValue (BlockRockType.TYPE);
-		else if (state.getBlock () == WishBlocks.rockIgneous)
+		if (state.getBlock () == WishBlocks.rockIgneous)
 			return 18 + state.getValue (BlockRockType.TYPE);
-		else
+		if (state.getBlock () == WishBlocks.rockMetamorphic)
 			return 9 + state.getValue (BlockRockType.TYPE);
+		else
+			return state.getValue (BlockRockType.TYPE);
 	}
 
 	@Override
 	public CreativeTabs getCreativeTabToDisplayOn () {
 		return null;
+	}
+
+	public void neighborChanged (IBlockState state,World worldIn,BlockPos pos,Block blockIn,BlockPos fromPos) {
+		super.neighborChanged (state,worldIn,pos,blockIn,fromPos);
+		this.checkAndDropBlock (worldIn,pos,state);
+	}
+
+	public void updateTick (World worldIn,BlockPos pos,IBlockState state,Random rand) {
+		this.checkAndDropBlock (worldIn,pos,state);
+	}
+
+	protected void checkAndDropBlock (World worldIn,BlockPos pos,IBlockState state) {
+		if (worldIn.getBlockState (pos.down ()).getBlock () == Blocks.AIR) {
+			worldIn.spawnEntity (new EntityItem (worldIn,pos.getX (),pos.getY (),pos.getZ (),new ItemStack (WishItems.itemRock,1,damageDropped (state))));
+			worldIn.setBlockState (pos,Blocks.AIR.getDefaultState (),3);
+		}
 	}
 }

@@ -14,7 +14,7 @@ import wish.wurmatron.api.items.WishItems;
 
 public class EntityThrowingRock extends EntityThrowable {
 
-	private static final int DAMAGE = 2;
+	private static final int DAMAGE = 50;
 
 	public EntityThrowingRock (World worldIn) {
 		super (worldIn);

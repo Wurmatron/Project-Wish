@@ -1,5 +1,5 @@
 {
-  "parent": "wish:block/gravelmetmorphic",
+  "parent": "wish:block/gravel_gneiss",
   "display": {
     "thirdperson": {
       "rotation": [
