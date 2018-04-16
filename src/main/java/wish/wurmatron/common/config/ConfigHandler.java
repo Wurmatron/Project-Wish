@@ -45,6 +45,7 @@ public class ConfigHandler {
 		Settings.rocksPerChunk = global.getInt ("rocksPerChunk",Configuration.CATEGORY_GENERAL,10,0,10000,Global.ROCKS_PER_CHUNK_COMMENT);
 		Settings.sticksPerChunk = global.getInt ("sticksPerChunk",Configuration.CATEGORY_GENERAL,20,0,10000,Global.STICKS_PER_CHUNK_COMMENT);
 		Settings.funBlocks = global.getBoolean (Global.FUN_BLOCK,Configuration.CATEGORY_GENERAL,true,Global.FUN_BLOCK_COMMENT);
+		Settings.overrideOre = global.getBoolean (Global.OVERRIDE_ORE,Configuration.CATEGORY_GENERAL,true,Global.OVERRIDE_ORE_COMMENT);
 
 		if (global.hasChanged ()) {
 			global.save ();

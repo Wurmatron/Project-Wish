@@ -75,9 +75,11 @@ public class WorldGenOreHelper extends WorldGenerator {
 	}
 
 	private double calcDistanceFromCore (BlockPos center,BlockPos pos,int radius) {
-		Point3D centerPos = new Point3D (center.getX (),center.getY (),center.getZ ());
-		Point3D posPos = new Point3D (pos.getX (),pos.getY (),pos.getZ ());
-		return centerPos.distance (posPos) / radius;
+		double a = center.getX () - pos.getX ();
+		double b = center.getY () - pos.getY ();
+		double c = center.getZ () - pos.getZ ();
+		double distance = Math.sqrt (a * a + b * b + c * c);
+		return distance / radius;
 	}
 
 	private void setBlock (World world,BlockPos pos,int oreTier) {

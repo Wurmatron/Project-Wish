@@ -15,7 +15,9 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.blocks.WishBlocks;
+import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
+import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.utils.LogHandler;
 
 import java.util.HashMap;
@@ -26,7 +28,7 @@ public class RandomizeRockTypeEvent {
 
 	private static Random rand;
 	private static HashMap <String, int[]> rockLayers = new HashMap <> ();
-	private static HashMap<String, Integer> layerHeightCache = new HashMap <> ();
+	private static HashMap <String, Integer> layerHeightCache = new HashMap <> ();
 
 	public static int[] getRockData (Biome biome) {
 		if (rockLayers.containsKey (biome.getBiomeName ()))
@@ -70,7 +72,7 @@ public class RandomizeRockTypeEvent {
 	}
 
 	private static void setBlock (Chunk chunk,World world,BlockPos pos,int type) {
-		if (chunk.getBlockState (pos).getBlock () instanceof BlockStone || chunk.getBlockState (pos).getBlock () == Blocks.BEDROCK)
+		if (chunk.getBlockState (pos).getBlock () instanceof BlockStone || chunk.getBlockState (pos).getBlock () == Blocks.BEDROCK || Settings.overrideOre && chunk.getBlockState (pos).getBlock ().getUnlocalizedName ().contains ("ore") && !(chunk.getBlockState (pos).getBlock () instanceof BlockOre))
 			setStone (chunk,world,pos,type);
 		else if (chunk.getBlockState (pos).getBlock () instanceof BlockGravel)
 			setGravel (chunk,world,pos,type);
@@ -128,7 +130,7 @@ public class RandomizeRockTypeEvent {
 	}
 
 	private static int findLayerHeight (Biome biome) {
-		if(layerHeightCache.containsKey (biome.getBiomeName ()))
+		if (layerHeightCache.containsKey (biome.getBiomeName ()))
 			return layerHeightCache.get (biome.getBiomeName ());
 		float adjBiomeHeight = Math.abs (biome.getBaseHeight () * 8); // 0 - 16, .25
 		float adjHeightVariation = biome.getHeightVariation () / 2;   // 0 - 1, .025
@@ -141,13 +143,13 @@ public class RandomizeRockTypeEvent {
 			height = (int) Math.abs ((8 * adjBiomeHeight) / (adjBiomeHeight * 2));
 		else
 			height = Math.abs ((int) ((256 / (adjBiomeHeight)) - ((1 - adjHeightVariation) * 1000))) / 30;
-		if(height >= 24)
+		if (height >= 24)
 			height = 24;
 		int layerHeight = 256 / (height / 4);
-		if(layerHeight > 40)
-			layerHeight = 40;
+		if (layerHeight > 30)
+			layerHeight = 30;
 		int outputHeight = layerHeight > 0 ? layerHeight : 1;
-		layerHeightCache.put (biome.getBiomeName (), outputHeight);
+		layerHeightCache.put (biome.getBiomeName (),outputHeight);
 		return outputHeight;
 	}
 
@@ -165,62 +167,4 @@ public class RandomizeRockTypeEvent {
 				}
 		chunk.markDirty ();
 	}
-
-	//	public static final IBlockState[] STONE_SHIFT = new IBlockState[] {WishBlocks.stoneSedimentary.getDefaultState (),WishBlocks.stoneIgneous.getDefaultState (),WishBlocks.stoneMetamorphic.getDefaultState ()};
-	//	private static final Random rand = new Random ();
-	//	private static final IBlockState[] SAND_SHIFT = new IBlockState[] {WishBlocks.sandSedimentary.getDefaultState (),WishBlocks.sandIgneous.getDefaultState (),WishBlocks.sandMetamorphic.getDefaultState ()};
-	//	private static final IBlockState[] GRAVEL_SHIFT = new IBlockState[] {WishBlocks.gravelSedimentary.getDefaultState (),WishBlocks.gravelIgneous.getDefaultState (),WishBlocks.gravelMetamorphic.getDefaultState ()};
-	//	public static HashMap <Integer, int[]> rockLayerMeta = new HashMap <> ();
-	//
-	//	public static int layerHeight = 40;
-	//
-	//	@SubscribeEvent
-	//	public void onPopulateChunkEvent (PopulateChunkEvent.Pre e) {
-	//		Chunk chunk = e.getWorld ().getChunkFromChunkCoords (e.getChunkX (),e.getChunkZ ());
-	//		int layer = 0;
-	//		for (int x = 0; x < 16; ++x)
-	//			for (int z = 0; z < 16; ++z)
-	//				for (int y = 0; y < (chunk.getHeightValue (x,z)) + 5; y++) {
-	//					int[] meta = getMeta (chunk,x,z);
-	//					int shift = (layer + meta[15]) % STONE_SHIFT.length;
-	//					if (layer >= meta.length)
-	//						layer = meta.length - 1;
-	//					if (layer < 0)
-	//						layer = 0;
-	//					int shiftMeta = meta[layer];
-	//					if (shift > 3 || shift < 0)
-	//						shift = 0;
-	//					if (chunk.getBlockState (x,y,z).getBlock () instanceof BlockStone || chunk.getBlockState (x,y,z).getBlock () == Blocks.BEDROCK)
-	//						chunk.setBlockState (new BlockPos (x,y,z),STONE_SHIFT[shift].withProperty (BlockRockType.TYPE,shiftMeta));
-	//					else if (chunk.getBlockState (x,y,z).getBlock () instanceof BlockSand)
-	//						chunk.setBlockState (new BlockPos (x,y,z),SAND_SHIFT[shift].withProperty (BlockRockType.TYPE,shiftMeta));
-	//					else if (chunk.getBlockState (x,y,z).getBlock () instanceof BlockGravel)
-	//						chunk.setBlockState (new BlockPos (x,y,z),GRAVEL_SHIFT[shift].withProperty (BlockRockType.TYPE,shiftMeta));
-	//					layer = (int) (y / ((layerHeight * (getHeight (e.getWorld (),x,z))))/10);
-	//				}
-	//		chunk.markDirty ();
-	//	}
-	//
-	//	private float getHeight (World world,int x,int z) {
-	//		return world.getBiome (new BlockPos (x,0,z)).getBaseHeight ();
-	//	}
-	//
-	//	public int[] getMeta (Chunk chunk,int x,int z) {
-	//		if (chunk != null) {
-	//			rand.setSeed (chunk.getWorld ().getSeed ());
-	//			int index = x * z;
-	//			index = index < 0 ? 0 : index;
-	//			index = index > 255 ? 255 : index;
-	//			int name = (int) chunk.getBiomeArray ()[index];
-	//			if (rockLayerMeta.containsKey (name))
-	//				return rockLayerMeta.get (name);
-	//			else
-	//				rockLayerMeta.put (name,new int[] {chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (9),chunk.getWorld ().rand.nextInt (2)});
-	//		}
-	//		return new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-	//	}
-	//
-	//	public IBlockState getState (World world,BlockPos pos) {
-	//		return STONE_SHIFT[(((pos.getY () / layerHeight) + getMeta (world.getChunkFromBlockCoords (pos),0,0)[7]) % STONE_SHIFT.length) % STONE_SHIFT.length];
-	//	}
 }

@@ -34,4 +34,6 @@ public class Global {
 	public static final String STICKS_PER_CHUNK_COMMENT = "The amount of sticks per chunk";
 	public static final String FUN_BLOCK = "funBlocks";
 	public static final String FUN_BLOCK_COMMENT = "Don't you like fun?";
+	public static final String OVERRIDE_ORE = "overrideOre";
+	public static final String OVERRIDE_ORE_COMMENT = "Remove other Ores?";
 }

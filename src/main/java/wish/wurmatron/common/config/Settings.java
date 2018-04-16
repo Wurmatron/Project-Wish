@@ -13,4 +13,5 @@ public class Settings {
 	public static int rocksPerChunk;
 	public static int sticksPerChunk;
 	public static boolean funBlocks;
+	public static boolean overrideOre;
 }
