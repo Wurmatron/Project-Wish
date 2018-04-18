@@ -12,7 +12,6 @@ import wish.wurmatron.common.entity.EntityThrowingRock;
 public class CommonProxy {
 
 	public void preInit () {
-		EntityRegistry.registerModEntity (new ResourceLocation (Global.MODID, "rock"),EntityThrowingRock.class, "rock",0,ProjectWish.instance,64,10,true);
 	}
 
 	public void init () {

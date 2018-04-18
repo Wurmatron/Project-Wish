@@ -31,14 +31,14 @@ public class RandomizeRockTypeEvent {
 	private static HashMap <String, Integer> layerHeightCache = new HashMap <> ();
 
 	public static int[] getRockData (Biome biome) {
-		if (rockLayers.containsKey (biome.getBiomeName ()))
-			return rockLayers.get (biome.getBiomeName ());
+		if (rockLayers.containsKey (biome.getRegistryName ().toString ()))
+			return rockLayers.get (biome.getRegistryName ().toString ());
 		int size = (256 / (findLayerHeight (biome))) + 1;
 		int[] newRockData = new int[size];
 		for (int index = 0; index < size - 2; index++)
 			newRockData[index] = rand.nextInt (9);
 		newRockData[size - 1] = getRockType (biome);
-		rockLayers.put (biome.getBiomeName (),newRockData);
+		rockLayers.put (biome.getRegistryName ().toString (),newRockData);
 		return newRockData;
 	}
 
@@ -130,8 +130,8 @@ public class RandomizeRockTypeEvent {
 	}
 
 	private static int findLayerHeight (Biome biome) {
-		if (layerHeightCache.containsKey (biome.getBiomeName ()))
-			return layerHeightCache.get (biome.getBiomeName ());
+		if (layerHeightCache.containsKey (biome.getRegistryName ().toString ()))
+			return layerHeightCache.get (biome.getRegistryName ().toString ());
 		float adjBiomeHeight = Math.abs (biome.getBaseHeight () * 8); // 0 - 16, .25
 		float adjHeightVariation = biome.getHeightVariation () / 2;   // 0 - 1, .025
 		if (adjBiomeHeight == 0)
@@ -149,7 +149,7 @@ public class RandomizeRockTypeEvent {
 		if (layerHeight > 30)
 			layerHeight = 30;
 		int outputHeight = layerHeight > 0 ? layerHeight : 1;
-		layerHeightCache.put (biome.getBiomeName (),outputHeight);
+		layerHeightCache.put (biome.getRegistryName ().toString (),outputHeight);
 		return outputHeight;
 	}
 
