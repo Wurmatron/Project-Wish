@@ -5,15 +5,13 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockRock;
+import wish.wurmatron.common.blocks.BlockStick;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
@@ -74,7 +72,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 	}
 
 	private boolean isRockSpawnable (Block block) {
-		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType && !(block instanceof BlockRock);
+		return block == Blocks.DIRT || block == Blocks.GRASS || block instanceof BlockRockType && !(block instanceof BlockRock) && !(block instanceof BlockStick);
 	}
 
 	public static class OreGen {

@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -23,7 +22,6 @@ import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
-import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.WishWorldGenerator;
 import wish.wurmatron.common.events.WorldEvents;
@@ -100,8 +98,6 @@ public class ProjectWish {
 			for (int index = 0; index < 6; index++)
 				OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
 		for (int index = 0; index < StoneType.values ().length; index++)
-			OreDictionary.registerOre ("rock",new ItemStack (WishItems.itemRock,1,index));
-//		ForgeModContainer.logCascadingWorldGeneration = false;
 		GameRegistry.registerWorldGenerator (new WishWorldGenerator (),0);
 	}
 

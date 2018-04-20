@@ -1,13 +1,18 @@
 package wish.wurmatron.common.events;
 
+import net.darkhax.orestages.api.OreTiersAPI;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.blocks.WishBlocks;
@@ -18,7 +23,6 @@ import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.Settings;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.ArrayList;
@@ -27,6 +31,13 @@ import java.util.List;
 public class WorldEvents {
 
 	public static List <Item> gemItems = new ArrayList <> ();
+
+	private static boolean canDropOre (IBlockState state,EntityPlayer player) {
+		if (player instanceof EntityPlayerMP)
+			if (OreTiersAPI.getStageInfo (state) != null)
+				return OreTiersAPI.hasStage (player,OreTiersAPI.getStageInfo (state).getFirst ());
+		return false;
+	}
 
 	@SubscribeEvent
 	public void onBlockBreak (BlockEvent.BreakEvent e) {
@@ -46,7 +57,7 @@ public class WorldEvents {
 				}
 		}
 		if (Settings.funBlocks && e.getState ().getBlock () == WishBlocks.stoneSedimentary && e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
-				e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
+			e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
 
 	@SubscribeEvent
@@ -66,7 +77,12 @@ public class WorldEvents {
 	public void onBlockBreakOre (BlockEvent.BreakEvent e) {
 		if (e.getState () != null && e.getState ().getBlock () instanceof BlockOre) {
 			TileOre tile = ((TileOre) e.getWorld ().getTileEntity (e.getPos ()));
-			e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
+			if (Loader.isModLoaded ("orestages") && canDropOre (e.getState (),e.getPlayer ()))
+				e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
+			else if (!Loader.isModLoaded ("orestages"))
+				e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
 		}
 	}
+
+
 }
