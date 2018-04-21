@@ -19,7 +19,6 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
@@ -97,7 +96,6 @@ public class ProjectWish {
 		for (GemType gem : GemType.values ())
 			for (int index = 0; index < 6; index++)
 				OreDictionary.registerOre ("gem" + index,new ItemStack (Registry.gemItems.get (gem),1,index));
-		for (int index = 0; index < StoneType.values ().length; index++)
 		GameRegistry.registerWorldGenerator (new WishWorldGenerator (),0);
 	}
 

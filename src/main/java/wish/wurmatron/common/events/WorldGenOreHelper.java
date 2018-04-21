@@ -1,20 +1,15 @@
 package wish.wurmatron.common.events;
 
 import com.google.common.base.Predicate;
-import javafx.geometry.Point3D;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
-import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.Random;
 
@@ -88,7 +83,7 @@ public class WorldGenOreHelper extends WorldGenerator {
 	}
 
 	public IBlockState correctRockType (IBlockState state,World world,BlockPos pos) {
-		return state.withProperty (BlockRockType.TYPE,RandomizeRockTypeEvent.getRockMeta (world,pos));
+		return state.withProperty (BlockRockType.TYPE,ProjectWish.randRockType.getRockMeta (world,pos));
 	}
 
 	static class StonePredicate implements Predicate <IBlockState> {

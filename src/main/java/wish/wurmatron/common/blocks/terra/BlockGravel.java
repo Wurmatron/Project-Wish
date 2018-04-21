@@ -62,7 +62,7 @@ public class BlockGravel extends BlockRockType {
 
 	@Override
 	public int damageDropped (IBlockState state) {
-		return getMetaFromState (state);
+		return 0;
 	}
 
 	@Override
@@ -92,7 +92,6 @@ public class BlockGravel extends BlockRockType {
 				BlockPos blockpos;
 
 				for (blockpos = pos.down (); (worldIn.isAirBlock (blockpos) || canFallThrough (worldIn.getBlockState (blockpos))) && blockpos.getY () > 0; blockpos = blockpos.down ()) {
-					;
 				}
 
 				if (blockpos.getY () > 0) {

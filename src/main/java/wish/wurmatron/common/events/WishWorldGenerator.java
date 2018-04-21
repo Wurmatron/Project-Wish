@@ -8,13 +8,13 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.blocks.BlockRock;
 import wish.wurmatron.common.blocks.BlockStick;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.config.Settings;
-import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,8 +48,9 @@ public class WishWorldGenerator implements IWorldGenerator {
 			Block block = world.getBlockState (pos).getBlock ();
 			if (isRockSpawnable (block))
 				if (world.isAirBlock (pos.up ())) {
-					IBlockState state = RandomizeRockTypeEvent.getStoneForPos (world,pos.up ());
-					world.setBlockState (pos.up (),getRock (state.getBlock ()).getStateFromMeta (state.getValue (BlockRockType.TYPE)),3);
+					IBlockState state = ProjectWish.randRockType.getStoneForPos (world,pos.up ());
+					if (state.getBlock () != Blocks.AIR)
+						world.setBlockState (pos.up (),getRock (state.getBlock ()).getStateFromMeta (state.getValue (BlockRockType.TYPE)),3);
 				}
 		}
 		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk * 2); i++) {
@@ -65,10 +66,10 @@ public class WishWorldGenerator implements IWorldGenerator {
 
 	private Block getRock (Block block) {
 		if (block == WishBlocks.stoneMetamorphic)
-			return WishBlocks.rockIgneous;
-		else if (block == WishBlocks.stoneSedimentary)
 			return WishBlocks.rockMetamorphic;
-		return WishBlocks.rockSedimentary;
+		else if (block == WishBlocks.stoneSedimentary)
+			return WishBlocks.rockSedimentary;
+		return WishBlocks.rockIgneous;
 	}
 
 	private boolean isRockSpawnable (Block block) {
