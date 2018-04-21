@@ -4,12 +4,10 @@ import net.minecraft.block.BlockGravel;
 import net.minecraft.block.BlockSand;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeJungle;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -44,7 +42,12 @@ public class RandomizeRockTypeEvent {
 
 	// TODO Find This not just random
 	private static int getRockType (Biome biome) {
-		return rand.nextInt (2);
+		int num = rand.nextInt (1);
+		boolean t = rand.nextBoolean ();
+		if (t)
+			return 1 + num;
+		else
+			return 1 - num;
 	}
 
 	public static int getRockMeta (World world,BlockPos pos) {
@@ -85,12 +88,15 @@ public class RandomizeRockTypeEvent {
 		switch (type) {
 			case 0: {
 				chunk.setBlockState (pos,WishBlocks.stoneIgneous.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 1: {
 				chunk.setBlockState (pos,WishBlocks.stoneMetamorphic.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 2: {
 				chunk.setBlockState (pos,WishBlocks.stoneSedimentary.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 		}
 	}
@@ -100,12 +106,15 @@ public class RandomizeRockTypeEvent {
 		switch (type) {
 			case 0: {
 				chunk.setBlockState (pos,WishBlocks.gravelIgneous.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 1: {
 				chunk.setBlockState (pos,WishBlocks.gravelMetamorphic.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 2: {
 				chunk.setBlockState (pos,WishBlocks.gravelSedimentary.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 		}
 	}
@@ -115,12 +124,15 @@ public class RandomizeRockTypeEvent {
 		switch (type) {
 			case 0: {
 				chunk.setBlockState (pos,WishBlocks.sandIgneous.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 1: {
 				chunk.setBlockState (pos,WishBlocks.sandMetamorphic.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 			case 2: {
 				chunk.setBlockState (pos,WishBlocks.sandSedimentary.getDefaultState ().withProperty (BlockRockType.TYPE,meta));
+				break;
 			}
 		}
 	}
