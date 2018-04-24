@@ -4,7 +4,7 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import wish.wurmatron.api.Global;
-import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.config.ConfigHandler;
 
 /**
  Used insted of System.out.println() to allow for easier viewing for specific mod output text.
@@ -37,7 +37,7 @@ public class LogHandler {
 	 @param message message to output
 	 */
 	public static void debug (String message) {
-		if (Settings.debug)
+		if (ConfigHandler.debug)
 			log (Level.DEBUG,message);
 	}
 }

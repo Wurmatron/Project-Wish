@@ -27,10 +27,12 @@ import java.util.HashMap;
 
 public class DimTransferEvent {
 
-	private static HashMap <Integer, DimFall> travelData = new HashMap <> ();
 	private static final Gson gson = new GsonBuilder ().setPrettyPrinting ().create ();
+	private static HashMap <Integer, DimFall> travelData = new HashMap <> ();
 
 	public static void loadData (File location) {
+		if (!location.exists ())
+			location.mkdirs ();
 		File loc = new File (location + File.separator + "Dimension");
 		if (loc.exists () && loc.listFiles ().length > 0) {
 			for (File file : loc.listFiles ())
@@ -45,21 +47,6 @@ public class DimTransferEvent {
 						e.printStackTrace ();
 					}
 				}
-		}
-	}
-
-	@SubscribeEvent
-	public void onPlayerTick (TickEvent.PlayerTickEvent e) {
-		if (e.side == Side.SERVER && e.phase == TickEvent.Phase.START && e.player.world.getWorldTime () % 10 == 0 && travelData.size () > 0 && e.player.posY <= 0) {
-			if (travelData.containsKey (e.player.dimension)) {
-				DimFall data = travelData.get (e.player.dimension);
-				if (e.player.posY < data.yTravel) {
-					e.player.addPotionEffect (new PotionEffect (MobEffects.NAUSEA,100,1));
-					e.player.addPotionEffect (new PotionEffect (MobEffects.BLINDNESS,100,1));
-					teleportPlayerTo ((EntityPlayerMP) e.player,((EntityPlayerMP) e.player).posX,data.spawnHeight,((EntityPlayerMP) e.player).posZ,data.dimensionID);
-					e.player.getEntityData ().setInteger ("Traveled",data.fallDamage);
-				}
-			}
 		}
 	}
 
@@ -97,6 +84,21 @@ public class DimTransferEvent {
 			FMLCommonHandler.instance ().firePlayerChangedDimensionEvent (player,id,dimID);
 		} else {
 			player.connection.setPlayerLocation (x + 0.5,y + 1,z + 0.5,player.rotationYaw,player.rotationPitch);
+		}
+	}
+
+	@SubscribeEvent
+	public void onPlayerTick (TickEvent.PlayerTickEvent e) {
+		if (e.side == Side.SERVER && e.phase == TickEvent.Phase.START && e.player.world.getWorldTime () % 10 == 0 && travelData.size () > 0 && e.player.posY <= 0) {
+			if (travelData.containsKey (e.player.dimension)) {
+				DimFall data = travelData.get (e.player.dimension);
+				if (e.player.posY < data.yTravel) {
+					e.player.addPotionEffect (new PotionEffect (MobEffects.NAUSEA,100,1));
+					e.player.addPotionEffect (new PotionEffect (MobEffects.BLINDNESS,100,1));
+					teleportPlayerTo ((EntityPlayerMP) e.player,((EntityPlayerMP) e.player).posX,data.spawnHeight,((EntityPlayerMP) e.player).posZ,data.dimensionID);
+					e.player.getEntityData ().setInteger ("Traveled",data.fallDamage);
+				}
+			}
 		}
 	}
 

@@ -5,6 +5,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -31,9 +34,10 @@ import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.DimTransferEvent;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
 
+import java.io.File;
 import java.lang.reflect.Field;
 
-@Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, guiFactory = Global.GUI_FACTORY, updateJSON = Global.JSON_UPDATE)
+@Mod (modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
 
 	public static final CreativeTabs BLOCKS = new CreativeTabs ("blocks") {
@@ -67,7 +71,6 @@ public class ProjectWish {
 
 	@Mod.EventHandler
 	public void onPreInit (FMLPreInitializationEvent e) {
-		ConfigHandler.init (e.getSuggestedConfigurationFile ());
 		MinecraftForge.EVENT_BUS.register (new Registry ());
 		WishModBlocks.registerBlocks ();
 		WishModItems.registerItems ();
@@ -82,7 +85,8 @@ public class ProjectWish {
 		MinecraftForge.EVENT_BUS.register (new WorldEvents ());
 		MinecraftForge.EVENT_BUS.register (new DimTransferEvent ());
 		randRockType = new RandomizeRockTypeEvent ();
-		MinecraftForge.EVENT_BUS.register (randRockType);
+		if (ConfigHandler.replaceWorldGen)
+			MinecraftForge.EVENT_BUS.register (randRockType);
 		MinecraftForge.ORE_GEN_BUS.register (new WorldEvents ());
 		for (Block block : Registry.blocks)
 			if (block.getUnlocalizedName ().contains ("stone"))
@@ -109,7 +113,7 @@ public class ProjectWish {
 				if (ore.getGenerationType () == OreType.GenType.LARGE_CLUSTER)
 					veinSize = 150 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SMALL_CLUSTER)
-					veinSize =  75 / ore.getRarity ();
+					veinSize = 75 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SINGLE)
 					veinSize = 1;
 				WishWorldGenerator.addOreGen (ore,block.getDefaultState (),veinSize,0,150,ore.getRarity () * 15);
@@ -120,6 +124,6 @@ public class ProjectWish {
 
 	@Mod.EventHandler
 	public void onServerLoading (FMLServerStartingEvent e) {
-		ConfigHandler.loadCustomSettings ();
+		DimTransferEvent.loadData (new File (Loader.instance ().getConfigDir ().getParent () + File.separator + Global.NAME));
 	}
 }

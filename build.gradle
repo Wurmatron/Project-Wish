@@ -22,15 +22,15 @@ minecraft {
 	version = "${mc_version}-${forge_version}"
     runDir = "run"
     mappings = "${mcp_mappings}"
+	clientRunArgs += "--username=${username}"
 }
 
 repositories {
-	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2518/734/[module]-1.12.2-[revision].[ext]"}
-	ivy {artifactPattern "https://addons-origin.cursecdn.com/files/2543/287/[module]-1.12.2-[revision].[ext]"}
+	maven { url 'https://maven.mcmoddev.com/' }
 }
 
 dependencies {
-	compile name: 'DynamicTrees', version: "${dynamictrees_version}", ext: 'jar'
+	compile "net.darkhax.gamestages:GameStages-${mc_version}:${gamestages_version}"
 }
 
 processResources {

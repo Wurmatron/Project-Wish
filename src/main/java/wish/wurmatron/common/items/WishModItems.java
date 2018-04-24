@@ -5,7 +5,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
-import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
@@ -71,7 +71,7 @@ public class WishModItems {
 		WishItems.orePentlandite = registerOre (new ItemOre ("Pentlandite"),OreType.PENTALANDITE);
 		WishItems.oreCinnabar = registerOre (new ItemOre ("Cinnabar"),OreType.CINNABAR);
 		WishItems.dustOre = register (new ItemDust ());
-		if (Settings.sludgeEnabled) {
+		if (ConfigHandler.oreItems) {
 			// Sludge
 			WishItems.sludgeLitium = register (new ItemSludge ("Litium"));
 			WishItems.sludgeAluminum = register (new ItemSludge ("Aluminum"));
@@ -90,12 +90,8 @@ public class WishModItems {
 			WishItems.sludgeNickel = register (new ItemSludge ("Nickel"));
 			WishItems.sludgeCopper = register (new ItemSludge ("Copper"));
 			WishItems.sludgeZinc = register (new ItemSludge ("Zinc"));
-		}
-		if (Settings.crystalEnabled) {
 			// Crystal
 			WishItems.crystalOre = register (new ItemCrystal (new String[] {"Litium","Aluminum","Magnesium","Titanium","Iron","Cobalt","Tin","Gold","Lead","Bismuth","Neodynium","Yttrium","Uranium","Thorium","Nickel","Copper"}));
-		}
-		if (Settings.shardEnabled) {
 			// Shard
 			WishItems.shardLitium = register (new ItemShard ("Litium"));
 			WishItems.shardAluminum = register (new ItemShard ("Aluminum"));
@@ -116,7 +112,6 @@ public class WishModItems {
 			WishItems.shardZinc = register (new ItemShard ("Zinc"));
 		}
 		// Rocks
-		// TODO Create All Rocks
 		WishItems.itemRock = register (new ItemRock ());
 		WishItems.itemMeta = register (new ItemMeta ());
 		// Tools

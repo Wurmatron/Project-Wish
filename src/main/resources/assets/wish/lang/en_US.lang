@@ -1,5 +1,15 @@
-# World Types
-generator.wish=Default (Wish)
+# Config
+config.debug.name=Enable Debug Mode
+config.replaceWorldGen.name=Replace WorldGen with ProjectWish Blocks
+config.farmingSpeed.name=Crop Growth Speed
+config.genRarity.name=Gem Rarity
+config.oreDict.name=Ore Dictionary is Enabled
+config.oreRarity.name=Ore Rarity
+config.rocksPerChunk.name=How Many Rocks Per Chunk
+config.sticksPerChunk.name=How Many Sticks Per Chunk
+config.fun.name=Do you like fun?
+config.overrideOre.name=Override other mods ore within WorldGen?
+config.oreItems.name=Are Ore Items like Sludge, Crystal, Shard Enabled?
 
 # Items
 item.stoneError.name=Invalid Stone Type, Please report to Github

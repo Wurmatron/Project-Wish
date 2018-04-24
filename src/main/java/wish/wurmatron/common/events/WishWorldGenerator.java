@@ -14,7 +14,8 @@ import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.blocks.BlockRock;
 import wish.wurmatron.common.blocks.BlockStick;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.config.ConfigHandler;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 	}
 
 	private void generateGround (Random rand,int chunkX,int chunkZ,World world) {
-		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk); i++) {
+		for (int i = 0; i < rand.nextInt (ConfigHandler.rocksPerChunk); i++) {
 			int x = chunkX * 16 + rand.nextInt (16) + 8;
 			int z = chunkZ * 16 + rand.nextInt (16) + 8;
 			BlockPos pos = world.getTopSolidOrLiquidBlock (new BlockPos (x,0,z)).down ();
@@ -53,7 +54,7 @@ public class WishWorldGenerator implements IWorldGenerator {
 						world.setBlockState (pos.up (),getRock (state.getBlock ()).getStateFromMeta (state.getValue (BlockRockType.TYPE)),3);
 				}
 		}
-		for (int i = 0; i < rand.nextInt (Settings.rocksPerChunk * 2); i++) {
+		for (int i = 0; i < rand.nextInt (ConfigHandler.sticksPerChunk); i++) {
 			int x = chunkX * 16 + rand.nextInt (16) + 8;
 			int z = chunkZ * 16 + rand.nextInt (16) + 8;
 			BlockPos pos = world.getTopSolidOrLiquidBlock (new BlockPos (x,0,z)).down ();

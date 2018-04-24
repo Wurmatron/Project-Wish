@@ -17,6 +17,7 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
 import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.items.*;
 import wish.wurmatron.common.proxy.CommonProxy;
@@ -106,14 +107,16 @@ public class ClientProxy extends CommonProxy {
 			createModel (WishItems.itemMeta,index,ItemMeta.metaItems[index]);
 		for (int index = 0; index < OreType.values ().length; index++)
 			createModel (WishItems.dustOre,index,"dust" + OreType.values ()[index].getName ());
-		for (Item item : ItemSludge.validSludge)
-			for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
-				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
-		for (Item item : ItemShard.valid)
-			for (int index = 0; index < ItemShard.WEIGHTS.length; index++)
-				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
-		for (int index = 0; index < ItemCrystal.metaItems.length; index++)
-			createModel (WishItems.crystalOre,index,"crystal" + ItemCrystal.metaItems[index]);
+		if (ConfigHandler.oreItems) {
+			for (Item item : ItemSludge.validSludge)
+				for (int index = 0; index < ItemSludge.WEIGHTS.length; index++)
+					createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
+			for (Item item : ItemShard.valid)
+				for (int index = 0; index < ItemShard.WEIGHTS.length; index++)
+					createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
+			for (int index = 0; index < ItemCrystal.metaItems.length; index++)
+				createModel (WishItems.crystalOre,index,"crystal" + ItemCrystal.metaItems[index]);
+		}
 		for (int meta = 0; meta < 1561; meta++) {
 			createModel (WishItems.stoneProspectPick,meta,"stoneProspectPick");
 			createModel (WishItems.ironProspectPick,meta,"ironProspectPick");

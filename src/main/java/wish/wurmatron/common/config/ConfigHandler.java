@@ -1,69 +1,52 @@
 package wish.wurmatron.common.config;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
+
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.api.Local;
 import wish.wurmatron.common.utils.LogHandler;
-import wish.wurmatron.common.world.DimTransferEvent;
 
-import java.io.File;
-
-// TODO New Config System
+@Mod.EventBusSubscriber (modid = Global.MODID)
+@Config (modid = Global.MODID, name = "ProjectWish/Global")
 public class ConfigHandler {
 
-	public static File location;
-	public static Configuration global;
+	// General
+	@Config.LangKey (Local.CONFIG_DEBUG)
+	public static boolean debug = false;
+	@Config.LangKey (Local.CONFIG_OREDICT)
+	public static boolean oreDictionary = true;
+	@Config.LangKey (Local.CONFIG_FUN)
+	public static boolean fun = true;
+	@Config.LangKey (Local.CONFIG_ORE_ITEMS)
+	public static boolean oreItems = false;
 
-	/**
-	 Used to create configuration folder and files
+	// WorldGen
+	@Config.LangKey (Local.CONFIG_REPLACE_WORLDGEN)
+	public static boolean replaceWorldGen = true;
+	@Config.LangKey (Local.CONFIG_GEM_RARITY)
+	public static int gemRarity = 1000;
+	@Config.LangKey (Local.CONFIG_ORE_RARITY)
+	public static int oreRarity = 5;
+	@Config.LangKey (Local.CONFIG_ROCKS_PER_CHUNK)
+	public static int rocksPerChunk = 10;
+	@Config.LangKey (Local.CONFIG_STICKS_PER_CHUNK)
+	public static int sticksPerChunk = 20;
+	@Config.LangKey (Local.CONFIG_OVERRIDE_ORE)
+	public static boolean overrideOre = true;
 
-	 @param file location to create the configuration directory
-	 */
-	public static void init (File file) {
-		location = new File (file.getParent () + File.separator + Global.NAME);
-		global = new Configuration (new File (location + File.separator + "Global.cfg"));
-		MinecraftForge.EVENT_BUS.register (new ConfigHandler ());
-		syncConfig ();
-	}
+	// Farming
+	@Config.LangKey (Local.CONFIG_FARMING_SPEED)
+	public static float cropGrowth = .5f;
 
-	/**
-	 Updates all the config settings
-	 */
-	public static void syncConfig () {
-		LogHandler.info ("Loading config");
-		Settings.debug = global.getBoolean (Global.DEBUG,Configuration.CATEGORY_GENERAL,false,Global.DEBUG_COMMENT);
-		Settings.disableDefaultWorldType = global.getBoolean (Global.DISABLE_DEFAULT_WORLDTYPE,Configuration.CATEGORY_GENERAL,true,Global.DISABLE_DEFAULT_WORLDTYPE_COMMENT);
-		Settings.cropGrowth = global.getFloat (Global.CROP_GROWTH,Configuration.CATEGORY_GENERAL,0.5f,0f,1f,Global.CROP_GROWTH_COMMENT);
-		Settings.gravityUpdate = global.getInt (Global.GRAVITY_UPDATE,Configuration.CATEGORY_GENERAL,5,1,100,Global.GRAVITY_UPDATE_COMMENT);
-		Settings.gemRarity = global.getInt (Global.GEM_RARITY,Configuration.CATEGORY_GENERAL,1000,1,1000000,Global.GEM_RARITY_COMMMENT);
-		Settings.oreDictionary = global.getBoolean (Global.ORE_DICT,Configuration.CATEGORY_GENERAL,true,Global.ORE_DICT_COMMENT);
-		Settings.oreRarity = global.getInt (Global.ORE_RARITY,Configuration.CATEGORY_GENERAL,5,1,100,Global.ORE_RARITY_COMMENT);
-		Settings.rocksPerChunk = global.getInt ("rocksPerChunk",Configuration.CATEGORY_GENERAL,10,0,10000,Global.ROCKS_PER_CHUNK_COMMENT);
-		Settings.sticksPerChunk = global.getInt ("sticksPerChunk",Configuration.CATEGORY_GENERAL,20,0,10000,Global.STICKS_PER_CHUNK_COMMENT);
-		Settings.funBlocks = global.getBoolean (Global.FUN_BLOCK,Configuration.CATEGORY_GENERAL,true,Global.FUN_BLOCK_COMMENT);
-		Settings.overrideOre = global.getBoolean (Global.OVERRIDE_ORE,Configuration.CATEGORY_GENERAL,true,Global.OVERRIDE_ORE_COMMENT);
-		Settings.crystalEnabled = global.getBoolean ("crystalEnabled",Configuration.CATEGORY_GENERAL,false,Global.CRYSTAL_ENABLED_COMMENT);
-		Settings.shardEnabled = global.getBoolean ("shardEnabled",Configuration.CATEGORY_GENERAL,false,Global.SHARD_ENABLED_COMMENT);
-		Settings.sludgeEnabled = global.getBoolean ("sludgeEnabled",Configuration.CATEGORY_GENERAL,false,Global.SLUDGE_ENABLED_COMMENT);
-
-		if (global.hasChanged ()) {
-			global.save ();
-			LogHandler.info ("Config Saved");
-		}
-	}
-
-	public static void loadCustomSettings () {
-		DimTransferEvent.loadData (location);
-	}
-
-	@SideOnly (Side.CLIENT)
 	@SubscribeEvent
-	public void configChanged (ConfigChangedEvent.OnConfigChangedEvent e) {
-		if (e.getModID ().equals (Global.MODID))
-			syncConfig ();
+	public static void onConfigChanged (ConfigChangedEvent.OnConfigChangedEvent event) {
+		if (event.getModID ().equals (Global.MODID)) {
+			ConfigManager.load (Global.MODID,Config.Type.INSTANCE);
+			LogHandler.info ("Config Saved!");
+		}
 	}
 }

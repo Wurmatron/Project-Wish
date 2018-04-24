@@ -20,7 +20,7 @@ import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.common.blocks.BlockOre;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.blocks.stone.BlockStone;
-import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
 import wish.wurmatron.common.utils.Registry;
@@ -41,7 +41,7 @@ public class WorldEvents {
 
 	@SubscribeEvent
 	public void onBlockBreak (BlockEvent.BreakEvent e) {
-		if (e.getWorld ().rand.nextInt (Settings.gemRarity) == 0 && GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone) {
+		if (e.getWorld ().rand.nextInt (ConfigHandler.gemRarity) == 0 && GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone) {
 			int max = 0;
 			for (GemType gem : GemType.values ())
 				max += gem.getChance ();
@@ -56,7 +56,7 @@ public class WorldEvents {
 					id -= ((ItemGem) gem).type.getChance ();
 				}
 		}
-		if (Settings.funBlocks && e.getState ().getBlock () == WishBlocks.stoneSedimentary && e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
+		if (ConfigHandler.fun && e.getState ().getBlock () == WishBlocks.stoneSedimentary && e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
 			e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
 

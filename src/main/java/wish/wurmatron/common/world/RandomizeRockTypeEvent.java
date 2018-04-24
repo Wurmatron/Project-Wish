@@ -10,7 +10,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
-import wish.wurmatron.common.config.Settings;
+import wish.wurmatron.common.config.ConfigHandler;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -45,7 +45,7 @@ public class RandomizeRockTypeEvent {
 		int biomeHeight = getBiomeHeight (biome);
 		int blockType = getBlockType (pos,biome,biomeHeight);
 		int rockMeta = getRockMeta (biome,pos,biomeHeight);
-		if (chunk.getBlockState (pos).getBlock () == Blocks.STONE || chunk.getBlockState (pos).getBlock () == Blocks.BEDROCK || Settings.overrideOre && chunk.getBlockState (pos).getBlock ().getUnlocalizedName ().contains ("ore"))
+		if (chunk.getBlockState (pos).getBlock () == Blocks.STONE || chunk.getBlockState (pos).getBlock () == Blocks.BEDROCK || ConfigHandler.overrideOre  && chunk.getBlockState (pos).getBlock ().getUnlocalizedName ().contains ("ore"))
 			chunk.setBlockState (pos,getStoneBlockShift (biome,blockType).withProperty (BlockRockType.TYPE,rockMeta));
 		else if (chunk.getBlockState (pos).getBlock () == Blocks.SAND)
 			chunk.setBlockState (pos,getSandBlockShift (biome,blockType).withProperty (BlockRockType.TYPE,rockMeta));
