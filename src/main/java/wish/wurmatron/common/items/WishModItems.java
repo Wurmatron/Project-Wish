@@ -9,7 +9,10 @@ import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
 
-	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,3,50,0);
+	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,1,3,0);
+	public static final Item.ToolMaterial STEEL = EnumHelper.addToolMaterial ("steel",1,950,1,5,0);
+	public static final Item.ToolMaterial COPPER = EnumHelper.addToolMaterial ("rock",1,220,1,2,0);
+	public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial ("rock",1,280,1,2,0);
 
 	public static void registerItems () {
 		// Gems
@@ -111,6 +114,12 @@ public class WishModItems {
 		WishItems.itemMeta = register (new ItemMeta ());
 		// Tools
 		WishItems.toolSharpRockOnAStick = register (new WishSharpStoneTool (ROCK,50,1));
+		WishItems.stoneProspectPick = register (new ItemProspectPick (2,4,Item.ToolMaterial.STONE,null).setUnlocalizedName ("stoneProspectPick"));
+		WishItems.ironProspectPick = register (new ItemProspectPick (4,4,Item.ToolMaterial.IRON,null).setUnlocalizedName ("ironProspectPick"));
+		WishItems.gemProspectPick = register (new ItemProspectPick (10,4,Item.ToolMaterial.DIAMOND,null).setUnlocalizedName ("gemProspectPick"));
+		WishItems.steelProspectPick = register (new ItemProspectPick (6,4,STEEL,null).setUnlocalizedName ("steelProspectPick"));
+		WishItems.copperProspectPick = register (new ItemProspectPick (3,4,COPPER,null).setUnlocalizedName ("copperProspectPick"));
+		WishItems.bronzeProspectPick = register (new ItemProspectPick (4,4,BRONZE,null).setUnlocalizedName ("bronzeProspectPick"));
 	}
 
 	private static Item register (Item item) {

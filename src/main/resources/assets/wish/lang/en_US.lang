@@ -52,7 +52,7 @@ item.gemRuby.name=Ruby
 item.gemSapphire.name=Sapphire
 item.gemTanzanite.name=Tanzanite
 item.gemTopaz.name=Topaz
-item.gemTurqioise.name=Turqioise
+item.gemTurqioise.name=Turquoise
 item.gemTourmaline.name=Tourmaline
 item.gemZircon.name=Zircon
 item.gemMixed.name=Mixed
@@ -167,6 +167,12 @@ item.crystalCopper.name=Copper Crystal
 item.crystalGold.name=Gold Crystal
 item.crystalLead.name=Lead Crystal
 item.crystalBismuth.name=Bismuth Crystal
+item.stoneProspectPick.name=Stone Prospecting Pick
+item.ironProspectPick.name=Iron Prospecting Pick
+item.steelProspectPick.name=Steel Prospecting Pick
+item.gemProspectPick.name=Gem Prospecting Pick
+item.copperProspectPick.name=Copper Prospecting Pick
+item.bronzeProspectPick.name=Bronze Prospecting Pick
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical
@@ -281,3 +287,16 @@ tile.oreLimonite.name=Limonite Ore
 tile.oreHematite.name=Hematite Ore
 tile.oreMagnetite.name=Magnetite Ore
 tile.oreCinnabar.name=Cinnabar Ore
+
+# Chat
+chat.mode.switch=Mode Switched to %MODE%
+chat.found=Found:
+chat.motherload.name=A Motherload of %ORE%
+chat.huge.name=A Huge sample of %ORE%
+chat.large.name=A Large sample of %ORE%
+chat.medium.name=A Medium sample of %ORE%
+chat.small.name=A Small sample of %ORE%
+chat.traces.name=Traces of %ORE%
+
+# Tooltip
+tooltip.mode.name=Mode: %MODE%

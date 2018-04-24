@@ -2,7 +2,6 @@ package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.item.Item;
@@ -115,5 +114,13 @@ public class ClientProxy extends CommonProxy {
 				createModel (item,index,item.getUnlocalizedName ().substring (5) + "_" + index);
 		for (int index = 0; index < ItemCrystal.metaItems.length; index++)
 			createModel (WishItems.crystalOre,index,"crystal" + ItemCrystal.metaItems[index]);
+		for (int meta = 0; meta < 1561; meta++) {
+			createModel (WishItems.stoneProspectPick,meta,"stoneProspectPick");
+			createModel (WishItems.ironProspectPick,meta,"ironProspectPick");
+			createModel (WishItems.steelProspectPick,meta,"steelProspectPick");
+			createModel (WishItems.gemProspectPick,meta,"gemProspectPick");
+			createModel (WishItems.copperProspectPick,meta,"copperProspectPick");
+			createModel (WishItems.bronzeProspectPick,meta,"bronzeProspectPick");
+		}
 	}
 }

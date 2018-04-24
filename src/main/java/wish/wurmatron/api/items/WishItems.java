@@ -109,4 +109,10 @@ public class WishItems {
 
 	// Tools
 	public static Item toolSharpRockOnAStick;
+	public static Item stoneProspectPick;
+	public static Item ironProspectPick;
+	public static Item steelProspectPick;
+	public static Item gemProspectPick;
+	public static Item copperProspectPick;
+	public static Item bronzeProspectPick;
 }
