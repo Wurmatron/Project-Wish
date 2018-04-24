@@ -46,6 +46,9 @@ public class ConfigHandler {
 		Settings.sticksPerChunk = global.getInt ("sticksPerChunk",Configuration.CATEGORY_GENERAL,20,0,10000,Global.STICKS_PER_CHUNK_COMMENT);
 		Settings.funBlocks = global.getBoolean (Global.FUN_BLOCK,Configuration.CATEGORY_GENERAL,true,Global.FUN_BLOCK_COMMENT);
 		Settings.overrideOre = global.getBoolean (Global.OVERRIDE_ORE,Configuration.CATEGORY_GENERAL,true,Global.OVERRIDE_ORE_COMMENT);
+		Settings.crystalEnabled = global.getBoolean ("crystalEnabled",Configuration.CATEGORY_GENERAL,false,Global.CRYSTAL_ENABLED_COMMENT);
+		Settings.shardEnabled = global.getBoolean ("shardEnabled",Configuration.CATEGORY_GENERAL,false,Global.SHARD_ENABLED_COMMENT);
+		Settings.sludgeEnabled = global.getBoolean ("sludgeEnabled",Configuration.CATEGORY_GENERAL,false,Global.SLUDGE_ENABLED_COMMENT);
 
 		if (global.hasChanged ()) {
 			global.save ();

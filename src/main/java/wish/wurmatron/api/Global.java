@@ -36,4 +36,7 @@ public class Global {
 	public static final String FUN_BLOCK_COMMENT = "Don't you like fun?";
 	public static final String OVERRIDE_ORE = "overrideOre";
 	public static final String OVERRIDE_ORE_COMMENT = "Remove other Ores?";
+	public static final String CRYSTAL_ENABLED_COMMENT = "Are Crystals Enabled?";
+	public static final String SHARD_ENABLED_COMMENT = "Are Shards Enabled?";
+	public static final String SLUDGE_ENABLED_COMMENT = "Is Sludge Enabled?";
 }

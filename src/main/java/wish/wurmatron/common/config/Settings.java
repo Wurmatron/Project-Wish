@@ -14,4 +14,7 @@ public class Settings {
 	public static int sticksPerChunk;
 	public static boolean funBlocks;
 	public static boolean overrideOre;
+	public static boolean sludgeEnabled;
+	public static boolean shardEnabled;
+	public static boolean crystalEnabled;
 }

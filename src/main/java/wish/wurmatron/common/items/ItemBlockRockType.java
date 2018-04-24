@@ -62,6 +62,8 @@ public class ItemBlockRockType extends ItemBlock {
 			else if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("stick"))
 				return I18n.translateToLocal ("item.stick.name");
 		}
+		if (stack.getItem ().getRegistryName ().getResourcePath ().startsWith ("rock"))
+			return I18n.translateToLocal ("item." + stack.getItem ().getRegistryName ().getResourcePath () + ".name");
 		return I18n.translateToLocal ("item.stoneError.name");
 	}
 }

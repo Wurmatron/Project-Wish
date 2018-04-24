@@ -173,6 +173,9 @@ item.steelProspectPick.name=Steel Prospecting Pick
 item.gemProspectPick.name=Gem Prospecting Pick
 item.copperProspectPick.name=Copper Prospecting Pick
 item.bronzeProspectPick.name=Bronze Prospecting Pick
+item.rockigneous.name=Igneous Rock
+item.rocksedimentary.name=Sedimentary Rock
+item.rockmetamorphic.name=Metamorphic Rock
 
 # Tooltip
 tooltip.stoneSubType.Chemical.name=Chemical
