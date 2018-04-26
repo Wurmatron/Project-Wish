@@ -8,6 +8,8 @@ import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.utils.Registry;
 
+import java.util.HashSet;
+
 public class WishModItems {
 
 	public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial ("rock",1,20,1,3,0);
@@ -116,12 +118,12 @@ public class WishModItems {
 		WishItems.itemMeta = register (new ItemMeta ());
 		// Tools
 		WishItems.toolSharpRockOnAStick = register (new WishSharpStoneTool (ROCK,50,1));
-		WishItems.stoneProspectPick = register (new ItemProspectPick (2,4,Item.ToolMaterial.STONE,null).setUnlocalizedName ("stoneProspectPick"));
-		WishItems.ironProspectPick = register (new ItemProspectPick (4,4,Item.ToolMaterial.IRON,null).setUnlocalizedName ("ironProspectPick"));
-		WishItems.gemProspectPick = register (new ItemProspectPick (10,4,Item.ToolMaterial.DIAMOND,null).setUnlocalizedName ("gemProspectPick"));
-		WishItems.steelProspectPick = register (new ItemProspectPick (6,4,STEEL,null).setUnlocalizedName ("steelProspectPick"));
-		WishItems.copperProspectPick = register (new ItemProspectPick (3,4,COPPER,null).setUnlocalizedName ("copperProspectPick"));
-		WishItems.bronzeProspectPick = register (new ItemProspectPick (4,4,BRONZE,null).setUnlocalizedName ("bronzeProspectPick"));
+		WishItems.stoneProspectPick = register (new ItemProspectPick (2,4,Item.ToolMaterial.STONE,new HashSet <> ()).setUnlocalizedName ("stoneProspectPick"));
+		WishItems.ironProspectPick = register (new ItemProspectPick (4,4,Item.ToolMaterial.IRON,new HashSet <> ()).setUnlocalizedName ("ironProspectPick"));
+		WishItems.gemProspectPick = register (new ItemProspectPick (10,4,Item.ToolMaterial.DIAMOND,new HashSet <> ()).setUnlocalizedName ("gemProspectPick"));
+		WishItems.steelProspectPick = register (new ItemProspectPick (6,4,STEEL,new HashSet <> ()).setUnlocalizedName ("steelProspectPick"));
+		WishItems.copperProspectPick = register (new ItemProspectPick (3,4,COPPER,new HashSet <> ()).setUnlocalizedName ("copperProspectPick"));
+		WishItems.bronzeProspectPick = register (new ItemProspectPick (4,4,BRONZE,new HashSet <> ()).setUnlocalizedName ("bronzeProspectPick"));
 	}
 
 	private static Item register (Item item) {
