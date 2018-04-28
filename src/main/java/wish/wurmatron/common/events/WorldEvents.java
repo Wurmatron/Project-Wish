@@ -63,7 +63,7 @@ public class WorldEvents {
 	@SubscribeEvent
 	public void onBreakSpeed (PlayerEvent.BreakSpeed e) {
 		if (e.getState ().getMaterial () == Material.WOOD)
-			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe))
+			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe) || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("hatchet") || !(e.getEntityPlayer ().getHeldItemMainhand ().getUnlocalizedName ().contains ("axe"))) || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("mattock")))
 				e.setCanceled (true);
 	}
 
