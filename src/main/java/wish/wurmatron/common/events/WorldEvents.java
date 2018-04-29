@@ -83,6 +83,4 @@ public class WorldEvents {
 				e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));
 		}
 	}
-
-
 }
