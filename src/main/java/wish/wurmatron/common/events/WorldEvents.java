@@ -23,6 +23,7 @@ import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
+import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.ArrayList;
@@ -62,9 +63,13 @@ public class WorldEvents {
 
 	@SubscribeEvent
 	public void onBreakSpeed (PlayerEvent.BreakSpeed e) {
-		if (e.getState ().getMaterial () == Material.WOOD)
-			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe) || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("hatchet") || !(e.getEntityPlayer ().getHeldItemMainhand ().getUnlocalizedName ().contains ("axe"))) || !(e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("mattock")))
+		if (e.getState ().getMaterial () == Material.WOOD) {
+			if (e.getEntityPlayer ().getHeldItemMainhand () == ItemStack.EMPTY)
 				e.setCanceled (true);
+			else if (e.getEntityPlayer ().getHeldItemMainhand ().getItem () instanceof ItemAxe || e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("hatchet") || e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("axe") || e.getEntityPlayer ().getHeldItemMainhand ().getItem ().getUnlocalizedName ().contains ("mattock")) {
+			} else
+				e.setCanceled (true);
+		}
 	}
 
 	@SubscribeEvent
