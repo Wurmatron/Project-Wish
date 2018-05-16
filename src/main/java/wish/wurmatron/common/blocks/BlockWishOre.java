@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class BlockOre extends BlockRockType implements ITileEntityProvider {
+public class BlockWishOre extends BlockRockType implements ITileEntityProvider {
 
 	private OreType type;
 
-	public BlockOre (Material material,OreType type) {
+	public BlockWishOre (Material material,OreType type) {
 		super (material);
 		this.type = type;
 		setCreativeTab (ProjectWish.BLOCKS);

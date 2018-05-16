@@ -26,11 +26,9 @@ minecraft {
 }
 
 repositories {
-	maven { url 'https://maven.mcmoddev.com/' }
 }
 
 dependencies {
-	compile "net.darkhax.gamestages:GameStages-${mc_version}:${gamestages_version}"
 }
 
 processResources {

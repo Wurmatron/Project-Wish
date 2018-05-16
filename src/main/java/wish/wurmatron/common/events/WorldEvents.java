@@ -1,5 +1,6 @@
 package wish.wurmatron.common.events;
 
+import net.darkhax.gamestages.GameStageHelper;
 import net.darkhax.orestages.api.OreTiersAPI;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,13 +18,12 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.world.GemType;
-import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.blocks.BlockWishOre;
 import wish.wurmatron.common.blocks.stone.BlockRockType;
 import wish.wurmatron.common.blocks.stone.BlockStone;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.tile.TileOre;
-import wish.wurmatron.common.utils.LogHandler;
 import wish.wurmatron.common.utils.Registry;
 
 import java.util.ArrayList;
@@ -31,13 +31,14 @@ import java.util.List;
 
 public class WorldEvents {
 
-	public static List <Item> gemItems = new ArrayList <> ();
+	public static List<Item> gemItems = new ArrayList<> ();
 
 	private static boolean canDropOre (IBlockState state,EntityPlayer player) {
 		if (player instanceof EntityPlayerMP)
 			if (OreTiersAPI.getStageInfo (state) != null)
-				return OreTiersAPI.hasStage (player,OreTiersAPI.getStageInfo (state).getFirst ());
-		return false;
+			if(!GameStageHelper.getPlayerData (player).hasStage (OreTiersAPI.getStageInfo (state).getFirst ()))
+				return false;
+		return true;
 	}
 
 	@SubscribeEvent
@@ -80,7 +81,7 @@ public class WorldEvents {
 
 	@SubscribeEvent
 	public void onBlockBreakOre (BlockEvent.BreakEvent e) {
-		if (e.getState () != null && e.getState ().getBlock () instanceof BlockOre) {
+		if (e.getState () != null && e.getState ().getBlock () instanceof BlockWishOre) {
 			TileOre tile = ((TileOre) e.getWorld ().getTileEntity (e.getPos ()));
 			if (Loader.isModLoaded ("orestages") && canDropOre (e.getState (),e.getPlayer ()))
 				e.getWorld ().spawnEntity (new EntityItem (e.getWorld (),e.getPos ().getX () + .5,e.getPos ().getY () + .5,e.getPos ().getZ () + .5,new ItemStack (Registry.itemOre.get (tile.getOreType ()),1,((TileOre) e.getWorld ().getTileEntity (e.getPos ())).getTier ())));

@@ -16,7 +16,7 @@ import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
 import wish.wurmatron.api.world.StoneType;
-import wish.wurmatron.common.blocks.BlockOre;
+import wish.wurmatron.common.blocks.BlockWishOre;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.items.*;
@@ -89,8 +89,8 @@ public class ClientProxy extends CommonProxy {
 			createModel (WishBlocks.stick,index,"stick");
 		}
 		for (OreType ore : OreType.values ())
-			for (int index = 0; index < BlockOre.getOreNames (ore).length; index++)
-				createModel (Registry.blockOre.get (ore),index,Registry.blockOre.get (ore).getUnlocalizedName ().substring (5) + "_" + BlockOre.getOreNames (ore)[index]);
+			for (int index = 0; index < BlockWishOre.getOreNames (ore).length; index++)
+				createModel (Registry.blockOre.get (ore),index,Registry.blockOre.get (ore).getUnlocalizedName ().substring (5) + "_" + BlockWishOre.getOreNames (ore)[index]);
 		for (Item item : Registry.items)
 			if (item instanceof ItemGem) {
 				for (int meta = 0; meta < GemType.GRADE.values ().length; meta++)
