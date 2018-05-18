@@ -4,9 +4,11 @@ import net.darkhax.gamestages.GameStageHelper;
 import net.darkhax.orestages.api.OreTiersAPI;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Enchantments;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
@@ -36,14 +38,16 @@ public class WorldEvents {
 	private static boolean canDropOre (IBlockState state,EntityPlayer player) {
 		if (player instanceof EntityPlayerMP)
 			if (OreTiersAPI.getStageInfo (state) != null)
-			if(!GameStageHelper.getPlayerData (player).hasStage (OreTiersAPI.getStageInfo (state).getFirst ()))
-				return false;
+				return GameStageHelper.getPlayerData (player).hasStage (OreTiersAPI.getStageInfo (state).getFirst ());
 		return true;
 	}
 
 	@SubscribeEvent
 	public void onBlockBreak (BlockEvent.BreakEvent e) {
-		if (e.getWorld ().rand.nextInt (ConfigHandler.gemRarity) == 0 && GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone) {
+		if (GemType.values ().length > 0 && e.getWorld ().getBlockState (e.getPos ()).getBlock () instanceof BlockStone)
+			if (e.getWorld ().rand.nextInt (ConfigHandler.gemRarity) == 0 || !e.getPlayer ().getHeldItemMainhand ().isEmpty () && EnchantmentHelper.getMaxEnchantmentLevel (Enchantments.FORTUNE,e.getPlayer ()) > 0) {
+				int fortureLvl = EnchantmentHelper.getMaxEnchantmentLevel (Enchantments.FORTUNE,e.getPlayer ());
+				if (fortureLvl == 0 || e.getWorld ().rand.nextInt (ConfigHandler.gemRarity - ((ConfigHandler.gemRarity / 10) * fortureLvl)) <= 0) {
 			int max = 0;
 			for (GemType gem : GemType.values ())
 				max += gem.getChance ();
@@ -57,7 +61,8 @@ public class WorldEvents {
 					}
 					id -= ((ItemGem) gem).type.getChance ();
 				}
-		}
+				}
+			}
 		if (ConfigHandler.fun && e.getState ().getBlock () == WishBlocks.stoneSedimentary && e.getState ().getValue (BlockRockType.TYPE) == 7 && e.getWorld ().rand.nextInt (100) == 0)
 			e.getWorld ().createExplosion (null,e.getPos ().getX (),e.getPos ().getY (),e.getPos ().getZ (),1.5f,true);
 	}
