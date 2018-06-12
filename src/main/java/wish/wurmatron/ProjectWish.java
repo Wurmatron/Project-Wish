@@ -124,6 +124,6 @@ public class ProjectWish {
 
 	@Mod.EventHandler
 	public void onServerLoading (FMLServerStartingEvent e) {
-		DimTransferEvent.loadData (new File (Loader.instance ().getConfigDir ().getParent () + File.separator + Global.NAME));
+		DimTransferEvent.loadData (new File (Loader.instance ().getConfigDir () + File.separator + Global.NAME));
 	}
 }
