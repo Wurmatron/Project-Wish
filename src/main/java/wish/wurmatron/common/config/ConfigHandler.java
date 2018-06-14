@@ -37,6 +37,12 @@ public class ConfigHandler {
 	public static int sticksPerChunk = 20;
 	@Config.LangKey (Local.CONFIG_OVERRIDE_ORE)
 	public static boolean overrideOre = true;
+	@Config.LangKey (Local.CONFIG_SMALL_VEIN)
+	public static int smallClusterMaxSize = 75;
+	@Config.LangKey (Local.CONFIG_LARGE_VEIN)
+	public static int largeClusterMaxSize = 150;
+	@Config.LangKey (Local.CONFIG_HUGE_VEIN)
+	public static int hugeClusterMaxSize = 300;
 
 	// Farming
 	@Config.LangKey (Local.CONFIG_FARMING_SPEED)

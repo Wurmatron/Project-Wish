@@ -15,6 +15,9 @@ public class Local {
 	public static final String CONFIG_ROCKS_PER_CHUNK ="config.rocksPerChunk.name";
 	public static final String CONFIG_STICKS_PER_CHUNK = "config.sticksPerChunk.name";
 	public static final String CONFIG_OVERRIDE_ORE = "config.overrideOre.name";
+	public static final String CONFIG_SMALL_VEIN = "config.smallVein.name";
+	public static final String CONFIG_LARGE_VEIN = "config.largeVein.name";
+	public static final String CONFIG_HUGE_VEIN = "config.hugeVein.name";
 
 	// Farming
 	public static final String CONFIG_FARMING_SPEED = "config.farmingSpeed.name";
