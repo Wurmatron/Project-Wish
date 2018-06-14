@@ -1,12 +1,12 @@
 package wish.wurmatron;
 
+import java.io.File;
+import java.lang.reflect.Field;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -34,9 +34,6 @@ import wish.wurmatron.common.proxy.CommonProxy;
 import wish.wurmatron.common.utils.Registry;
 import wish.wurmatron.common.world.DimTransferEvent;
 import wish.wurmatron.common.world.RandomizeRockTypeEvent;
-
-import java.io.File;
-import java.lang.reflect.Field;
 
 @Mod(modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {

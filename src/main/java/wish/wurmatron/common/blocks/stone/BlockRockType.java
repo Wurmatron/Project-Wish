@@ -7,34 +7,34 @@ import net.minecraft.block.state.IBlockState;
 import wish.wurmatron.common.blocks.WishBlock;
 
 /**
- Simple rock type block used to create the types of stone
+ * Simple rock type block used to create the types of stone
  */
 public class BlockRockType extends WishBlock {
 
-	public static final PropertyInteger TYPE = PropertyInteger.create ("type",0,15);
+  public static final PropertyInteger TYPE = PropertyInteger.create("type", 0, 15);
 
-	public BlockRockType (Material material) {
-		super (material);
-		setDefaultState (this.blockState.getBaseState ().withProperty (TYPE,0));
-	}
+  public BlockRockType(Material material) {
+    super(material);
+    setDefaultState(this.blockState.getBaseState().withProperty(TYPE, 0));
+  }
 
-	@Override
-	protected BlockStateContainer createBlockState () {
-		return new BlockStateContainer (this,TYPE);
-	}
+  @Override
+  protected BlockStateContainer createBlockState() {
+    return new BlockStateContainer(this, TYPE);
+  }
 
-	@Override
-	public IBlockState getStateFromMeta (int meta) {
-		return getDefaultState ().withProperty (TYPE,meta);
-	}
+  @Override
+  public IBlockState getStateFromMeta(int meta) {
+    return getDefaultState().withProperty(TYPE, meta);
+  }
 
-	@Override
-	public int getMetaFromState (IBlockState state) {
-		return state.getValue (TYPE);
-	}
+  @Override
+  public int getMetaFromState(IBlockState state) {
+    return state.getValue(TYPE);
+  }
 
-	@Override
-	public int damageDropped (IBlockState state) {
-		return getMetaFromState (state);
-	}
+  @Override
+  public int damageDropped(IBlockState state) {
+    return getMetaFromState(state);
+  }
 }

@@ -9,15 +9,17 @@ import wish.wurmatron.common.config.ConfigHandler;
 
 public class CropEvent {
 
-	@SubscribeEvent
-	public void cropGrowEvent (BlockEvent.CropGrowEvent.Pre e) {
-		if (e.getWorld ().rand.nextFloat () >= ConfigHandler.cropGrowth)
-			e.setResult (Event.Result.DENY);
-	}
+  @SubscribeEvent
+  public void cropGrowEvent(BlockEvent.CropGrowEvent.Pre e) {
+    if (e.getWorld().rand.nextFloat() >= ConfigHandler.cropGrowth) {
+      e.setResult(Event.Result.DENY);
+    }
+  }
 
-	@SubscribeEvent
-	public void boneMeatEvent (BonemealEvent e) {
-		if (e.getWorld ().rand.nextFloat () >= ConfigHandler.cropGrowth)
-			e.setResult (Event.Result.DENY);
-	}
+  @SubscribeEvent
+  public void boneMeatEvent(BonemealEvent e) {
+    if (e.getWorld().rand.nextFloat() >= ConfigHandler.cropGrowth) {
+      e.setResult(Event.Result.DENY);
+    }
+  }
 }

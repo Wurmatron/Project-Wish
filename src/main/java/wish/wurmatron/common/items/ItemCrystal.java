@@ -9,26 +9,29 @@ import wish.wurmatron.ProjectWish;
 
 public class ItemCrystal extends Item {
 
-	public static String[] metaItems;
+  public static String[] metaItems;
 
-	public ItemCrystal (String[] items) {
-		setCreativeTab (CreativeTabs.MATERIALS);
-		setHasSubtypes (true);
-		metaItems = items;
-		setUnlocalizedName ("crystal");
-	}
+  public ItemCrystal(String[] items) {
+    setCreativeTab(CreativeTabs.MATERIALS);
+    setHasSubtypes(true);
+    metaItems = items;
+    setUnlocalizedName("crystal");
+  }
 
-	@Override
-	public void getSubItems (CreativeTabs tab,NonNullList<ItemStack> items) {
-		if (tab == ProjectWish.Items)
-			for (int index = 0; index < metaItems.length; index++)
-				items.add (new ItemStack (this,1,index));
-	}
+  @Override
+  public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+    if (tab == ProjectWish.Items) {
+      for (int index = 0; index < metaItems.length; index++) {
+        items.add(new ItemStack(this, 1, index));
+      }
+    }
+  }
 
-	@Override
-	public String getItemStackDisplayName (ItemStack stack) {
-		if (stack.getItemDamage () < metaItems.length)
-			return I18n.translateToLocal ("item.crystal" + metaItems[stack.getItemDamage ()] + ".name");
-		return "item.null.name";
-	}
+  @Override
+  public String getItemStackDisplayName(ItemStack stack) {
+    if (stack.getItemDamage() < metaItems.length) {
+      return I18n.translateToLocal("item.crystal" + metaItems[stack.getItemDamage()] + ".name");
+    }
+    return "item.null.name";
+  }
 }
