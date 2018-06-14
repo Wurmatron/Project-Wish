@@ -5,7 +5,7 @@ import net.minecraft.world.biome.Biome;
 public enum OreType {
 
 	PETALITE ("Petalite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},3,GenType.SMALL_CLUSTER),        // Litium
-	LIGNITE ("Lignite",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},3,GenType.LARGE_CLUSTER),      // Coal (1)
+	LIGNITE ("Lignite",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},3,GenType.HUGE_CLUSTER),      // Coal (1)
 	BITUMINOUS ("Bituminous",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},2,GenType.LARGE_CLUSTER),// Coal (2)
 	ANTHRACITE ("Anthracite",new StoneType.RockType[] {StoneType.RockType.Metamorphic},new Biome[] {},1,GenType.LARGE_CLUSTER),// Coal (3)
 	MAGNESITE ("Magnesite",new StoneType.RockType[] {StoneType.RockType.Metamorphic},new Biome[] {},1,GenType.SMALL_CLUSTER),  // Magnesium
@@ -19,10 +19,10 @@ public enum OreType {
 	SIDERITE ("Siderite",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},2,GenType.SMALL_CLUSTER),        // Poor Iron
 	CASSITERITE ("Cassiterite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},4,GenType.LARGE_CLUSTER),  // Tin
 	COBALTITE ("Cobaltite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.LARGE_CLUSTER),      // Cobalt
-	TETRAHEDRITE ("Tetrahedrite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},5,GenType.LARGE_CLUSTER),// Copper
-	MALACHITE ("Malachite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},5,GenType.LARGE_CLUSTER),      // Copper
+	TETRAHEDRITE ("Tetrahedrite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},5,GenType.HUGE_CLUSTER),// Copper
+	MALACHITE ("Malachite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},5,GenType.HUGE_CLUSTER),      // Copper
 	SPHALERITE ("Sphalerite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},4,GenType.LARGE_CLUSTER),    // Zinc
-	GOLD ("Gold",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},2,GenType.LARGE_CLUSTER),            // Gold
+	GOLD ("Gold",new StoneType.RockType[] {StoneType.RockType.Sedimentary},new Biome[] {},1,GenType.LARGE_CLUSTER),            // Gold
 	GALENA ("Galena",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},4,GenType.LARGE_CLUSTER),            // Lead
 	BISMUTHINITE ("Bismuthinite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},3,GenType.LARGE_CLUSTER),// Bismuth
 	MONAZITE ("Monazite",new StoneType.RockType[] {StoneType.RockType.Metamorphic},new Biome[] {},4,GenType.SINGLE),           // Lots
@@ -30,6 +30,7 @@ public enum OreType {
 	GARNIERITE ("Garnierite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.LARGE_CLUSTER),    // Nickel
 	PENTALANDITE ("Pentlandite",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.SMALL_CLUSTER), // Iron / Nickel
 	CINNABAR ("Cinnabar",new StoneType.RockType[] {StoneType.RockType.Igneous},new Biome[] {},2,GenType.LARGE_CLUSTER);        // Redstone
+	// TODO Silver, Aridite, Minerals (Lapis), Platinum, Rich_Gem_Ore (Gem Stone),
 	
 	private String name;
 	private StoneType.RockType[] oreType;
@@ -76,6 +77,6 @@ public enum OreType {
 	 How The Ore Generates
 	 */
 	public enum GenType {
-		SINGLE,SMALL_CLUSTER,LARGE_CLUSTER
+		SINGLE,SMALL_CLUSTER,LARGE_CLUSTER, HUGE_CLUSTER
 	}
 }

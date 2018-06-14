@@ -22,6 +22,7 @@ import wish.wurmatron.api.blocks.WishBlocks;
 import wish.wurmatron.api.items.WishItems;
 import wish.wurmatron.api.world.GemType;
 import wish.wurmatron.api.world.OreType;
+import wish.wurmatron.api.world.OreType.GenType;
 import wish.wurmatron.common.blocks.WishModBlocks;
 import wish.wurmatron.common.config.ConfigHandler;
 import wish.wurmatron.common.entity.EntityThrowingRock;
@@ -110,7 +111,9 @@ public class ProjectWish {
 				Field field = WishBlocks.class.getDeclaredField ("ore" + ore.getName ());
 				Block block = (Block) field.get (WishBlocks.oreAnthracite);
 				int veinSize = 0;
-				if (ore.getGenerationType () == OreType.GenType.LARGE_CLUSTER)
+				if (ore.getGenerationType () == GenType.HUGE_CLUSTER)
+					veinSize = 300 / ore.getRarity ();
+				else if (ore.getGenerationType () == OreType.GenType.LARGE_CLUSTER)
 					veinSize = 150 / ore.getRarity ();
 				else if (ore.getGenerationType () == OreType.GenType.SMALL_CLUSTER)
 					veinSize = 75 / ore.getRarity ();
