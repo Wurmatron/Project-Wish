@@ -255,8 +255,8 @@ tile.oreMagnetite.name=Magnetite Ore
 tile.oreCinnabar.name=Cinnabar Ore
 tile.oreSilver.name=Silver Ore
 tile.orePlatinum.name=Platinum Ore
-tile.oreGen.name=Gem Ore
-tile.oreMythril=Mythril Ore
+tile.oreGem.name=Gem Ore
+tile.oreMythril.name=Mythril Ore
 
 # Chat
 chat.mode.switch=Mode Switched to %MODE%
