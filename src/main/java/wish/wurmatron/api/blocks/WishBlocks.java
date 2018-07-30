@@ -59,6 +59,10 @@ public class WishBlocks {
   public static Block oreGarnierite;
   public static Block orePentlandite;
   public static Block oreCinnabar;
+  public static Block oreSilver;
+  public static Block orePlatinum;
+  public static Block oreGem;
+  public static Block oreMythril;
   // Ground
   public static Block rockIgneous;
   public static Block rockMetamorphic;

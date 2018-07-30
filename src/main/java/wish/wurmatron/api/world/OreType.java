@@ -1,6 +1,7 @@
 package wish.wurmatron.api.world;
 
 import net.minecraft.world.biome.Biome;
+import wish.wurmatron.api.world.StoneType.RockType;
 
 public enum OreType {
 
@@ -55,8 +56,15 @@ public enum OreType {
   PENTALANDITE("Pentlandite", new StoneType.RockType[]{StoneType.RockType.Igneous}, new Biome[]{},
       2, GenType.SMALL_CLUSTER), // Iron / Nickel
   CINNABAR("Cinnabar", new StoneType.RockType[]{StoneType.RockType.Igneous}, new Biome[]{}, 2,
-      GenType.LARGE_CLUSTER);        // Redstone
-  // TODO Silver, Aridite, Minerals (Lapis), Platinum, Rich_Gem_Ore (Gem Stone),
+      GenType.LARGE_CLUSTER),        // Redstone
+  NATIVE_SILVER("Silver", new RockType[]{RockType.Igneous},
+      new Biome[]{}, 1, GenType.LARGE_CLUSTER), // Silver
+  NATIVE_PLATNIUM("Platinum", new RockType[]{RockType.Sedimentary},
+      new Biome[]{}, 1, GenType.SMALL_CLUSTER), // Platinum
+  GEM("Gem", new RockType[]{RockType.Metamorphic},
+      new Biome[]{}, 2, GenType.SMALL_CLUSTER), // Gems
+  MYTHRIL("Mythril", new RockType[]{RockType.Sedimentary}, new Biome[]{}, 1,
+      GenType.SINGLE); // Mythril
 
   private String name;
   private StoneType.RockType[] oreType;

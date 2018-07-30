@@ -122,7 +122,7 @@ public class ProjectWish {
   private void generateDefaultOreGeneration() {
     for (OreType ore : OreType.values()) {
       try {
-        Field field = WishBlocks.class.getDeclaredField("ore" + ore.getName());
+        Field field = WishBlocks.class.getDeclaredField("ore" + ore.getName().replaceAll(" ", ""));
         Block block = (Block) field.get(WishBlocks.oreAnthracite);
         int veinSize = 0;
         if (ore.getGenerationType() == GenType.HUGE_CLUSTER) {

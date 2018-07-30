@@ -75,6 +75,9 @@ public class WishModItems {
     WishItems.orePentlandite = registerOre(new ItemOre("Pentlandite"), OreType.PENTALANDITE);
     WishItems.oreCinnabar = registerOre(new ItemOre("Cinnabar"), OreType.CINNABAR);
     WishItems.dustOre = register(new ItemDust());
+    WishItems.oreSilver = registerOre(new ItemOre("NativeSilver"), OreType.NATIVE_SILVER);
+    WishItems.orePlatinum = registerOre(new ItemOre("NativePlatinum"), OreType.NATIVE_PLATNIUM);
+    WishItems.oreMythril = registerOre(new ItemOre("Mythril"), OreType.MYTHRIL);
     if (ConfigHandler.oreItems) {
       // Sludge
       WishItems.sludgeLitium = register(new ItemSludge("Litium"));

@@ -167,6 +167,18 @@ public class WishModBlocks {
     WishBlocks.oreCinnabar = register(
         new BlockWishOre(Material.ROCK, OreType.CINNABAR).setUnlocalizedName("oreCinnabar"),
         OreType.CINNABAR);
+    WishBlocks.oreSilver = register(
+        new BlockWishOre(Material.ROCK, OreType.NATIVE_SILVER).setUnlocalizedName("oreSilver"),
+        OreType.NATIVE_SILVER);
+    WishBlocks.orePlatinum = register(
+        new BlockWishOre(Material.ROCK, OreType.NATIVE_PLATNIUM).setUnlocalizedName("orePlatinum"),
+        OreType.NATIVE_PLATNIUM);
+    WishBlocks.oreGem = register(
+        new BlockWishOre(Material.ROCK, OreType.GEM).setUnlocalizedName("oreGem"),
+        OreType.GEM);
+    WishBlocks.oreMythril = register(
+        new BlockWishOre(Material.ROCK, OreType.MYTHRIL).setUnlocalizedName("oreMythril"),
+        OreType.MYTHRIL);
     // Rocks
     WishBlocks.rockIgneous = register(
         new BlockRock(Material.GRASS, 9).setUnlocalizedName("rockIgneous"),
