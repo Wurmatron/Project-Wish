@@ -1,6 +1,6 @@
 {
   "parent": "wish:item/basic_item",
   "textures": {
-    "layer0": "wish:items/lignite_0"
+    "layer0": "wish:items/cinnabar_1"
   }
 }
