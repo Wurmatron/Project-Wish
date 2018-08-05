@@ -7,6 +7,9 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
+plugins {
+    id 'com.diffplug.gradle.spotless' version '3.4.0'
+}
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = "${mod_version}"
@@ -29,6 +32,15 @@ repositories {
 }
 
 dependencies {
+}
+
+spotless {
+    java {
+        removeUnusedImports()
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
 }
 
 processResources {
