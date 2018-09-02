@@ -78,6 +78,8 @@ public class WishModItems {
     WishItems.oreSilver = registerOre(new ItemOre("NativeSilver"), OreType.NATIVE_SILVER);
     WishItems.orePlatinum = registerOre(new ItemOre("NativePlatinum"), OreType.NATIVE_PLATNIUM);
     WishItems.oreMythril = registerOre(new ItemOre("Mythril"), OreType.MYTHRIL);
+    WishItems.oreOsmium = registerOre(new ItemOre("Osmium"), OreType.OSMIUM);
+    WishItems.oreWolframite = registerOre(new ItemOre("Wolframite"), OreType.WOLFAMITE);
     if (ConfigHandler.oreItems) {
       // Sludge
       WishItems.sludgeLitium = register(new ItemSludge("Litium"));

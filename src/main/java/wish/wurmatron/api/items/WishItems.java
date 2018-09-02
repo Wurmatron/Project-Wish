@@ -71,6 +71,8 @@ public class WishItems {
   public static Item oreSilver;
   public static Item orePlatinum;
   public static Item oreMythril;
+  public static Item oreOsmium;
+  public static Item oreWolframite;
   // Sludge
   public static Item sludgeLitium;
   public static Item sludgeMagnesium;

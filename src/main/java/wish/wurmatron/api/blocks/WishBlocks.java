@@ -63,6 +63,8 @@ public class WishBlocks {
   public static Block orePlatinum;
   public static Block oreGem;
   public static Block oreMythril;
+  public static Block oreOsmium;
+  public static Block oreWolframite;
   // Ground
   public static Block rockIgneous;
   public static Block rockMetamorphic;

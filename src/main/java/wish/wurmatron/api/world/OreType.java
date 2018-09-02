@@ -64,7 +64,10 @@ public enum OreType {
   GEM("Gem", new RockType[]{RockType.Metamorphic},
       new Biome[]{}, 2, GenType.SMALL_CLUSTER), // Gems
   MYTHRIL("Mythril", new RockType[]{RockType.Sedimentary}, new Biome[]{}, 1,
-      GenType.SINGLE); // Mythril
+      GenType.SINGLE), // Mythril
+  OSMIUM("Osmium", new RockType[]{RockType.Igneous}, new Biome[]{}, 1, GenType.SMALL_CLUSTER),
+  WOLFAMITE("Wolframite", new RockType[]{RockType.Metamorphic}, new Biome[]{}, 2,
+      GenType.HUGE_CLUSTER);
 
   private String name;
   private StoneType.RockType[] oreType;
