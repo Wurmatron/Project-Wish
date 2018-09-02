@@ -41,38 +41,38 @@ public class WorldGenOreHelper extends WorldGenerator {
     if (rarity >= 4) {
       rarity = 2;
       radius = 2 + rand.nextInt(2);
-			if (radius > 8) {
-				radius = 8;
-			}
+            if (radius > 8) {
+                radius = 8;
+            }
     }
     do {
-			for (int x = 0; x < radius; x++) {
-				for (int z = 0; z < radius; z++) {
-					for (int y = pos.getY(); y < pos.getY() + (radius * 2); y++) {
-						BlockPos[] oreLoc = new BlockPos[]{new BlockPos(core.getX() + x, y, core.getZ() + z),
-								new BlockPos(core.getX() + x, y, core.getZ() - z),
-								new BlockPos(core.getX() - x, y, core.getZ() + z),
-								new BlockPos(core.getX() - x, y, core.getZ() - z)};
-						for (BlockPos tempPos : oreLoc) {
-							totalGenerated++;
-							double disFromCore = calcDistanceFromCore(core, tempPos, radius);
-							double chance;
-							if (disFromCore < .3) {
-								chance = .8;
-							} else {
-								chance = ((rarity - disFromCore) / (disFromCore >= .3 ? 4 : 8 + rand.nextInt(4)));
-							}
-							if (rand.nextDouble() < chance) {
-								IBlockState state = world.getBlockState(tempPos);
-								if (state.getBlock().isReplaceableOreGen(state, world, tempPos, predicate)) {
-									setBlock(world, tempPos,
-											oreTier + ((calcDistanceFromCore(core, tempPos, radius) <= .2) ? 1 : 0));
-								}
-							}
-						}
-					}
-				}
-			}
+            for (int x = 0; x < radius; x++) {
+                for (int z = 0; z < radius; z++) {
+                    for (int y = pos.getY(); y < pos.getY() + (radius * 2); y++) {
+                        BlockPos[] oreLoc = new BlockPos[]{new BlockPos(core.getX() + x, y, core.getZ() + z),
+                                new BlockPos(core.getX() + x, y, core.getZ() - z),
+                                new BlockPos(core.getX() - x, y, core.getZ() + z),
+                                new BlockPos(core.getX() - x, y, core.getZ() - z)};
+                        for (BlockPos tempPos : oreLoc) {
+                            totalGenerated++;
+                            double disFromCore = calcDistanceFromCore(core, tempPos, radius);
+                            double chance;
+                            if (disFromCore < .3) {
+                                chance = .8;
+                            } else {
+                                chance = ((rarity - disFromCore) / (disFromCore >= .3 ? 4 : 8 + rand.nextInt(4)));
+                            }
+                            if (rand.nextDouble() < chance) {
+                                IBlockState state = world.getBlockState(tempPos);
+                                if (state.getBlock().isReplaceableOreGen(state, world, tempPos, predicate)) {
+                                    setBlock(world, tempPos,
+                                            oreTier + ((calcDistanceFromCore(core, tempPos, radius) <= .2) ? 1 : 0));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
     }
     while (totalGenerated <= numberOfBlocks);
     return true;
@@ -98,19 +98,19 @@ public class WorldGenOreHelper extends WorldGenerator {
   static class StonePredicate implements Predicate<IBlockState> {
 
     public boolean apply(IBlockState state) {
-			if (state != null && state.getBlock() != Blocks.AIR) {
-				return state.getBlock().getUnlocalizedName().contains("ore") || state.getBlock()
-						.getUnlocalizedName().contains("stone");
-			}
+            if (state != null && state.getBlock() != Blocks.AIR) {
+                return state.getBlock().getUnlocalizedName().contains("ore") || state.getBlock()
+                        .getUnlocalizedName().contains("stone");
+            }
       return false;
     }
 
     @Override
     public boolean test(IBlockState state) {
-			if (state != null && state.getBlock() != Blocks.AIR) {
-				return state.getBlock().getUnlocalizedName().contains("ore") || state.getBlock()
-						.getUnlocalizedName().contains("stone");
-			}
+            if (state != null && state.getBlock() != Blocks.AIR) {
+                return state.getBlock().getUnlocalizedName().contains("ore") || state.getBlock()
+                        .getUnlocalizedName().contains("stone");
+            }
       return false;
     }
   }

@@ -30,9 +30,9 @@ public class BlockStone extends BlockRockType {
 
   @Override
   public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int m = 0; m < amount; m++) {
-			list.add(new ItemStack(this, 1, m));
-		}
+        for (int m = 0; m < amount; m++) {
+            list.add(new ItemStack(this, 1, m));
+        }
   }
 
   @Override
@@ -43,13 +43,13 @@ public class BlockStone extends BlockRockType {
   }
 
   public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if (state.getBlock().equals(WishBlocks.stoneIgneous)) {
-			return Item.getItemFromBlock(WishBlocks.cobbleIgneous);
-		} else if (state.getBlock().equals(WishBlocks.stoneMetamorphic)) {
-			return Item.getItemFromBlock(WishBlocks.cobbleMetamorphic);
-		} else {
-			return Item.getItemFromBlock(WishBlocks.cobbleSedimentary);
-		}
+        if (state.getBlock().equals(WishBlocks.stoneIgneous)) {
+            return Item.getItemFromBlock(WishBlocks.cobbleIgneous);
+        } else if (state.getBlock().equals(WishBlocks.stoneMetamorphic)) {
+            return Item.getItemFromBlock(WishBlocks.cobbleMetamorphic);
+        } else {
+            return Item.getItemFromBlock(WishBlocks.cobbleSedimentary);
+        }
   }
 
   public int damageDropped(IBlockState state) {

@@ -37,25 +37,25 @@ public class BlockWishOre extends BlockRockType implements ITileEntityProvider {
 
   public static String[] getOreNames(OreType type) {
     List<String> names = new ArrayList<>();
-		if (type.getOreType().length > 0) {
-			for (StoneType.RockType oreType : type.getOreType()) {
-				for (StoneType rock : StoneType.values()) {
-					if (oreType.equals(rock.getType())) {
-						if (!names.contains(rock.getName())) {
-							names.add(rock.getName());
-						}
-					}
-				}
-			}
-		}
+        if (type.getOreType().length > 0) {
+            for (StoneType.RockType oreType : type.getOreType()) {
+                for (StoneType rock : StoneType.values()) {
+                    if (oreType.equals(rock.getType())) {
+                        if (!names.contains(rock.getName())) {
+                            names.add(rock.getName());
+                        }
+                    }
+                }
+            }
+        }
     return names.toArray(new String[0]);
   }
 
   @Override
   public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int m = 0; m < getOreNames(type).length; m++) {
-			list.add(new ItemStack(this, 1, m));
-		}
+        for (int m = 0; m < getOreNames(type).length; m++) {
+            list.add(new ItemStack(this, 1, m));
+        }
   }
 
   @Override

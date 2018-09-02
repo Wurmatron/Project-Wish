@@ -82,14 +82,14 @@ public class BlockRock extends BlockRockType {
 
   @Override
   public int damageDropped(IBlockState state) {
-		if (state.getBlock() == WishBlocks.rockIgneous) {
-			return 18 + state.getValue(BlockRockType.TYPE);
-		}
-		if (state.getBlock() == WishBlocks.rockMetamorphic) {
-			return 9 + state.getValue(BlockRockType.TYPE);
-		} else {
-			return state.getValue(BlockRockType.TYPE);
-		}
+        if (state.getBlock() == WishBlocks.rockIgneous) {
+            return 18 + state.getValue(BlockRockType.TYPE);
+        }
+        if (state.getBlock() == WishBlocks.rockMetamorphic) {
+            return 9 + state.getValue(BlockRockType.TYPE);
+        } else {
+            return state.getValue(BlockRockType.TYPE);
+        }
   }
 
   @Override

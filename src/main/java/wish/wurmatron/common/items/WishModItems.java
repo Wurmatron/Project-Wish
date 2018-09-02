@@ -11,13 +11,13 @@ import wish.wurmatron.common.utils.Registry;
 
 public class WishModItems {
 
-  public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial("rock", 1, 20, 1, 3, 0);
+  public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial("rock", 1, 20, 5, 3, 0);
   public static final Item.ToolMaterial STEEL = EnumHelper
-      .addToolMaterial("steel", 1, 950, 1, 5, 0);
+      .addToolMaterial("steel", 1, 950, 8, 5, 0);
   public static final Item.ToolMaterial COPPER = EnumHelper
-      .addToolMaterial("rock", 1, 220, 1, 2, 0);
+      .addToolMaterial("copper", 1, 220, 2, 2, 0);
   public static final Item.ToolMaterial BRONZE = EnumHelper
-      .addToolMaterial("rock", 1, 280, 1, 2, 0);
+      .addToolMaterial("bronze", 1, 280, 4, 2, 0);
 
   public static void registerItems() {
     // Gems

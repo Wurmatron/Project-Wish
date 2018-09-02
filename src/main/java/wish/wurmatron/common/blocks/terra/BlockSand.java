@@ -46,9 +46,9 @@ public class BlockSand extends BlockRockType {
 
   @Override
   public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int m = 0; m < amount; m++) {
-			list.add(new ItemStack(this, 1, m));
-		}
+        for (int m = 0; m < amount; m++) {
+            list.add(new ItemStack(this, 1, m));
+        }
   }
 
   @Override
@@ -63,10 +63,10 @@ public class BlockSand extends BlockRockType {
     IBlockState plant = plantable.getPlant(world, pos.offset(direction));
     net.minecraftforge.common.EnumPlantType plantType = plantable
         .getPlantType(world, pos.offset(direction));
-		if (plant.getBlock() == net.minecraft.init.Blocks.CACTUS
-				|| plant.getBlock() == net.minecraft.init.Blocks.REEDS) {
-			return true;
-		}
+        if (plant.getBlock() == net.minecraft.init.Blocks.CACTUS
+                || plant.getBlock() == net.minecraft.init.Blocks.REEDS) {
+            return true;
+        }
     switch (plantType) {
       case Desert:
         return true;
@@ -105,9 +105,9 @@ public class BlockSand extends BlockRockType {
   }
 
   public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!worldIn.isRemote) {
-			this.checkFallable(worldIn, pos);
-		}
+        if (!worldIn.isRemote) {
+            this.checkFallable(worldIn, pos);
+        }
   }
 
   private void checkFallable(World worldIn, BlockPos pos) {

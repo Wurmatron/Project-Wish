@@ -45,9 +45,9 @@ public class BlockGravel extends BlockRockType {
 
   @Override
   public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> list) {
-		for (int m = 0; m < amount; m++) {
-			list.add(new ItemStack(this, 1, m));
-		}
+        for (int m = 0; m < amount; m++) {
+            list.add(new ItemStack(this, 1, m));
+        }
   }
 
   @Override
@@ -58,9 +58,9 @@ public class BlockGravel extends BlockRockType {
   }
 
   public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-		if (fortune > 3) {
-			fortune = 3;
-		}
+        if (fortune > 3) {
+            fortune = 3;
+        }
     return rand.nextInt(10 - fortune * 3) == 0 ? Items.FLINT
         : super.getItemDropped(state, rand, fortune);
   }
@@ -81,9 +81,9 @@ public class BlockGravel extends BlockRockType {
   }
 
   public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if (!worldIn.isRemote) {
-			this.checkFallable(worldIn, pos);
-		}
+        if (!worldIn.isRemote) {
+            this.checkFallable(worldIn, pos);
+        }
   }
 
   private void checkFallable(World worldIn, BlockPos pos) {

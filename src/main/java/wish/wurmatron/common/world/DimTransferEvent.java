@@ -30,28 +30,28 @@ public class DimTransferEvent {
   private static HashMap<Integer, DimFall> travelData = new HashMap<>();
 
   public static void loadData(File location) {
-		if (!location.exists()) {
-			location.mkdirs();
-		}
+        if (!location.exists()) {
+            location.mkdirs();
+        }
     File loc = new File(location + File.separator + "Dimension");
     if (loc.exists() && loc.listFiles().length > 0) {
-			for (File file : loc.listFiles()) {
-				if (file.isFile() && file.getName().endsWith(".json")) {
-					try {
-						DimFall temp = gson
-								.fromJson(Strings.join(Files.readAllLines(file.toPath()), ""), DimFall.class);
-						if (travelData.containsKey(temp.dimensionID)) {
-							LogHandler.warn(
-									"More Than 1 Dimension Travels have been registed for " + temp.dimensionID
-											+ " it will not be registed!");
-						} else {
-							travelData.put(temp.startDimID, temp);
-						}
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
+            for (File file : loc.listFiles()) {
+                if (file.isFile() && file.getName().endsWith(".json")) {
+                    try {
+                        DimFall temp = gson
+                                .fromJson(Strings.join(Files.readAllLines(file.toPath()), ""), DimFall.class);
+                        if (travelData.containsKey(temp.dimensionID)) {
+                            LogHandler.warn(
+                                    "More Than 1 Dimension Travels have been registed for " + temp.dimensionID
+                                            + " it will not be registed!");
+                        } else {
+                            travelData.put(temp.startDimID, temp);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
     }
   }
 

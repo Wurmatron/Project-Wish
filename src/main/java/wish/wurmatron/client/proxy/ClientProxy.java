@@ -118,51 +118,51 @@ public class ClientProxy extends CommonProxy {
           "rockSedimentary_" + StoneType.getRockFromMeta(StoneType.RockType.Sedimentary, index));
       createModel(WishBlocks.stick, index, "stick");
     }
-		for (OreType ore : OreType.values()) {
-			for (int index = 0; index < BlockWishOre.getOreNames(ore).length; index++) {
-				createModel(Registry.blockOre.get(ore), index,
-						Registry.blockOre.get(ore).getUnlocalizedName().substring(5) + "_" + BlockWishOre
-								.getOreNames(ore)[index]);
-			}
-		}
-		for (Item item : Registry.items) {
-			if (item instanceof ItemGem) {
-				for (int meta = 0; meta < GemType.GRADE.values().length; meta++) {
-					createModel(item, meta,
-							item.getUnlocalizedName().substring(5) + "_" + ItemGem.getGrade(meta));
-				}
-			} else if (item instanceof ItemRock) {
-				for (int meta = 0; meta < StoneType.values().length; meta++) {
-					createModel(item, meta, "rock" + StoneType.values()[meta]);
-				}
-			} else if (item.getUnlocalizedName().contains("itemOre")) {
-				for (int meta = 0; meta < 5; meta++) {
-					createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
-				}
-			} else {
-				createModel(item, item.getUnlocalizedName().substring(5));
-			}
-		}
-		for (int index = 0; index < ItemMeta.metaItems.length; index++) {
-			createModel(WishItems.itemMeta, index, ItemMeta.metaItems[index]);
-		}
-		for (int index = 0; index < OreType.values().length; index++) {
-			createModel(WishItems.dustOre, index, "dust" + OreType.values()[index].getName());
-		}
+        for (OreType ore : OreType.values()) {
+            for (int index = 0; index < BlockWishOre.getOreNames(ore).length; index++) {
+                createModel(Registry.blockOre.get(ore), index,
+                        Registry.blockOre.get(ore).getUnlocalizedName().substring(5) + "_" + BlockWishOre
+                                .getOreNames(ore)[index]);
+            }
+        }
+        for (Item item : Registry.items) {
+            if (item instanceof ItemGem) {
+                for (int meta = 0; meta < GemType.GRADE.values().length; meta++) {
+                    createModel(item, meta,
+                            item.getUnlocalizedName().substring(5) + "_" + ItemGem.getGrade(meta));
+                }
+            } else if (item instanceof ItemRock) {
+                for (int meta = 0; meta < StoneType.values().length; meta++) {
+                    createModel(item, meta, "rock" + StoneType.values()[meta]);
+                }
+            } else if (item.getUnlocalizedName().contains("itemOre")) {
+                for (int meta = 0; meta < 5; meta++) {
+                    createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
+                }
+            } else {
+                createModel(item, item.getUnlocalizedName().substring(5));
+            }
+        }
+        for (int index = 0; index < ItemMeta.metaItems.length; index++) {
+            createModel(WishItems.itemMeta, index, ItemMeta.metaItems[index]);
+        }
+        for (int index = 0; index < OreType.values().length; index++) {
+            createModel(WishItems.dustOre, index, "dust" + OreType.values()[index].getName());
+        }
     if (ConfigHandler.oreItems) {
-			for (Item item : ItemSludge.validSludge) {
-				for (int index = 0; index < ItemSludge.WEIGHTS.length; index++) {
-					createModel(item, index, item.getUnlocalizedName().substring(5) + "_" + index);
-				}
-			}
-			for (Item item : ItemShard.valid) {
-				for (int index = 0; index < ItemShard.WEIGHTS.length; index++) {
-					createModel(item, index, item.getUnlocalizedName().substring(5) + "_" + index);
-				}
-			}
-			for (int index = 0; index < ItemCrystal.metaItems.length; index++) {
-				createModel(WishItems.crystalOre, index, "crystal" + ItemCrystal.metaItems[index]);
-			}
+            for (Item item : ItemSludge.validSludge) {
+                for (int index = 0; index < ItemSludge.WEIGHTS.length; index++) {
+                    createModel(item, index, item.getUnlocalizedName().substring(5) + "_" + index);
+                }
+            }
+            for (Item item : ItemShard.valid) {
+                for (int index = 0; index < ItemShard.WEIGHTS.length; index++) {
+                    createModel(item, index, item.getUnlocalizedName().substring(5) + "_" + index);
+                }
+            }
+            for (int index = 0; index < ItemCrystal.metaItems.length; index++) {
+                createModel(WishItems.crystalOre, index, "crystal" + ItemCrystal.metaItems[index]);
+            }
     }
     for (int meta = 0; meta < 1561; meta++) {
       createModel(WishItems.stoneProspectPick, meta, "stoneProspectPick");

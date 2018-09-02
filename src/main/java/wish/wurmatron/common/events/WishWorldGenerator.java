@@ -26,9 +26,9 @@ public class WishWorldGenerator implements IWorldGenerator {
 
   public static void addOreGen(OreType type, IBlockState state, int maxVeinSize, int minY, int maxY,
       int weight) {
-		if (weight > maxWeight) {
-			maxWeight = weight;
-		}
+        if (weight > maxWeight) {
+            maxWeight = weight;
+        }
     OreGen gen = new OreGen(type, state, maxVeinSize, minY, maxY, weight);
     oreGeneration.add(gen);
   }
@@ -37,12 +37,12 @@ public class WishWorldGenerator implements IWorldGenerator {
   public void generate(Random random, int chunkX, int chunkZ, World world,
       IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
     generateGround(random, chunkX, chunkZ, world);
-		if (oreGeneration.size() > 0) {
-			for (int i = 0; i < 1 + random.nextInt(2); i++) {
-				oreGeneration.get(random.nextInt(oreGeneration.size()))
-						.generate(world, random, (chunkX * 16), (chunkZ * 16));
-			}
-		}
+        if (oreGeneration.size() > 0) {
+            for (int i = 0; i < 1 + random.nextInt(2); i++) {
+                oreGeneration.get(random.nextInt(oreGeneration.size()))
+                        .generate(world, random, (chunkX * 16), (chunkZ * 16));
+            }
+        }
   }
 
   private void generateGround(Random rand, int chunkX, int chunkZ, World world) {
@@ -51,35 +51,35 @@ public class WishWorldGenerator implements IWorldGenerator {
       int z = chunkZ * 16 + rand.nextInt(16) + 8;
       BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).down();
       Block block = world.getBlockState(pos).getBlock();
-			if (isRockSpawnable(block)) {
-				if (world.isAirBlock(pos.up())) {
-					IBlockState state = ProjectWish.randRockType.getStoneForPos(world, pos.up());
-					if (state.getBlock() != Blocks.AIR) {
-						world.setBlockState(pos.up(),
-								getRock(state.getBlock()).getStateFromMeta(state.getValue(BlockRockType.TYPE)), 3);
-					}
-				}
-			}
+            if (isRockSpawnable(block)) {
+                if (world.isAirBlock(pos.up())) {
+                    IBlockState state = ProjectWish.randRockType.getStoneForPos(world, pos.up());
+                    if (state.getBlock() != Blocks.AIR) {
+                        world.setBlockState(pos.up(),
+                                getRock(state.getBlock()).getStateFromMeta(state.getValue(BlockRockType.TYPE)), 3);
+                    }
+                }
+            }
     }
     for (int i = 0; i < rand.nextInt(ConfigHandler.sticksPerChunk); i++) {
       int x = chunkX * 16 + rand.nextInt(16) + 8;
       int z = chunkZ * 16 + rand.nextInt(16) + 8;
       BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).down();
       Block block = world.getBlockState(pos).getBlock();
-			if (isRockSpawnable(block)) {
-				if (world.isAirBlock(pos.up())) {
-					world.setBlockState(pos.up(), WishBlocks.stick.getDefaultState(), 3);
-				}
-			}
+            if (isRockSpawnable(block)) {
+                if (world.isAirBlock(pos.up())) {
+                    world.setBlockState(pos.up(), WishBlocks.stick.getDefaultState(), 3);
+                }
+            }
     }
   }
 
   private Block getRock(Block block) {
-		if (block == WishBlocks.stoneMetamorphic) {
-			return WishBlocks.rockMetamorphic;
-		} else if (block == WishBlocks.stoneSedimentary) {
-			return WishBlocks.rockSedimentary;
-		}
+        if (block == WishBlocks.stoneMetamorphic) {
+            return WishBlocks.rockMetamorphic;
+        } else if (block == WishBlocks.stoneSedimentary) {
+            return WishBlocks.rockSedimentary;
+        }
     return WishBlocks.rockIgneous;
   }
 

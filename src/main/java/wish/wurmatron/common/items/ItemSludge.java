@@ -29,11 +29,11 @@ public class ItemSludge extends Item {
 
   @Override
   public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if (tab == ProjectWish.Items) {
-			for (int b = 0; b < WEIGHTS.length; b++) {
-				items.add(new ItemStack(this, 1, b));
-			}
-		}
+        if (tab == ProjectWish.Items) {
+            for (int b = 0; b < WEIGHTS.length; b++) {
+                items.add(new ItemStack(this, 1, b));
+            }
+        }
   }
 
   @Override
