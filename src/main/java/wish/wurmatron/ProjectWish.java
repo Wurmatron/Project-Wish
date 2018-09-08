@@ -90,13 +90,21 @@ public class ProjectWish {
     MinecraftForge.ORE_GEN_BUS.register(new WorldEvents());
     for (Block block : Registry.blocks) {
       if (block.getUnlocalizedName().contains("stone")) {
-        OreDictionary.registerOre("stone", block);
+        for (int meta = 0; meta < 9; meta++) {
+          OreDictionary.registerOre("stone", new ItemStack(block, 1, meta));
+        }
       } else if (block.getUnlocalizedName().contains("cobble")) {
-        OreDictionary.registerOre("cobblestone", block);
+        for (int meta = 0; meta < 9; meta++) {
+          OreDictionary.registerOre("cobblestone", new ItemStack(block,1,meta));
+        }
       } else if (block.getUnlocalizedName().contains("sand")) {
-        OreDictionary.registerOre("sand", block);
+        for (int meta = 0; meta < 9; meta++) {
+          OreDictionary.registerOre("sand", new ItemStack(block,1,meta));
+        }
       } else if (block.getUnlocalizedName().contains("gravel")) {
-        OreDictionary.registerOre("gravel", block);
+          for (int meta = 0; meta < 9; meta++) {
+            OreDictionary.registerOre("gravel", new ItemStack(block,1,meta));
+          }
       }
     }
     for (GemType gem : GemType.values()) {
