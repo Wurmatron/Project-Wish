@@ -12,8 +12,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Enchantments;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -89,15 +91,23 @@ public class WorldEvents {
     if (e.getState().getMaterial() == Material.WOOD) {
       if (e.getEntityPlayer().getHeldItemMainhand() == ItemStack.EMPTY) {
         e.setCanceled(true);
-      } else if (e.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemAxe || e
-          .getEntityPlayer().getHeldItemMainhand().getItem().getUnlocalizedName()
-          .contains("hatchet") || e.getEntityPlayer().getHeldItemMainhand().getItem()
-          .getUnlocalizedName().contains("axe") || e.getEntityPlayer().getHeldItemMainhand()
-          .getItem().getUnlocalizedName().contains("mattock")) {
-      } else {
-        e.setCanceled(true);
+      }
+      if (e.getEntityPlayer().getHeldItemMainhand().getItem() instanceof ItemTool) {
+        ItemTool tool = (ItemTool) e.getEntityPlayer().getHeldItemMainhand().getItem();
+        if (tool.getToolClasses(e.getEntityPlayer().getHeldItemMainhand()).contains("axe")
+            || isAxe(e.getEntityPlayer().getHeldItemMainhand())) {
+
+        } else {
+          e.setCanceled(true);
+        }
       }
     }
+  }
+
+  private boolean isAxe(ItemStack stack) {
+    String name = stack.getUnlocalizedName().toLowerCase();
+    return name.contains("axe") || name.contains("hatchet") || name.contains("mattock") || stack
+        .getItem() instanceof ItemAxe;
   }
 
   @SubscribeEvent
