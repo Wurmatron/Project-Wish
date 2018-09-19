@@ -1,4 +1,4 @@
-package wish.wurmatron.api.world;
+package wish.wurmatron.api.rock;
 
 /**
  * Stores the values about the stone types
