@@ -120,6 +120,10 @@ public class WorldEvents {
   @SubscribeEvent
   public void onBlockBreakOre(BlockEvent.BreakEvent e) {
     if (e.getState() != null && e.getState().getBlock() instanceof BlockWishOre) {
+      if(e.getPlayer ().getHeldItemMainhand ().isEmpty ()) {
+        e.setCanceled (true);
+        return;
+      }
       TileOre tile = ((TileOre) e.getWorld().getTileEntity(e.getPos()));
       if (Loader.isModLoaded("orestages") && canDropOre(e.getState(), e.getPlayer())) {
         e.getWorld().spawnEntity(

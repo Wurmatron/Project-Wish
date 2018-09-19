@@ -127,7 +127,7 @@ public class WishModItems {
     WishItems.itemRock = register(new ItemRock());
     WishItems.itemMeta = register(new ItemMeta());
     // Tools
-    WishItems.toolSharpRockOnAStick = register(new WishSharpStoneTool(ROCK, 50, 1));
+    WishItems.toolSharpRockOnAStick = register(new WishSharpStoneTool(ROCK, 4, 1));
     WishItems.stoneProspectPick = register(
         new ItemProspectPick(2, 4, Item.ToolMaterial.STONE, new HashSet<>())
             .setUnlocalizedName("stoneProspectPick"));
