@@ -5,7 +5,7 @@ import wish.wurmatron.api.rock.StoneType;
 import java.util.List;
 
 /**
- Registry used to manage all Ore Generation
+ Registry used to manage all WishOre Generation
 
  @see wish.wurmatron.api.WishAPI#oreRegistry */
 public interface OreRegistry {
@@ -20,7 +20,7 @@ public interface OreRegistry {
 	/**
 	 Adds a ore instance to be used by the rest of the mod
 
-	 @param ore Ore instance to register
+	 @param ore WishOre instance to register
 
 	 @return true if the gem was created, false if not (possibly duplicate name)
 	 */
@@ -29,7 +29,7 @@ public interface OreRegistry {
 	/**
 	 Removes a ore from the registry
 
-	 @param ore Ore instance to remove
+	 @param ore WishOre instance to remove
 
 	 @return true if the ore was removed, false if not (does not exist)
 	 */
@@ -38,7 +38,7 @@ public interface OreRegistry {
 	/**
 	 Removes a ore from the registry using its name
 
-	 @param names Ore names to remove
+	 @param names WishOre names to remove
 
 	 @return true if the ore was removed, false if not (does not exist)
 	 */
@@ -65,21 +65,7 @@ public interface OreRegistry {
 	/**
 	 Locates an ore based on its name
 
-	 @param name Ore unlocalizedName
+	 @param name WishOre unlocalizedName
 	 */
 	Ore getOreFromName (String name);
-
-	/**
-	 Randomly select an ore based on its StoneType
-
-	 @see Generation#getChance()
-	 */
-	Ore getRandomOre (StoneType type);
-
-	/**
-	 Randomly select an ore based on its RockType
-
-	 @see Generation#getChance()
-	 */
-	Ore getRandomOre (StoneType.RockType type);
 }

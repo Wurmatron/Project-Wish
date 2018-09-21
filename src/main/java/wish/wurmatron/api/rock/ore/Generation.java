@@ -31,6 +31,6 @@ public interface Generation {
 	 Chances how the ore vein is created / generated
 	 */
 	enum Style {
-
+		CLUSTER
 	}
 }

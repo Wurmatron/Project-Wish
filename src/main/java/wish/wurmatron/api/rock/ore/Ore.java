@@ -22,7 +22,7 @@ public interface Ore {
 	RockType[] getRockTypes ();
 
 	/**
-	 StoneType this Ore can spawn in
+	 StoneType this WishOre can spawn in
 	 if no value is set all RockTypes will be used
 	 */
 	StoneType[] getStoneTypes ();
