@@ -5,7 +5,7 @@ import wish.wurmatron.api.rock.ore.OreRegistry;
 
 public class WishAPI {
 
-	public static GemRegistry gemRegistry;
-	public static OreRegistry oreRegistry;
+    public static GemRegistry gemRegistry;
+    public static OreRegistry oreRegistry;
 
 }

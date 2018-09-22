@@ -6,7 +6,7 @@ import wish.wurmatron.api.rock.StoneType;
 
 public class ItemBlockRockType extends ItemBlock {
 
-	public ItemBlockRockType (Block block,StoneType.RockType type) {
-		super (block);
-	}
+    public ItemBlockRockType (Block block,StoneType.RockType type) {
+        super (block);
+    }
 }

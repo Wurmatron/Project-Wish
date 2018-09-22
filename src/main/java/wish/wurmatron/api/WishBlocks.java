@@ -7,6 +7,6 @@ import java.util.List;
 
 public class WishBlocks {
 
-	public static List<Block> oreBlocks;
+    public static List<Block> oreBlocks;
 
 }

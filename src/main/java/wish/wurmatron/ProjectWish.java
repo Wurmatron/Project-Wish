@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 import wish.wurmatron.api.Global;
-import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
 import wish.wurmatron.common.registry.Registry;
@@ -44,5 +43,6 @@ public class ProjectWish {
 
   @Mod.EventHandler
   public void onPostInit(FMLPostInitializationEvent e) {
+      proxy.postInit ();
   }
 }

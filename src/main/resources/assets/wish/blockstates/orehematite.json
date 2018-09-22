@@ -1,31 +1,31 @@
 {
   "variants": {
     "type=0": {
-      "model": "wish:orehematite_gabbro"
+      "model": "wish:orehematite_conglomerate"
     },
     "type=1": {
-      "model": "wish:orehematite_granite"
+      "model": "wish:orehematite_sandstone"
     },
     "type=2": {
-      "model": "wish:orehematite_pegmatite"
+      "model": "wish:orehematite_shale"
     },
     "type=3": {
-      "model": "wish:orehematite_diorite"
+      "model": "wish:orehematite_limestone"
     },
     "type=4": {
-      "model": "wish:orehematite_andesite"
+      "model": "wish:orehematite_dolomite"
     },
     "type=5": {
-      "model": "wish:orehematite_basalt"
+      "model": "wish:orehematite_salt"
     },
     "type=6": {
-      "model": "wish:orehematite_obsidian"
+      "model": "wish:orehematite_chert"
     },
     "type=7": {
-      "model": "wish:orehematite_rhyolite"
+      "model": "wish:orehematite_diatomite"
     },
     "type=8": {
-      "model": "wish:orehematite_scoria"
+      "model": "wish:orehematite_claystone"
     },
     "type=9": {
       "model": "wish:ore_default"

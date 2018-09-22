@@ -7,18 +7,18 @@ import wish.wurmatron.api.rock.StoneType;
  */
 public interface Gem {
 
-	/**
-	 Unlocalized Name of the gem
-	 */
-	String getUnlocalizedName ();
+    /**
+     Unlocalized Name of the gem
+     */
+    String getUnlocalizedName ();
 
-	/**
-	 Chance this gem has to spawn comparted to all the rest of the gems
-	 */
-	double getChance ();
+    /**
+     Chance this gem has to spawn comparted to all the rest of the gems
+     */
+    double getChance ();
 
-	/**
-	 StoneType's this Gem can spawn within
-	 */
-	StoneType[] getStoneTypes ();
+    /**
+     StoneType's this Gem can spawn within
+     */
+    StoneType[] getStoneTypes ();
 }
