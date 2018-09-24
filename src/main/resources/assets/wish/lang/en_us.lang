@@ -1,5 +1,6 @@
 # Ore
 tile.orehematite.name=Hematite Ore
+item.itemorehematite.name=Hematite Ore
 
 # Stone
 stone.conglomerate.name=Conglomerate
@@ -11,3 +12,4 @@ stone.salt.name=Salt
 stone.chert.name=Chert
 stone.diatomite.name=Diatomite
 stone.claystone.name=Claystone
+

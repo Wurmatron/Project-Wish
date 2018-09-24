@@ -10,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
+import wish.wurmatron.common.events.OreEvents;
+import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.registry.WishOreRegistry;
 
@@ -32,7 +34,9 @@ public class ProjectWish {
     oreRegistry = new WishOreRegistry ();
     ((WishOreRegistry) oreRegistry).loadAllOres ();
     ProjectWishBlocks.registerBlocks ();
+    ProjectWishItems.registerItems();
     MinecraftForge.EVENT_BUS.register (new Registry ());
+    MinecraftForge.EVENT_BUS.register(new OreEvents());
     proxy.preInit();
   }
 
