@@ -4,6 +4,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 
 public class BlockRockType extends WishBlock {
 
@@ -12,6 +13,7 @@ public class BlockRockType extends WishBlock {
     public BlockRockType(Material material) {
         super(material);
         setDefaultState(this.blockState.getBaseState().withProperty(TYPE, 0));
+        setCreativeTab(CreativeTabs.COMBAT);
     }
 
     @Override

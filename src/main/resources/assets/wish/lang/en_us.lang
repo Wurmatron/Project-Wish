@@ -32,3 +32,17 @@ stone.basalt.name=Basalt
 stone.obsidian.name=Obsidian
 stone.rhyolite.name=Rhyolite
 stone.scoria.name=Scoria
+stone.eclogite.name=Eclogite
+tile.cobblestone.name=Cobblestone
+
+# Tooltip
+tooltip.igneous.name=Igneous
+tooltip.metamorphic.name=Metamorphic
+tooltip.sedimentary.name=Sedimentary
+tooltip.stoneSubType.Clastic.name=Clastic
+tooltip.stoneSubType.Intrusive.name=Intrusive
+tooltip.stoneSubType.Extrusive.name=Extrusive
+tooltip.stoneSubType.Foliated.name=Foliated
+tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
+tooltip.stoneSubType.Chemical.name=Chemical
+tooltip.stoneSubType.Biochemical.name=BioChemical

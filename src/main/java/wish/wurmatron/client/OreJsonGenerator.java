@@ -4,17 +4,13 @@ import java.io.File;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-import java.util.regex.Pattern;
-import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.io.FileUtils;
 import wish.wurmatron.api.rock.StoneType;
 import wish.wurmatron.api.rock.StoneType.RockType;
 import wish.wurmatron.api.rock.ore.Ore;
-import wish.wurmatron.client.proxy.ClientProxy;
 
 public class OreJsonGenerator {
 

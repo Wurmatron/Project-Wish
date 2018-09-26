@@ -8,6 +8,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.api.WishBlocks;
+import wish.wurmatron.api.rock.StoneType;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.items.ore.ItemOre;
@@ -48,8 +50,28 @@ public class ClientProxy extends CommonProxy {
     for (Item item : Registry.items) {
       if (item instanceof ItemOre) {
         for (int meta = 0; meta < ((ItemOre) item).SIZES; meta++) {
-          createModel(item,meta,item.getUnlocalizedName().substring(5) + "_" + meta);
+          createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
         }
+      }
+    }
+    for (StoneType type : StoneType.values()) {
+      if (type.getType() == StoneType.RockType.Metamorphic) {
+        createModel(WishBlocks.stoneMetamorphic, type.getId(),
+            "stone_" + type.getName().toLowerCase());
+        createModel(WishBlocks.cobbleMetamorphic, type.getId(),
+            "cobble_" + type.getName().toLowerCase());
+      }
+      if (type.getType() == StoneType.RockType.Sedimentary) {
+        createModel(WishBlocks.stoneSedimentary, type.getId(),
+            "stone_" + type.getName().toLowerCase());
+        createModel(WishBlocks.cobbleSedimentary, type.getId(),
+            "cobble_" + type.getName().toLowerCase());
+
+      }
+      if (type.getType() == StoneType.RockType.Igneous) {
+        createModel(WishBlocks.stoneIgneous, type.getId(), "stone_" + type.getName().toLowerCase());
+        createModel(WishBlocks.cobbleIgneous, type.getId(),
+            "cobble_" + type.getName().toLowerCase());
       }
     }
   }

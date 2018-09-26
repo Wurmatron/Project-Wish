@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:cobble_gneiss"
+    },
+    "type=1": {
+      "model": "wish:cobble_phyllite"
+    },
+    "type=2": {
+      "model": "wish:cobble_schist"
+    },
+    "type=3": {
+      "model": "wish:cobble_slate"
+    },
+    "type=4": {
+      "model": "wish:cobble_marble"
+    },
+    "type=5": {
+      "model": "wish:cobble_quartzite"
+    },
+    "type=6": {
+      "model": "wish:cobble_granulite"
+    },
+    "type=7": {
+      "model": "wish:cobble_eclogite"
+    },
+    "type=8": {
+      "model": "wish:cobble_skarn"
+    },
+    "type=9": {
+      "model": "wish:cobble_default"
+    },
+    "type=10": {
+      "model": "wish:cobble_default"
+    },
+    "type=11": {
+      "model": "wish:cobble_default"
+    },
+    "type=12": {
+      "model": "wish:cobble_default"
+    },
+    "type=13": {
+      "model": "wish:cobble_default"
+    },
+    "type=14": {
+      "model": "wish:cobble_default"
+    },
+    "type=15": {
+      "model": "wish:cobble_default"
+    }
+  }
+}
