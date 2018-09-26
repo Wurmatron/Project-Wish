@@ -50,11 +50,11 @@ public class ItemBlockRockType extends ItemBlock {
       if (stack.getItem().getRegistryName().getResourcePath().startsWith("cobble")) {
         return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n.translateToLocal("tile.cobblestone.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("smooth")) {
-        return I18n.translateToLocal("display.smooth.name") + " " + I18n
+        return I18n.translateToLocal("tile.smooth.name") + " " + I18n
             .translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("brick")) {
         return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n
-            .translateToLocal("display.brick.name");
+            .translateToLocal("tile.brick.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("chisel")) {
         return I18n.translateToLocal("display.chisel.name") + " " + I18n
             .translateToLocal("stone." + stoneType.getName() + ".name");

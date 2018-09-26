@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:smooth_gneiss"
+    },
+    "type=1": {
+      "model": "wish:smooth_phyllite"
+    },
+    "type=2": {
+      "model": "wish:smooth_schist"
+    },
+    "type=3": {
+      "model": "wish:smooth_slate"
+    },
+    "type=4": {
+      "model": "wish:smooth_marble"
+    },
+    "type=5": {
+      "model": "wish:smooth_quartzite"
+    },
+    "type=6": {
+      "model": "wish:smooth_granulite"
+    },
+    "type=7": {
+      "model": "wish:smooth_eclogite"
+    },
+    "type=8": {
+      "model": "wish:smooth_skarn"
+    },
+    "type=9": {
+      "model": "wish:smooth_default"
+    },
+    "type=10": {
+      "model": "wish:smooth_default"
+    },
+    "type=11": {
+      "model": "wish:smooth_default"
+    },
+    "type=12": {
+      "model": "wish:smooth_default"
+    },
+    "type=13": {
+      "model": "wish:smooth_default"
+    },
+    "type=14": {
+      "model": "wish:smooth_default"
+    },
+    "type=15": {
+      "model": "wish:smooth_default"
+    }
+  }
+}

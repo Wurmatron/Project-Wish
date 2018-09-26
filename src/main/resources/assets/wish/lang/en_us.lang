@@ -34,6 +34,8 @@ stone.rhyolite.name=Rhyolite
 stone.scoria.name=Scoria
 stone.eclogite.name=Eclogite
 tile.cobblestone.name=Cobblestone
+tile.smooth.name=Smooth
+tile.brick.name=Brick
 
 # Tooltip
 tooltip.igneous.name=Igneous
