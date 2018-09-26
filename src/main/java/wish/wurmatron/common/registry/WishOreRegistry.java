@@ -2,11 +2,14 @@ package wish.wurmatron.common.registry;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.io.FileUtils;
+import wish.wurmatron.client.OreJsonGenerator;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.rock.StoneType;
+import wish.wurmatron.api.rock.StoneType.RockType;
 import wish.wurmatron.api.rock.ore.Generation;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.api.rock.ore.OreRegistry;
@@ -39,6 +42,9 @@ public class WishOreRegistry implements OreRegistry {
   public boolean registerOre(Ore... ore) {
     for (Ore o : ore) {
       if (!ores.contains(o)) {
+        if ((Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment")) {
+          OreJsonGenerator.autoCreate(o);
+        }
         ores.add(o);
         oreCache.put(o.getUnlocalizedName(), o);
         return true;
@@ -120,7 +126,6 @@ public class WishOreRegistry implements OreRegistry {
     return null;
   }
 
-
   public void loadAllOres() {
     if (oreSaveDir.exists()) {
       for (File file : Objects.requireNonNull(oreSaveDir.listFiles())) {
@@ -148,11 +153,19 @@ public class WishOreRegistry implements OreRegistry {
     }
   }
 
+  private static final int[] LARGE = new int[]{8, 125};
+
   public void createDefaultOres() {
     // Iron
     Ore hematiteOre = new WishOre("hematite",
         new StoneType.RockType[]{StoneType.RockType.Sedimentary}, new StoneType[]{}, new String[]{},
-        100000, 100000, new WishGeneration(8, 150, 1, Generation.Style.CLUSTER));
+        Integer.MIN_VALUE, Integer.MAX_VALUE,
+        new WishGeneration(LARGE[0], LARGE[1], 3, Generation.Style.CLUSTER));
     saveOre(hematiteOre);
+    Ore magnetiteOre = new WishOre("magnetite",
+        new StoneType.RockType[]{RockType.Igneous}, new StoneType[]{}, new String[]{},
+        Integer.MIN_VALUE, Integer.MAX_VALUE,
+        new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
+    saveOre(magnetiteOre);
   }
 }

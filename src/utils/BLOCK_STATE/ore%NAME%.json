@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:ore%NAME%_%TYPE0%"
+    },
+    "type=1": {
+      "model": "wish:ore%NAME%_%TYPE1%"
+    },
+    "type=2": {
+      "model": "wish:ore%NAME%_%TYPE2%"
+    },
+    "type=3": {
+      "model": "wish:ore%NAME%_%TYPE3%"
+    },
+    "type=4": {
+      "model": "wish:ore%NAME%_%TYPE4%"
+    },
+    "type=5": {
+      "model": "wish:ore%NAME%_%TYPE5%"
+    },
+    "type=6": {
+      "model": "wish:ore%NAME%_%TYPE6%"
+    },
+    "type=7": {
+      "model": "wish:ore%NAME%_%TYPE7%"
+    },
+    "type=8": {
+      "model": "wish:ore%NAME%_%TYPE8%"
+    },
+    "type=9": {
+      "model": "wish:ore_default"
+    },
+    "type=10": {
+      "model": "wish:ore_default"
+    },
+    "type=11": {
+      "model": "wish:ore_default"
+    },
+    "type=12": {
+      "model": "wish:ore_default"
+    },
+    "type=13": {
+      "model": "wish:ore_default"
+    },
+    "type=14": {
+      "model": "wish:ore_default"
+    },
+    "type=15": {
+      "model": "wish:ore_default"
+    }
+  }
+}

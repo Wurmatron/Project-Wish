@@ -1,5 +1,5 @@
 {
-  "parent": "wish:block/orehematite_salt",
+  "parent": "wish:block/ore%NAME%_%TYPE1%",
   "display": {
     "thirdperson": {
       "rotation": [

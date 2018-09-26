@@ -1,6 +1,8 @@
 # Ore
 tile.orehematite.name=Hematite Ore
 item.itemorehematite.name=Hematite Ore
+tile.oremagnetite.name=Magnetite Ore
+item.itemoremagnetite.name=Magnetite Ore
 
 # Stone
 stone.conglomerate.name=Conglomerate
@@ -12,4 +14,21 @@ stone.salt.name=Salt
 stone.chert.name=Chert
 stone.diatomite.name=Diatomite
 stone.claystone.name=Claystone
-
+stone.gneiss.name=Gneiss
+stone.phyllite.name=Phyllite
+stone.schist.name=Schist
+stone.slate.name=Slate
+stone.marble.name=Marble
+stone.quartzite.name=Quartzite
+stone.granulite.name=Granulite
+stone.ecologite.name=Ecologite
+stone.skarn.name=Skarn
+stone.gabbro.name=Gabbro
+stone.granite.name=Granite
+stone.pegmatite.name=Pegatite
+stone.diorite.name=Diorite
+stone.andesite.name=Andesite
+stone.basalt.name=Basalt
+stone.obsidian.name=Obsidian
+stone.rhyolite.name=Rhyolite
+stone.scoria.name=Scoria
