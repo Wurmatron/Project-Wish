@@ -1,5 +1,7 @@
 package wish.wurmatron;
 
+import static wish.wurmatron.api.WishAPI.oreRegistry;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -11,11 +13,10 @@ import wish.wurmatron.api.Global;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
 import wish.wurmatron.common.events.OreEvents;
+import wish.wurmatron.common.events.StoneEvents;
 import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.registry.WishOreRegistry;
-
-import static wish.wurmatron.api.WishAPI.oreRegistry;
 
 @Mod(modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, updateJSON = Global.JSON_UPDATE)
 public class ProjectWish {
@@ -37,6 +38,7 @@ public class ProjectWish {
     ProjectWishItems.registerItems();
     MinecraftForge.EVENT_BUS.register (new Registry ());
     MinecraftForge.EVENT_BUS.register(new OreEvents());
+    MinecraftForge.EVENT_BUS.register(new StoneEvents());
     proxy.preInit();
   }
 

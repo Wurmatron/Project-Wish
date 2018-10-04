@@ -6,7 +6,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockRockType extends WishBlock {
+public class BlockRockType extends BlockSlideGravity {
 
     public static final PropertyInteger TYPE = PropertyInteger.create("type", 0, 15);
 

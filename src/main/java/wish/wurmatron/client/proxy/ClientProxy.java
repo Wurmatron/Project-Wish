@@ -41,7 +41,7 @@ public class ClientProxy extends CommonProxy {
   public void modelBakeEvent(ModelRegistryEvent e) {
     for (Block block : Registry.blocks) {
       if (block instanceof TileOre) {
-        String[] metaData = ((WishOre) (((TileOre) block).type)).getNames();
+        String[] metaData = ((WishOre) (((TileOre) block).ore)).getNames();
         for (int meta = 0; meta < metaData.length; meta++) {
           createModel(block, meta, block.getUnlocalizedName().substring(5) + "_" + metaData[meta]);
         }

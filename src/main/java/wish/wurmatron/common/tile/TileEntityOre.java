@@ -10,6 +10,9 @@ public class TileEntityOre extends TileEntity {
   private Ore oreType;
   private int tier;
 
+  public TileEntityOre() {
+  }
+
   public TileEntityOre(Ore type, int tier) {
     this.oreType = type;
     this.tier = tier;

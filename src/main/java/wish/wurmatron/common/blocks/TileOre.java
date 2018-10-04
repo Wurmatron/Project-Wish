@@ -18,11 +18,11 @@ import wish.wurmatron.common.tile.TileEntityOre;
 
 public class TileOre extends BlockRockType implements ITileEntityProvider {
 
-  public Ore type;
+  public Ore ore;
 
-  public TileOre(Ore type) {
+  public TileOre(Ore ore) {
     super(Material.IRON);
-    this.type = type;
+    this.ore = ore;
     setCreativeTab(CreativeTabs.COMBAT);
     setHardness(1.5f);
     setResistance(30f);
@@ -38,7 +38,7 @@ public class TileOre extends BlockRockType implements ITileEntityProvider {
   @Nullable
   @Override
   public TileEntity createNewTileEntity(World world, int meta) {
-    return new TileEntityOre(type, 2);
+    return new TileEntityOre(ore, 2);
   }
 
   @Override
