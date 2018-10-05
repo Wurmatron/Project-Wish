@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import wish.wurmatron.ProjectWish;
 
 public class ItemOre extends Item {
 
@@ -11,7 +12,7 @@ public class ItemOre extends Item {
 
   public ItemOre(String name) {
     setUnlocalizedName("itemore" + name);
-    setCreativeTab(CreativeTabs.COMBAT);
+    setCreativeTab(ProjectWish.tabOre);
     setMaxStackSize(32);
     setHasSubtypes(true);
   }

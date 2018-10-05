@@ -4,16 +4,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
+import wish.wurmatron.ProjectWish;
 
-public class BlockRockType extends BlockSlideGravity {
+public class BlockRockType extends WishBlock {
 
     public static final PropertyInteger TYPE = PropertyInteger.create("type", 0, 15);
 
     public BlockRockType(Material material) {
         super(material);
         setDefaultState(this.blockState.getBaseState().withProperty(TYPE, 0));
-        setCreativeTab(CreativeTabs.COMBAT);
+        setCreativeTab(ProjectWish.tabBlocks);
     }
 
     @Override

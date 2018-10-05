@@ -6,11 +6,11 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.world.World;
+import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.blocks.utils.BlockRockType;
 import wish.wurmatron.common.tile.TileEntityOre;
@@ -23,7 +23,7 @@ public class TileOre extends BlockRockType implements ITileEntityProvider {
   public TileOre(Ore ore) {
     super(Material.IRON);
     this.ore = ore;
-    setCreativeTab(CreativeTabs.COMBAT);
+    setCreativeTab(ProjectWish.tabOre);
     setHardness(1.5f);
     setResistance(30f);
     setHarvestLevel("pickaxe", 1);

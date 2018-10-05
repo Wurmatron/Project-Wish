@@ -64,6 +64,10 @@ public class ClientProxy extends CommonProxy {
             "smooth_" + type.getName().toLowerCase());
         createModel(WishBlocks.brickMetamorphic, type.getId(),
             "brick_" + type.getName().toLowerCase());
+        createModel(WishBlocks.gravelMetamorphic, type.getId(),
+            "gravel_" + type.getName().toLowerCase());
+        createModel(WishBlocks.sandMetamorphic, type.getId(),
+            "sand_" + type.getName().toLowerCase());
       }
       if (type.getType() == StoneType.RockType.Sedimentary) {
         createModel(WishBlocks.stoneSedimentary, type.getId(),
@@ -74,6 +78,10 @@ public class ClientProxy extends CommonProxy {
             "smooth_" + type.getName().toLowerCase());
         createModel(WishBlocks.brickSedimentary, type.getId(),
             "brick_" + type.getName().toLowerCase());
+        createModel(WishBlocks.gravelSedimentary, type.getId(),
+            "gravel_" + type.getName().toLowerCase());
+        createModel(WishBlocks.sandSedimentary, type.getId(),
+            "sand_" + type.getName().toLowerCase());
       }
       if (type.getType() == StoneType.RockType.Igneous) {
         createModel(WishBlocks.stoneIgneous, type.getId(), "stone_" + type.getName().toLowerCase());
@@ -83,6 +91,10 @@ public class ClientProxy extends CommonProxy {
             "smooth_" + type.getName().toLowerCase());
         createModel(WishBlocks.brickIgneous, type.getId(),
             "brick_" + type.getName().toLowerCase());
+        createModel(WishBlocks.gravelIgneous, type.getId(),
+            "gravel_" + type.getName().toLowerCase());
+        createModel(WishBlocks.sandIgneous, type.getId(),
+            "sand_" + type.getName().toLowerCase());
       }
     }
   }

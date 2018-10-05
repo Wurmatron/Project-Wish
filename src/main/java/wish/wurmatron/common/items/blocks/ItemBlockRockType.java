@@ -48,28 +48,33 @@ public class ItemBlockRockType extends ItemBlock {
         return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name");
       }
       if (stack.getItem().getRegistryName().getResourcePath().startsWith("cobble")) {
-        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n.translateToLocal("tile.cobblestone.name");
+        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " "
+            + I18n.translateToLocal("tile.cobblestone.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("smooth")) {
         return I18n.translateToLocal("tile.smooth.name") + " " + I18n
             .translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("brick")) {
-        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n
+        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " "
+            + I18n
             .translateToLocal("tile.brick.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("chisel")) {
         return I18n.translateToLocal("display.chisel.name") + " " + I18n
             .translateToLocal("stone." + stoneType.getName() + ".name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("dirt")) {
-        return I18n.translateToLocal("item.stone" + stoneType.getName().toLowerCase() + ".name") + " " + I18n
+        return I18n.translateToLocal("stone" + stoneType.getName().toLowerCase() + ".name") + " "
+            + I18n
             .translateToLocal("item.dirt.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("grass")) {
-        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n
+        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " "
+            + I18n
             .translateToLocal("item.grass.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("sand")) {
-        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n
-            .translateToLocal("item.sand.name");
+        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " "
+            + I18n
+            .translateToLocal("tile.sand.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("gravel")) {
-        return I18n.translateToLocal("item.stone" + stoneType.getName() + ".name") + " " + I18n
-            .translateToLocal("item.gravel.name");
+        return I18n.translateToLocal("stone." + stoneType.getName().toLowerCase() + ".name") + " " + I18n
+            .translateToLocal("tile.gravel.name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("rock")) {
         return I18n.translateToLocal("tile.rock" + stoneType.getName().toLowerCase() + ".name");
       } else if (stack.getItem().getRegistryName().getResourcePath().startsWith("stick")) {

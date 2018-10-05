@@ -36,6 +36,8 @@ stone.eclogite.name=Eclogite
 tile.cobblestone.name=Cobblestone
 tile.smooth.name=Smooth
 tile.brick.name=Brick
+tile.gravel.name=Gravel
+tile.sand.name=Sand
 
 # Tooltip
 tooltip.igneous.name=Igneous
@@ -48,3 +50,7 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Chemical.name=Chemical
 tooltip.stoneSubType.Biochemical.name=BioChemical
+
+# CreativeTabs
+itemGroup.wishBlocks=Blocks
+itemGroup.wishOre=Ore

@@ -9,6 +9,7 @@ import wish.wurmatron.api.WishBlocks;
 
 public class StoneEvents {
 
+  // TODO Temp
   @SubscribeEvent
   public void onPopulateChunkEvent(PopulateChunkEvent.Pre e) {
     Chunk chunk = e.getWorld().getChunkFromChunkCoords(e.getChunkX(), e.getChunkZ());

@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockSlideGravity extends WishBlock {
+public class BlockSlideGravity extends BlockRockType {
 
   // TODO Find a way of setting this correctly
   public static boolean isWorldGen = true;

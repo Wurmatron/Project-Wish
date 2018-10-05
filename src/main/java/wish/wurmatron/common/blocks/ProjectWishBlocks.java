@@ -13,6 +13,8 @@ import wish.wurmatron.common.blocks.stone.BrickWish;
 import wish.wurmatron.common.blocks.stone.CobbleWish;
 import wish.wurmatron.common.blocks.stone.SmoothWish;
 import wish.wurmatron.common.blocks.stone.StoneWish;
+import wish.wurmatron.common.blocks.terra.GravelWish;
+import wish.wurmatron.common.blocks.terra.SandWish;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.tile.TileEntityOre;
 import wish.wurmatron.common.utils.WishOre;
@@ -36,6 +38,12 @@ public class ProjectWishBlocks extends WishBlocks {
         WishBlocks.smoothIgneous = Registry.registerBlock(new SmoothWish(Material.GROUND, 9), "smoothIgneous", RockType.Igneous);
         WishBlocks.smoothMetamorphic = Registry.registerBlock(new SmoothWish(Material.GROUND, 9), "smoothMetamorphic", RockType.Metamorphic);
         WishBlocks.smoothSedimentary = Registry.registerBlock(new SmoothWish(Material.GROUND, 9), "smoothSedimentary", RockType.Sedimentary);
+        WishBlocks.gravelIgneous = Registry.registerBlock(new GravelWish(Material.GROUND, 9), "gravelIgneous", RockType.Igneous);
+        WishBlocks.gravelMetamorphic = Registry.registerBlock(new GravelWish(Material.GROUND, 9), "gravelMetamorphic", RockType.Metamorphic);
+        WishBlocks.gravelSedimentary = Registry.registerBlock(new GravelWish(Material.GROUND, 9), "gravelSedimentary", RockType.Sedimentary);
+        WishBlocks.sandIgneous = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandIgneous", RockType.Igneous);
+        WishBlocks.sandMetamorphic = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandMetamorphic", RockType.Metamorphic);
+        WishBlocks.sandSedimentary = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandSedimentary", RockType.Sedimentary);
     }
 
     private static void registerTiles() {

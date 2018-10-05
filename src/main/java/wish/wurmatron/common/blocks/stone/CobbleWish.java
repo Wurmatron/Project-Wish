@@ -11,9 +11,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import wish.wurmatron.common.blocks.utils.BlockRockType;
+import wish.wurmatron.common.blocks.utils.BlockSlideGravity;
 import wish.wurmatron.common.registry.Registry;
 
-public class CobbleWish extends BlockRockType {
+public class CobbleWish extends BlockSlideGravity {
 
   private int amount;
 

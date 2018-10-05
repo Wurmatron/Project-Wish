@@ -9,6 +9,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
+import wish.wurmatron.ProjectWish;
 import wish.wurmatron.common.utils.WishOre;
 
 import javax.annotation.Nullable;
@@ -22,7 +23,7 @@ public class ItemBlockOreType extends ItemBlock {
         super (block);
         setMaxDamage (0);
         setHasSubtypes (true);
-        setCreativeTab (CreativeTabs.COMBAT);
+        setCreativeTab(ProjectWish.tabOre);
         this.type = type;
     }
 
