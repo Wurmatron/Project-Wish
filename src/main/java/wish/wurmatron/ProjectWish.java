@@ -5,6 +5,7 @@ import static wish.wurmatron.api.WishAPI.oreRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -17,7 +18,7 @@ import wish.wurmatron.api.WishItems;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
 import wish.wurmatron.common.events.OreEvents;
-import wish.wurmatron.common.events.StoneEvents;
+import wish.wurmatron.common.events.RandomizeRockTypeStandardEvent;
 import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.registry.WishOreRegistry;
@@ -56,7 +57,11 @@ public class ProjectWish {
     ProjectWishItems.registerItems();
     MinecraftForge.EVENT_BUS.register(new Registry());
     MinecraftForge.EVENT_BUS.register(new OreEvents());
-    MinecraftForge.EVENT_BUS.register(new StoneEvents());
+    if (!Loader.isModLoaded("cubicchunks")) {
+      MinecraftForge.EVENT_BUS.register(new RandomizeRockTypeStandardEvent());
+    } else {
+      // TODO CubicChunk Stone Randomizer
+    }
     proxy.preInit();
   }
 
