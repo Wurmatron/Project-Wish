@@ -167,5 +167,10 @@ public class WishOreRegistry implements OreRegistry {
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
     saveOre(magnetiteOre);
+    Ore limoniteOre = new WishOre("limonite",
+        new StoneType.RockType[]{RockType.Sedimentary}, new StoneType[]{}, new String[]{},
+        Integer.MIN_VALUE, Integer.MAX_VALUE,
+        new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
+    saveOre(limoniteOre);
   }
 }
