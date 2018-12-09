@@ -5,6 +5,8 @@ tile.oremagnetite.name=Magnetite Ore
 item.itemoremagnetite.name=Magnetite Ore
 tile.orelimonite.name=Limonite Ore
 item.itemorelimonite.name=Limonite Ore
+tile.oresiderite.name=Siderite Ore
+item.itemoresiderite.name=Siderite Ore
 
 # Stone
 stone.conglomerate.name=Conglomerate

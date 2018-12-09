@@ -154,6 +154,7 @@ public class WishOreRegistry implements OreRegistry {
   }
 
   private static final int[] LARGE = new int[]{8, 125};
+  private static final int[] MEDIUM = new int[]{6, 75};
 
   public void createDefaultOres() {
     // Iron
@@ -172,5 +173,10 @@ public class WishOreRegistry implements OreRegistry {
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
     saveOre(limoniteOre);
+    Ore sideriteOre = new WishOre("siderite",
+        new StoneType.RockType[]{RockType.Metamorphic}, new StoneType[]{}, new String[]{},
+        Integer.MIN_VALUE, Integer.MAX_VALUE,
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 1, Generation.Style.CLUSTER));
+    saveOre(sideriteOre);
   }
 }
