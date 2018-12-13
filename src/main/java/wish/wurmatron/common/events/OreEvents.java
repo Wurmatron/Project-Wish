@@ -9,14 +9,17 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.world.BlockEvent.BreakEvent;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.tile.TileEntityOre;
+import wish.wurmatron.common.utils.OreGeneration;
 
 @EventBusSubscriber(modid = Global.MODID)
 public class OreEvents {
@@ -69,5 +72,12 @@ public class OreEvents {
       }
     }
     return true;
+  }
+
+  @SubscribeEvent
+  public void oreGenEvent(OreGenEvent.GenerateMinable e) {
+    if (!(e.getGenerator() instanceof OreGeneration)) {
+      e.setResult(Event.Result.DENY);
+    }
   }
 }

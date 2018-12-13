@@ -161,22 +161,22 @@ public class WishOreRegistry implements OreRegistry {
     Ore hematiteOre = new WishOre("hematite",
         new StoneType.RockType[]{StoneType.RockType.Sedimentary}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
-        new WishGeneration(LARGE[0], LARGE[1], 3, Generation.Style.CLUSTER));
+        new WishGeneration(LARGE[0], LARGE[1], 7, Generation.Style.CLUSTER));
     saveOre(hematiteOre);
     Ore magnetiteOre = new WishOre("magnetite",
         new StoneType.RockType[]{RockType.Igneous}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
-        new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
+        new WishGeneration(LARGE[0], LARGE[1], 5, Generation.Style.CLUSTER));
     saveOre(magnetiteOre);
     Ore limoniteOre = new WishOre("limonite",
         new StoneType.RockType[]{RockType.Sedimentary}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
-        new WishGeneration(LARGE[0], LARGE[1], 2, Generation.Style.CLUSTER));
+        new WishGeneration(LARGE[0], LARGE[1], 5, Generation.Style.CLUSTER));
     saveOre(limoniteOre);
     Ore sideriteOre = new WishOre("siderite",
         new StoneType.RockType[]{RockType.Metamorphic}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
-        new WishGeneration(MEDIUM[0], MEDIUM[1], 1, Generation.Style.CLUSTER));
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 3, Generation.Style.CLUSTER));
     saveOre(sideriteOre);
   }
 }
