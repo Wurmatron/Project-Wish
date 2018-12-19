@@ -7,6 +7,18 @@ tile.orelimonite.name=Limonite Ore
 item.itemorelimonite.name=Limonite Ore
 tile.oresiderite.name=Siderite Ore
 item.itemoresiderite.name=Siderite Ore
+tile.orepetalite.name=Petalite Ore
+item.itemorepetalite.name=Petalite Ore
+tile.orelignite.name=Lignite Ore
+item.itemorelignite.name=Lignite Coal
+tile.orebituminous.name=Bituminous Ore
+item.itemorebituminous.name=Bituminous Coal
+tile.oreanthracite.name=Anthracite Ore
+item.itemoreanthracite.name=Anthracite Coal
+tile.oremagnesite.name=Magnesite Ore
+item.itemoremagnesite.name=Magnesite Ore
+tile.orebauxite.name=Bauxite Ore
+item.itemorebauxite.name=Bauxite Ore
 
 # Stone
 stone.conglomerate.name=Conglomerate

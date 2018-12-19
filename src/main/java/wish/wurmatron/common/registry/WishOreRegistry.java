@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.io.FileUtils;
+import wish.wurmatron.api.rock.ore.Generation.Style;
 import wish.wurmatron.client.OreJsonGenerator;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.Global;
@@ -141,7 +142,7 @@ public class WishOreRegistry implements OreRegistry {
     }
   }
 
-  private void saveOre(Ore ore) {
+  public static void saveOre(Ore ore) {
     File file = new File(oreSaveDir + File.separator + ore.getUnlocalizedName() + ".json");
     if (!file.exists()) {
       try {
@@ -153,30 +154,123 @@ public class WishOreRegistry implements OreRegistry {
     }
   }
 
+  private static final int[] EXTRA_LARGE = new int[]{12, 255};
   private static final int[] LARGE = new int[]{8, 125};
   private static final int[] MEDIUM = new int[]{6, 75};
+  private static final int[] SMALL = new int[]{4, 32};
 
   public void createDefaultOres() {
-    // Iron
-    Ore hematiteOre = new WishOre("hematite",
+    // Fe
+    new WishOre("hematite",
         new StoneType.RockType[]{StoneType.RockType.Sedimentary}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(LARGE[0], LARGE[1], 7, Generation.Style.CLUSTER));
-    saveOre(hematiteOre);
-    Ore magnetiteOre = new WishOre("magnetite",
+    new WishOre("magnetite",
         new StoneType.RockType[]{RockType.Igneous}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(LARGE[0], LARGE[1], 5, Generation.Style.CLUSTER));
-    saveOre(magnetiteOre);
-    Ore limoniteOre = new WishOre("limonite",
+    new WishOre("limonite",
         new StoneType.RockType[]{RockType.Sedimentary}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(LARGE[0], LARGE[1], 5, Generation.Style.CLUSTER));
-    saveOre(limoniteOre);
-    Ore sideriteOre = new WishOre("siderite",
+    new WishOre("siderite",
         new StoneType.RockType[]{RockType.Metamorphic}, new StoneType[]{}, new String[]{},
         Integer.MIN_VALUE, Integer.MAX_VALUE,
         new WishGeneration(MEDIUM[0], MEDIUM[1], 3, Generation.Style.CLUSTER));
-    saveOre(sideriteOre);
+    // LI
+    new WishOre("petalite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 4,
+            Style.CLUSTER));
+    // C
+    new WishOre("lignite", new StoneType.RockType[]{RockType.Sedimentary},
+        new WishGeneration(EXTRA_LARGE[0], EXTRA_LARGE[1], 8,
+            Style.CLUSTER));
+    new WishOre("bituminous", new StoneType.RockType[]{RockType.Metamorphic},
+        new WishGeneration(LARGE[0], LARGE[1], 6,
+            Style.CLUSTER));
+    new WishOre("anthracite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 4,
+            Style.CLUSTER));
+    // Mg
+    new WishOre("magnesite", new StoneType.RockType[]{RockType.Sedimentary},
+        new WishGeneration(LARGE[0], LARGE[1], 3,
+            Style.CLUSTER));
+    // Al
+    new WishOre("bauxite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 4,
+            Style.CLUSTER));
+    // Ti
+    new WishOre("ilmenite", new StoneType.RockType[]{RockType.Sedimentary},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 3,
+            Style.CLUSTER));
+    // Cr
+    new WishOre("chromite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(SMALL[0], SMALL[1], 2,
+            Style.CLUSTER));
+    // Co
+    new WishOre("cobaltite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 4,
+            Style.CLUSTER));
+    // Ni
+    new WishOre("garnierite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 5,
+            Style.CLUSTER));
+    new WishOre("pentlandite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 5,
+            Style.CLUSTER));
+    // Cu
+    new WishOre("tetrahedrite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 6,
+            Style.CLUSTER));
+    new WishOre("malachite", new StoneType.RockType[]{RockType.Metamorphic},
+        new WishGeneration(LARGE[0], LARGE[1], 6,
+            Style.CLUSTER));
+    // Zn
+    new WishOre("sphalerite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 5,
+            Style.CLUSTER));
+    // Ag
+    new WishOre("argentite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 3,
+            Style.CLUSTER));
+    // W
+    new WishOre("wolframite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(SMALL[0], SMALL[1], 2,
+            Style.CLUSTER));
+    // Ir / OS / Pt
+    new WishOre("osmiridium", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(SMALL[0], SMALL[1], 2,
+            Style.CLUSTER));
+    new WishOre("iridosmine", new StoneType.RockType[]{RockType.Metamorphic},
+        new WishGeneration(SMALL[0], SMALL[1], 1,
+            Style.CLUSTER));
+    // Pt
+    new WishOre("nativeplatinum", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(SMALL[0], SMALL[1], 1,
+            Style.CLUSTER));
+    // Au
+    new WishOre("nativegold", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(LARGE[0], LARGE[1], 3,
+            Style.CLUSTER));
+    // Pb
+    new WishOre("galena", new StoneType.RockType[]{RockType.Metamorphic},
+        new WishGeneration(LARGE[0], LARGE[1], 5,
+            Style.CLUSTER));
+    // Bi
+    new WishOre("bismuthinite", new StoneType.RockType[]{RockType.Sedimentary},
+        new WishGeneration(LARGE[0], LARGE[1], 4,
+            Style.CLUSTER));
+    // Nd, Y (Rare Earth), Tr
+    new WishOre("monazite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(SMALL[0], SMALL[1], 2,
+            Style.CLUSTER));
+    // U
+    new WishOre("uraninite", new StoneType.RockType[]{RockType.Igneous},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 3,
+            Style.CLUSTER));
+    // Sn
+    new WishOre("cassiterite", new StoneType.RockType[]{RockType.Sedimentary},
+        new WishGeneration(LARGE[0], LARGE[1], 5,
+            Style.CLUSTER));
   }
 }

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:oreosmiridium_gabbro"
+    },
+    "type=1": {
+      "model": "wish:oreosmiridium_granite"
+    },
+    "type=2": {
+      "model": "wish:oreosmiridium_pegmatite"
+    },
+    "type=3": {
+      "model": "wish:oreosmiridium_diorite"
+    },
+    "type=4": {
+      "model": "wish:oreosmiridium_andesite"
+    },
+    "type=5": {
+      "model": "wish:oreosmiridium_basalt"
+    },
+    "type=6": {
+      "model": "wish:oreosmiridium_obsidian"
+    },
+    "type=7": {
+      "model": "wish:oreosmiridium_rhyolite"
+    },
+    "type=8": {
+      "model": "wish:oreosmiridium_scoria"
+    },
+    "type=9": {
+      "model": "wish:ore_default"
+    },
+    "type=10": {
+      "model": "wish:ore_default"
+    },
+    "type=11": {
+      "model": "wish:ore_default"
+    },
+    "type=12": {
+      "model": "wish:ore_default"
+    },
+    "type=13": {
+      "model": "wish:ore_default"
+    },
+    "type=14": {
+      "model": "wish:ore_default"
+    },
+    "type=15": {
+      "model": "wish:ore_default"
+    }
+  }
+}
