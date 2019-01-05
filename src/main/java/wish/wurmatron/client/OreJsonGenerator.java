@@ -1,11 +1,15 @@
 package wish.wurmatron.client;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import javax.imageio.ImageIO;
 import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.io.FileUtils;
 import wish.wurmatron.api.rock.StoneType;
@@ -28,6 +32,7 @@ public class OreJsonGenerator {
     }
     createBlockState(ore.getUnlocalizedName(), stoneNames.toArray(new String[0]));
     createItemModel(ore.getUnlocalizedName(), stoneNames.toArray(new String[0]));
+    createItemTexture(ore.getUnlocalizedName());
   }
 
   private static void createBlockState(String name, String[] types) {
@@ -126,4 +131,42 @@ public class OreJsonGenerator {
     }
     return data.toArray(new StoneType[0]);
   }
+
+  private static void createItemTexture(String name) {
+    File loc = new File(TEMPLATE_LOCATION + File.separator + "TEXTURES");
+    for (File file : Objects.requireNonNull(loc.listFiles())) {
+      String fileName = file.getName().replaceAll("%NAME%", name).replaceAll("%NAME%", name);
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      try {
+        ImageIO.write(loadAndApplyTint(file, 50, 0, 50), "png", baos);
+        byte[] imageData = baos.toByteArray();
+        baos.flush();
+        FileUtils.writeByteArrayToFile(
+            new File(SAVE_LOCATION + File.separator + "TEXTURES" + File.separator + fileName),
+            imageData);
+        baos.close();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  private static BufferedImage loadAndApplyTint(File file, int r, int g, int b) {
+    BufferedImage image = null;
+    try {
+      image = ImageIO.read(file);
+      for (int x = 0; x < image.getWidth(); x++) {
+        for (int y = 0; y < image.getHeight(); y++) {
+          if (!(image.getRGB(x, y) >> 24 == 0x00)) {
+            image.setRGB(x, y, image.getRGB(x, y) + Integer.parseInt(+r + "" + g + "" + b));
+          }
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return image;
+  }
+
+
 }
