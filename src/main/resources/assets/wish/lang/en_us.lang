@@ -51,12 +51,12 @@ tile.orepentlandite.name=Pentladite Ore
 item.itemorepentlandite.name=Penladite Ore
 tile.oresphalerite.name=Sphalerite Ore
 item.itemoresphalerite.name=Sphalerite Ore
-tile.oretetrahedrite.name=Tetrahedrite Ore
-item.itemoretetradrite.name=Tetrahedrite Ore
-tile.oreuranium.name=Uranium Ore
-item.itemoreuranium.name=Uranium Ore
 tile.orewolframite.name=Wolframite Ore
 item.itemorewolframite.name=Wolframite Ore
+item.itemoretetrahedrite.name=Tetrahedrite Ore
+tile.oretetrahedrite.name=Tetrahedrite Ore
+item.itemoreuraninite.name=Uraninite Ore
+tile.oreuraninite.name=Uraninite Ore
 
 # Stone
 stone.conglomerate.name=Conglomerate

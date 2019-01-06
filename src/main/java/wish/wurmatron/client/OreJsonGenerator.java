@@ -138,7 +138,7 @@ public class OreJsonGenerator {
       String fileName = file.getName().replaceAll("%NAME%", name).replaceAll("%NAME%", name);
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       try {
-        ImageIO.write(loadAndApplyTint(file, 50, 0, 50), "png", baos);
+        ImageIO.write(loadAndApplyTint(file, .00, 0, 0), "png", baos);
         byte[] imageData = baos.toByteArray();
         baos.flush();
         FileUtils.writeByteArrayToFile(
@@ -151,22 +151,31 @@ public class OreJsonGenerator {
     }
   }
 
-  private static BufferedImage loadAndApplyTint(File file, int r, int g, int b) {
-    BufferedImage image = null;
+  private static BufferedImage loadAndApplyTint(File file, double r, double g, double b) {
+    BufferedImage texture = null;
     try {
-      image = ImageIO.read(file);
-      for (int x = 0; x < image.getWidth(); x++) {
-        for (int y = 0; y < image.getHeight(); y++) {
-          if (!(image.getRGB(x, y) >> 24 == 0x00)) {
-            image.setRGB(x, y, image.getRGB(x, y) + Integer.parseInt(+r + "" + g + "" + b));
+      texture = ImageIO.read(file);
+      for (int x = 0; x < texture.getWidth(); x++) {
+        for (int y = 0; y < texture.getHeight(); y++) {
+          if (!(texture.getRGB(x, y) >> 24 == 0x00)) {
+            int ax = texture.getColorModel().getAlpha(texture.getRaster().
+                getDataElements(x, y, null));
+            int rx = texture.getColorModel().getRed(texture.getRaster().
+                getDataElements(x, y, null));
+            int gx = texture.getColorModel().getGreen(texture.getRaster().
+                getDataElements(x, y, null));
+            int bx = texture.getColorModel().getBlue(texture.getRaster().
+                getDataElements(x, y, null));
+            rx *= r;
+            gx *= g;
+            bx *= b;
+            texture.setRGB(x, y, (ax << 24) | (rx << 16) | (gx << 8) | (bx));
           }
         }
       }
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return image;
+    return texture;
   }
-
-
 }
