@@ -24,6 +24,7 @@ public class WishOre implements Ore {
   private int minHeight;
   private int maxHeight;
   private WishGeneration generation;
+  private boolean radioactive;
 
   public WishOre(String unlocalizedName, StoneType.RockType[] rockTypes, StoneType[] stoneTypes,
       String[] biomes, int minHeight, int maxHeight, WishGeneration generation) {
@@ -34,6 +35,7 @@ public class WishOre implements Ore {
     this.minHeight = minHeight;
     this.maxHeight = maxHeight;
     this.generation = generation;
+    radioactive = false;
     WishOreRegistry.saveOre(this);
   }
 
@@ -46,6 +48,7 @@ public class WishOre implements Ore {
     this.minHeight = minHeight;
     this.maxHeight = maxHeight;
     this.generation = generation;
+    radioactive = false;
     WishOreRegistry.saveOre(this);
   }
 
@@ -58,6 +61,20 @@ public class WishOre implements Ore {
     this.unlocalizedName = unlocalizedName;
     this.rockTypes = rockTypes;
     this.generation = generation;
+    radioactive = false;
+    WishOreRegistry.saveOre(this);
+  }
+
+  public WishOre(String unlocalizedName, RockType[] rockTypes,
+      WishGeneration generation, boolean radioactive) {
+    this.stoneTypes = new StoneType[]{};
+    this.biomes = new String[]{};
+    this.minHeight = Integer.MIN_VALUE;
+    this.maxHeight = Integer.MAX_VALUE;
+    this.unlocalizedName = unlocalizedName;
+    this.rockTypes = rockTypes;
+    this.generation = generation;
+    this.radioactive = radioactive;
     WishOreRegistry.saveOre(this);
   }
 
@@ -136,5 +153,10 @@ public class WishOre implements Ore {
     }
     return names.size() > 16 ? Arrays.copyOfRange(names.toArray(new String[0]), 0, 15)
         : names.toArray(new String[0]);
+  }
+
+  @Override
+  public boolean isRadioactive() {
+    return radioactive;
   }
 }

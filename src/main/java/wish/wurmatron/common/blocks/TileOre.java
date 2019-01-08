@@ -6,9 +6,13 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.rock.ore.Ore;
@@ -44,5 +48,28 @@ public class TileOre extends BlockRockType implements ITileEntityProvider {
   @Override
   public Item getItemDropped(IBlockState state, Random rand, int fortune) {
     return null;
+  }
+
+  @Override
+  public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+    world.scheduleUpdate(pos, this, tickRate(world));
+  }
+
+  @Override
+  public int tickRate(World worldIn) {
+    return 5;
+  }
+
+  @Override
+  public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+    if (ore.isRadioactive() && !world.isRemote) {
+      if (world.isAnyPlayerWithinRangeAt(pos.getX(), pos.getY(), pos.getZ(), 8)) {
+        EntityPlayer player = world.getNearestAttackablePlayer(pos, 8, 8);
+        if (player != null) {
+          player.addPotionEffect(new PotionEffect(MobEffects.POISON, 100, 2));
+        }
+      }
+      world.scheduleUpdate(pos, state.getBlock(), tickRate(world));
+    }
   }
 }

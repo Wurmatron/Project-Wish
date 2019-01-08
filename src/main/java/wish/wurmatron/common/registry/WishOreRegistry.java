@@ -267,7 +267,7 @@ public class WishOreRegistry implements OreRegistry {
     // U
     new WishOre("uraninite", new StoneType.RockType[]{RockType.Igneous},
         new WishGeneration(MEDIUM[0], MEDIUM[1], 3,
-            Style.CLUSTER));
+            Style.CLUSTER), true);
     // Sn
     new WishOre("cassiterite", new StoneType.RockType[]{RockType.Sedimentary},
         new WishGeneration(LARGE[0], LARGE[1], 5,
