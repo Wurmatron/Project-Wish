@@ -10,7 +10,7 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import wish.wurmatron.ProjectWish;
-import wish.wurmatron.common.utils.WishOre;
+import wish.wurmatron.common.utils.json.WishOre;
 
 import javax.annotation.Nullable;
 import java.util.List;

@@ -1,4 +1,4 @@
-package wish.wurmatron.common.utils;
+package wish.wurmatron.common.utils.json;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
@@ -14,6 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import wish.wurmatron.common.registry.WishOreRegistry;
+import wish.wurmatron.common.utils.WishGeneration;
 
 public class WishOre implements Ore {
 

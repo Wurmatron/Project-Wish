@@ -1,5 +1,6 @@
 package wish.wurmatron;
 
+import static wish.wurmatron.api.WishAPI.gemRegistry;
 import static wish.wurmatron.api.WishAPI.oreRegistry;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -19,11 +20,13 @@ import wish.wurmatron.api.WishItems;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
+import wish.wurmatron.common.events.GemEvents;
 import wish.wurmatron.common.events.OreEvents;
 import wish.wurmatron.common.events.RandomizeRockTypeStandardEvent;
 import wish.wurmatron.common.events.WishOreGenerator;
 import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.registry.Registry;
+import wish.wurmatron.common.registry.WishGemRegistry;
 import wish.wurmatron.common.registry.WishOreRegistry;
 
 @Mod(modid = Global.MODID, name = Global.NAME, version = Global.VERSION, dependencies = Global.DEPENDENCIES, updateJSON = Global.JSON_UPDATE)
@@ -51,19 +54,29 @@ public class ProjectWish {
     }
   };
 
+  public static final CreativeTabs tabMisc = new CreativeTabs("wishMisc") {
+    @Override
+    public ItemStack getTabIconItem() {
+      return new ItemStack(WishItems.gems.get(0), 1, 0);
+    }
+  };
+
   public static RandomizeRockTypeStandardEvent randomizeRockType;
 
   @Mod.EventHandler
   public void onPreInit(FMLPreInitializationEvent e) {
     logger = e.getModLog();
     oreRegistry = new WishOreRegistry();
+    gemRegistry = new WishGemRegistry();
     ((WishOreRegistry) oreRegistry).loadAllOres();
+    ((WishGemRegistry) gemRegistry).loadAllGems();
     ProjectWishBlocks.registerBlocks();
     ProjectWishItems.registerItems();
     MinecraftForge.EVENT_BUS.register(new Registry());
     MinecraftForge.EVENT_BUS.register(new OreEvents());
+    MinecraftForge.EVENT_BUS.register(new GemEvents());
     if (!Loader.isModLoaded("cubicchunks")) {
-      MinecraftForge.EVENT_BUS.register(randomizeRockType=new RandomizeRockTypeStandardEvent());
+      MinecraftForge.EVENT_BUS.register(randomizeRockType = new RandomizeRockTypeStandardEvent());
       GameRegistry.registerWorldGenerator(new WishOreGenerator(), 0);
     } else {
       // TODO CubicChunk Stone Randomizer
@@ -79,9 +92,10 @@ public class ProjectWish {
   @Mod.EventHandler
   public void onPostInit(FMLPostInitializationEvent e) {
     proxy.postInit();
-    for(Ore o : oreRegistry.getOres())
+    for (Ore o : oreRegistry.getOres()) {
       WishOreGenerator.addOreGen(o, Registry.blockOre.get(o).getDefaultState(),
           o.getGenerationStyle().getMaxiumOre(), o.getMinMaxHeight()[0], o.getMinMaxHeight()[1],
           o.getGenerationStyle().getChance());
+    }
   }
 }

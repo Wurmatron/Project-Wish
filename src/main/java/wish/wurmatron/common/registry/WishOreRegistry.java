@@ -15,7 +15,7 @@ import wish.wurmatron.api.rock.ore.Generation;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.api.rock.ore.OreRegistry;
 import wish.wurmatron.common.utils.WishGeneration;
-import wish.wurmatron.common.utils.WishOre;
+import wish.wurmatron.common.utils.json.WishOre;
 
 import java.io.File;
 import java.io.FileReader;

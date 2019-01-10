@@ -12,7 +12,7 @@ import wish.wurmatron.api.rock.gem.Gem;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.items.blocks.ItemBlockOreType;
 import wish.wurmatron.common.items.blocks.ItemBlockRockType;
-import wish.wurmatron.common.utils.WishOre;
+import wish.wurmatron.common.utils.json.WishOre;
 
 import java.util.List;
 import java.util.ArrayList;

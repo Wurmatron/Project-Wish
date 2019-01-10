@@ -1,4 +1,4 @@
-package wish.wurmatron.common.items.ore;
+package wish.wurmatron.common.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

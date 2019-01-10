@@ -61,7 +61,7 @@ public interface GemRegistry {
      */
     Gem getGemFromName (String name);
 
-    ItemStack generateRandomGem (StoneType type,double rarity);
+    ItemStack generateRandomGem (StoneType type,int tier);
 
     /**
      Generates a random gem based on a stoneType

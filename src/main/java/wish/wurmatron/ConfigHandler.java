@@ -15,4 +15,7 @@ public class ConfigHandler {
   @Comment("Remove other mods ore?")
   public static boolean overrideOre = true;
 
+  @Comment("How rare are gems")
+  public static int gemRarity = 1000;
+
 }

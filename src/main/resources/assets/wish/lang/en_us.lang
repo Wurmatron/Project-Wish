@@ -58,6 +58,9 @@ tile.oretetrahedrite.name=Tetrahedrite Ore
 item.itemoreuraninite.name=Uraninite Ore
 tile.oreuraninite.name=Uraninite Ore
 
+# Gems
+item.gemtopaz.name=Topaz
+
 # Stone
 stone.conglomerate.name=Conglomerate
 stone.sandstone.name=Sandstone
@@ -104,7 +107,9 @@ tooltip.stoneSubType.Foliated.name=Foliated
 tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Chemical.name=Chemical
 tooltip.stoneSubType.Biochemical.name=BioChemical
+tooltip.grade.name=Grade
 
 # CreativeTabs
 itemGroup.wishBlocks=Blocks
 itemGroup.wishOre=Ore
+itemGroup.wishMisc=Misc

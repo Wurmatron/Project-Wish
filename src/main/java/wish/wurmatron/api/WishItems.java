@@ -6,6 +6,7 @@ import java.util.List;
 public class WishItems {
 
   public static List<Item> oreDrops;
+  public static List<Item> gems;
 
   // Crafting
   public static Item rockIgneous;

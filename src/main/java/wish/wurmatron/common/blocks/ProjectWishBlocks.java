@@ -17,7 +17,7 @@ import wish.wurmatron.common.blocks.terra.GravelWish;
 import wish.wurmatron.common.blocks.terra.SandWish;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.tile.TileEntityOre;
-import wish.wurmatron.common.utils.WishOre;
+import wish.wurmatron.common.utils.json.WishOre;
 
 import java.util.ArrayList;
 
