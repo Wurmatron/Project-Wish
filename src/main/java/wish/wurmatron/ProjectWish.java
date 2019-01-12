@@ -2,7 +2,10 @@ package wish.wurmatron;
 
 import static wish.wurmatron.api.WishAPI.gemRegistry;
 import static wish.wurmatron.api.WishAPI.oreRegistry;
+import static wish.wurmatron.common.registry.Registry.blockOre;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -12,9 +15,12 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Logger;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.api.WishBlocks;
 import wish.wurmatron.api.WishItems;
 import wish.wurmatron.api.rock.ore.Ore;
@@ -25,6 +31,8 @@ import wish.wurmatron.common.events.OreEvents;
 import wish.wurmatron.common.events.RandomizeRockTypeStandardEvent;
 import wish.wurmatron.common.events.WishOreGenerator;
 import wish.wurmatron.common.items.ProjectWishItems;
+import wish.wurmatron.common.network.GuiHandler;
+import wish.wurmatron.common.network.NetworkHandler;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.registry.WishGemRegistry;
 import wish.wurmatron.common.registry.WishOreRegistry;
@@ -39,6 +47,7 @@ public class ProjectWish {
   public static CommonProxy proxy;
 
   public static Logger logger;
+  public static ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
   public static final CreativeTabs tabBlocks = new CreativeTabs("wishBlocks") {
     @Override
@@ -86,6 +95,8 @@ public class ProjectWish {
 
   @Mod.EventHandler
   public void onInit(FMLInitializationEvent e) {
+    NetworkHandler.registerPackets();
+    NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     proxy.init();
   }
 
@@ -93,9 +104,12 @@ public class ProjectWish {
   public void onPostInit(FMLPostInitializationEvent e) {
     proxy.postInit();
     for (Ore o : oreRegistry.getOres()) {
-      WishOreGenerator.addOreGen(o, Registry.blockOre.get(o).getDefaultState(),
+      WishOreGenerator.addOreGen(o, blockOre.get(o).getDefaultState(),
           o.getGenerationStyle().getMaxiumOre(), o.getMinMaxHeight()[0], o.getMinMaxHeight()[1],
           o.getGenerationStyle().getChance());
+      OreDictionary
+          .registerOre(o.getOreEntry(),
+              blockOre.get(WishAPI.oreRegistry.getOreFromName(o.getUnlocalizedName())));
     }
   }
 }

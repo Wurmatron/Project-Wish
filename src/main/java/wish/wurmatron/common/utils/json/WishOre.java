@@ -26,9 +26,11 @@ public class WishOre implements Ore {
   private int maxHeight;
   private WishGeneration generation;
   private boolean radioactive;
+  private String oreName;
 
   public WishOre(String unlocalizedName, StoneType.RockType[] rockTypes, StoneType[] stoneTypes,
-      String[] biomes, int minHeight, int maxHeight, WishGeneration generation) {
+      String[] biomes, int minHeight, int maxHeight, WishGeneration generation,
+      String oreDictionaryName) {
     this.unlocalizedName = unlocalizedName;
     this.rockTypes = rockTypes;
     this.stoneTypes = stoneTypes;
@@ -37,11 +39,12 @@ public class WishOre implements Ore {
     this.maxHeight = maxHeight;
     this.generation = generation;
     radioactive = false;
+    this.oreName = oreDictionaryName;
     WishOreRegistry.saveOre(this);
   }
 
   public WishOre(String unlocalizedName, RockType[] rockTypes, int minHeight, int maxHeight,
-      WishGeneration generation) {
+      WishGeneration generation, String oreDictionaryName) {
     this.stoneTypes = new StoneType[]{};
     this.biomes = new String[]{};
     this.unlocalizedName = unlocalizedName;
@@ -50,11 +53,12 @@ public class WishOre implements Ore {
     this.maxHeight = maxHeight;
     this.generation = generation;
     radioactive = false;
+    this.oreName = oreDictionaryName;
     WishOreRegistry.saveOre(this);
   }
 
   public WishOre(String unlocalizedName, RockType[] rockTypes,
-      WishGeneration generation) {
+      WishGeneration generation, String oreDictionaryName) {
     this.stoneTypes = new StoneType[]{};
     this.biomes = new String[]{};
     this.minHeight = Integer.MIN_VALUE;
@@ -63,11 +67,12 @@ public class WishOre implements Ore {
     this.rockTypes = rockTypes;
     this.generation = generation;
     radioactive = false;
+    this.oreName = oreDictionaryName;
     WishOreRegistry.saveOre(this);
   }
 
   public WishOre(String unlocalizedName, RockType[] rockTypes,
-      WishGeneration generation, boolean radioactive) {
+      WishGeneration generation, boolean radioactive, String oreDictionaryName) {
     this.stoneTypes = new StoneType[]{};
     this.biomes = new String[]{};
     this.minHeight = Integer.MIN_VALUE;
@@ -76,6 +81,7 @@ public class WishOre implements Ore {
     this.rockTypes = rockTypes;
     this.generation = generation;
     this.radioactive = radioactive;
+    this.oreName = oreDictionaryName;
     WishOreRegistry.saveOre(this);
   }
 
@@ -159,5 +165,10 @@ public class WishOre implements Ore {
   @Override
   public boolean isRadioactive() {
     return radioactive;
+  }
+
+  @Override
+  public String getOreEntry() {
+    return oreName;
   }
 }

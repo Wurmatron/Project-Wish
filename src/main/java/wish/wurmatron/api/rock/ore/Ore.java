@@ -58,4 +58,9 @@ public interface Ore {
    */
   boolean isRadioactive();
 
+  /**
+   * Automatically add a ore dictionary entry for this ore based on this name
+   */
+  String getOreEntry();
+
 }

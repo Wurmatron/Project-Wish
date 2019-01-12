@@ -18,4 +18,6 @@ public class ConfigHandler {
   @Comment("How rare are gems")
   public static int gemRarity = 1000;
 
+  @Comment("How many ticks between goggle re-scan's")
+  public static int gogglesUpdateFrequency = 10;
 }

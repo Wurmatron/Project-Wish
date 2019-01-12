@@ -1,16 +1,21 @@
 package wish.wurmatron.client.proxy;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.IThreadListener;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.WishBlocks;
 import wish.wurmatron.api.rock.StoneType;
 import wish.wurmatron.api.rock.gem.Gem.GRADE;
+import wish.wurmatron.client.render.MiningGoggleEffect;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.items.ItemGem;
@@ -37,6 +42,11 @@ public class ClientProxy extends CommonProxy {
   @Override
   public void preInit() {
     MinecraftForge.EVENT_BUS.register(new ClientProxy());
+  }
+
+  @Override
+  public void init() {
+    MinecraftForge.EVENT_BUS.register(new MiningGoggleEffect());
   }
 
   @SubscribeEvent
@@ -103,5 +113,15 @@ public class ClientProxy extends CommonProxy {
             "sand_" + type.getName().toLowerCase());
       }
     }
+  }
+
+  @Override
+  public EntityPlayer getPlayer(MessageContext ctx) {
+    return (ctx.side.isClient() ? Minecraft.getMinecraft().player : super.getPlayer(ctx));
+  }
+
+  @Override
+  public IThreadListener getThreadFromCTX(MessageContext ctx) {
+    return (ctx.side.isClient() ? Minecraft.getMinecraft() : super.getThreadFromCTX(ctx));
   }
 }

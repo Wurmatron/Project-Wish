@@ -18,4 +18,7 @@ public class WishItems {
   public static Item lumberVanilla;
   public static Item dyeWish;
   public static Item fuelWish;
+
+  // Armor
+  public static Item helmetMining;
 }
