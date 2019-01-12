@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.relauncher.Side;
-import wish.wurmatron.common.items.armor.ItemMiningGoogles;
+import wish.wurmatron.common.items.armor.ItemGogglesMining;
 import wish.wurmatron.common.network.utils.CustomMessage;
 
 public class UpdateHelmetConfig extends CustomMessage.CustomtServerMessage<UpdateHelmetConfig> {
@@ -33,7 +33,7 @@ public class UpdateHelmetConfig extends CustomMessage.CustomtServerMessage<Updat
   @Override
   public void process(EntityPlayer player, Side side) {
     ItemStack stack = player.getHeldItemMainhand();
-    if (stack != ItemStack.EMPTY && stack.getItem() instanceof ItemMiningGoogles) {
+    if (stack != ItemStack.EMPTY && stack.getItem() instanceof ItemGogglesMining) {
       stack.setTagCompound(nbt);
     }
   }

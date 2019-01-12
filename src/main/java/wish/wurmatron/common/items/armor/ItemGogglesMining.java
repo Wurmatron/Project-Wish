@@ -1,28 +1,30 @@
 package wish.wurmatron.common.items.armor;
 
+import javax.annotation.Nullable;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import wish.wurmatron.ProjectWish;
+import wish.wurmatron.api.Global;
 import wish.wurmatron.common.network.GuiHandler;
 import wish.wurmatron.common.network.NetworkHandler;
 import wish.wurmatron.common.network.packets.OpenGuiMessage;
 
-public class ItemMiningGoogles extends ItemArmor {
+public class ItemGogglesMining extends ItemArmor {
 
   public static final int RANGE = 32;
   public static volatile boolean armorDetection = false;
 
-  public ItemMiningGoogles(ArmorMaterial materialIn, int renderIndexIn,
+  public ItemGogglesMining(ArmorMaterial materialIn, int renderIndexIn,
       EntityEquipmentSlot equipmentSlotIn) {
     super(materialIn, renderIndexIn, equipmentSlotIn);
     setCreativeTab(ProjectWish.tabMisc);
-    setUnlocalizedName("googlesMining");
+    setUnlocalizedName("gogglesMining");
   }
 
   @Override
@@ -34,13 +36,19 @@ public class ItemMiningGoogles extends ItemArmor {
   }
 
   @Override
-  public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player,
-      EnumHand hand) {
+  public boolean onEntitySwing(EntityLivingBase entity, ItemStack stack) {
     if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT)
-        || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) && !world.isRemote) {
+        || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT) && !entity.world.isRemote) {
       NetworkHandler
-          .sendToServer(new OpenGuiMessage(GuiHandler.GOGGLES_FILTER, player.getPosition()));
+          .sendToServer(new OpenGuiMessage(GuiHandler.GOGGLES_FILTER, entity.getPosition()));
     }
-    return super.onItemRightClick(world, player, hand);
+    return super.onEntitySwing(entity, stack);
+  }
+
+  @Nullable
+  @Override
+  public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot,
+      String type) {
+    return Global.MODID + ":" + "textures/models/mininggoggles.png";
   }
 }

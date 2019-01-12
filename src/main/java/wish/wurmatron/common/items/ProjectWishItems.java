@@ -8,7 +8,7 @@ import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.api.WishItems;
 import wish.wurmatron.api.rock.gem.Gem;
 import wish.wurmatron.api.rock.ore.Ore;
-import wish.wurmatron.common.items.armor.ItemMiningGoogles;
+import wish.wurmatron.common.items.armor.ItemGogglesMining;
 import wish.wurmatron.common.registry.Registry;
 
 public class ProjectWishItems extends WishItems {
@@ -16,7 +16,7 @@ public class ProjectWishItems extends WishItems {
   public static void registerItems() {
     createAndRegisterOresDrops();
     createAndRegisterGems();
-    helmetMining = new ItemMiningGoogles(ArmorMaterial.DIAMOND, 0, EntityEquipmentSlot.HEAD);
+    helmetMining = new ItemGogglesMining(ArmorMaterial.DIAMOND, 0, EntityEquipmentSlot.HEAD);
     Registry.registerItem(helmetMining, helmetMining.getUnlocalizedName().substring(5));
   }
 

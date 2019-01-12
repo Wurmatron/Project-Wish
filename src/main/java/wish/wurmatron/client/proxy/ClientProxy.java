@@ -20,6 +20,7 @@ import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemOre;
+import wish.wurmatron.common.items.armor.ItemGogglesMining;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.utils.json.WishOre;
 
@@ -68,6 +69,8 @@ public class ClientProxy extends CommonProxy {
         for (int meta = 0; meta < GRADE.values().length; meta++) {
           createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
         }
+      } else if(item instanceof ItemGogglesMining){
+        createModel(item,0,item.getUnlocalizedName().substring(5));
       }
     }
     for (StoneType type : StoneType.values()) {

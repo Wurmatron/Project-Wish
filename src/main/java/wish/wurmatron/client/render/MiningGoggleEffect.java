@@ -1,7 +1,7 @@
 package wish.wurmatron.client.render;
 
-import static wish.wurmatron.common.items.armor.ItemMiningGoogles.RANGE;
-import static wish.wurmatron.common.items.armor.ItemMiningGoogles.armorDetection;
+import static wish.wurmatron.common.items.armor.ItemGogglesMining.RANGE;
+import static wish.wurmatron.common.items.armor.ItemGogglesMining.armorDetection;
 
 import java.awt.Color;
 import java.util.*;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 import wish.wurmatron.ConfigHandler;
 import wish.wurmatron.common.blocks.TileOre;
-import wish.wurmatron.common.items.armor.ItemMiningGoogles;
+import wish.wurmatron.common.items.armor.ItemGogglesMining;
 
 public class MiningGoggleEffect {
 
@@ -63,7 +63,7 @@ public class MiningGoggleEffect {
 
   private boolean checkArmor(EntityPlayer player) {
     return player.inventory.armorItemInSlot(3) != ItemStack.EMPTY && player.inventory
-        .armorItemInSlot(3).getItem() instanceof ItemMiningGoogles;
+        .armorItemInSlot(3).getItem() instanceof ItemGogglesMining;
   }
 
   private void validatePos(World world, BlockPos pos, EntityPlayer player) {
@@ -87,7 +87,7 @@ public class MiningGoggleEffect {
   private static int getColorForOre(NBTTagCompound filterData, IBlockState block,
       TileEntity entity) {
     int oreColor = getOreData(filterData, block);
-    if (oreColor > 0 && oreColor < 16) {
+    if (oreColor!= -1) {
       return ORE_COLOR[oreColor];
     }
     return -1;
