@@ -41,7 +41,8 @@ public class MiningGoggleEffect {
   public void onClientTick(ClientTickEvent e) {
     if (e.side == Side.CLIENT && armorDetection) {
       EntityPlayer player = Minecraft.getMinecraft().player;
-      if (player.world.getWorldTime() % ConfigHandler.gogglesUpdateFrequency == 0) {
+      if (player != null && player.world != null
+          && player.world.getWorldTime() % ConfigHandler.gogglesUpdateFrequency == 0) {
         if (!checkArmor(player)) {
           armorDetection = false;
           return;
@@ -67,10 +68,13 @@ public class MiningGoggleEffect {
 
   private void validatePos(World world, BlockPos pos, EntityPlayer player) {
     if (world.getBlockState(pos).getBlock() instanceof TileOre) {
-      MiningGoggleEffect.oreTargets
-          .add(new RenderOre(world, player, pos, world.getTileEntity(pos),
-              getColorForOre(player.inventory.armorItemInSlot(3).getTagCompound(),
-                  world.getBlockState(pos), world.getTileEntity(pos))));
+      int oreColor = getColorForOre(player.inventory.armorItemInSlot(3).getTagCompound(),
+          world.getBlockState(pos), world.getTileEntity(pos));
+      if (oreColor != -1) {
+        MiningGoggleEffect.oreTargets
+            .add(new RenderOre(world, player, pos, world.getTileEntity(pos),
+                oreColor));
+      }
     }
   }
 
@@ -83,21 +87,25 @@ public class MiningGoggleEffect {
   private static int getColorForOre(NBTTagCompound filterData, IBlockState block,
       TileEntity entity) {
     int oreColor = getOreData(filterData, block);
-    return ORE_COLOR[oreColor > 0 && oreColor < 16 ? oreColor : oreColor < 0 ? 0 : 15];
+    if (oreColor > 0 && oreColor < 16) {
+      return ORE_COLOR[oreColor];
+    }
+    return -1;
   }
 
   private static int getOreData(NBTTagCompound filterData, IBlockState block) {
-    if(filterData == null || filterData.hasNoTags())
+    if (filterData == null || filterData.hasNoTags()) {
       return -1;
-//    if (filterCache.isEmpty() || ) {
+    }
     filterCache.clear();
-      for (int index = 0; index < 16; index++) {
-        String[] filter = filterData.getString("color" + index).split(";");
+    for (int index = 0; index < 16; index++) {
+      if (!filterData.getString("color" + index).contains("9")) {
+        String[] filter = filterData.getString("color" + index).replaceAll("9", "").split(";");
         for (String f : filter) {
           filterCache.put(f, index);
         }
       }
-//    }
+    }
     for (String name : getBlockNames(block)) {
       if (filterCache.containsKey(name)) {
         return filterCache.get(name);

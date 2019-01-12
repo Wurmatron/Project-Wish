@@ -56,7 +56,14 @@ public class GuiGogglesFilter extends GuiScreen {
       filters[index].text.x = guiWidth + 29;
       filters[index].text.y = guiHeight + 8 + (24 * index);
       if (stack.hasTagCompound() && stack.getTagCompound().hasKey("color" + index)) {
-        filters[index].text.setText(stack.getTagCompound().getString("color" + index));
+        String oreEntry = stack.getTagCompound().getString("color" + index);
+        if (oreEntry.contains("9")) {
+          oreEntry = oreEntry.substring(0, oreEntry.length() - 1);
+          filters[index].enabled = false;
+        } else {
+          filters[index].enabled = true;
+        }
+        filters[index].text.setText(oreEntry);
       }
     }
   }
@@ -71,7 +78,16 @@ public class GuiGogglesFilter extends GuiScreen {
     super.mouseClicked(mouseX, mouseY, mouseButton);
     for (GuiColorFilter filter : filters) {
       filter.text.mouseClicked(mouseX, mouseY, mouseButton);
+      if (isWithin(mouseX, mouseY,  filter.text.x - 20, filter.text.y,
+           + filter.text.x,
+           + filter.text.y + 18)) {
+        filter.enabled = !filter.enabled;
+      }
     }
+  }
+
+  private boolean isWithin(int mouseX, int mouseY, int minX, int minY, int maxX, int maxY) {
+    return mouseX >= minX && mouseY >= minY && mouseX <= maxX && mouseY <= maxY;
   }
 
   @Override
@@ -97,7 +113,7 @@ public class GuiGogglesFilter extends GuiScreen {
   private NBTTagCompound collectNBTData() {
     NBTTagCompound nbt = new NBTTagCompound();
     for (GuiColorFilter filter : filters) {
-      nbt.setString("color" + filter.getID(), filter.text.getText());
+      nbt.setString("color" + filter.getID(), filter.text.getText() + (filter.enabled ? "" : "9"));
     }
     return nbt;
   }

@@ -39,6 +39,4 @@ public class TileEntityOre extends TileEntity {
   public Ore getOreType() {
     return oreType;
   }
-
-
 }
