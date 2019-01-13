@@ -1,12 +1,15 @@
 package wish.wurmatron.common.items.armor;
 
 import javax.annotation.Nullable;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import wish.wurmatron.ProjectWish;
@@ -50,5 +53,19 @@ public class ItemGogglesMining extends ItemArmor {
   public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot,
       String type) {
     return Global.MODID + ":" + "textures/models/mininggoggles.png";
+  }
+
+  @Override
+  public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+    super.getSubItems(tab, items);
+  }
+
+
+  public ItemStack create(int range) {
+    NBTTagCompound nbt = new NBTTagCompound();
+    nbt.setInteger("range", range);
+    ItemStack stack = new ItemStack(this,1,0);
+    stack.setTagCompound(nbt);
+    return stack;
   }
 }

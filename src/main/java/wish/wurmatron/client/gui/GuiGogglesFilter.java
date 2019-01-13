@@ -78,9 +78,9 @@ public class GuiGogglesFilter extends GuiScreen {
     super.mouseClicked(mouseX, mouseY, mouseButton);
     for (GuiColorFilter filter : filters) {
       filter.text.mouseClicked(mouseX, mouseY, mouseButton);
-      if (isWithin(mouseX, mouseY,  filter.text.x - 20, filter.text.y,
-           + filter.text.x,
-           + filter.text.y + 18)) {
+      if (isWithin(mouseX, mouseY, filter.text.x - 20, filter.text.y,
+          +filter.text.x,
+          +filter.text.y + 18)) {
         filter.enabled = !filter.enabled;
       }
     }
@@ -126,6 +126,10 @@ public class GuiGogglesFilter extends GuiScreen {
       moveDown();
     } else if (i == Keyboard.KEY_UP) {
       moveUp();
+    } else if (i == Keyboard.KEY_RETURN) {
+      for (GuiColorFilter filter : filters) {
+        filter.text.setFocused(false);
+      }
     } else {
       for (GuiColorFilter filter : filters) {
         if (filter.text.isFocused()) {

@@ -61,6 +61,11 @@ public class ProjectWish {
     public ItemStack getTabIconItem() {
       return new ItemStack(WishItems.oreDrops.get(0), 1, 0);
     }
+
+    @Override
+    public boolean hasSearchBar() {
+      return true;
+    }
   };
 
   public static final CreativeTabs tabMisc = new CreativeTabs("wishMisc") {
