@@ -34,6 +34,9 @@ public class UpdateHelmetConfig extends CustomMessage.CustomtServerMessage<Updat
   public void process(EntityPlayer player, Side side) {
     ItemStack stack = player.getHeldItemMainhand();
     if (stack != ItemStack.EMPTY && stack.getItem() instanceof ItemGogglesMining) {
+      if (stack.hasTagCompound() && stack.getTagCompound().hasKey("range")) {
+        nbt.setInteger("range", stack.getTagCompound().getInteger("range"));
+      }
       stack.setTagCompound(nbt);
     }
   }

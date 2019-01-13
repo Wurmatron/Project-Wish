@@ -1,10 +1,12 @@
 package wish.wurmatron.client.render;
 
-import static wish.wurmatron.common.items.armor.ItemGogglesMining.RANGE;
 import static wish.wurmatron.common.items.armor.ItemGogglesMining.armorDetection;
 
 import java.awt.Color;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -19,7 +21,6 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent.ClientTickEvent;
 import net.minecraftforge.fml.relauncher.Side;
-
 import net.minecraftforge.oredict.OreDictionary;
 import wish.wurmatron.ConfigHandler;
 import wish.wurmatron.common.blocks.TileOre;
@@ -47,11 +48,13 @@ public class MiningGoggleEffect {
           armorDetection = false;
           return;
         }
+        int range = ItemGogglesMining.getRange(player.
+            inventory.armorItemInSlot(3));
         MiningGoggleEffect.oreTargets.clear();
         Iterable<BlockPos> blocksToTest = BlockPos
-            .getAllInBox((int) player.posX - RANGE, (int) player.posY - RANGE,
-                (int) player.posZ - RANGE, (int) player.posX + RANGE, (int) player.posY + RANGE,
-                (int) player.posZ + RANGE);
+            .getAllInBox((int) player.posX - range, (int) player.posY - range,
+                (int) player.posZ - range, (int) player.posX + range, (int) player.posY + range,
+                (int) player.posZ + range);
         for (BlockPos pos : blocksToTest) {
           validatePos(player.world, pos, player);
         }
@@ -87,7 +90,7 @@ public class MiningGoggleEffect {
   private static int getColorForOre(NBTTagCompound filterData, IBlockState block,
       TileEntity entity) {
     int oreColor = getOreData(filterData, block);
-    if (oreColor!= -1) {
+    if (oreColor != -1) {
       return ORE_COLOR[oreColor];
     }
     return -1;

@@ -1,6 +1,8 @@
 package wish.wurmatron.common.items.armor;
 
+import java.util.List;
 import javax.annotation.Nullable;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,17 +12,19 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import wish.wurmatron.ProjectWish;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.network.GuiHandler;
 import wish.wurmatron.common.network.NetworkHandler;
 import wish.wurmatron.common.network.packets.OpenGuiMessage;
 
 public class ItemGogglesMining extends ItemArmor {
 
-  public static final int RANGE = 32;
   public static volatile boolean armorDetection = false;
 
   public ItemGogglesMining(ArmorMaterial materialIn, int renderIndexIn,
@@ -52,20 +56,48 @@ public class ItemGogglesMining extends ItemArmor {
   @Override
   public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot,
       String type) {
+    if (stack != ItemStack.EMPTY && stack.hasTagCompound() && stack.getTagCompound()
+        .hasKey("range")) {
+      return Global.MODID + ":" + "textures/models/mininggoggles_" + stack.getTagCompound()
+          .getInteger("range") + ".png";
+    }
     return Global.MODID + ":" + "textures/models/mininggoggles.png";
   }
 
   @Override
   public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-    super.getSubItems(tab, items);
+    items.add(create(4));
+    items.add(create(6));
+    items.add(create(12));
+    items.add(create(16));
+    items.add(create(24));
+    items.add(create(32));
+    items.add(create(64));
   }
 
-
-  public ItemStack create(int range) {
+  public static ItemStack create(int range) {
     NBTTagCompound nbt = new NBTTagCompound();
     nbt.setInteger("range", range);
-    ItemStack stack = new ItemStack(this,1,0);
+    ItemStack stack = new ItemStack(ProjectWishItems.helmetMining, 1, 0);
     stack.setTagCompound(nbt);
     return stack;
+  }
+
+  public static int getRange(ItemStack stack) {
+    if (stack != ItemStack.EMPTY && stack.hasTagCompound() && stack.getTagCompound()
+        .hasKey("range")) {
+      return stack.getTagCompound().getInteger("range");
+    }
+    return 0;
+  }
+
+  @Override
+  public void addInformation(ItemStack stack, @Nullable World world, List<String> tip,
+      ITooltipFlag flag) {
+    if (stack != ItemStack.EMPTY && stack.hasTagCompound() && stack.getTagCompound()
+        .hasKey("range")) {
+      tip.add(TextFormatting.GOLD + I18n.translateToLocal("tooltip.range.name") + " " + stack
+          .getTagCompound().getInteger("range"));
+    }
   }
 }

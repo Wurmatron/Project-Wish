@@ -111,6 +111,7 @@ tooltip.stoneSubType.Nonfoliated.name=Non-Foliated
 tooltip.stoneSubType.Chemical.name=Chemical
 tooltip.stoneSubType.Biochemical.name=BioChemical
 tooltip.grade.name=Grade
+tooltip.range.name=Range:
 
 # CreativeTabs
 itemGroup.wishBlocks=Blocks
