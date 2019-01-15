@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.common.network.packets.OpenGuiMessage;
-import wish.wurmatron.common.network.packets.UpdateHelmetConfig;
 import wish.wurmatron.common.network.utils.CustomMessage;
 
 public class NetworkHandler {
@@ -20,7 +19,6 @@ public class NetworkHandler {
 
   public static void registerPackets () {
     registerMessage (OpenGuiMessage.class);
-    registerMessage(UpdateHelmetConfig.class);
   }
 
   private static final <T extends CustomMessage<T> & IMessageHandler<T, IMessage>> void registerMessage (Class <T> clazz) {
