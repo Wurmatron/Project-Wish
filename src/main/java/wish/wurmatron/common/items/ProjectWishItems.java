@@ -18,9 +18,11 @@ public class ProjectWishItems extends WishItems {
   private static void createAndRegisterOresDrops() {
     WishItems.oreDrops = new ArrayList<>();
     for (Ore ore : WishAPI.oreRegistry.getOres()) {
-      Item item = new ItemOre(ore.getUnlocalizedName());
-      Registry.registerItem(item, "itemore" + ore.getUnlocalizedName(), ore);
-      WishItems.oreDrops.add(item);
+      if (!ore.getUnlocalizedName().contains("gem")) {
+        Item item = new ItemOre(ore.getUnlocalizedName());
+        Registry.registerItem(item, "itemore" + ore.getUnlocalizedName(), ore);
+        WishItems.oreDrops.add(item);
+      }
     }
   }
 

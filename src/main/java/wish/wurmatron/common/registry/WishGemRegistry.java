@@ -145,7 +145,7 @@ public class WishGemRegistry implements GemRegistry {
     List<Gem> possibleGems = getGemsPerType(type);
     if (possibleGems.size() > 0) {
       Collections.shuffle(possibleGems);
-      return new ItemStack(Registry.gemItems.get(possibleGems.get(0)), tier);
+      return new ItemStack(Registry.gemItems.get(possibleGems.get(0)), 1,tier);
     }
     return null;
   }

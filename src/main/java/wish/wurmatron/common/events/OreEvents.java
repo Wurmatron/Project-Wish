@@ -17,8 +17,12 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import wish.wurmatron.api.Global;
+import wish.wurmatron.api.WishAPI;
+import wish.wurmatron.api.rock.StoneType;
+import wish.wurmatron.api.rock.StoneType.RockType;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.registry.Registry;
+import wish.wurmatron.common.registry.WishOreRegistry;
 import wish.wurmatron.common.tile.TileEntityOre;
 import wish.wurmatron.common.utils.OreGeneration;
 
@@ -31,7 +35,7 @@ public class OreEvents {
       if (e.getState().getBlock() instanceof TileOre) {
         if (!e.getPlayer().getHeldItemMainhand().isEmpty()) {
           ItemStack drop = getOreDrop(e.getWorld(), e.getPos(), e.getState(), e.getPlayer());
-          if (drop != ItemStack.EMPTY && e.getPlayer().getHeldItemMainhand()
+          if (drop != null && drop != ItemStack.EMPTY && e.getPlayer().getHeldItemMainhand()
               .canHarvestBlock(e.getState())) {
             if (e.getPlayer() != null) {
               if (!e.getPlayer().inventory.addItemStackToInventory(drop)) {
@@ -56,9 +60,33 @@ public class OreEvents {
     if (tile != null) {
       if (Loader.isModLoaded("orestages")) {
         if (canDropOre(state, player)) {
+          if (tile.getOreType().getUnlocalizedName().contains("gem")) {
+            if (WishOreRegistry.isType(RockType.Igneous, tile)) {
+              return WishAPI.gemRegistry
+                  .generateRandomGem(StoneType.GABBRO, 2 + world.rand.nextInt(2));
+            } else if (WishOreRegistry.isType(RockType.Metamorphic, tile)) {
+              return WishAPI.gemRegistry
+                  .generateRandomGem(StoneType.GNEISS, 2 + world.rand.nextInt(2));
+            } else if (WishOreRegistry.isType(RockType.Sedimentary, tile)) {
+              return WishAPI.gemRegistry
+                  .generateRandomGem(StoneType.CONGLOMERATE, 2 + world.rand.nextInt(2));
+            }
+          }
           return new ItemStack(Registry.itemOre.get(tile.getOreType()), 1, tile.getTier());
         }
       } else {
+        if (tile.getOreType().getUnlocalizedName().contains("gem")) {
+          if (WishOreRegistry.isType(RockType.Igneous, tile)) {
+            return WishAPI.gemRegistry
+                .generateRandomGem(StoneType.GABBRO, 1 + world.rand.nextInt(2));
+          } else if (WishOreRegistry.isType(RockType.Metamorphic, tile)) {
+            return WishAPI.gemRegistry
+                .generateRandomGem(StoneType.GNEISS, 1 + world.rand.nextInt(2));
+          } else if (WishOreRegistry.isType(RockType.Sedimentary, tile)) {
+            return WishAPI.gemRegistry
+                .generateRandomGem(StoneType.CONGLOMERATE, 1 + world.rand.nextInt(2));
+          }
+        }
         return new ItemStack(Registry.itemOre.get(tile.getOreType()), 1, tile.getTier());
       }
     }

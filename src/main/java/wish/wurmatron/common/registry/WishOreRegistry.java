@@ -14,6 +14,7 @@ import wish.wurmatron.api.rock.StoneType.RockType;
 import wish.wurmatron.api.rock.ore.Generation;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.api.rock.ore.OreRegistry;
+import wish.wurmatron.common.tile.TileEntityOre;
 import wish.wurmatron.common.utils.WishGeneration;
 import wish.wurmatron.common.utils.json.WishOre;
 
@@ -279,5 +280,19 @@ public class WishOreRegistry implements OreRegistry {
     // Mythril
     new WishOre("mythril", new StoneType.RockType[]{RockType.Igneous},
         new WishGeneration(SMALL[0], SMALL[1], 1, Style.CLUSTER), "oreMythril");
+  }
+
+  public static boolean isType(RockType rockType, TileEntityOre ore) {
+    for (StoneType type : ore.getOreType().getStoneTypes()) {
+      if (type.getType().equals(rockType)) {
+        return true;
+      }
+    }
+    for (RockType type : ore.getOreType().getRockTypes()) {
+      if (type.equals(rockType)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
