@@ -61,6 +61,8 @@ tile.oremythril.name=Mythril Ore
 item.itemoremythril.name=Mythril Ore
 tile.oregem.name=Gem Ore
 item.itemoregem.name=Invalid Gem Drop
+tile.oreadamantine.name=Adamantine Ore
+item.itemoreadamantine.name=Adamantine Ore
 
 # Gems
 item.gemtopaz.name=Topaz
@@ -121,3 +123,7 @@ tooltip.range.name=Range:
 itemGroup.wishBlocks=Blocks
 itemGroup.wishOre=Ore
 itemGroup.wishMisc=Misc
+
+# JEI
+jei.unlocalizedName.name=Name: %NAME%
+jei.rockType.name=Rock Types: %TYPES%
