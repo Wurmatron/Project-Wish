@@ -57,6 +57,10 @@ item.itemoretetrahedrite.name=Tetrahedrite Ore
 tile.oretetrahedrite.name=Tetrahedrite Ore
 item.itemoreuraninite.name=Uraninite Ore
 tile.oreuraninite.name=Uraninite Ore
+tile.oremythril.name=Mythril Ore
+item.itemoremythril.name=Mythril Ore
+tile.oregem.name=Gem Ore
+item.itemoregem.name=Invalid Gem Drop
 
 # Gems
 item.gemtopaz.name=Topaz
