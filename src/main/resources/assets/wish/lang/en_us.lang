@@ -127,3 +127,13 @@ itemGroup.wishMisc=Misc
 # JEI
 jei.unlocalizedName.name=Name: %NAME%
 jei.rockType.name=Rock Types: %TYPES%
+
+# Chat
+chat.mode.switch=Mode Switched to %MODE%
+chat.found=Found:
+chat.motherload.name=A Motherload of %ORE%
+chat.huge.name=A Huge sample of %ORE%
+chat.large.name=A Large sample of %ORE%
+chat.medium.name=A Medium sample of %ORE%
+chat.small.name=A Small sample of %ORE%
+chat.traces.name=Traces of %ORE%

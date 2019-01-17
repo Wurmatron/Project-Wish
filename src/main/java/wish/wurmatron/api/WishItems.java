@@ -19,4 +19,12 @@ public class WishItems {
   public static Item brickIgneous;
   public static Item brickMetamorphic;
   public static Item brickSedimentary;
+
+  // Tools
+  public static Item stoneProspectPick;
+  public static Item ironProspectPick;
+  public static Item gemProspectPick;
+  public static Item steelProspectPick;
+  public static Item copperProspectPick;
+  public static Item bronzeProspectPick;
 }

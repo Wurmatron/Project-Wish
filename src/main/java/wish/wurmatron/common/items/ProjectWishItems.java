@@ -2,8 +2,11 @@ package wish.wurmatron.common.items;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.api.WishItems;
 import wish.wurmatron.api.rock.StoneType.RockType;
@@ -18,6 +21,14 @@ import wish.wurmatron.common.items.crafting.ItemSludge;
 import wish.wurmatron.common.registry.Registry;
 
 public class ProjectWishItems extends WishItems {
+
+  public static final Item.ToolMaterial ROCK = EnumHelper.addToolMaterial("rock", 1, 20, 5, 3, 0);
+  public static final Item.ToolMaterial STEEL = EnumHelper
+      .addToolMaterial("steel", 1, 950, 8, 5, 0);
+  public static final Item.ToolMaterial COPPER = EnumHelper
+      .addToolMaterial("copper", 1, 220, 2, 2, 0);
+  public static final Item.ToolMaterial BRONZE = EnumHelper
+      .addToolMaterial("bronze", 1, 280, 4, 2, 0);
 
   public static void registerItems() {
     createAndRegisterOresDrops();
@@ -36,6 +47,22 @@ public class ProjectWishItems extends WishItems {
         .setUnlocalizedName("rockMetamorphic"), "rockMetamorphic");
     Registry.registerItem(rockSedimentary = new ItemRock(getRockTypes("rock", RockType.Sedimentary))
         .setUnlocalizedName("rockSedimentary"), "rockSedimentary");
+    // Tools
+    Registry.registerItem(
+        stoneProspectPick = new ItemProspectPick(2, 4, ToolMaterial.STONE, new HashSet<>())
+            .setUnlocalizedName("stoneProspectPick"), "stoneProspectPick");
+    Registry.registerItem(
+        ironProspectPick = new ItemProspectPick(4, 4, ToolMaterial.IRON, new HashSet<>())
+            .setUnlocalizedName("ironProspectPick"), "ironProspectPick");
+    Registry.registerItem(
+        gemProspectPick = new ItemProspectPick(10, 4, ToolMaterial.DIAMOND, new HashSet<>())
+            .setUnlocalizedName("gemProspectPick"), "gemProspectPick");
+    Registry.registerItem(steelProspectPick = new ItemProspectPick(6, 4, STEEL, new HashSet<>())
+        .setUnlocalizedName("steelProspectPick"), "steelProspectPick");
+    Registry.registerItem(copperProspectPick = new ItemProspectPick(3, 4, COPPER, new HashSet<>())
+        .setUnlocalizedName("copperProspectPick"), "copperProspectPick");
+    Registry.registerItem(bronzeProspectPick = new ItemProspectPick(4, 4, COPPER, new HashSet<>())
+        .setUnlocalizedName("bronzeProspectPick"), "bronzeProspectPick");
   }
 
   private static String[] oresToString() {
@@ -50,7 +77,7 @@ public class ProjectWishItems extends WishItems {
     oreDrops = new ArrayList<>();
     oreSludge = new ArrayList<>();
     oreCrystal = new ArrayList<>();
-    oreShard= new ArrayList<>();
+    oreShard = new ArrayList<>();
     for (Ore ore : WishAPI.oreRegistry.getOres()) {
       if (!ore.getUnlocalizedName().contains("gem")) {
         Item item = new ItemOre(ore.getUnlocalizedName());
