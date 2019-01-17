@@ -1,9 +1,6 @@
 package wish.wurmatron.common.registry;
 
 
-import static wish.wurmatron.api.rock.StoneType.GRANITE;
-import static wish.wurmatron.api.rock.StoneType.PEGMATITE;
-import static wish.wurmatron.api.rock.StoneType.RHYOLITE;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -145,7 +142,7 @@ public class WishGemRegistry implements GemRegistry {
     List<Gem> possibleGems = getGemsPerType(type);
     if (possibleGems.size() > 0) {
       Collections.shuffle(possibleGems);
-      return new ItemStack(Registry.gemItems.get(possibleGems.get(0)), 1,tier);
+      return new ItemStack(Registry.gemItems.get(possibleGems.get(0)), 1, tier);
     }
     return null;
   }
@@ -161,6 +158,29 @@ public class WishGemRegistry implements GemRegistry {
   }
 
   public void createDefaultGems() {
-    new WishGem("topaz", 1, new StoneType[]{GRANITE, RHYOLITE, PEGMATITE});
+    new WishGem("amber", 5, StoneType.values());
+    new WishGem("amethyst", 5, StoneType.values());
+    new WishGem("aquamarine", 5, StoneType.values());
+    new WishGem("beryl", 5, StoneType.values());
+    new WishGem("bloodstone", 4, StoneType.values());
+    new WishGem("citrine", 5, StoneType.values());
+    new WishGem("diamond", 5, StoneType.values());
+    new WishGem("emerald", 5, StoneType.values());
+    new WishGem("garnet", 5, StoneType.values());
+    new WishGem("jasper", 5, StoneType.values());
+    new WishGem("moonstone", 5, StoneType.values());
+    new WishGem("onyx", 5, StoneType.values());
+    new WishGem("opal", 5, StoneType.values());
+    new WishGem("pectrolite", 5, StoneType.values());
+    new WishGem("peridot", 5, StoneType.values());
+    new WishGem("quartz", 5, StoneType.values());
+    new WishGem("roseQuartz", 5, StoneType.values());
+    new WishGem("ruby", 5, StoneType.values());
+    new WishGem("sapphire", 5, StoneType.values());
+    new WishGem("tananite", 5, StoneType.values());
+    new WishGem("topaz", 5, StoneType.values());
+    new WishGem("turqioise", 5, StoneType.values());
+    new WishGem("tourmaline", 5, StoneType.values());
+    new WishGem("zircon", 5, StoneType.values());
   }
 }

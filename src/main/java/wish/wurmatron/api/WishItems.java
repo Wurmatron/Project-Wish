@@ -7,6 +7,10 @@ public class WishItems {
 
   public static List<Item> oreDrops;
   public static List<Item> gems;
+  public static List<Item> oreDusts;
+  public static List<Item> oreSludge;
+  public static List<Item> oreCrystal;
+  public static List<Item> oreShard;
 
   // Crafting
   public static Item rockIgneous;
@@ -15,7 +19,4 @@ public class WishItems {
   public static Item brickIgneous;
   public static Item brickMetamorphic;
   public static Item brickSedimentary;
-  public static Item lumberVanilla;
-  public static Item dyeWish;
-  public static Item fuelWish;
 }

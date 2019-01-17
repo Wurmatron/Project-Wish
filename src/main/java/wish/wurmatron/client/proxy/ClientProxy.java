@@ -19,6 +19,7 @@ import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemOre;
+import wish.wurmatron.common.items.crafting.ItemBrick;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.utils.json.WishOre;
 
@@ -64,6 +65,10 @@ public class ClientProxy extends CommonProxy {
         }
       } else if (item instanceof ItemGem) {
         for (int meta = 0; meta < GRADE.values().length; meta++) {
+          createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
+        }
+      } else if(item instanceof ItemBrick) {
+        for(int meta = 0; meta < 9; meta++) {
           createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
         }
       }
