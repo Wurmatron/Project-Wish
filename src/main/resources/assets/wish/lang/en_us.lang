@@ -69,6 +69,13 @@ item.gemtopaz.name=Topaz
 
 # Item
 item.dust.name=Dust
+item.stoneProspectPick.name=Stone Prospecting Pick
+item.ironProspectPick.name=Iron Prospecting Pick
+item.gemProspectPick.name=Gem Prospecting Pick
+item.steelProspectPick.name=Steel Prospecting Pick
+item.copperProspectPick.name=Copper Prospecting Pick
+item.bronzeProspectPick.name=Bronze Prospecting Pick
+item.rock.name=Rock
 
 # Stone
 stone.conglomerate.name=Conglomerate
@@ -118,6 +125,9 @@ tooltip.stoneSubType.Chemical.name=Chemical
 tooltip.stoneSubType.Biochemical.name=BioChemical
 tooltip.grade.name=Grade
 tooltip.range.name=Range:
+tooltip.mode.name=Mode: %MODE%
+display.weight.name=Weight
+display.totalWeight.name=Total Weight
 
 # CreativeTabs
 itemGroup.wishBlocks=Blocks

@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import wish.wurmatron.api.Global;
 import wish.wurmatron.api.WishBlocks;
 import wish.wurmatron.api.rock.StoneType;
+import wish.wurmatron.api.rock.gem.Gem;
 import wish.wurmatron.api.rock.gem.Gem.GRADE;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
@@ -65,10 +66,12 @@ public class ClientProxy extends CommonProxy {
         }
       } else if (item instanceof ItemGem) {
         for (int meta = 0; meta < GRADE.values().length; meta++) {
-          createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
+          createModel(item, meta,
+              item.getUnlocalizedName().substring(5) + "_" + Gem.GRADE.values()[meta].name()
+                  .toLowerCase());
         }
-      } else if(item instanceof ItemBrick) {
-        for(int meta = 0; meta < 9; meta++) {
+      } else if (item instanceof ItemBrick) {
+        for (int meta = 0; meta < 9; meta++) {
           createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
         }
       }
