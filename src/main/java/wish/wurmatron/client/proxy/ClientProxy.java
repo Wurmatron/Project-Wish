@@ -80,7 +80,7 @@ public class ClientProxy extends CommonProxy {
       } else if (item instanceof ItemBrick) {
         for (int meta = 0; meta < 9; meta++) {
           createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
-          ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5));
+          ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5).toLowerCase()+ "_" + meta);
         }
       } else if (item instanceof ItemRock) {
         for (int meta = 0; meta < StoneType.values().length; meta++) {

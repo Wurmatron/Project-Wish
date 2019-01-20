@@ -9,7 +9,7 @@ import wish.wurmatron.ProjectWish;
 
 public class ItemCrystal extends Item {
 
-  public static String[] metaItems;
+  public final String[] metaItems;
 
   public ItemCrystal(String[] items) {
     setCreativeTab(CreativeTabs.MATERIALS);

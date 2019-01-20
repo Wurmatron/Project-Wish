@@ -36,9 +36,19 @@ public class ItemBrick extends Item {
   @Override
   public String getItemStackDisplayName(ItemStack stack) {
     if (stack.getItemDamage() < metaItems.length) {
-      return I18n.translateToLocal("stone." + StoneType
-          .getRockFromMeta(RockType.Igneous, stack.getItemDamage()).getName().toLowerCase()
-          + ".name") + " " + I18n.translateToLocal("tile.brick.name");
+      if (stack.getItem().getUnlocalizedName().contains("Igneous")) {
+        return I18n.translateToLocal("stone." + StoneType
+            .getRockFromMeta(RockType.Igneous, stack.getItemDamage()).getName().toLowerCase()
+            + ".name") + " " + I18n.translateToLocal("tile.brick.name");
+      } else if (stack.getItem().getUnlocalizedName().contains("Metamorphic")) {
+        return I18n.translateToLocal("stone." + StoneType
+            .getRockFromMeta(RockType.Metamorphic, stack.getItemDamage()).getName().toLowerCase()
+            + ".name") + " " + I18n.translateToLocal("tile.brick.name");
+      } else if (stack.getItem().getUnlocalizedName().contains("Sedimentary")) {
+        return I18n.translateToLocal("stone." + StoneType
+            .getRockFromMeta(RockType.Sedimentary, stack.getItemDamage()).getName().toLowerCase()
+            + ".name") + " " + I18n.translateToLocal("tile.brick.name");
+      }
     }
     return "item.null.name";
   }
