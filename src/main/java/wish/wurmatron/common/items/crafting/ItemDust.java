@@ -9,7 +9,7 @@ import wish.wurmatron.ProjectWish;
 
 public class ItemDust extends Item {
 
-  private final String[] metaItems;
+  public final String[] metaItems;
 
   public ItemDust(String[] items) {
     setCreativeTab(ProjectWish.tabMisc);

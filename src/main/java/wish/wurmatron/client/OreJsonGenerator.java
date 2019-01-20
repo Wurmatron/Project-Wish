@@ -18,10 +18,10 @@ import wish.wurmatron.api.rock.ore.Ore;
 
 public class OreJsonGenerator {
 
-  private static final File TEMPLATE_LOCATION = new File(
+  public static final File TEMPLATE_LOCATION = new File(
       Loader.instance().getConfigDir().getParentFile().getParentFile() + File.separator + "src"
           + File.separator + "utils");
-  private static final File SAVE_LOCATION = new File(TEMPLATE_LOCATION + File.separator + "output");
+  public static final File SAVE_LOCATION = new File(TEMPLATE_LOCATION + File.separator + "output");
 
   public static void autoCreate(Ore ore) {
     List<String> stoneNames = new ArrayList<>();

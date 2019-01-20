@@ -16,11 +16,18 @@ import wish.wurmatron.api.WishBlocks;
 import wish.wurmatron.api.rock.StoneType;
 import wish.wurmatron.api.rock.gem.Gem;
 import wish.wurmatron.api.rock.gem.Gem.GRADE;
+import wish.wurmatron.client.ItemJsonGenerator;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.TileOre;
 import wish.wurmatron.common.items.ItemGem;
 import wish.wurmatron.common.items.ItemOre;
+import wish.wurmatron.common.items.ItemProspectPick;
 import wish.wurmatron.common.items.crafting.ItemBrick;
+import wish.wurmatron.common.items.crafting.ItemCrystal;
+import wish.wurmatron.common.items.crafting.ItemDust;
+import wish.wurmatron.common.items.crafting.ItemRock;
+import wish.wurmatron.common.items.crafting.ItemShard;
+import wish.wurmatron.common.items.crafting.ItemSludge;
 import wish.wurmatron.common.registry.Registry;
 import wish.wurmatron.common.utils.json.WishOre;
 
@@ -73,7 +80,36 @@ public class ClientProxy extends CommonProxy {
       } else if (item instanceof ItemBrick) {
         for (int meta = 0; meta < 9; meta++) {
           createModel(item, meta, item.getUnlocalizedName().substring(5) + "_" + meta);
+          ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5));
         }
+      } else if (item instanceof ItemRock) {
+        for (int meta = 0; meta < StoneType.values().length; meta++) {
+          createModel(item, meta, "rock" + StoneType.values()[meta]);
+          ItemJsonGenerator.autoCreateModels("rock" + StoneType.values()[meta]);
+        }
+      } else if (item instanceof ItemSludge) {
+        for (int meta = 0; meta < ItemSludge.validSludge.size(); meta++) {
+          createModel(item, meta, item.getUnlocalizedName().substring(5));
+          ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5));
+        }
+      } else if (item instanceof ItemCrystal) {
+        for (int meta = 0; meta < ((ItemCrystal) item).metaItems.length; meta++) {
+          createModel(item, meta, "crystal" + ((ItemCrystal) item).metaItems[meta]);
+          ItemJsonGenerator.autoCreateModels("crystal" + ((ItemCrystal) item).metaItems[meta]);
+        }
+      } else if (item instanceof ItemShard) {
+        for (int meta = 0; meta < ItemShard.WEIGHTS.length; meta++) {
+          createModel(item, meta, item.getUnlocalizedName().substring(5));
+          ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5));
+        }
+      } else if (item instanceof ItemDust) {
+        for (int meta = 0; meta < ((ItemDust) item).metaItems.length; meta++) {
+          createModel(item, meta, "dust" + ((ItemDust) item).metaItems[meta]);
+          ItemJsonGenerator.autoCreateModels("dust" + ((ItemDust) item).metaItems[meta]);
+        }
+      } else if (item instanceof ItemProspectPick) {
+        createModel(item, 0, item.getUnlocalizedName().substring(5));
+        ItemJsonGenerator.autoCreateModels(item.getUnlocalizedName().substring(5));
       }
     }
     for (StoneType type : StoneType.values()) {

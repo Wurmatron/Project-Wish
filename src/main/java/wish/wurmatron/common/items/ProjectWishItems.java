@@ -96,10 +96,10 @@ public class ProjectWishItems extends WishItems {
     int amount = WishAPI.oreRegistry.getOres().size() / 16;
     oreDusts = new ArrayList<>();
     for (int index = 0; index < amount; index++) {
-      Item dust = new ItemDust(Arrays.copyOfRange(oresToString(), index, index + 15));
+      Item dust = new ItemDust(Arrays.copyOfRange(oresToString(), index * 16, (index * 16) + 15));
       Registry.registerItem(dust, "dust" + index);
       WishItems.oreDusts.add(dust);
-      Item crystal = new ItemCrystal(Arrays.copyOfRange(oresToString(), index, index + 15));
+      Item crystal = new ItemCrystal(Arrays.copyOfRange(oresToString(), index * 16, (index * 16) + 15));
       Registry.registerItem(crystal, "crystal" + index);
       WishItems.oreCrystal.add(crystal);
     }

@@ -7,10 +7,8 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
-import wish.wurmatron.ProjectWish;
 
 public class ItemSludge extends Item {
 
@@ -25,15 +23,6 @@ public class ItemSludge extends Item {
     setHasSubtypes(true);
     setUnlocalizedName("sludge" + type);
     validSludge.add(this);
-  }
-
-  @Override
-  public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-    if (tab == ProjectWish.tabMisc) {
-      for (int b = 0; b < WEIGHTS.length; b++) {
-        items.add(new ItemStack(this, 1, b));
-      }
-    }
   }
 
   @Override

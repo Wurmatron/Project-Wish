@@ -171,13 +171,13 @@ public class WishGemRegistry implements GemRegistry {
     new WishGem("moonstone", 5, StoneType.values());
     new WishGem("onyx", 5, StoneType.values());
     new WishGem("opal", 5, StoneType.values());
-    new WishGem("pectrolite", 5, StoneType.values());
+    new WishGem("pectolite", 5, StoneType.values());
     new WishGem("peridot", 5, StoneType.values());
     new WishGem("quartz", 5, StoneType.values());
-    new WishGem("roseQuartz", 5, StoneType.values());
+    new WishGem("rose_quartz", 5, StoneType.values());
     new WishGem("ruby", 5, StoneType.values());
     new WishGem("sapphire", 5, StoneType.values());
-    new WishGem("tananite", 5, StoneType.values());
+    new WishGem("tanzanite", 5, StoneType.values());
     new WishGem("topaz", 5, StoneType.values());
     new WishGem("turqioise", 5, StoneType.values());
     new WishGem("tourmaline", 5, StoneType.values());

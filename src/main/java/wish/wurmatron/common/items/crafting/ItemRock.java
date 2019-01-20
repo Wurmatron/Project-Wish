@@ -16,7 +16,7 @@ import wish.wurmatron.api.rock.StoneType.RockType;
 
 public class ItemRock extends Item {
 
-  private final String[] metaItems;
+  public final String[] metaItems;
 
   public ItemRock(String[] items) {
     setCreativeTab(ProjectWish.tabMisc);
