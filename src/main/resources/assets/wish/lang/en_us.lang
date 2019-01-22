@@ -73,6 +73,8 @@ item.steelProspectPick.name=Steel Prospecting Pick
 item.copperProspectPick.name=Copper Prospecting Pick
 item.bronzeProspectPick.name=Bronze Prospecting Pick
 item.rock.name=Rock
+item.sharoStoneTool.name=Sharp Stone on a Stick
+item.sharpRock.name=Sharp Rock
 
 # Gem
 item.gemamber.name=Amber

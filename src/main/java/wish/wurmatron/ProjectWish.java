@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +28,7 @@ import wish.wurmatron.api.WishItems;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
+import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.GemEvents;
 import wish.wurmatron.common.events.OreEvents;
 import wish.wurmatron.common.events.RandomizeRockTypeStandardEvent;
@@ -95,6 +98,8 @@ public class ProjectWish {
     } else {
       // TODO CubicChunk Stone Randomizer
     }
+    EntityRegistry.registerModEntity(new ResourceLocation(Global.MODID, "throwingRock"),
+        EntityThrowingRock.class, "throwingRock", 0, instance, 64, 10, true);
     proxy.preInit();
   }
 

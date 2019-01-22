@@ -9,15 +9,18 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.api.WishItems;
+import wish.wurmatron.api.rock.StoneType;
 import wish.wurmatron.api.rock.StoneType.RockType;
 import wish.wurmatron.api.rock.gem.Gem;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.items.crafting.ItemBrick;
 import wish.wurmatron.common.items.crafting.ItemCrystal;
 import wish.wurmatron.common.items.crafting.ItemDust;
+import wish.wurmatron.common.items.crafting.ItemMeta;
 import wish.wurmatron.common.items.crafting.ItemRock;
 import wish.wurmatron.common.items.crafting.ItemShard;
 import wish.wurmatron.common.items.crafting.ItemSludge;
+import wish.wurmatron.common.items.weapons.WishSharpStoneTool;
 import wish.wurmatron.common.registry.Registry;
 
 public class ProjectWishItems extends WishItems {
@@ -41,12 +44,8 @@ public class ProjectWishItems extends WishItems {
     Registry.registerItem(
         brickSedimentary = new ItemBrick(getRockTypes("itembrick", RockType.Sedimentary))
             .setUnlocalizedName("itemBrickSedimentary"), "itemBrickSedimentary");
-    Registry.registerItem(rockIgneous = new ItemRock(getRockTypes("rock", RockType.Igneous))
-        .setUnlocalizedName("rockIgneous"), "rockIgneous");
-    Registry.registerItem(rockMetamorphic = new ItemRock(getRockTypes("rock", RockType.Metamorphic))
-        .setUnlocalizedName("rockMetamorphic"), "rockMetamorphic");
-    Registry.registerItem(rockSedimentary = new ItemRock(getRockTypes("rock", RockType.Sedimentary))
-        .setUnlocalizedName("rockSedimentary"), "rockSedimentary");
+    Registry.registerItem(itemRock = new ItemRock(getRockTypes("rock")), "itemRock");
+    Registry.registerItem(itemMeta = new ItemMeta(), "itemMeta");
     // Tools
     Registry.registerItem(
         stoneProspectPick = new ItemProspectPick(2, 4, ToolMaterial.STONE, new HashSet<>())
@@ -63,6 +62,7 @@ public class ProjectWishItems extends WishItems {
         .setUnlocalizedName("copperProspectPick"), "copperProspectPick");
     Registry.registerItem(bronzeProspectPick = new ItemProspectPick(4, 4, COPPER, new HashSet<>())
         .setUnlocalizedName("bronzeProspectPick"), "bronzeProspectPick");
+    Registry.registerItem(sharpStoneTool = new WishSharpStoneTool(ROCK, 4, 1), "sharpStoneTool");
   }
 
   private static String[] oresToString() {
@@ -99,7 +99,8 @@ public class ProjectWishItems extends WishItems {
       Item dust = new ItemDust(Arrays.copyOfRange(oresToString(), index * 16, (index * 16) + 15));
       Registry.registerItem(dust, "dust" + index);
       WishItems.oreDusts.add(dust);
-      Item crystal = new ItemCrystal(Arrays.copyOfRange(oresToString(), index * 16, (index * 16) + 15));
+      Item crystal = new ItemCrystal(
+          Arrays.copyOfRange(oresToString(), index * 16, (index * 16) + 15));
       Registry.registerItem(crystal, "crystal" + index);
       WishItems.oreCrystal.add(crystal);
     }
@@ -118,6 +119,15 @@ public class ProjectWishItems extends WishItems {
     List<String> temp = new ArrayList<>();
     for (int index = 0; index < 9; index++) {
       temp.add(prefix + type.name().substring(0, 1).toUpperCase() + type.name().substring(1)
+          .toLowerCase());
+    }
+    return temp.toArray(new String[0]);
+  }
+
+  private static String[] getRockTypes(String prefix) {
+    List<String> temp = new ArrayList<>();
+    for (int index = 0; index < StoneType.values().length; index++) {
+      temp.add(prefix + StoneType.values()[index].name().substring(0, 1).toUpperCase() + StoneType.values()[index].name().substring(1)
           .toLowerCase());
     }
     return temp.toArray(new String[0]);

@@ -60,4 +60,8 @@ public class WishBlocks {
   public static Block charcoalWorld;
   public static Block peatWorld;
   public static Block cokeWorld;
+  // Rock
+  public static Block rockIgneous;
+  public static Block rockMetamorphic;
+  public static Block rockSedimentary;
 }

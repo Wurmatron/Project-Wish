@@ -63,6 +63,10 @@ public enum StoneType {
     return null;
   }
 
+  public static StoneType getRockFromMeta(int meta) {
+    return StoneType.values()[meta];
+  }
+
   public String getName() {
     return name;
   }
