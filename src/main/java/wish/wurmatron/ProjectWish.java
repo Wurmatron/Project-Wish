@@ -34,6 +34,7 @@ import wish.wurmatron.common.events.OreEvents;
 import wish.wurmatron.common.events.RandomizeRockTypeStandardEvent;
 import wish.wurmatron.common.events.WishOreGenerator;
 import wish.wurmatron.common.events.WishWorldGenerator;
+import wish.wurmatron.common.farming.CropEvent;
 import wish.wurmatron.common.items.ProjectWishItems;
 import wish.wurmatron.common.network.GuiHandler;
 import wish.wurmatron.common.network.NetworkHandler;
@@ -93,9 +94,10 @@ public class ProjectWish {
     MinecraftForge.EVENT_BUS.register(new Registry());
     MinecraftForge.EVENT_BUS.register(new OreEvents());
     MinecraftForge.EVENT_BUS.register(new GemEvents());
+    MinecraftForge.EVENT_BUS.register(new CropEvent());
     if (!Loader.isModLoaded("cubicchunks")) {
       MinecraftForge.EVENT_BUS.register(randomizeRockType = new RandomizeRockTypeStandardEvent());
-      GameRegistry.registerWorldGenerator(new WishWorldGenerator(),0);
+      GameRegistry.registerWorldGenerator(new WishWorldGenerator(), 0);
       GameRegistry.registerWorldGenerator(new WishOreGenerator(), 0);
     } else {
       // TODO CubicChunk Stone Randomizer

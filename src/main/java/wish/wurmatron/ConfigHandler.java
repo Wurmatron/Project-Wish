@@ -20,4 +20,7 @@ public class ConfigHandler {
 
   public static int rocksPerChunk = 15;
   public static int sticksPerChunk = 25;
+
+  @Comment("How fast crops will grow")
+  public static double cropGrowth = .5;
 }
