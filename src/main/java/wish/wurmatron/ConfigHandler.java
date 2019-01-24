@@ -5,8 +5,8 @@ import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.fml.common.Mod;
 import wish.wurmatron.api.Global;
 
-@Mod.EventBusSubscriber (modid = Global.MODID)
-@Config (modid = Global.MODID)
+@Mod.EventBusSubscriber(modid = Global.MODID)
+@Config(modid = Global.MODID)
 public class ConfigHandler {
 
   @Comment("Height of a rock / stone layer")
@@ -18,6 +18,6 @@ public class ConfigHandler {
   @Comment("How rare are gems")
   public static int gemRarity = 1000;
 
-  @Comment("How many ticks between goggle re-scan's")
-  public static int gogglesUpdateFrequency = 10;
+  public static int rocksPerChunk = 15;
+  public static int sticksPerChunk = 25;
 }

@@ -170,6 +170,15 @@ public class ClientProxy extends CommonProxy {
             "sand_" + type.getName().toLowerCase());
       }
     }
+    for (int index = 0; index < 9; index++) {
+      createModel(WishBlocks.rockIgneous, index,
+          "rockIgneous_" + StoneType.getRockFromMeta(StoneType.RockType.Igneous, index));
+      createModel(WishBlocks.rockMetamorphic, index,
+          "rockMetamorphic_" + StoneType.getRockFromMeta(StoneType.RockType.Metamorphic, index));
+      createModel(WishBlocks.rockSedimentary, index,
+          "rockSedimentary_" + StoneType.getRockFromMeta(StoneType.RockType.Sedimentary, index));
+      createModel(WishBlocks.stick, index, "stick");
+    }
   }
 
   @Override

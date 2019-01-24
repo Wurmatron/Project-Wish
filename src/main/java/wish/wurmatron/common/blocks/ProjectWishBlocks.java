@@ -44,6 +44,10 @@ public class ProjectWishBlocks extends WishBlocks {
         WishBlocks.sandIgneous = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandIgneous", RockType.Igneous);
         WishBlocks.sandMetamorphic = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandMetamorphic", RockType.Metamorphic);
         WishBlocks.sandSedimentary = Registry.registerBlock(new SandWish(Material.GROUND, 9), "sandSedimentary", RockType.Sedimentary);
+        WishBlocks.rockMetamorphic = Registry.registerBlock(new BlockRock(Material.GROUND), "rockMetamorphic");
+        WishBlocks.rockSedimentary = Registry.registerBlock(new BlockRock(Material.GROUND), "rockSedimentary");
+        WishBlocks.rockIgneous = Registry.registerBlock(new BlockRock(Material.GROUND), "rockIgneous");
+        WishBlocks.stick = Registry.registerBlock(new BlockStick(Material.CLOTH), "stick");
     }
 
     private static void registerTiles() {

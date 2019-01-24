@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "type=0": {
+      "model": "wish:rocksedimentary_conglomerate"
+    },
+    "type=1": {
+      "model": "wish:rocksedimentary_sandstone"
+    },
+    "type=2": {
+      "model": "wish:rocksedimentary_shale"
+    },
+    "type=3": {
+      "model": "wish:rocksedimentary_limestone"
+    },
+    "type=4": {
+      "model": "wish:rocksedimentary_dolomite"
+    },
+    "type=5": {
+      "model": "wish:rocksedimentary_salt"
+    },
+    "type=6": {
+      "model": "wish:rocksedimentary_chert"
+    },
+    "type=7": {
+      "model": "wish:rocksedimentary_diatomite"
+    },
+    "type=8": {
+      "model": "wish:rocksedimentary_claystone"
+    },
+    "type=9": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=10": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=11": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=12": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=13": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=14": {
+      "model": "wish:rocksedimentary_default"
+    },
+    "type=15": {
+      "model": "wish:rocksedimentary_default"
+    }
+  }
+}

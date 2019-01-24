@@ -64,4 +64,5 @@ public class WishBlocks {
   public static Block rockIgneous;
   public static Block rockMetamorphic;
   public static Block rockSedimentary;
+  public static Block stick;
 }
