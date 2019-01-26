@@ -3,6 +3,8 @@ package wish.wurmatron.common.blocks.utils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityFallingBlock;
@@ -19,25 +21,25 @@ public class BlockSlideGravity extends BlockRockType {
     super(material);
   }
 
-//  @Override
-//  public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-//    world.scheduleUpdate(pos, this, tickRate(world));
-//  }
+  @Override
+  public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
+    world.scheduleUpdate(pos, this, tickRate(world));
+  }
 
-//  @Override
-//  public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn,
-//      BlockPos fromPos) {
-//    if (!isWorldGen) {
-//      world.scheduleUpdate(pos, this, tickRate(world));
-//    }
-//  }
+  @Override
+  public void neighborChanged(IBlockState state, World world, BlockPos pos, Block blockIn,
+      BlockPos fromPos) {
+    if (!isWorldGen) {
+      world.scheduleUpdate(pos, this, tickRate(world));
+    }
+  }
 
-//  @Override
-//  public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-//    if (!world.isRemote) {
-//      checkFallable(world, pos);
-//    }
-//  }
+  @Override
+  public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
+    if (!world.isRemote) {
+      checkFallable(world, pos);
+    }
+  }
 
   protected void checkFallable(World world, BlockPos pos) {
     if (world.isAirBlock(pos.down())) {
@@ -100,8 +102,8 @@ public class BlockSlideGravity extends BlockRockType {
         || state.getMaterial() == Material.LEAVES;
   }
 
-//  @Override
-//  public int tickRate(World worldIn) {
-//    return 5;
-//  }
+  @Override
+  public int tickRate(World worldIn) {
+    return 5;
+  }
 }
