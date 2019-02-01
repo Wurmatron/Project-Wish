@@ -63,6 +63,12 @@ tile.oregem.name=Gem Ore
 item.itemoregem.name=Invalid Gem Drop
 tile.oreadamantine.name=Adamantine Ore
 item.itemoreadamantine.name=Adamantine Ore
+tile.orecinnabar.name=Cinnabar Ore
+item.itemorecinnabar.name=Cinnabar Ore
+tile.orelapis.name=Lapis Ore
+item.itemorelapis.name=Lapis Ore
+tile.orefossil.name=Fossil
+item.itemorefossil.name=Fossil
 
 # Item
 item.dust.name=Dust
@@ -208,6 +214,9 @@ item.sludgeuraninite.name=Uraninite Sludge
 item.sludgemythril.name=Mythril Sludge
 item.sludgegem.name=Gem Sludge
 item.sludgeadamantine.name=Adamantine Sludge
+item.sludgecinnabar.name=Cinnabar Sludge
+item.sludgeapis.name=Lapis Sludge
+item.sludgefossil.name=Fossil Sludge
 
 # Shard
 item.shardhematite.name=Hematite Shard
@@ -242,6 +251,9 @@ item.sharduraninite.name=Uraninite Shard
 item.shardmythril.name=Mythril Shard
 item.shardgem.name=Gem Shard
 item.shardadamantine.name=Adamantine Shard
+item.shardcinnabar.name=Cinnabar Shard
+item.shardlapis.name=Lapis Shard
+item.shardfossil.name=Fossil Shard
 
 # Crystal
 item.crystalhematite.name=Hematite Crystal
@@ -276,3 +288,6 @@ item.crystaluraninite.name=Uraninite Crystal
 item.crystalmythril.name=Mythril Crystal
 item.crystalgem.name=Gem Crystal
 item.crystaladamantine.name=Adamantine Crystal
+item.crystalcinnabar.name=Cinnabar Crystal
+item.crystallapis.name=Lapis Crystal
+item.crystalfossil.name=Fossil Crystal

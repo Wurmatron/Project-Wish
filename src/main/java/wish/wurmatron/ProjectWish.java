@@ -3,6 +3,7 @@ package wish.wurmatron;
 import static wish.wurmatron.api.WishAPI.gemRegistry;
 import static wish.wurmatron.api.WishAPI.oreRegistry;
 import static wish.wurmatron.common.registry.Registry.blockOre;
+import static wish.wurmatron.common.registry.Registry.gemItems;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -25,6 +26,8 @@ import wish.wurmatron.api.Global;
 import wish.wurmatron.api.WishAPI;
 import wish.wurmatron.api.WishBlocks;
 import wish.wurmatron.api.WishItems;
+import wish.wurmatron.api.rock.gem.Gem;
+import wish.wurmatron.api.rock.gem.Gem.GRADE;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
@@ -124,6 +127,11 @@ public class ProjectWish {
       OreDictionary
           .registerOre(o.getOreEntry(),
               blockOre.get(WishAPI.oreRegistry.getOreFromName(o.getUnlocalizedName())));
+    }
+    for (Gem gem : gemRegistry.getGems()) {
+      for (int index = 0; index < GRADE.values().length; index++) {
+        OreDictionary.registerOre("gem" + (index + 1), new ItemStack(gemItems.get(gem), 1, index));
+      }
     }
   }
 }

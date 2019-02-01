@@ -283,6 +283,13 @@ public class WishOreRegistry implements OreRegistry {
     // Adamantite
     new WishOre("adamantine", new RockType[]{RockType.Igneous},
         new WishGeneration(SMALL[0], SMALL[1], 10, Style.CLUSTER), "oreAdamantine");
+    // Minerals
+    new WishOre("cinnabar", new RockType[]{RockType.Metamorphic},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 2, Style.CLUSTER), "oreRedstone");
+    new WishOre("lapis", new RockType[]{RockType.Metamorphic},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 3, Style.CLUSTER), "oreLapis");
+    new WishOre("fossil", new RockType[]{RockType.Igneous},
+        new WishGeneration(MEDIUM[0], MEDIUM[1], 5, Style.CLUSTER), "oreFossil");
   }
 
   public static boolean isType(RockType rockType, TileEntityOre ore) {

@@ -17,5 +17,4 @@ public class CommonProxy {
   public IThreadListener getThreadFromCTX (MessageContext ctx) {
     return ctx.getServerHandler ().player.getServer ();
   }
-
 }
