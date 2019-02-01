@@ -12,6 +12,6 @@ public class Global {
   public static final String DEPENDENCIES = "";
   public static final String JSON_UPDATE = "";
   // Proxy
-  public static final String SERVER_PROXY = "wish.wurmatron.common.proxy.CommonProxy";
+  public static final String SERVER_PROXY = "wish.wurmatron.common.CommonProxy";
   public static final String CLIENT_PROXY = "wish.wurmatron.client.proxy.ClientProxy";
 }
