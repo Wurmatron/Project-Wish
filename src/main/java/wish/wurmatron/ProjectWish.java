@@ -7,6 +7,7 @@ import static wish.wurmatron.common.registry.Registry.gemItems;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -31,6 +32,12 @@ import wish.wurmatron.api.rock.gem.Gem.GRADE;
 import wish.wurmatron.api.rock.ore.Ore;
 import wish.wurmatron.common.CommonProxy;
 import wish.wurmatron.common.blocks.ProjectWishBlocks;
+import wish.wurmatron.common.blocks.stone.BrickWish;
+import wish.wurmatron.common.blocks.stone.CobbleWish;
+import wish.wurmatron.common.blocks.stone.StoneWish;
+import wish.wurmatron.common.blocks.terra.GravelWish;
+import wish.wurmatron.common.blocks.terra.SandWish;
+import wish.wurmatron.common.blocks.utils.BlockRockType;
 import wish.wurmatron.common.entity.EntityThrowingRock;
 import wish.wurmatron.common.events.GemEvents;
 import wish.wurmatron.common.events.OreEvents;
@@ -115,6 +122,27 @@ public class ProjectWish {
     NetworkHandler.registerPackets();
     NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
     proxy.init();
+    if (ConfigHandler.addOreDictionaryEntries) {
+      for (Block block : Registry.blocks) {
+        if (block instanceof BlockRockType) {
+          for (int index = 0; index < 9; index++) {
+            if (block instanceof StoneWish) {
+              OreDictionary.registerOre("stone", new ItemStack(block, 1, index));
+            } else if (block instanceof CobbleWish) {
+              OreDictionary.registerOre("cobblestone", new ItemStack(block, 1, index));
+            } else if (block instanceof BrickWish) {
+              OreDictionary.registerOre("bricksStone", new ItemStack(block, 1, index));
+            } else if(block instanceof SandWish) {
+              OreDictionary.registerOre("sand", new ItemStack(block, 1, index));
+              OreDictionary.registerOre("blockSand", new ItemStack(block, 1, index));
+            } else if(block instanceof GravelWish) {
+              OreDictionary.registerOre("gravel", new ItemStack(block, 1, index));
+              OreDictionary.registerOre("blockGravel", new ItemStack(block, 1, index));
+            }
+          }
+        }
+      }
+    }
   }
 
   @Mod.EventHandler

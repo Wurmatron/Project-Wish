@@ -7,6 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -113,5 +114,12 @@ public class BlockRock extends BlockRockType {
           new ItemStack(WishItems.itemRock, 1, damageDropped(state))));
       worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
     }
+  }
+
+  @Override
+  public void onBlockClicked(World world, BlockPos pos, EntityPlayer player) {
+    super.onBlockClicked(world, pos, player);
+    player.inventory.addItemStackToInventory(new ItemStack(WishItems.itemRock, 1, damageDropped(world.getBlockState(pos))));
+    world.setBlockState(pos,Blocks.AIR.getDefaultState());
   }
 }

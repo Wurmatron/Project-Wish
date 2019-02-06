@@ -23,4 +23,8 @@ public class ConfigHandler {
 
   @Comment("How fast crops will grow")
   public static double cropGrowth = .5;
+
+  @Comment("Allow Project-Wish Ore Dictionary Entries for stone, gravel, etc")
+  public static boolean addOreDictionaryEntries = true;
+
 }
