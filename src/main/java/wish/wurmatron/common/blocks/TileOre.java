@@ -66,7 +66,7 @@ public class TileOre extends BlockRockType implements ITileEntityProvider {
       if (world.isAnyPlayerWithinRangeAt(pos.getX(), pos.getY(), pos.getZ(), 8)) {
         EntityPlayer player = world.getNearestAttackablePlayer(pos, 8, 8);
         if (player != null) {
-          player.addPotionEffect(new PotionEffect(MobEffects.POISON, 100, 2));
+          player.addPotionEffect(new PotionEffect(MobEffects.POISON, 100, 0));
         }
       }
       world.scheduleUpdate(pos, state.getBlock(), tickRate(world));
